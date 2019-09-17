@@ -31,7 +31,7 @@ public class InGameCameraManager : MonoBehaviour
     void Update()
     {
         SetCameraScales(chosenCamScale);
-        Debug.Log(canvasRectTran.rect.width);
+        //Debug.Log(canvasRectTran.rect.width);
         blackoutPannelRectTran.anchoredPosition = new Vector3(activeCenterCam.rect.x * canvasWidth, activeCenterCam.rect.y * canvasHeight, 0f);
         blackoutPannelRectTran.sizeDelta = new Vector2(activeCenterCam.rect.width * canvasWidth, activeCenterCam.rect.height * canvasHeight);
         //blackoutPannelRectTran.localScale = new Vector3(activeCenterCam.rect.)
