@@ -15,6 +15,8 @@ public class InGameCameraManager : MonoBehaviour
     public float centerCamOffset;
     public Camera[] cams;
     public Camera activeCenterCam;
+    public int activeCamIndex;
+
     public RectTransform blackoutPannelRectTran;
     public RectTransform canvasRectTran;
     private float canvasWidth;

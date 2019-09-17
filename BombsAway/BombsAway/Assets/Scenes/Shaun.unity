@@ -152,7 +152,7 @@ Transform:
   - {fileID: 1332400127}
   - {fileID: 768482551}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &78417868
 GameObject:
@@ -468,7 +468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmName: 
   cmHealth: 0
-  occupyingStation: {fileID: 586425973}
+  startingStation: {fileID: 586425973}
+  currentStation: {fileID: 0}
   newStationTest: {fileID: 0}
 --- !u!1 &200982499
 GameObject:
@@ -685,7 +686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmName: 
   cmHealth: 0
-  occupyingStation: {fileID: 0}
+  startingStation: {fileID: 1825554746}
+  currentStation: {fileID: 0}
   newStationTest: {fileID: 0}
 --- !u!1 &253079964
 GameObject:
@@ -1125,7 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationCamera: {fileID: 1449169787}
-  stationCrewman: {fileID: 190614393}
+  stationCrewman: {fileID: 0}
 --- !u!1 &627139157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1206,6 @@ Transform:
   - {fileID: 476020800}
   - {fileID: 265519187}
   - {fileID: 1825554745}
-  - {fileID: 1091883112}
   m_Father: {fileID: 1758246460}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1558,7 +1559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmName: 
   cmHealth: 0
-  occupyingStation: {fileID: 1939427197}
+  startingStation: {fileID: 1939427197}
+  currentStation: {fileID: 0}
   newStationTest: {fileID: 0}
 --- !u!1 &783729541
 GameObject:
@@ -2077,8 +2079,8 @@ Transform:
   m_LocalPosition: {x: 256.25, y: -339.75, z: 118.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 664678897}
-  m_RootOrder: 5
+  m_Father: {fileID: 1825554745}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1091883113
 MonoBehaviour:
@@ -2446,11 +2448,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182293523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 256.25, y: -339.75, z: 118.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1533020287}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182293525
 MonoBehaviour:
@@ -2481,6 +2483,7 @@ MonoBehaviour:
   - {fileID: 1091883115}
   - {fileID: 2135144668}
   activeCenterCam: {fileID: 1449169787}
+  activeCamIndex: 0
   blackoutPannelRectTran: {fileID: 541315174}
   canvasRectTran: {fileID: 1102557854}
 --- !u!1 &1267752022
@@ -2778,7 +2781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmName: 
   cmHealth: 0
-  occupyingStation: {fileID: 0}
+  startingStation: {fileID: 1557927354}
+  currentStation: {fileID: 0}
   newStationTest: {fileID: 0}
 --- !u!1 &1449169783
 GameObject:
@@ -2878,6 +2882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533020287}
+  - component: {fileID: 1533020288}
   m_Layer: 0
   m_Name: PlayerCamSelectControls
   m_TagString: Untagged
@@ -2895,10 +2900,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -256.25, y: 339.75, z: -118.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1182293524}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533020288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533020286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a716fb6b279d44980d0ce7930cf305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameCamManager: {fileID: 1182293525}
 --- !u!1 &1557927352
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3111,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1091883112}
   m_Father: {fileID: 664678897}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
