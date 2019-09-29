@@ -30,7 +30,9 @@ public class InGameCameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetCameraScales(chosenCamScale);
+        //Set this to only occur when cam change occurs
+
+        SetCameraScales();
         //Debug.Log(canvasRectTran.rect.width);
 
         schematicCam.rect = activeCenterCam.rect;
@@ -42,7 +44,7 @@ public class InGameCameraManager : MonoBehaviour
         activeCenterCam.depth = 0;
     }
 
-    public void SetCameraScales(float newScale)
+    public void SetCameraScales()
     {
         foreach (Camera c in cams)
         {

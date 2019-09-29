@@ -31,6 +31,8 @@ public class CamSelectControls : MonoBehaviour
             inGameCamManager.activeCenterCam = inGameCamManager.cams[newCamIndex];
         }
     }  
+
+    //This can be adjusted for radial input
     public int CheckInputForCamControl()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
