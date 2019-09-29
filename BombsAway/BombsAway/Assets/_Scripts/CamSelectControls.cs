@@ -20,18 +20,24 @@ public class CamSelectControls : MonoBehaviour
 
     public void UpdateMainCam(int newCamIndex)
     {
-        if(newCamIndex == 0)
+        //reject invalid indicies
+        if(newCamIndex < 0 || newCamIndex >= inGameCamManager.cams.Length)
         {
             return;
         }
         else
         {
-            inGameCamManager.activeCenterCam = inGameCamManager.cams[newCamIndex - 1];
+            //on valid index, set main cam
+            inGameCamManager.activeCenterCam = inGameCamManager.cams[newCamIndex];
         }
     }  
     public int CheckInputForCamControl()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            return 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             return 1;
         }
@@ -65,7 +71,7 @@ public class CamSelectControls : MonoBehaviour
         }
         else
         {
-            return 0;
+            return -1;
         }
     }
 }

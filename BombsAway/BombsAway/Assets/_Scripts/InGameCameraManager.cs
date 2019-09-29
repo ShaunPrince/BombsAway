@@ -15,7 +15,7 @@ public class InGameCameraManager : MonoBehaviour
     public float centerCamOffset;
     public Camera[] cams;
     public Camera activeCenterCam;
-    public RectTransform blackoutPannelRectTran;
+    public Camera schematicCam;
     public RectTransform canvasRectTran;
     private float canvasWidth;
     private float canvasHeight;
@@ -32,9 +32,11 @@ public class InGameCameraManager : MonoBehaviour
     {
         SetCameraScales(chosenCamScale);
         //Debug.Log(canvasRectTran.rect.width);
-        blackoutPannelRectTran.anchoredPosition = new Vector3(activeCenterCam.rect.x * canvasWidth, activeCenterCam.rect.y * canvasHeight, 0f);
-        blackoutPannelRectTran.sizeDelta = new Vector2(activeCenterCam.rect.width * canvasWidth, activeCenterCam.rect.height * canvasHeight);
-        //blackoutPannelRectTran.localScale = new Vector3(activeCenterCam.rect.)
+
+        schematicCam.rect = activeCenterCam.rect;
+
+        //schematicCam.rect.position.Set(activeCenterCam.rect.x * canvasWidth, activeCenterCam.rect.y * canvasHeight);
+        //schematicCam.rect.size.Set(activeCenterCam.rect.width * canvasWidth, activeCenterCam.rect.height * canvasHeight);
 
         activeCenterCam.rect = new Rect(0, 0, 1, 1);
         activeCenterCam.depth = 0;
@@ -47,7 +49,7 @@ public class InGameCameraManager : MonoBehaviour
             // calculate the offset based on the chosen cam scale
             c.rect = new Rect((.5f - chosenCamScale/2) * c.GetComponent<InGameCam>().xCord, (.5f - chosenCamScale/2)
                 * c.GetComponent<InGameCam>().yCord, chosenCamScale, chosenCamScale);
-            c.depth = 1;
+            c.depth = 2;
 
         }
     }
