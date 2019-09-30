@@ -6,10 +6,14 @@ public class InGameCam : MonoBehaviour
 {
     public int xCord;
     public int yCord;
+    public Canvas canvas;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas = this.GetComponentInChildren<Canvas>(); 
     }
 
     // Update is called once per frame
@@ -17,5 +21,7 @@ public class InGameCam : MonoBehaviour
     {
         
     }
+
+
 
 }

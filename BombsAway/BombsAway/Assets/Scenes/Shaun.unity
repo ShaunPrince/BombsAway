@@ -152,7 +152,7 @@ Transform:
   - {fileID: 1332400127}
   - {fileID: 768482551}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &78417868
 GameObject:
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 2
   yCord: 2
+  canvas: {fileID: 0}
 --- !u!20 &78417872
 Camera:
   m_ObjectHideFlags: 0
@@ -291,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 0
   yCord: 2
+  canvas: {fileID: 0}
 --- !u!20 &84854888
 Camera:
   m_ObjectHideFlags: 0
@@ -310,8 +312,8 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.6666667
+    x: 0.33333334
+    y: 0.33333334
     width: 0.33333334
     height: 0.33333334
   near clip plane: 0.3
@@ -324,7 +326,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: e5d40cbbf9b98844e8e6e3b5d0ba996f, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -697,6 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 0
   yCord: 2
+  canvas: {fileID: 0}
 --- !u!20 &200854673
 Camera:
   m_ObjectHideFlags: 0
@@ -999,7 +1002,7 @@ Transform:
   - {fileID: 1177363851}
   - {fileID: 1141108537}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &261982491
 GameObject:
@@ -2330,7 +2333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &730301206
 GameObject:
@@ -2379,6 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 0
   yCord: 0
+  canvas: {fileID: 0}
 --- !u!20 &730301210
 Camera:
   m_ObjectHideFlags: 0
@@ -3169,6 +3173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 2
   yCord: 1
+  canvas: {fileID: 0}
 --- !u!20 &1023467774
 Camera:
   m_ObjectHideFlags: 0
@@ -3358,6 +3363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 1
   yCord: 0
+  canvas: {fileID: 0}
 --- !u!20 &1091883115
 Camera:
   m_ObjectHideFlags: 0
@@ -4892,6 +4898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 1
   yCord: 2
+  canvas: {fileID: 0}
 --- !u!20 &1449169787
 Camera:
   m_ObjectHideFlags: 0
@@ -5150,6 +5157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 0
   yCord: 1
+  canvas: {fileID: 0}
 --- !u!20 &1621016100
 Camera:
   m_ObjectHideFlags: 0
@@ -5914,6 +5922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCord: 2
   yCord: 0
+  canvas: {fileID: 0}
 --- !u!20 &2135144668
 Camera:
   m_ObjectHideFlags: 0
