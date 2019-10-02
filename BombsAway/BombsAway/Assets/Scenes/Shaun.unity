@@ -6015,8 +6015,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758246460}
-  - component: {fileID: 1758246461}
   - component: {fileID: 1758246462}
+  - component: {fileID: 1758246463}
   m_Layer: 0
   m_Name: PlayerPlane
   m_TagString: Untagged
@@ -6040,27 +6040,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1758246461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758246459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0c144d00fb9c1047bee552c0fc46650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  presetAlts: []
-  presetSpeeds: []
-  currentAltLevel: 0
-  destAltLevel: 500
-  currentSpeedLevel: 0
-  destSpeedLevel: 0
-  rb: {fileID: 1758246462}
-  ForwardOffsetAimPoint: 50
 --- !u!54 &1758246462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6077,6 +6056,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1758246463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758246459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dffed16aa19ef540a3c348e06076947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentForwardSpeed: 0
+  desiredForwardSpeed: 50
+  forwardAcceleration: 0
+  currentAltitude: 0
+  desireAltitude: 500
+  verticalAcceleration: 0
+  rb: {fileID: 1758246462}
 --- !u!1 &1764860842
 GameObject:
   m_ObjectHideFlags: 0
