@@ -18,14 +18,16 @@ public class PlayerFlightControls : ControlScheme
     // Start is called before the first frame update
     void Start()
     {
-        fly.setDesAlt(presetAlts[(int)currentAltSetting]);
-        fly.setDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+        fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
+        fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckForAltChange();
+        CheckForSpeedChange();
+        CheckForTurning();
     }
 
     public void CheckForAltChange()
@@ -35,7 +37,7 @@ public class PlayerFlightControls : ControlScheme
             if((int)currentAltSetting < (int)EAlts.Soaring)
             {
                 currentAltSetting += 1;
-                fly.setDesAlt(presetAlts[(int)currentAltSetting]);
+                fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Q))
@@ -43,9 +45,46 @@ public class PlayerFlightControls : ControlScheme
             if((int)currentAltSetting > (int) EAlts.Low)
             {
                 currentAltSetting -= 1;
-                fly.setDesAlt(presetAlts[(int)currentAltSetting]);
+                fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
 
             }
+        }
+    }
+
+    public void CheckForSpeedChange()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if ((int)currentSpeedSetting < (int) ESpeeds.Full)
+            {
+                currentSpeedSetting += 1;
+                fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            if ((int)currentSpeedSetting > (int)ESpeeds.Slow)
+            {
+                currentSpeedSetting -= 1;
+                fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+
+            }
+        }
+    }
+
+    public void CheckForTurning()
+    {
+        if(Input.GetKey(KeyCode.A))
+        {
+            fly.TurnLeft();
+        }
+        else if(Input.GetKey(KeyCode.D))
+        {
+            fly.TurnRight();
+        }
+        else
+        {
+            fly.NoTurn();
         }
     }
 

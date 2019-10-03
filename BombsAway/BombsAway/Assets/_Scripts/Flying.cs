@@ -50,27 +50,42 @@ public class Flying : MonoBehaviour
         //Debug.Log(this.transform.InverseTransformDirection(rb.velocity).x);
         
         //apply rotation toward desired rotation
-        rb.MoveRotation(Quaternion.Euler(0f, calculateTurn(), 0f));
+        rb.MoveRotation(Quaternion.Euler(0f, CalculateTurn(), 0f));
     }
 
 
     //Should add checks / limits to valid values?
-    public void setDesSpeed(float newSpeed)
+    public void SetDesSpeed(float newSpeed)
     {
         desiredForwardSpeed = newSpeed;
     }
 
-    public void setDesAlt(float newAlt)
+    public void SetDesAlt(float newAlt)
     {
         desireAltitude = newAlt;
     }
 
-    public void setDesDir(float newDir)
+    public void TurnLeft()
+    {
+        SetDesDir(this.transform.rotation.eulerAngles.y - turningRate);
+    }
+
+    public void TurnRight()
+    {
+        SetDesDir(this.transform.rotation.eulerAngles.y + turningRate);
+    }
+
+    public void NoTurn()
+    {
+        SetDesDir(this.transform.rotation.eulerAngles.y);
+    }
+
+    public void SetDesDir(float newDir)
     {
         desiredDir = newDir;
     }
 
-    private float calculateTurn()
+    private float CalculateTurn()
     {
         //set abs value of direction between 0 and 306
         currentDir = this.transform.rotation.eulerAngles.y % 360;

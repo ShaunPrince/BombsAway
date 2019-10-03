@@ -6131,9 +6131,9 @@ MonoBehaviour:
   forwardAcceleration: 100
   currentAltitude: 0
   desireAltitude: 500
-  verticalAcceleration: 25
+  verticalAcceleration: 2500
   currentDir: 0
-  desiredDir: 179
+  desiredDir: 0
   turningRate: 25
   lateralMovementDamperScale: 2
   rb: {fileID: 1758246462}
