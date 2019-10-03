@@ -6070,10 +6070,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentForwardSpeed: 0
   desiredForwardSpeed: 50
-  forwardAcceleration: 0
+  forwardAcceleration: 10
   currentAltitude: 0
   desireAltitude: 500
-  verticalAcceleration: 0
+  verticalAcceleration: 25
+  currentDir: 0
+  desiredDir: 179
+  turningRate: 25
   rb: {fileID: 1758246462}
 --- !u!1 &1764860842
 GameObject:
