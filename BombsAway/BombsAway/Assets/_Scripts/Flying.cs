@@ -53,6 +53,23 @@ public class Flying : MonoBehaviour
         rb.MoveRotation(Quaternion.Euler(0f, calculateTurn(), 0f));
     }
 
+
+    //Should add checks / limits to valid values?
+    public void setDesSpeed(float newSpeed)
+    {
+        desiredForwardSpeed = newSpeed;
+    }
+
+    public void setDesAlt(float newAlt)
+    {
+        desireAltitude = newAlt;
+    }
+
+    public void setDesDir(float newDir)
+    {
+        desiredDir = newDir;
+    }
+
     private float calculateTurn()
     {
         //set abs value of direction between 0 and 306
