@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamSelectControls : MonoBehaviour
 {
     public InGameCameraManager inGameCamManager;
+
     // Start is called before the first frame update
     void Start()
     {
