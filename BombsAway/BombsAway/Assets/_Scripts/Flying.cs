@@ -95,39 +95,9 @@ public class Flying : MonoBehaviour
             return currentDir;
         }
 
-        //convert -dir to their positive equivalent
-        if(currentDir < 0)
-        {
-            currentDir += 360;
-        }
-
-
         float deltaDir;
-        //needs to turn right
-        if(currentDir < desiredDir)
-        {
-            if(desiredDir - currentDir <= 180)
-            {
-                deltaDir = desiredDir - currentDir;
-            }
-            else
-            {
-                deltaDir = currentDir - desiredDir;
-            }
+        deltaDir = desiredDir - currentDir;
 
-        }
-        //left
-        else
-        {
-            if(currentDir - desiredDir <= 180)
-            {
-                deltaDir = desiredDir - currentDir;
-            }
-            else
-            {
-                deltaDir = currentDir - desiredDir;
-            }
-        }
 
         return  currentDir + (Mathf.Sign(deltaDir) * turningRate * Time.deltaTime);
 
