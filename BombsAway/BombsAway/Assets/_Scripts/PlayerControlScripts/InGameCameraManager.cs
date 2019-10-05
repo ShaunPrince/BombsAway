@@ -52,7 +52,6 @@ public class InGameCameraManager : MonoBehaviour
             c.rect = new Rect((.5f - chosenCamScale/2) * c.GetComponent<InGameCam>().xCord, (.5f - chosenCamScale/2)
                 * c.GetComponent<InGameCam>().yCord, chosenCamScale, chosenCamScale);
             c.depth = 2;
-
         }
     }
 }
