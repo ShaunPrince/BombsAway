@@ -40,8 +40,17 @@ public class InGameCameraManager : MonoBehaviour
         //schematicCam.rect.position.Set(activeCenterCam.rect.x * canvasWidth, activeCenterCam.rect.y * canvasHeight);
         //schematicCam.rect.size.Set(activeCenterCam.rect.width * canvasWidth, activeCenterCam.rect.height * canvasHeight);
 
-        activeCenterCam.rect = new Rect(0, 0, 1, 1);
+        if(chosenCamScale < .3)
+        {
+            activeCenterCam.rect = new Rect(0, 0, 1, 1);
+        }
+        else
+        {
+            activeCenterCam.rect = new Rect((.5f - chosenCamScale / 2), (.5f - chosenCamScale / 2)
+                , chosenCamScale, chosenCamScale);
+        }
         activeCenterCam.depth = 0;
+
     }
 
     public void SetCameraScales()
