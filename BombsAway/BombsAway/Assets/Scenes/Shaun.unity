@@ -5312,16 +5312,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 43
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: SCHEMATIC CAM
 --- !u!222 &1286291793
@@ -5547,7 +5547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cmName: 
   cmHealth: 0
-  startingStation: {fileID: 1557927354}
+  startingStation: {fileID: 265519188}
   currentStation: {fileID: 0}
   newStationTest: {fileID: 0}
 --- !u!1 &1378237783
@@ -5862,6 +5862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameCamManager: {fileID: 1182293525}
+  scalePresets: []
+  chosenScaleIndex: 0
 --- !u!1 &1557927352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6289,7 +6291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationCamera: {fileID: 200854673}
-  stationCrewman: {fileID: 768482552}
+  stationCrewman: {fileID: 0}
 --- !u!1 &1825554744
 GameObject:
   m_ObjectHideFlags: 0

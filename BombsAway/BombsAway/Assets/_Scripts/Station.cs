@@ -33,7 +33,9 @@ public class Station : MonoBehaviour
         {
             //Eventually set a UI cover and/or cullingmask when unmanned
             //for now just turn off the camera
-            stationCamera.gameObject.SetActive(false);
+
+            //Dissabled until controls are finalized 
+            //stationCamera.gameObject.SetActive(false);
         }
         else
         {
