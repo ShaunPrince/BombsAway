@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
-    public enum EStationID { Schematic, Pilot, LGun, RGun, BombBay, TGun, Map, Radar, Repair, None };
+    //THIS IS THE ORDER/ID enum/num FOR THEIR RESPECTIVE STATION IN ANY AND ALL ARRAYS
+    public enum EStationID { Schematic, Repair, Pilot, Radar, LGun, RGun, BombBay, TGun, Map, None };
     
     public Camera stationCamera;
     

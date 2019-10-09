@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControlScheme : MonoBehaviour
 {
-    public static ControlScheme currentlyActiveControlScheme;
+
     public bool isActiveControlScheme;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,4 @@ public class ControlScheme : MonoBehaviour
         
     }
 
-    public void SetThisAsActiveControlScheme()
-    {
-        currentlyActiveControlScheme.isActiveControlScheme = false;
-        this.isActiveControlScheme = true;
-        currentlyActiveControlScheme = this;
-    }
 }

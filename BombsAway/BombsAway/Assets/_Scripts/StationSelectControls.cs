@@ -13,16 +13,19 @@ public class StationSelectControls : MonoBehaviour
 
     public ControlsManager controlsManager;
 
+    public Station.EStationID initialMainStation;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        ApplyStationChange(initialMainStation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetMainStation(CheckInputForStationChange());
+        Station.EStationID newStationID = CheckInputForStationChange();
+        ApplyStationChange(newStationID);
     }
 
     //This can be adjusted for radial input
@@ -70,6 +73,18 @@ public class StationSelectControls : MonoBehaviour
         }
     }
 
+    public void ApplyStationChange(Station.EStationID newMainStationID)
+    {
+        if(newMainStationID == Station.EStationID.None)
+        {
+            return;
+        }
+        else
+        {
+            SetMainStation(newMainStationID);
+        }
+    }
+
     public void SetMainStation(Station.EStationID newMainStationID)
     {
         if(newMainStationID == Station.EStationID.None)
@@ -80,6 +95,7 @@ public class StationSelectControls : MonoBehaviour
         {
             currentSelectedStation = stations[(int)newMainStationID];
             inGameCameraManager.SetMainCam(newMainStationID);
+            controlsManager.SetActiveControlScheme(newMainStationID);
         }
 
     }
