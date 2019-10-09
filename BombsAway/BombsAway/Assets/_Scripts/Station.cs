@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
+    public enum EStationID { Schematic, Pilot, LGun, RGun, BombBay, TGun, Map, Radar, Repair, None };
+    
     public Camera stationCamera;
     
     public Crewman stationCrewman;
+
+    public ControlScheme controlScheme;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,17 @@ public class Station : MonoBehaviour
         UpdateCameraStatus();
     }
 
+    public bool IsManned()
+    {
+        if(stationCrewman == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     public void UpdateCameraStatus()
     {
@@ -42,4 +57,6 @@ public class Station : MonoBehaviour
             stationCamera.gameObject.SetActive(true);
         }
     }
+
+    
 }

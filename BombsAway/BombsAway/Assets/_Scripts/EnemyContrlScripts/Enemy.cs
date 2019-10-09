@@ -22,7 +22,7 @@ use shaun's script - flying script
 
 */
 
-public class Enemy : DamageableEntity
+public class EnemyUnit : DamageableEntity
 {
     // Start is called before the first frame update
     void Start()

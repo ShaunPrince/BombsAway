@@ -32,15 +32,30 @@ public class InGameCameraManager : MonoBehaviour
     {
         //Set this to only occur when cam change occurs
 
-        SetCameraScales();
-        //Debug.Log(canvasRectTran.rect.width);
+
+
+
+    }
+
+    public void SetMainCam(Station.EStationID newStationID)
+    {
+        activeCenterCam = cams[(int)newStationID];
+        UpdateCameras();
+    }
+
+    public void UpdateCameras()
+    {
+        foreach (Camera c in cams)
+        {
+            // calculate the offset based on the chosen cam scale
+            c.rect = new Rect((.5f - chosenCamScale/2) * c.GetComponent<InGameCam>().xCord, (.5f - chosenCamScale/2)
+                * c.GetComponent<InGameCam>().yCord, chosenCamScale, chosenCamScale);
+            c.depth = 2;
+        }
 
         schematicCam.rect = activeCenterCam.rect;
 
-        //schematicCam.rect.position.Set(activeCenterCam.rect.x * canvasWidth, activeCenterCam.rect.y * canvasHeight);
-        //schematicCam.rect.size.Set(activeCenterCam.rect.width * canvasWidth, activeCenterCam.rect.height * canvasHeight);
-
-        if(chosenCamScale < .3)
+        if (chosenCamScale < .3)
         {
             activeCenterCam.rect = new Rect(0, 0, 1, 1);
         }
@@ -50,17 +65,5 @@ public class InGameCameraManager : MonoBehaviour
                 , chosenCamScale, chosenCamScale);
         }
         activeCenterCam.depth = 0;
-
-    }
-
-    public void SetCameraScales()
-    {
-        foreach (Camera c in cams)
-        {
-            // calculate the offset based on the chosen cam scale
-            c.rect = new Rect((.5f - chosenCamScale/2) * c.GetComponent<InGameCam>().xCord, (.5f - chosenCamScale/2)
-                * c.GetComponent<InGameCam>().yCord, chosenCamScale, chosenCamScale);
-            c.depth = 2;
-        }
     }
 }
