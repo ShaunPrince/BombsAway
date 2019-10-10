@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 234164360}
   - component: {fileID: 234164359}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Models
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2845,7 +2845,7 @@ Transform:
   m_GameObject: {fileID: 667081263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -23.5, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 10000, y: 1, z: 10000}
   m_Children: []
   m_Father: {fileID: 253079965}
   m_RootOrder: 0
@@ -3820,7 +3820,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1533020287}
+  - {fileID: 1182293524}
   - {fileID: 409282806}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -4972,10 +4972,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182293523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1533020287}
+  m_Children:
+  - {fileID: 1533020287}
+  m_Father: {fileID: 947054923}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182293525
@@ -4990,7 +4991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e026880d0eec59c4d921bb9482d7bcae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenCamScale: 0.33333334
+  chosenCamScale: 0.16666667
   smallCamScale: 0.16666667
   smallCamOffset: 2
   evenCamScale: 0.33333334
@@ -5918,7 +5919,7 @@ GameObject:
   - component: {fileID: 1533020287}
   - component: {fileID: 1533020288}
   m_Layer: 0
-  m_Name: PlayerCamSelectControls
+  m_Name: CamZoomControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5932,11 +5933,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533020286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -379, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1182293524}
-  m_Father: {fileID: 947054923}
+  m_Children: []
+  m_Father: {fileID: 1182293524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1533020288
@@ -5953,7 +5953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameCamManager: {fileID: 1182293525}
   scalePresets: []
-  chosenScaleIndex: 0
+  chosenScaleIndex: 1
 --- !u!1 &1557927352
 GameObject:
   m_ObjectHideFlags: 0

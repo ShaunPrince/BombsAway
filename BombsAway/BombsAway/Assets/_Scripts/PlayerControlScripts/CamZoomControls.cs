@@ -10,7 +10,6 @@ public class CamZoomControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chosenScaleIndex = 0;
         scalePresets = new float[3];
         scalePresets[0] = inGameCamManager.evenCamScale;
         scalePresets[1] = inGameCamManager.smallCamScale;
