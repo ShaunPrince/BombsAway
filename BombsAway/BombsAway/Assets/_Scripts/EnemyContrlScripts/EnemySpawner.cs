@@ -25,25 +25,95 @@ use shaun's script - flying script
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float worldSize;     // change later to get from world script
+    public float worldXsize;     // change later to get from world script
+    public float worldYsize;
+    public int frequencyOfSpawn;
     public EnemySpawn[] Enemies;
+
+    private float deltaTime = 0f;
+    private float totalWeightedProb = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        // for now, spawn off the size of the map
+        // in any radial direction
+        foreach (EnemySpawn enemy in Enemies)
+        {
+            totalWeightedProb = enemy.CalculateWeightedSpawnProbability(totalWeightedProb);
+        }
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (deltaTime >= frequencyOfSpawn)
+        {
+            SpawnEnemy();
+            deltaTime = 0;
+        }
+        else
+        {
+            deltaTime += 1;
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        // choose random enemy from list, affected by probabilities of spawn
+        // choose random location to spawn
+        // choose random altitude?
+
+        float randomEnemy = Random.Range(0, totalWeightedProb);
+        Debug.Log(randomEnemy);
+        foreach (EnemySpawn enemy in Enemies)
+        {
+            if (enemy.ProbWithinRange(randomEnemy))
+            {
+                // spawn that enemy
+
+                break;
+            }
+        }
+        // if rand prob not high enough, do not spawn anyone
+    }
+
+    // does not 100% work 😅
+    private void OnValidate()
+    {
+        float probSum = 0;
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            probSum += Enemies[i].probabilityOfSpawn;
+            if (probSum > 1)
+            {
+                Enemies[i].probabilityOfSpawn -= (probSum - 1);
+                break;
+            }
+        }
+
     }
 }
 
+[System.Serializable]
 public class EnemySpawn {
 
     public GameObject EnemyPrefab;
+    [Range(0, 1)]
     public float probabilityOfSpawn;
-    // speed, health?
+
+    private float weightedSpawn;
+    
+    public float CalculateWeightedSpawnProbability(float sum)
+    {
+        weightedSpawn = sum + probabilityOfSpawn;
+        return weightedSpawn;
+    }
+
+    public bool ProbWithinRange(float probablity)
+    {
+        if (weightedSpawn >= probablity) return true;
+        return false;
+    }
 }
