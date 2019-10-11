@@ -26,11 +26,11 @@ use shaun's script - flying script
 public class EnemySpawner : MonoBehaviour
 {
     public float worldXsize;     // change later to get from world script
-    public float worldYsize;
-    public int frequencyOfSpawn;
+    public float worldZsize;
+    public int timeBetweenSpawn;
     public EnemySpawn[] Enemies;
 
-    private float deltaTime = 0f;
+    private float deltaTime = 100f;
     private float totalWeightedProb = 0;
 
     // Start is called before the first frame update
@@ -48,14 +48,14 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (deltaTime >= frequencyOfSpawn)
+        if (deltaTime >= timeBetweenSpawn)
         {
             SpawnEnemy();
             deltaTime = 0;
         }
         else
         {
-            deltaTime += 1;
+            deltaTime += Time.deltaTime;
         }
     }
 
@@ -66,12 +66,22 @@ public class EnemySpawner : MonoBehaviour
         // choose random altitude?
 
         float randomEnemy = Random.Range(0, totalWeightedProb);
-        Debug.Log(randomEnemy);
         foreach (EnemySpawn enemy in Enemies)
         {
+            // spawn that enemy
             if (enemy.ProbWithinRange(randomEnemy))
             {
-                // spawn that enemy
+                // get altitude of player and spawn enemy at that altitude
+                float playerYaltitude = GameObject.FindWithTag("Player").transform.position.y;
+                Vector3 position = new Vector3(worldXsize, playerYaltitude, worldZsize);
+                // find direction of player and point that way
+                Vector3 lookingDirection = (GameObject.FindWithTag("Player").transform.position - position);
+                Quaternion rotation = Quaternion.LookRotation(lookingDirection, Vector3.up);
+                rotation.Set(0, rotation.y, 0, rotation.w);    // flatten the x and z rotation out
+                // add 90 degrees x to make enemy parallel to ground
+                //rotation *= Quaternion.Euler(90, 0, 0);     // MIGHT NOT HAVE TO DO THIS BASED ON THE MODEL
+                Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
+                Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
 
                 break;
             }

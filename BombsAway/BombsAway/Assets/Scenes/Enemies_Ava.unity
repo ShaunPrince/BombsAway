@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -348,10 +348,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldXsize: 50
-  worldYsize: 50
-  frequencyOfSpawn: 15
+  worldZsize: 0
+  timeBetweenSpawn: 100
   Enemies:
-  - EnemyPrefab: {fileID: 8493691055403270933, guid: 3b818466a6a8cc345b07793d32c5506f,
+  - EnemyPrefab: {fileID: 1716435481506396233, guid: 287117a17f01539448ecb71079e88ae1,
       type: 3}
     probabilityOfSpawn: 1
 --- !u!1 &1949104715
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 1949104716}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5f796437f67234479109b3bd549327a, type: 2}
+  - {fileID: 2100000, guid: cecd2e1c5a61b64488bee06281631045, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,7 +440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949104715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.03, z: 0}
+  m_LocalPosition: {x: 0, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
