@@ -115,7 +115,7 @@ public class Enemy : DamageableEntity
         float maxDirection = (eulerDirection + percisionOffset);
         float minDirection = (eulerDirection - percisionOffset);
         
-        float direction = (Random.Range(minDirection, maxDirection)) % 360;
+        float direction = (Random.Range(minDirection, maxDirection));
 
         //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
 
