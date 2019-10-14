@@ -22,6 +22,6 @@ public class ShootGun : MonoBehaviour
     public void FireGun()
     {
         GameObject newProjectile = Instantiate(projectile, this.transform.position, this.transform.rotation);
-        newProjectile.GetComponent<Rigidbody>().velocity = newProjectile.transform.forward * projectileSpeed;
+        newProjectile.GetComponent<Rigidbody>().velocity = this.GetComponentInParent<Rigidbody>().velocity + this.GetComponentInParent<Camera>().gameObject.transform.forward * projectileSpeed;
     }
 }

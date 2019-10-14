@@ -38,7 +38,14 @@ public class Flying : MonoBehaviour
 
         currentAltitude = this.transform.position.y;
         //set vertical velocity to the current velocity plus/minus the velocity per second (Acceleration)
-        rb.velocity = new Vector3(rb.velocity.x,Mathf.Sign(desireAltitude - currentAltitude) * verticalAcceleration * Time.deltaTime,rb.velocity.z);
+        if(Mathf.Abs(desireAltitude - currentAltitude) * verticalAcceleration   >= verticalAcceleration )
+        {
+            rb.velocity = new Vector3(rb.velocity.x,Mathf.Sign(desireAltitude - currentAltitude) * verticalAcceleration * Time.deltaTime,rb.velocity.z);
+        }
+        else
+        {
+            rb.velocity = new Vector3(rb.velocity.x,0f,rb.velocity.z);
+        }
         
         //add forward/backward force to reach desired speed
         currentForwardSpeed = this.transform.InverseTransformVector(rb.velocity).z;
@@ -118,25 +125,11 @@ public class Flying : MonoBehaviour
         float cwDirDif;
         float ccwDirDif;
 
-        //if (desiredDirection >= currentDirection)
-        //{
-        //    cwDirDif = desiredDirection - currentDirection;
-
-
-        //}
-        //else
-        //{
-        //    cwDirDif = currentDirection - desiredDirection;
-
-        //}
-
         cwDirDif = desiredDir - currentDir;
 
         cwDirDif = ConvertToPos360Dir(cwDirDif);
 
         ccwDirDif = 360 - cwDirDif;
-
-        //Debug.Log("CW: " + cwDirDif + '\n' + "\tCCW: " + ccwDirDif);
 
         if(cwDirDif < ccwDirDif)
         {
