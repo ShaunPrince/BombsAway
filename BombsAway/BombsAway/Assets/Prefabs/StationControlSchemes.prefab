@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6016954147628181749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6016954147628181750}
+  - component: {fileID: 6016954147628181760}
+  - component: {fileID: 6016954147628181759}
+  - component: {fileID: 6016954147628181758}
+  - component: {fileID: 6016954147628181757}
+  - component: {fileID: 6016954147628181756}
+  - component: {fileID: 6016954147628181755}
+  - component: {fileID: 6016954147628181754}
+  - component: {fileID: 6016954147628181753}
+  - component: {fileID: 6016954147628181752}
+  - component: {fileID: 6016954147628181751}
+  m_Layer: 0
+  m_Name: StationControlSchemes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6016954147628181750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6016954147628181760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1d8285bddf9034ba34bc84d6174f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlSchemes:
+  - {fileID: 6016954147628181759}
+  - {fileID: 6016954147628181758}
+  - {fileID: 6016954147628181757}
+  - {fileID: 6016954147628181756}
+  - {fileID: 6016954147628181755}
+  - {fileID: 6016954147628181754}
+  - {fileID: 6016954147628181753}
+  - {fileID: 6016954147628181752}
+  - {fileID: 6016954147628181751}
+--- !u!114 &6016954147628181759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5560cae8f66915741bdf42b1257af551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: SchematicStation
+  isActiveControlScheme: 0
+--- !u!114 &6016954147628181758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ff4e8d0319b0d4289723412a61d842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: RepairStation
+  isActiveControlScheme: 0
+--- !u!114 &6016954147628181757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00af45416de06004f905b1c74520e333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: PilotStation
+  isActiveControlScheme: 1
+  presetSpeeds:
+  - 100
+  - 400
+  - 700
+  - 1000
+  presetAlts:
+  - 500
+  - 1000
+  - 1500
+  - 2000
+  currentSpeedSetting: 0
+  currentAltSetting: 0
+  fly: {fileID: 0}
+--- !u!114 &6016954147628181756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f231eb4339c95b409efd0f309800e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: RadarStation
+  isActiveControlScheme: 0
+--- !u!114 &6016954147628181755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815664c5c48a70249b166e05f8913576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: LeftGunnerStation
+  isActiveControlScheme: 0
+  lookSensitivity: 0
+  minXLook: 0
+  maxXLook: 0
+  minYLook: 0
+  maxYLook: 0
+  myCamera: {fileID: 0}
+--- !u!114 &6016954147628181754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815664c5c48a70249b166e05f8913576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: RightGunnerStation
+  isActiveControlScheme: 0
+  lookSensitivity: 0
+  minXLook: 0
+  maxXLook: 0
+  minYLook: 0
+  maxYLook: 0
+  myCamera: {fileID: 0}
+--- !u!114 &6016954147628181753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc0fe38b1684bf4eb660d37a5d4ae23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: BombBayStation
+  isActiveControlScheme: 0
+--- !u!114 &6016954147628181752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815664c5c48a70249b166e05f8913576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: TailGunnerStation
+  isActiveControlScheme: 0
+  lookSensitivity: 0
+  minXLook: 0
+  maxXLook: 0
+  minYLook: 0
+  maxYLook: 0
+  myCamera: {fileID: 0}
+--- !u!114 &6016954147628181751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016954147628181749}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a2883fda14d134cabf15eadbf29ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationTag: MapStation
+  isActiveControlScheme: 0

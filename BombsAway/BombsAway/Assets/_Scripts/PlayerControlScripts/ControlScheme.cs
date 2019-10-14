@@ -5,6 +5,9 @@ using UnityEngine;
 public class ControlScheme : MonoBehaviour
 {
 
+
+    public string stationTag;
+
     public bool isActiveControlScheme;
     // Start is called before the first frame update
     void Start()

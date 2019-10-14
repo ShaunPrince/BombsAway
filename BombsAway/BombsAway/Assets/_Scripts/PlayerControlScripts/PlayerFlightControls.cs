@@ -7,9 +7,6 @@ public class PlayerFlightControls : ControlScheme
     public float[] presetSpeeds;
     public float[] presetAlts;
 
-    public enum ESpeeds {Slow, Med, Fast, Full};
-    public enum EAlts { Low, Mid, High, Soaring };
-
     public ESpeeds currentSpeedSetting;
     public EAlts currentAltSetting;
 
@@ -18,6 +15,7 @@ public class PlayerFlightControls : ControlScheme
     // Start is called before the first frame update
     void Start()
     {
+        fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
         fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
         fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
     }

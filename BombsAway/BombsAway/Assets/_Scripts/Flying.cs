@@ -136,7 +136,7 @@ public class Flying : MonoBehaviour
 
         ccwDirDif = 360 - cwDirDif;
 
-        Debug.Log("CW: " + cwDirDif + '\n' + "\tCCW: " + ccwDirDif);
+        //Debug.Log("CW: " + cwDirDif + '\n' + "\tCCW: " + ccwDirDif);
 
         if(cwDirDif < ccwDirDif)
         {

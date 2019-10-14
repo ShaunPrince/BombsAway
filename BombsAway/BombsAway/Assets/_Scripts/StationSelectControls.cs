@@ -4,99 +4,73 @@ using UnityEngine;
 
 public class StationSelectControls : MonoBehaviour
 {
-    
-    public Station[] stations;
 
-    public Station currentSelectedStation;
 
-    public InGameCameraManager inGameCameraManager;
+    public StationManager sm;
 
-    public ControlsManager controlsManager;
+    public EStationID initialMainStation;
 
-    public Station.EStationID initialMainStation;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        ApplyStationChange(initialMainStation);
+        Cursor.lockState = CursorLockMode.Locked;
+        sm.SetMainStation(initialMainStation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Station.EStationID newStationID = CheckInputForStationChange();
-        ApplyStationChange(newStationID);
+        EStationID newStationID = CheckInputForStationChange();
+        sm.SetMainStation(newStationID);
     }
 
     //This can be adjusted for radial input
-    public Station.EStationID CheckInputForStationChange()
+    public EStationID CheckInputForStationChange()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            return Station.EStationID.Schematic;
+            return EStationID.Schematic;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            return Station.EStationID.Repair;
+            return EStationID.Repair;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            return Station.EStationID.Pilot;
+            return EStationID.Pilot;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            return Station.EStationID.Radar;
+            return EStationID.Radar;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            return Station.EStationID.LGun;
+            return EStationID.LGun;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            return Station.EStationID.RGun;
+            return EStationID.RGun;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            return Station.EStationID.BombBay;
+            return EStationID.BombBay;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            return Station.EStationID.TGun;
+            return EStationID.TGun;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            return Station.EStationID.Map;
+            return EStationID.Map;
         }
         else
         {
-            return Station.EStationID.None;
+            return EStationID.None;
         }
     }
 
-    public void ApplyStationChange(Station.EStationID newMainStationID)
-    {
-        if(newMainStationID == Station.EStationID.None)
-        {
-            return;
-        }
-        else
-        {
-            SetMainStation(newMainStationID);
-        }
-    }
 
-    public void SetMainStation(Station.EStationID newMainStationID)
-    {
-        if(newMainStationID == Station.EStationID.None)
-        {
-            return;
-        }
-        else
-        {
-            currentSelectedStation = stations[(int)newMainStationID];
-            inGameCameraManager.SetMainCam(newMainStationID);
-            controlsManager.SetActiveControlScheme(newMainStationID);
-        }
 
-    }
 }

@@ -5,17 +5,17 @@ using UnityEngine;
 public class Station : MonoBehaviour
 {
     //THIS IS THE ORDER/ID enum/num FOR THEIR RESPECTIVE STATION IN ANY AND ALL ARRAYS
-    public enum EStationID { Schematic, Repair, Pilot, Radar, LGun, RGun, BombBay, TGun, Map, None };
-    
+
     public Camera stationCamera;
-    
-    public Crewman stationCrewman;
 
     public ControlScheme controlScheme;
+    public Crewman stationCrewman;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        stationCamera = this.GetComponentInChildren<Camera>();
         UpdateCameraStatus();
     }
 

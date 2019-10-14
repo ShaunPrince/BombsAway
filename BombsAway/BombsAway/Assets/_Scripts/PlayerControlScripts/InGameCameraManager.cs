@@ -25,6 +25,14 @@ public class InGameCameraManager : MonoBehaviour
     {
         canvasWidth = canvasRectTran.rect.width;
         canvasHeight = canvasRectTran.rect.height;
+
+        int index = 0;
+        foreach (Station s in StationManager.stations)
+        {
+            cams[index] = s.stationCamera;
+            ++index;
+        }
+
     }
 
     // Update is called once per frame
@@ -37,7 +45,7 @@ public class InGameCameraManager : MonoBehaviour
 
     }
 
-    public void SetMainCam(Station.EStationID newStationID)
+    public void SetMainCam(EStationID newStationID)
     {
         activeCenterCam = cams[(int)newStationID];
         UpdateCameras();
