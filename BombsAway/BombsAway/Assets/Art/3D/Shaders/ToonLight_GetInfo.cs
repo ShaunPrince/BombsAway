@@ -5,11 +5,12 @@ using UnityEngine;
 public class ToonLight_GetInfo : MonoBehaviour
 {
     [SerializeField]
-    private Material mat = null;
+    private Material[] mat = null;
 
 
     void Update()
     {
-        mat.SetVector("_ToonLightDir", -this.transform.forward);
+        foreach (Material m in mat)
+            m.SetVector("_ToonLightDir", -this.transform.forward);
     }
 }

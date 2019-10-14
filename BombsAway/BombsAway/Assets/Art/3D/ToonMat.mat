@@ -88,9 +88,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_70944AEC: {r: 0.99546164, g: 1, b: 0.68396217, a: 0}
     - Color_7CCF9A3E: {r: 0.504681, g: 1, b: 0, a: 0}
+    - Color_CB1968BD: {r: 0.03470988, g: 0.5660378, b: 0.35916796, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _ToonLightDir: {r: -0.38766316, g: 0.7894638, b: -0.4758827, a: 0}
+    - _ToonLightDir: {r: 0.56496733, g: 0.57128656, b: -0.5953515, a: 0}
