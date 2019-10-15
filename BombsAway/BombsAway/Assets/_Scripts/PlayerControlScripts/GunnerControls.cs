@@ -16,6 +16,22 @@ public class GunnerControls : ControlScheme
 
     [SerializeField]
     private Camera myCamera;
+
+    override public void SetAsActiveControl()
+    {
+        base.SetAsActiveControl();
+        myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = true;
+        myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = true;
+        //this.GetComponentInChildren<GunnerUIController>().enabled = true;
+    }
+
+    public override void SetAsInactive()
+    {
+        base.SetAsInactive();
+        myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = false;
+        myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = false;
+    }
+
     //private GameObject myGun;
     // Start is called before the first frame update
     void Start()

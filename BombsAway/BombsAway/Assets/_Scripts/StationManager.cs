@@ -15,6 +15,7 @@ public class StationManager : MonoBehaviour
     void Awake()
     {
         InitializeStationsArray();
+
     }
 
     // Update is called once per frame
@@ -48,14 +49,14 @@ public class StationManager : MonoBehaviour
 
     public void SetActiveControlScheme(EStationID newStationID)
     {
-        if(currentlyActiveControlScheme != null)
+
+        if (currentlyActiveControlScheme != null)
         {
-            currentlyActiveControlScheme.isActiveControlScheme = false;
-            currentlyActiveControlScheme.enabled = false;
+            currentlyActiveControlScheme.SetAsInactive();
         }
 
+        //Debug.Log(stations[(int)newStationID].controlScheme);
         currentlyActiveControlScheme = stations[(int)newStationID].controlScheme;
-        currentlyActiveControlScheme.isActiveControlScheme = true;
-        currentlyActiveControlScheme.enabled = true;
+        currentlyActiveControlScheme.SetAsActiveControl();
     }
 }
