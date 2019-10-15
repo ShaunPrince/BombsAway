@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public float damage;
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPostition;
@@ -29,7 +30,12 @@ public class BulletController : MonoBehaviour
         //CheckForHit();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
+    {
+        HitObject(collision.collider);
+    }
+
+    private void OnCollisionEnter(Collider other)
     {
         if (!other.tag.Equals("Player"))
         {
@@ -39,6 +45,7 @@ public class BulletController : MonoBehaviour
 
     private void CheckForHit()
     {
+        
         Vector3 backwards = this.transform.forward * -1.0f;
         //Debug.Log(backwards);
         if (Physics.Raycast(currentPostition, backwards, Vector3.Distance(currentPostition, lastPosition)))
@@ -49,6 +56,11 @@ public class BulletController : MonoBehaviour
 
     private void HitObject(Collider other)
     {
+        if(other.gameObject.GetComponent<DamageableEntity>() != null)
+        {
+            other.GetComponent<DamageableEntity>().TakeDamage(damage);
+            GameObject.Destroy(this.gameObject);
+        }
         if (!(other.tag.Equals("Player") || other.tag.Equals("Ground")))
         {
             Debug.Log("Hit");

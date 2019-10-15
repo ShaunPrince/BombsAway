@@ -22,9 +22,10 @@ public class DamageableEntity : MonoBehaviour
     public void TakeDamage(float incomingDamage)
     {
         health -= incomingDamage;
+        Debug.Log(this + " Is taking damage");
         if(health <= 0)
         {
-            GameObject.Destroy(this);
+            GameObject.Destroy(this.gameObject);
         }
     }
 }
