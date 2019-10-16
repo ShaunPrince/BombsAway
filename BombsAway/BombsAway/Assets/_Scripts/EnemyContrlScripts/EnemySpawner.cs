@@ -25,8 +25,12 @@ use shaun's script - flying script
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float worldXsize;     // change later to get from world script
-    public float worldZsize;
+    [Header("Don't worry about the circle, it's only in the editor")]
+    public float worldCenterX;
+    public float worldCenterZ;
+    [Header("Radius of the world (if square, x-axis)")]
+    public float worldLength;
+
     public int timeBetweenSpawn;
     public EnemySpawn[] Enemies;
 
@@ -36,8 +40,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // for now, spawn off the size of the map
-        // in any radial direction
+        // calculate the weighted prob
         foreach (EnemySpawn enemy in Enemies)
         {
             totalWeightedProb = enemy.CalculateWeightedSpawnProbability(totalWeightedProb);
@@ -63,23 +66,28 @@ public class EnemySpawner : MonoBehaviour
     {
         // choose random enemy from list, affected by probabilities of spawn
         // choose random location to spawn
-        // choose random altitude?
+        // choose random altitude (at same as player, gets affected later)
 
         float randomEnemy = Random.Range(0, totalWeightedProb);
         foreach (EnemySpawn enemy in Enemies)
         {
-            // spawn that enemy
+            // spawn that enemy if it is the proper weight
             if (enemy.ProbWithinRange(randomEnemy))
             {
-                // get altitude of player and spawn enemy at that altitude
+                // get altitude of player and spawn enemy around that altitude
                 float playerYaltitude = GameObject.FindWithTag("Player").transform.position.y;
-                Vector3 position = new Vector3(worldXsize, playerYaltitude, worldZsize);
+
+                // get random location off the map (radially)
+                // calculate circumfrence of the map, choose any point along it
+                System.Tuple<float, float> xzPos = CalculateRandomSpawnLocation();
+
+                Vector3 position = new Vector3(xzPos.Item1, playerYaltitude, xzPos.Item2);
+
                 // find direction of player and point that way
                 Vector3 lookingDirection = (GameObject.FindWithTag("Player").transform.position - position);
                 Quaternion rotation = Quaternion.LookRotation(lookingDirection, Vector3.up);
                 rotation.Set(0, rotation.y, 0, rotation.w);    // flatten the x and z rotation out
-                // add 90 degrees x to make enemy parallel to ground
-                //rotation *= Quaternion.Euler(90, 0, 0);     // MIGHT NOT HAVE TO DO THIS BASED ON THE MODEL
+
                 Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
                 Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
 
@@ -87,6 +95,15 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         // if rand prob not high enough, do not spawn anyone
+    }
+
+    private System.Tuple<float, float> CalculateRandomSpawnLocation()
+    {
+        float angle = Random.Range(0, 360);
+        float xPos = worldCenterX + worldLength * Mathf.Cos(angle);
+        float zPoz = worldCenterZ + worldLength * Mathf.Sin(angle);
+
+        return new System.Tuple<float, float>(xPos, zPoz);
     }
 
     // does not 100% work 😅
@@ -104,6 +121,14 @@ public class EnemySpawner : MonoBehaviour
         }
 
     }
+
+    private void OnDrawGizmos()
+    {
+        // draw spawn radius
+        Vector3 debugPos = new Vector3(worldCenterX, 100, worldCenterZ);
+        UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, worldLength);
+    }
+
 }
 
 [System.Serializable]
