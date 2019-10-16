@@ -6,15 +6,19 @@ using UnityEngine.EventSystems;
 
 public class SelectWheel : MonoBehaviour
 {
+
     private StationManager stationManager;
 
     private GraphicRaycaster ray;
     private PointerEventData PointerEventData;
     private EventSystem EventSystem;
 
+    [Header("Hold Tab, move mouse over new camera, let go of tab")]
     public GameObject wheel;
     public GameObject pointer;
     public GameObject element;
+
+
 
     // Start is called before the first frame update
     void Start()
