@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldXsize: 50
   worldZsize: 0
-  timeBetweenSpawn: 100
+  timeBetweenSpawn: 10
   Enemies:
   - EnemyPrefab: {fileID: 1716435481506396233, guid: 287117a17f01539448ecb71079e88ae1,
       type: 3}

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SelectWheel : MonoBehaviour
 {
+    private StationManager stationManager;
 
     private GraphicRaycaster ray;
     private PointerEventData PointerEventData;
@@ -18,6 +19,7 @@ public class SelectWheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stationManager = GameObject.FindGameObjectWithTag("Stations").GetComponent<StationManager>();
         ray = GetComponent<GraphicRaycaster>();
         EventSystem = GetComponent<EventSystem>();
     }
@@ -45,6 +47,10 @@ public class SelectWheel : MonoBehaviour
                     float angle = -1 * Mathf.Atan2(pos.x - Screen.width / 2, pos.y - Screen.height / 2) * Mathf.Rad2Deg;
                     //Debug.Log(angle);
                     wheel.transform.rotation = Quaternion.Euler(0, 0, angle);
+                    if(result[0].gameObject.GetComponent<SelectionArea>() != null)
+                    {
+                        stationManager.SetMainStation(result[0].gameObject.GetComponent<SelectionArea>().referencesStation);
+                    }
                 }
                 else
                 {
