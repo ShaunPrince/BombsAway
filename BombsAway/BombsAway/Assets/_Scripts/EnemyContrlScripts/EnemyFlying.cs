@@ -23,14 +23,15 @@ use shaun's script - flying script
 
 */
 
-public class Enemy : DamageableEntity
+public class EnemyFlying : MonoBehaviour
 {
     // auto set lateral movement damper scale
     public float percisionOffset; // in terms of flying towards player, altitude relative to player
                                   // don't want perfect aim
                        
     public float avoidanceDistance;
-    private float dodgeAmount = 1;
+    private float dodgeAmount = 40;
+    private bool startDodging = false;
     private bool currentlyDodging = false;
 
     private Transform playerTransform;
@@ -38,6 +39,11 @@ public class Enemy : DamageableEntity
 
     public float timeBetweenUpdates;
     private float deltaTime = 0f;
+
+    public Transform GetPlayerPosition()
+    {
+        return playerTransform;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +77,11 @@ public class Enemy : DamageableEntity
         if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= avoidanceDistance &&
             Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= avoidanceDistance)
         {
-            currentlyDodging = true;
+            startDodging = true;
         }
         else
         {
+            startDodging = false;
             currentlyDodging = false;
         }
     }
@@ -84,16 +91,26 @@ public class Enemy : DamageableEntity
         // move towards player
         // if too close to player, go up to avoid them
         float altitude;
+        // MAKE IT SO THEY CAN DODGE ANYONE
         CheckAvoidPlayer();
-        if (currentlyDodging)
+        if (startDodging)
         {
-            // if altitude is >= to player and close enough, fly up and over
-            // if altitude is <= player and close enough, fly down and under
-            if (flyingComponent.desireAltitude >= playerTransform.position.y) altitude = flyingComponent.desireAltitude + dodgeAmount;
-            else altitude = flyingComponent.desireAltitude - dodgeAmount;
+            // if dodge altitude has not yet been set, set it, else do nothing
+            if (!currentlyDodging)
+            {
+                // if altitude is >= to player and close enough, fly up and over
+                // if altitude is <= player and close enough, fly down and under
+                if (flyingComponent.desireAltitude >= playerTransform.position.y) altitude = flyingComponent.desireAltitude + dodgeAmount;
+                else altitude = flyingComponent.desireAltitude - dodgeAmount;
 
-            Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
-            currentlyDodging = true;
+                Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
+                currentlyDodging = true;
+            }
+            else
+            {
+                // else doooo nothing
+                altitude = flyingComponent.desireAltitude;
+            }
         }
         else
         {
@@ -120,5 +137,12 @@ public class Enemy : DamageableEntity
         //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
 
         flyingComponent.SetDesDir(direction);
+    }
+
+    private void OnDrawGizmos()
+    {
+        // draw enemy dodging distance
+        UnityEditor.Handles.color = Color.red;
+        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, avoidanceDistance);
     }
 }

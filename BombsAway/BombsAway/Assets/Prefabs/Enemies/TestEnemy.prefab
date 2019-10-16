@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8844719370579842519}
   - component: {fileID: 8518486020159588288}
   - component: {fileID: 794616682320880691}
+  - component: {fileID: 294719631488123615}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -123,10 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73e71960611ac34bab0d6b709512b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   percisionOffset: 0
-  avoidanceDistance: 30
-  timeBetweenUpdates: 1
+  avoidanceDistance: 200
+  timeBetweenUpdates: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,9 +144,27 @@ MonoBehaviour:
   forwardAcceleration: 5
   currentAltitude: 0
   desireAltitude: 0
-  verticalAcceleration: 100
+  verticalAcceleration: 500
   currentDir: 0
   desiredDir: 0
   turningRate: 25
   lateralMovementDamperScale: 2
   rb: {fileID: 8844719370579842519}
+--- !u!114 &294719631488123615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716435481506396233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028cd215a3f063542a5a1c1631cd29f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  aimingDistance: 400
+  timeBetweenShots: 0.067
+  timeToReload: 5
+  magazineSize: 20
+  playerWithinRange: 0
