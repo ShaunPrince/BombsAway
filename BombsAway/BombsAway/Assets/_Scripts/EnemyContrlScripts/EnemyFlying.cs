@@ -141,8 +141,10 @@ public class EnemyFlying : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+#if UNITY_EDITOR
         // draw enemy dodging distance
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, avoidanceDistance);
+#endif
     }
 }

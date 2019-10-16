@@ -86,8 +86,10 @@ public class EnemyShooting : DamageableEntity
 
     private void OnDrawGizmos()
     {
+#if UNITY_EDITOR
         // draw view area of enemy
         UnityEditor.Handles.color = Color.green;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, aimingDistance);
+#endif
     }
 }

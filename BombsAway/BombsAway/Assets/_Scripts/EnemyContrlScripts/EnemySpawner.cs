@@ -124,9 +124,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+#if UNITY_EDITOR
         // draw spawn radius
         Vector3 debugPos = new Vector3(worldCenterX, 100, worldCenterZ);
         UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, worldLength);
+#endif
     }
 
 }
