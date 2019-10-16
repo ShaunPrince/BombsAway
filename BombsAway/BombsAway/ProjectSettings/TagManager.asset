@@ -17,6 +17,7 @@ TagManager:
   - MapStation
   - Controls
   - Stations
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Bullet
   - 
   - 
   - 

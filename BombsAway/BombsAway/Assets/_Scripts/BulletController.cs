@@ -37,7 +37,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collider other)
     {
-        if (!other.tag.Equals("Player"))
+        if (!other.tag.Equals("Player") || !other.tag.Equals("Bullet"))
         {
             HitObject(other);
         }
@@ -47,10 +47,12 @@ public class BulletController : MonoBehaviour
     {
         
         Vector3 backwards = this.transform.forward * -1.0f;
-        //Debug.Log(backwards);
-        if (Physics.Raycast(currentPostition, backwards, Vector3.Distance(currentPostition, lastPosition)))
+        RaycastHit hit;
+        LayerMask layerMask = LayerMask.GetMask("Bullet");
+        if (Physics.Raycast(currentPostition, backwards, out hit, Vector3.Distance(currentPostition, lastPosition), layerMask))
         {
             Debug.Log("Hit");
+            HitObject(hit.collider);
         }
     }
 
