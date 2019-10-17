@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percisionOffset: 0
-  avoidanceDistance: 200
+  parallelDistance: 300
+  timeToRemainParallel: 5
+  dodgeDistance: 200
   timeBetweenUpdates: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:

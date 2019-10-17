@@ -28,13 +28,19 @@ public class EnemyFlying : MonoBehaviour
     // auto set lateral movement damper scale
     public float percisionOffset; // in terms of flying towards player, altitude relative to player
                                   // don't want perfect aim
-                       
-    public float avoidanceDistance;
+
+    public float parallelDistance;
+    public float timeToRemainParallel;
+    private bool startParalellMovement = false;
+    private bool currentlyParallelToPlayer = false;
+
+    public float dodgeDistance;
     private float dodgeAmount = 40;
     private bool startDodging = false;
     private bool currentlyDodging = false;
 
     private Transform playerTransform;
+    private Flying playerFlyingComponent;
     private Flying flyingComponent;
 
     public float timeBetweenUpdates;
@@ -50,6 +56,7 @@ public class EnemyFlying : MonoBehaviour
     {
         flyingComponent = this.GetComponent<Flying>();
         playerTransform = GameObject.FindWithTag("Player").transform;
+        playerFlyingComponent = GameObject.FindWithTag("Player").GetComponent<Flying>();
         SetAltitude();
         SetDirection();
     }
@@ -72,45 +79,48 @@ public class EnemyFlying : MonoBehaviour
         }
     }
 
-    void CheckAvoidPlayer()
+    public bool IsParallel()
     {
-        if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= avoidanceDistance &&
-            Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= avoidanceDistance)
+        return currentlyParallelToPlayer;
+    }
+
+    void CheckPlayerDistance()
+    {
+        if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= dodgeDistance &&
+            Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= dodgeDistance)
         {
             startDodging = true;
+        }
+        else if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= parallelDistance &&
+                 Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= parallelDistance)
+        {
+            startParalellMovement = true;
         }
         else
         {
             startDodging = false;
             currentlyDodging = false;
+
+            startParalellMovement = false;
+            currentlyParallelToPlayer = false;
         }
     }
 
     void SetAltitude()
     {
         // move towards player
-        // if too close to player, go up to avoid them
+        // if too close to player, go up/down to avoid them
         float altitude;
         // MAKE IT SO THEY CAN DODGE ANYONE
-        CheckAvoidPlayer();
+        // WHAT IF PLAYER IS MOVING UP WHILE ENEMY IS DODGIN UP OR VISVERSA
+        CheckPlayerDistance();
         if (startDodging)
         {
-            // if dodge altitude has not yet been set, set it, else do nothing
-            if (!currentlyDodging)
-            {
-                // if altitude is >= to player and close enough, fly up and over
-                // if altitude is <= player and close enough, fly down and under
-                if (flyingComponent.desireAltitude >= playerTransform.position.y) altitude = flyingComponent.desireAltitude + dodgeAmount;
-                else altitude = flyingComponent.desireAltitude - dodgeAmount;
-
-                Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
-                currentlyDodging = true;
-            }
-            else
-            {
-                // else doooo nothing
-                altitude = flyingComponent.desireAltitude;
-            }
+            altitude = DodgePlayer();
+        }
+        else if (startParalellMovement)
+        {
+            altitude = MatchPlayersAltitude(); //PullUpParallelToPlayer();
         }
         else
         {
@@ -123,28 +133,82 @@ public class EnemyFlying : MonoBehaviour
         flyingComponent.SetDesAlt(altitude);
     }
 
+    float DodgePlayer()
+    {
+        float altitude;
+        // if dodge altitude has not yet been set, set it, else do nothing
+        if (!currentlyDodging)
+        {
+            // if altitude is >= to player and close enough, fly up and over
+            // if altitude is <= player and close enough, fly down and under
+            if (flyingComponent.desireAltitude >= playerTransform.position.y) altitude = flyingComponent.desireAltitude + dodgeAmount;
+            else altitude = flyingComponent.desireAltitude - dodgeAmount;
+
+            Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
+            currentlyDodging = true;
+        }
+        else
+        {
+            // else doooo nothing
+            altitude = flyingComponent.desireAltitude;
+        }
+
+        return altitude;
+    }
+
+    float MatchPlayersAltitude()
+    {
+        return 0f;
+    }
+
+    float PullUpParallelToPlayer()
+    {
+        // get players current direction
+        // start turning to match that direction
+        // update constantly to match player's direction for a certain amount of time
+        return playerFlyingComponent.currentDir;
+    }
+
     void SetDirection()
     {
-        // set desired direction to be towards the player (x axis)
-        // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
-        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
-        float eulerDirection = rotation.eulerAngles.y;
-        float maxDirection = (eulerDirection + percisionOffset);
-        float minDirection = (eulerDirection - percisionOffset);
-        
-        float direction = (Random.Range(minDirection, maxDirection));
+        float direction;
+        if (currentlyParallelToPlayer)
+        {
+            direction = MatchPlayersDirection();
+        }
+        // if dodging?
+        else
+        {
+            // set desired direction to be towards the player (x axis)
+            // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
+            Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
+            float eulerDirection = rotation.eulerAngles.y;
+            float maxDirection = (eulerDirection + percisionOffset);
+            float minDirection = (eulerDirection - percisionOffset);
 
-        //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
+            direction = (Random.Range(minDirection, maxDirection));
+
+            //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
+        }
 
         flyingComponent.SetDesDir(direction);
+    }
+
+    private float MatchPlayersDirection()
+    {
+        return 0f;
     }
 
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
+        // draw enemy parallel distance
+        UnityEditor.Handles.color = Color.yellow;
+        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, parallelDistance);
+
         // draw enemy dodging distance
         UnityEditor.Handles.color = Color.red;
-        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, avoidanceDistance);
+        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, dodgeDistance);
 #endif
     }
 }
