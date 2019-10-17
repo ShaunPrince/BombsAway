@@ -127,7 +127,8 @@ MonoBehaviour:
   percisionOffset: 0
   parallelDistance: 300
   timeToRemainParallel: 5
-  dodgeDistance: 200
+  dodgeDistance: 100
+  playerFlyingGameObject: {fileID: 0}
   timeBetweenUpdates: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:
@@ -146,7 +147,7 @@ MonoBehaviour:
   forwardAcceleration: 5
   currentAltitude: 0
   desireAltitude: 0
-  verticalAcceleration: 500
+  verticalAcceleration: 1000
   currentDir: 0
   desiredDir: 0
   turningRate: 25
@@ -169,4 +170,3 @@ MonoBehaviour:
   timeBetweenShots: 0.067
   timeToReload: 5
   magazineSize: 20
-  playerWithinRange: 0

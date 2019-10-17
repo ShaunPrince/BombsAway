@@ -14,7 +14,7 @@ public class EnemyShooting : DamageableEntity
     private int ammoCount;
     private bool reloading = false;
 
-    public bool playerWithinRange = false;
+    private bool playerWithinRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,10 @@ public class EnemyShooting : DamageableEntity
         if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= aimingDistance &&
             Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= aimingDistance)
         {
-            playerWithinRange = true;
+            if (this.GetComponent<EnemyFlying>().IsParallel())
+            {
+                playerWithinRange = true;
+            }
         }
         else
         {

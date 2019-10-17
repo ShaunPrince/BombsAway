@@ -39,9 +39,11 @@ public class EnemyFlying : MonoBehaviour
     private bool startDodging = false;
     private bool currentlyDodging = false;
 
+    private float enemyNormalSpeed;
+
     private Transform playerTransform;
     private Flying playerFlyingComponent;
-    private Flying flyingComponent;
+    private Flying enemyFlyingComponent;
 
     public float timeBetweenUpdates;
     private float deltaTime = 0f;
@@ -54,11 +56,13 @@ public class EnemyFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flyingComponent = this.GetComponent<Flying>();
+        enemyFlyingComponent = this.GetComponent<Flying>();
         playerTransform = GameObject.FindWithTag("Player").transform;
-        playerFlyingComponent = GameObject.FindWithTag("Player").GetComponent<Flying>();
+        playerFlyingComponent = GameObject.FindWithTag("PilotStation").GetComponent<Flying>();
+        enemyNormalSpeed = enemyFlyingComponent.desiredForwardSpeed;
         SetAltitude();
         SetDirection();
+        //SetSpeed();
     }
 
     // Update is called once per frame
@@ -71,6 +75,8 @@ public class EnemyFlying : MonoBehaviour
         {
             SetAltitude();
             SetDirection();
+            SetSpeed();
+            CheckParallelism();
             deltaTime = 0;
         }
         else
@@ -84,7 +90,7 @@ public class EnemyFlying : MonoBehaviour
         return currentlyParallelToPlayer;
     }
 
-    void CheckPlayerDistance()
+    private void CheckPlayerDistance()
     {
         if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= dodgeDistance &&
             Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= dodgeDistance)
@@ -106,7 +112,8 @@ public class EnemyFlying : MonoBehaviour
         }
     }
 
-    void SetAltitude()
+    #region Altitude
+    private void SetAltitude()
     {
         // move towards player
         // if too close to player, go up/down to avoid them
@@ -120,7 +127,7 @@ public class EnemyFlying : MonoBehaviour
         }
         else if (startParalellMovement)
         {
-            altitude = MatchPlayersAltitude(); //PullUpParallelToPlayer();
+            altitude = MatchPlayersAltitude();
         }
         else
         {
@@ -130,10 +137,10 @@ public class EnemyFlying : MonoBehaviour
             altitude = Random.Range(minAlt, maxAlt);
         }
         
-        flyingComponent.SetDesAlt(altitude);
+        enemyFlyingComponent.SetDesAlt(altitude);
     }
 
-    float DodgePlayer()
+    private float DodgePlayer()
     {
         float altitude;
         // if dodge altitude has not yet been set, set it, else do nothing
@@ -141,8 +148,8 @@ public class EnemyFlying : MonoBehaviour
         {
             // if altitude is >= to player and close enough, fly up and over
             // if altitude is <= player and close enough, fly down and under
-            if (flyingComponent.desireAltitude >= playerTransform.position.y) altitude = flyingComponent.desireAltitude + dodgeAmount;
-            else altitude = flyingComponent.desireAltitude - dodgeAmount;
+            if (enemyFlyingComponent.desireAltitude >= playerTransform.position.y) altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
+            else altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
 
             Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
             currentlyDodging = true;
@@ -150,29 +157,24 @@ public class EnemyFlying : MonoBehaviour
         else
         {
             // else doooo nothing
-            altitude = flyingComponent.desireAltitude;
+            altitude = enemyFlyingComponent.desireAltitude;
         }
 
         return altitude;
     }
 
-    float MatchPlayersAltitude()
+    private float MatchPlayersAltitude()
     {
-        return 0f;
+        // get players current altitude
+        return playerFlyingComponent.currentAltitude;
     }
+    #endregion
 
-    float PullUpParallelToPlayer()
-    {
-        // get players current direction
-        // start turning to match that direction
-        // update constantly to match player's direction for a certain amount of time
-        return playerFlyingComponent.currentDir;
-    }
-
-    void SetDirection()
+    #region Direction
+    private void SetDirection()
     {
         float direction;
-        if (currentlyParallelToPlayer)
+        if (startParalellMovement)
         {
             direction = MatchPlayersDirection();
         }
@@ -191,12 +193,47 @@ public class EnemyFlying : MonoBehaviour
             //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
         }
 
-        flyingComponent.SetDesDir(direction);
+        enemyFlyingComponent.SetDesDir(direction);
     }
 
     private float MatchPlayersDirection()
     {
-        return 0f;
+        // get players current direction
+        // start turning to match that direction
+        // update constantly to match player's direction for a certain amount of time
+        return playerFlyingComponent.currentDir;
+    }
+    #endregion
+
+    #region Speed
+    private void SetSpeed()
+    {
+        float speed;
+        // if starting to be parallel, start to slow down to player speed
+        if (startParalellMovement)
+        {
+            speed = playerFlyingComponent.currentForwardSpeed;
+        }
+        else
+        {
+            speed = enemyNormalSpeed;
+        }
+
+        enemyFlyingComponent.SetDesSpeed(speed);
+    }
+    #endregion
+
+    private void CheckParallelism()
+    {
+        int offset = 5;
+        if (startParalellMovement && 
+            playerFlyingComponent.currentDir - offset <= enemyFlyingComponent.currentDir && enemyFlyingComponent.currentDir <= playerFlyingComponent.currentDir + offset &&
+            playerFlyingComponent.currentAltitude - offset <= enemyFlyingComponent.currentAltitude && enemyFlyingComponent.currentAltitude <= playerFlyingComponent.currentAltitude + offset)
+        {
+            currentlyParallelToPlayer = true;
+            Debug.Log($"Enemy is now parallel to player, ready to start shooting");
+        }
+        else currentlyParallelToPlayer = false;
     }
 
     private void OnDrawGizmos()
