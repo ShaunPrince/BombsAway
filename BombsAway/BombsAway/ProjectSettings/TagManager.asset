@@ -18,6 +18,7 @@ TagManager:
   - Controls
   - Stations
   - Bullet
+  - UI
   layers:
   - Default
   - TransparentFX
