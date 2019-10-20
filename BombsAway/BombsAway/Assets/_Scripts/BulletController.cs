@@ -7,27 +7,27 @@ public class BulletController : MonoBehaviour
     public float damage;
     private float timeAlive;
     private Vector3 lastPosition;
-    private Vector3 currentPostition;
+    private Vector3 currentPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         timeAlive = 0.0f;
-        currentPostition = this.transform.position;
         lastPosition = this.transform.position;
+        currentPosition = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //lastPosition = currentPostition;
-        //currentPostition = this.transform.position;
+        lastPosition = currentPosition;
+        currentPosition = this.transform.position;
         timeAlive += Time.deltaTime;
         if (timeAlive >= 10.0f)
         {
             Destroy(this.gameObject);
         }
-        //CheckForHit();
+        CheckForHit();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,10 +46,10 @@ public class BulletController : MonoBehaviour
     private void CheckForHit()
     {
         
-        Vector3 backwards = this.transform.forward * -1.0f;
         RaycastHit hit;
-        LayerMask layerMask = LayerMask.GetMask("Bullet");
-        if (Physics.Raycast(currentPostition, backwards, out hit, Vector3.Distance(currentPostition, lastPosition), layerMask))
+        //LayerMask layerMask = LayerMask.GetMask("Bullet");
+        float distance = Vector3.Distance(lastPosition, currentPosition);
+        if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance) && !hit.collider.tag.Equals("Bullet"))
         {
             Debug.Log("Hit");
             HitObject(hit.collider);
@@ -62,11 +62,6 @@ public class BulletController : MonoBehaviour
         {
             other.GetComponent<DamageableEntity>().TakeDamage(damage);
             GameObject.Destroy(this.gameObject);
-        }
-        if (!(other.tag.Equals("Player") || other.tag.Equals("Ground")))
-        {
-            Debug.Log("Hit");
-            //Destroy(other.gameObject);
         }
     }
 }

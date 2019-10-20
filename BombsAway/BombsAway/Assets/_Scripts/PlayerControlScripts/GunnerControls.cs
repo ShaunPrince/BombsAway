@@ -64,7 +64,7 @@ public class GunnerControls : ControlScheme
             -Mathf.Abs(startingXRotation - myCamera.transform.localRotation.eulerAngles.x + -deltaY * lookSensitivity) >= minXLook)
         {
 
-            //myCamera.transform.Rotate(-deltaY * lookSensitivity, 0f, 0f);
+            myCamera.transform.Rotate(-deltaY * lookSensitivity, 0f, 0f);
         }
 
         //Go back later and force constraints
@@ -74,7 +74,7 @@ public class GunnerControls : ControlScheme
         if (Mathf.Abs(startingYRotation - this.transform.parent.localRotation.eulerAngles.y + deltaX * lookSensitivity) <= maxYLook &&
             -Mathf.Abs(startingYRotation - this.transform.parent.localRotation.eulerAngles.y + deltaX * lookSensitivity) >= minYLook)
         {
-            //this.transform.parent.Rotate(0f, deltaX * lookSensitivity, 0f);
+            this.transform.parent.Rotate(0f, deltaX * lookSensitivity, 0f);
 
         }
 
