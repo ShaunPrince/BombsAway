@@ -44,6 +44,7 @@ public class EnemyShooting : DamageableEntity
             {
                 AimGunAtPlayer();
                 Shoot();
+                timeSinceShot = 0.0f;
             }
             else
             {
@@ -102,6 +103,7 @@ public class EnemyShooting : DamageableEntity
         int gunIndex = GetGunIndexFromPosition();
         ammoCount--;
         Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun! Ammo count at {ammoCount}");
+        enemyGuns[gunIndex].gun.GetComponent<EnemyGunShoot>().FireGun();
 }
 
     private void ReloadGun()
