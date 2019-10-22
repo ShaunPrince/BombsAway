@@ -7,15 +7,12 @@ public class PlayerGunController : MonoBehaviour
     public float timeBetweenShots;
     public float timeToReload;
     public int magazineSize;
-    public Material emptyGun;
-    public Material normalGun;
 
     private ShootGun sg;
     private GunnerUIController guic;
     private float timeSinceShot;
     private int ammoCount;
     private float timeReloading;
-    private Material gunColor;
     private bool reloading;
 
     // Start is called before the first frame update
@@ -26,7 +23,6 @@ public class PlayerGunController : MonoBehaviour
         timeSinceShot = 0.0f;
         ammoCount = magazineSize;
         timeReloading = 0.0f;
-        gunColor = this.GetComponent<Renderer>().material;
         reloading = false;
     }
 
@@ -64,7 +60,6 @@ public class PlayerGunController : MonoBehaviour
     private void ReloadGun()
     {
         reloading = true;
-        gunColor.color = emptyGun.color;
     }
 
     private void ReloadingGun()
@@ -75,7 +70,6 @@ public class PlayerGunController : MonoBehaviour
             ammoCount = magazineSize;
             guic.UpdateAmmoCount(ammoCount);
             timeReloading = 0.0f;
-            gunColor.color = normalGun.color;
         }
         else
         {
