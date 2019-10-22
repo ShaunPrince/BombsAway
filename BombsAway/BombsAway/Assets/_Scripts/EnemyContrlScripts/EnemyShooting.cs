@@ -15,7 +15,7 @@ public class EnemyShooting : DamageableEntity
     private float timeSinceShot = 0.0f;
     private float timeReloading = 0.0f;
     private int ammoCount;
-    private bool reloading = false;
+    //private bool reloading = false;
 
     public bool playerWithinRange = false;
 
@@ -30,15 +30,13 @@ public class EnemyShooting : DamageableEntity
     {
         // always check if the player is within range
         CheckIfPlayerWithinRange();
-        if (ammoCount <= 0 && !reloading)
+        if (gunToShoot != null && !enemyGuns[GetGunIndexFromPosition()].HasAmmo())
         {
-            reloading = true;
-        }
-        else if (reloading)
-        {
+            //reloading = true;
+            enemyGuns[GetGunIndexFromPosition()].SetReloading(true);
             ReloadGun();
         }
-        else if (playerWithinRange && !reloading)
+        else if (playerWithinRange && !enemyGuns[GetGunIndexFromPosition()].isReloading())
         {
             if (timeSinceShot >= timeBetweenShots)
             {
@@ -59,7 +57,7 @@ public class EnemyShooting : DamageableEntity
         if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= aimingDistance &&
             Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= aimingDistance)
         {
-            if (this.GetComponent<EnemyFlying>().IsParallel()) {
+            if (this.GetComponent<EnemyFlying>().IsParallel() && !this.GetComponent<EnemyFlying>().IsDodging()) {
                 playerWithinRange = true;
                 CheckWhichPositionPlayerIs(playerTransform);
             }
@@ -72,19 +70,28 @@ public class EnemyShooting : DamageableEntity
 
     private void CheckWhichPositionPlayerIs(Transform playerTransform)
     {
+        // find the line from the center of the player to the center of the enemy
+        // angle relative to player.transform.forward
+        // 0-180 right, 180-360 left
+
+        // slope of player-enemy
+        float slopePE = (playerTransform.position.z - this.transform.position.z) / (playerTransform.position.x - this.transform.position.x);
+        float slopeEE = this.transform.forward.x == 0 ? 0f : (this.transform.forward.z) / (this.transform.forward.x);
+        float angle = Vector3.SignedAngle(this.transform.forward, new Vector3(playerTransform.position.x - this.transform.position.x, 0, playerTransform.position.z - this.transform.position.z) , Vector3.up);
+        //Debug.Log($"Angle: {angle}, {this.transform.forward}");
+
         // to the left of the enemy
-        if (playerTransform.position.x - this.transform.position.x <= 0 ||
-            playerTransform.position.z - this.transform.position.z <= 0)
+        if (angle <= 0)
         {
             gunToShoot = Position.Left;
         }
         // in front of the enemy
         // to the right of the enemy
-        if (playerTransform.position.x - this.transform.position.x > 0 ||
-            playerTransform.position.z - this.transform.position.z > 0)
+        else if (angle > 0)
         {
             gunToShoot = Position.Right;
         }
+        //Debug.Log($"Player is to the {gunToShoot} of enemy");
         // behind the enemy
     }
 
@@ -93,7 +100,6 @@ public class EnemyShooting : DamageableEntity
         int gunIndex = GetGunIndexFromPosition();
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();   // MAKE MORE EFFICIENT
         Quaternion rotation = Quaternion.LookRotation(playerTransform.position - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
-        //float eulerDirection = rotation.eulerAngles.y;
         enemyGuns[gunIndex].gun.transform.rotation = rotation;
     }
 
@@ -101,8 +107,9 @@ public class EnemyShooting : DamageableEntity
     {
         // do a shoot
         int gunIndex = GetGunIndexFromPosition();
-        ammoCount--;
-        Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun! Ammo count at {ammoCount}");
+        //ammoCount--;
+        enemyGuns[gunIndex].DecreaseAmmo();
+        //Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
         enemyGuns[gunIndex].gun.GetComponent<EnemyGunShoot>().FireGun();
 }
 
@@ -110,10 +117,13 @@ public class EnemyShooting : DamageableEntity
     {
         if (timeReloading >= timeToReload)
         {
-            reloading = false;
-            ammoCount = magazineSize;
+            //reloading = false;
+            //ammoCount = magazineSize;
+            int gunIndex = GetGunIndexFromPosition();
+            enemyGuns[gunIndex].ReloadAmmo(magazineSize);
+            enemyGuns[gunIndex].SetReloading(false);
             timeReloading = 0.0f;
-            Debug.Log($"Enemy reloaded and ready to re-enter fight");
+            //Debug.Log($"Enemy reloaded and ready to re-enter fight");
         }
         else
         {
@@ -146,18 +156,27 @@ public class EnemyGun
     public Position gunPosition;
     public GameObject gun;
     private int ammo;
+    private bool reloading = false;
 
-    public void decreaseAmmo()
+    public void DecreaseAmmo()
     {
         --ammo;
     }
-    public void reloadAmmo(int reload)
+    public void ReloadAmmo(int reload)
     {
         ammo = reload;
     }
-    public bool hasAmmo()
+    public bool HasAmmo()
     {
         if (ammo <= 0) return false;
         else return true;
+    }
+    public bool isReloading()
+    {
+        return reloading;
+    }
+    public void SetReloading(bool value)
+    {
+        reloading = value;
     }
 }

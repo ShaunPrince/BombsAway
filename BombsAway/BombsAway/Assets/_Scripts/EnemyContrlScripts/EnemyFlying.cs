@@ -90,17 +90,29 @@ public class EnemyFlying : MonoBehaviour
         return currentlyParallelToPlayer;
     }
 
+    public bool IsDodging()
+    {
+        return currentlyDodging;
+    }
+
     private void CheckPlayerDistance()
     {
         if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= dodgeDistance &&
             Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= dodgeDistance)
         {
             startDodging = true;
+
+            startParalellMovement = false;
+            currentlyParallelToPlayer = false;
         }
-        else if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= parallelDistance &&
+        else if (!currentlyDodging &&
+                 Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= parallelDistance &&
                  Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= parallelDistance)
         {
             startParalellMovement = true;
+
+            startDodging = false;
+            currentlyDodging = false;
         }
         else
         {
@@ -226,12 +238,12 @@ public class EnemyFlying : MonoBehaviour
     private void CheckParallelism()
     {
         int offset = 5;
-        if (startParalellMovement && 
+        if (startParalellMovement && !startDodging &&
             playerFlyingComponent.currentDir - offset <= enemyFlyingComponent.currentDir && enemyFlyingComponent.currentDir <= playerFlyingComponent.currentDir + offset &&
             playerFlyingComponent.currentAltitude - offset <= enemyFlyingComponent.currentAltitude && enemyFlyingComponent.currentAltitude <= playerFlyingComponent.currentAltitude + offset)
         {
             currentlyParallelToPlayer = true;
-            Debug.Log($"Enemy is now parallel to player, ready to start shooting");
+            //Debug.Log($"Enemy is now parallel to player, ready to start shooting");
         }
         else currentlyParallelToPlayer = false;
     }
