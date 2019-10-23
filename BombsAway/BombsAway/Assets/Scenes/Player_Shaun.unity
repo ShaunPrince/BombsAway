@@ -3031,45 +3031,5 @@ PrefabInstance:
       propertyPath: canvasRectTran
       value: 
       objectReference: {fileID: 1102557854}
-    - target: {fileID: 8303750254494734474, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetSpeeds.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetSpeeds.Array.data[1]
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetSpeeds.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetSpeeds.Array.data[3]
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[0]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[2]
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 3924041514926608376, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[3]
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}

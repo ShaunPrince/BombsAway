@@ -52,7 +52,7 @@ public class BulletController : MonoBehaviour
         float distance = Vector3.Distance(lastPosition, currentPosition);
         if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance) && !hit.collider.tag.Equals("Bullet"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             HitObject(hit.collider);
         }
     }

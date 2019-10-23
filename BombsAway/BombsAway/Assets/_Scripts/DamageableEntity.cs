@@ -25,7 +25,7 @@ public class DamageableEntity : MonoBehaviour
         if(allegianceOfIncomingDamage != allegiance)
         {
             health -= incomingDamage;
-            Debug.Log(this + " Is taking damage");
+            //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
                 GameObject.Destroy(this.gameObject);
