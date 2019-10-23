@@ -16,6 +16,7 @@ public class BulletController : MonoBehaviour
         timeAlive = 0.0f;
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
+        this.transform.parent = null;
     }
 
     // Update is called once per frame
