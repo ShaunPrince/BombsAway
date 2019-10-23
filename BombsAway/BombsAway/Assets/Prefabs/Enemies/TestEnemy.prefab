@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028cd215a3f063542a5a1c1631cd29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allegiance: 1
   health: 10
   aimingDistance: 400
   timeBetweenShots: 0.067

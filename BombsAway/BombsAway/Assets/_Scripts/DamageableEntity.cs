@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageableEntity : MonoBehaviour
 {
+    public EAllegiance allegiance;
     public float health;
 
 
@@ -19,13 +20,17 @@ public class DamageableEntity : MonoBehaviour
         
     }
 
-    public void TakeDamage(float incomingDamage)
+    public void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
-        health -= incomingDamage;
-        Debug.Log(this + " Is taking damage");
-        if(health <= 0)
+        if(allegianceOfIncomingDamage != allegiance)
         {
-            GameObject.Destroy(this.gameObject);
+            health -= incomingDamage;
+            Debug.Log(this + " Is taking damage");
+            if (health <= 0)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         }
+
     }
 }

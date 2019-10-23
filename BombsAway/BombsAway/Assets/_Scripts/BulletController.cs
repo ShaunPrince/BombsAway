@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
+    public EAllegiance allegiance;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.GetComponent<DamageableEntity>() != null)
         {
-            other.GetComponent<DamageableEntity>().TakeDamage(damage);
+            other.GetComponent<DamageableEntity>().TakeDamage(damage,allegiance);
             GameObject.Destroy(this.gameObject);
         }
     }

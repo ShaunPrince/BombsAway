@@ -10,7 +10,7 @@ public class EnemyShooting : DamageableEntity
     public int magazineSize;
 
     public EnemyGun[] enemyGuns;
-    private Position gunToShoot;
+    private EPosition gunToShoot;
 
     private float timeSinceShot = 0.0f;
     private float timeReloading = 0.0f;
@@ -83,13 +83,13 @@ public class EnemyShooting : DamageableEntity
         // to the left of the enemy
         if (angle <= 0)
         {
-            gunToShoot = Position.Left;
+            gunToShoot = EPosition.Left;
         }
         // in front of the enemy
         // to the right of the enemy
         else if (angle > 0)
         {
-            gunToShoot = Position.Right;
+            gunToShoot = EPosition.Right;
         }
         //Debug.Log($"Player is to the {gunToShoot} of enemy");
         // behind the enemy
@@ -153,7 +153,7 @@ public class EnemyShooting : DamageableEntity
 [System.Serializable]
 public class EnemyGun
 {
-    public Position gunPosition;
+    public EPosition gunPosition;
     public GameObject gun;
     private int ammo;
     private bool reloading = false;
