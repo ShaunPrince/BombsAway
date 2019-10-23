@@ -59,9 +59,9 @@ public class BulletController : MonoBehaviour
 
     private void HitObject(Collider other)
     {
-        if(other.gameObject.GetComponent<DamageableEntity>() != null)
+        if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
-            other.GetComponent<DamageableEntity>().TakeDamage(damage,allegiance);
+            other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             GameObject.Destroy(this.gameObject);
         }
     }

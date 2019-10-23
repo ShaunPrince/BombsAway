@@ -47,8 +47,7 @@ public class SelectWheel : MonoBehaviour
         {
             CursorLockMode cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
-            wheel.SetActive(true);
-            element.SetActive(true);
+            SetUIActive(true);
             PointerEventData = new PointerEventData(EventSystem);
             PointerEventData.position = Input.mousePosition;
 
@@ -78,6 +77,7 @@ public class SelectWheel : MonoBehaviour
                         Cursor.lockState = cursorLockState;
                         
                         stationManager.SetMainStation(result[0].gameObject.GetComponent<SelectionArea>().referencesStation);
+                        //SetUIActive(false);
                     }
                 }
                 else
@@ -92,12 +92,18 @@ public class SelectWheel : MonoBehaviour
         }
         else if (wheel.activeSelf) 
         {
-            wheel.SetActive(false);
-            element.SetActive(false);
+            SetUIActive(false);
+
 
         }
 
 
 
+    }
+
+    private void SetUIActive(bool newState)
+    {
+        wheel.SetActive(newState);
+        element.SetActive(newState);
     }
 }
