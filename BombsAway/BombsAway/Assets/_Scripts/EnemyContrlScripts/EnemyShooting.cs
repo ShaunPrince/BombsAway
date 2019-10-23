@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyShooting : DamageableEntity
 {
-    public float aimingDistance;
+    //public float aimingDistance;
     public float timeBetweenShots;
     public float timeToReload;
     public int magazineSize;
@@ -14,15 +14,15 @@ public class EnemyShooting : DamageableEntity
 
     private float timeSinceShot = 0.0f;
     private float timeReloading = 0.0f;
-    private int ammoCount;
+    //private int ammoCount;
     //private bool reloading = false;
 
-    public bool playerWithinRange = false;
+    private bool playerWithinRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        ammoCount = magazineSize;
+        //ammoCount = magazineSize;
     }
 
     // Update is called once per frame
@@ -54,14 +54,13 @@ public class EnemyShooting : DamageableEntity
     private void CheckIfPlayerWithinRange()
     {
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();  //CHANGE
-        if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= aimingDistance &&
-            Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= aimingDistance)
-        {
+        //if (Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= aimingDistance)
+        //{
             if (this.GetComponent<EnemyFlying>().IsParallel() && !this.GetComponent<EnemyFlying>().IsDodging()) {
                 playerWithinRange = true;
                 CheckWhichPositionPlayerIs(playerTransform);
             }
-        }
+        //}
         else
         {
             playerWithinRange = false;
@@ -144,10 +143,6 @@ public class EnemyShooting : DamageableEntity
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
-        // draw view area of enemy
-        UnityEditor.Handles.color = Color.green;
-        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, aimingDistance);
-
         UnityEditor.Handles.color = Color.cyan;
         // draw each gun view
         for (int i = 0; i < enemyGuns.Length; i++)

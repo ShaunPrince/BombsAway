@@ -32,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
     public float worldLength;
 
     public int timeBetweenSpawn;
+    [Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
+    public float initialSpeedIncrease;
     public EnemySpawn[] Enemies;
 
     private float deltaTime = 100f;
@@ -89,7 +91,8 @@ public class EnemySpawner : MonoBehaviour
                 rotation.Set(0, rotation.y, 0, rotation.w);    // flatten the x and z rotation out
 
                 //Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
-                Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
+                GameObject newEnemy = Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
+                newEnemy.GetComponent<Flying>().SetDesSpeed(GameObject.FindWithTag("PilotStation").GetComponent<Flying>().desiredForwardSpeed + initialSpeedIncrease);
 
                 break;
             }
@@ -109,6 +112,8 @@ public class EnemySpawner : MonoBehaviour
     // does not 100% work 😅
     private void OnValidate()
     {
+        if (initialSpeedIncrease <= 0) initialSpeedIncrease = 1;
+
         float probSum = 0;
         for (int i = 0; i < Enemies.Length; i++)
         {

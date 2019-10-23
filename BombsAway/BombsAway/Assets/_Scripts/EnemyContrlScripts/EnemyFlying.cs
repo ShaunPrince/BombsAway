@@ -29,6 +29,8 @@ public class EnemyFlying : MonoBehaviour
     public float percisionOffset; // in terms of flying towards player, altitude relative to player
                                   // don't want perfect aim
 
+    public float visionDistance;
+
     public float parallelDistance;
     public float timeToRemainParallel;
     private bool startParalellMovement = false;
@@ -39,7 +41,10 @@ public class EnemyFlying : MonoBehaviour
     private bool startDodging = false;
     private bool currentlyDodging = false;
 
-    private float enemyNormalSpeed;
+    private float catchUpSpeed;
+    private bool needToCatchUp = true;
+
+    public float enemyNormalSpeed;
 
     private Transform playerTransform;
     private Flying playerFlyingComponent;
@@ -59,7 +64,7 @@ public class EnemyFlying : MonoBehaviour
         enemyFlyingComponent = this.GetComponent<Flying>();
         playerTransform = GameObject.FindWithTag("Player").transform;
         playerFlyingComponent = GameObject.FindWithTag("PilotStation").GetComponent<Flying>();
-        enemyNormalSpeed = enemyFlyingComponent.desiredForwardSpeed;
+        catchUpSpeed = enemyFlyingComponent.desiredForwardSpeed - playerFlyingComponent.desiredForwardSpeed;
         SetAltitude();
         SetDirection();
         //SetSpeed();
@@ -73,6 +78,7 @@ public class EnemyFlying : MonoBehaviour
         // when enemy gets too close to player, raise up, fly over, fly forward for a short time, then return to attacking
         if (deltaTime >= timeBetweenUpdates)
         {
+            CheckPlayerDistance();
             SetAltitude();
             SetDirection();
             SetSpeed();
@@ -97,8 +103,7 @@ public class EnemyFlying : MonoBehaviour
 
     private void CheckPlayerDistance()
     {
-        if (Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= dodgeDistance &&
-            Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= dodgeDistance)
+        if (Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= dodgeDistance)
         {
             startDodging = true;
 
@@ -106,16 +111,23 @@ public class EnemyFlying : MonoBehaviour
             currentlyParallelToPlayer = false;
         }
         else if (!currentlyDodging &&
-                 Mathf.Abs(playerTransform.position.x - this.transform.position.x) <= parallelDistance &&
-                 Mathf.Abs(playerTransform.position.z - this.transform.position.z) <= parallelDistance)
+                 Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= parallelDistance)
         {
             startParalellMovement = true;
 
             startDodging = false;
             currentlyDodging = false;
+
+        }
+        else if (!currentlyDodging &&
+                 Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= visionDistance)
+        {
+            needToCatchUp = false;
         }
         else
         {
+            needToCatchUp = true;
+
             startDodging = false;
             currentlyDodging = false;
 
@@ -132,7 +144,6 @@ public class EnemyFlying : MonoBehaviour
         float altitude;
         // MAKE IT SO THEY CAN DODGE ANYONE
         // WHAT IF PLAYER IS MOVING UP WHILE ENEMY IS DODGIN UP OR VISVERSA
-        CheckPlayerDistance();
         if (startDodging)
         {
             altitude = DodgePlayer();
@@ -221,8 +232,19 @@ public class EnemyFlying : MonoBehaviour
     private void SetSpeed()
     {
         float speed;
+        // allow enemy to be a bit faster when the first spawn in order to catch up to the player
+        if (needToCatchUp)
+        {
+            speed = playerFlyingComponent.desiredForwardSpeed + catchUpSpeed;
+        }
         // if starting to be parallel, start to slow down to player speed
-        if (startParalellMovement)
+        else if (startParalellMovement)
+        {
+            // start to get closer to the players speed but not equal to
+            if (playerFlyingComponent.currentForwardSpeed >= enemyNormalSpeed) speed = enemyNormalSpeed + playerFlyingComponent.currentForwardSpeed / 2;
+            else speed = enemyNormalSpeed - playerFlyingComponent.currentForwardSpeed / 2;
+        }
+        else if (currentlyParallelToPlayer)
         {
             speed = playerFlyingComponent.currentForwardSpeed;
         }
@@ -251,6 +273,10 @@ public class EnemyFlying : MonoBehaviour
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
+        // draw view area of enemy
+        UnityEditor.Handles.color = Color.green;
+        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, visionDistance);
+
         // draw enemy parallel distance
         UnityEditor.Handles.color = Color.yellow;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, parallelDistance);
