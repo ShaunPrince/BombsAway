@@ -1627,7 +1627,7 @@ PrefabInstance:
     - target: {fileID: 2029788900657391509, guid: 86640fcc7068b1649997ac5856caa2e1,
         type: 3}
       propertyPath: timeBetweenSpawn
-      value: 15
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86640fcc7068b1649997ac5856caa2e1, type: 3}
@@ -3026,10 +3026,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3655325482448829072, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655325482448829072, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655325482448829072, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3655325483014247097, guid: 985981ffd35d23742abe1eabc30a0189,
         type: 3}
       propertyPath: canvasRectTran
       value: 
       objectReference: {fileID: 1102557854}
+    - target: {fileID: 3655325481388555612, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303750254494734474, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}

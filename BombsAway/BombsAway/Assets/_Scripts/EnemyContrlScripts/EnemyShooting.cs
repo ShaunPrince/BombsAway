@@ -100,6 +100,7 @@ public class EnemyShooting : DamageableEntity
         int gunIndex = GetGunIndexFromPosition();
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();   // MAKE MORE EFFICIENT
         Quaternion rotation = Quaternion.LookRotation(playerTransform.position - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
+        // FIX, MAKE SMOOTH MOVEMENT
         enemyGuns[gunIndex].gun.transform.rotation = rotation;
     }
 
@@ -146,6 +147,13 @@ public class EnemyShooting : DamageableEntity
         // draw view area of enemy
         UnityEditor.Handles.color = Color.green;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, aimingDistance);
+
+        UnityEditor.Handles.color = Color.cyan;
+        // draw each gun view
+        for (int i = 0; i < enemyGuns.Length; i++)
+        {
+            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 300);
+        }
 #endif
     }
 }
