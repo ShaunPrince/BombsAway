@@ -166,9 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028cd215a3f063542a5a1c1631cd29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allegiance: 1
   health: 10
   aimingDistance: 400
-  timeBetweenShots: 0.067
+  timeBetweenShots: 0.001
   timeToReload: 5
   magazineSize: 20
   enemyGuns:
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 200
+  projectileSpeed: 1000
 --- !u!1 &6359421984308533483
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,4 +393,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 200
+  projectileSpeed: 1000

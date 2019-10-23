@@ -43,9 +43,11 @@ public class SelectWheel : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Tab)) {
-            wheel.SetActive(true);
-            element.SetActive(true);
+        if (Input.GetKey(KeyCode.Tab)) 
+        {
+            CursorLockMode cursorLockState = Cursor.lockState;
+            Cursor.lockState = CursorLockMode.None;
+            SetUIActive(true);
             PointerEventData = new PointerEventData(EventSystem);
             PointerEventData.position = Input.mousePosition;
 
@@ -70,29 +72,38 @@ public class SelectWheel : MonoBehaviour
                     float angle = -1 * Mathf.Atan2(pos.x - Screen.width / 2, pos.y - Screen.height / 2) * Mathf.Rad2Deg;
 
                     wheel.transform.rotation = Quaternion.Euler(0, 0, angle);
-                    if(result[0].gameObject.GetComponent<SelectionArea>() != null)
+                    if(result[0].gameObject.GetComponent<SelectionArea>() != null && Input.GetMouseButtonDown(0))
                     {
+                        Cursor.lockState = cursorLockState;
+                        
                         stationManager.SetMainStation(result[0].gameObject.GetComponent<SelectionArea>().referencesStation);
+                        //SetUIActive(false);
                     }
                 }
                 else
                 {
                     pointer.SetActive(false);
                     center.GetComponent<Image>().overrideSprite = center_cog[1]; //fake selection outline
+                    Cursor.lockState = cursorLockState;
                 }
 
             }
 
+        }
+        else if (wheel.activeSelf) 
+        {
+            SetUIActive(false);
+
 
         }
-        else
-            if (wheel.activeSelf) {
-            wheel.SetActive(false);
-            element.SetActive(false);
-
-        }
 
 
 
+    }
+
+    private void SetUIActive(bool newState)
+    {
+        wheel.SetActive(newState);
+        element.SetActive(newState);
     }
 }

@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
+    public EAllegiance allegiance;
 
     // Start is called before the first frame update
     void Start()
@@ -51,16 +52,16 @@ public class BulletController : MonoBehaviour
         float distance = Vector3.Distance(lastPosition, currentPosition);
         if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance) && !hit.collider.tag.Equals("Bullet"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             HitObject(hit.collider);
         }
     }
 
     private void HitObject(Collider other)
     {
-        if(other.gameObject.GetComponent<DamageableEntity>() != null)
+        if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
-            other.GetComponent<DamageableEntity>().TakeDamage(damage);
+            other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             GameObject.Destroy(this.gameObject);
         }
     }

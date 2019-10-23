@@ -163,7 +163,7 @@ public class EnemyFlying : MonoBehaviour
             if (enemyFlyingComponent.desireAltitude >= playerTransform.position.y) altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
             else altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
 
-            Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
+            //Debug.Log($"Dodging player! Avoidance Distance of {Mathf.Abs(playerTransform.position.x - this.transform.position.x)} or {Mathf.Abs(playerTransform.position.z - this.transform.position.z)}");
             currentlyDodging = true;
         }
         else

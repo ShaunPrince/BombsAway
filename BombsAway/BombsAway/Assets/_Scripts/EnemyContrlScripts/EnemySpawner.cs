@@ -88,7 +88,7 @@ public class EnemySpawner : MonoBehaviour
                 Quaternion rotation = Quaternion.LookRotation(lookingDirection, Vector3.up);
                 rotation.Set(0, rotation.y, 0, rotation.w);    // flatten the x and z rotation out
 
-                Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
+                //Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
                 Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
 
                 break;
