@@ -18,11 +18,18 @@ public class Flying : MonoBehaviour
 
     public float lateralMovementDamperScale;
 
+    public float fixedAcceleration;
+    public float maxVerticalVelocity;
+
     public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(fixedAcceleration == 0 || maxVerticalVelocity == 0)
+        {
+            fixedAcceleration = 50;
+            maxVerticalVelocity = 100;
+        }
     }
 
     // Update is called once per frame
@@ -38,14 +45,29 @@ public class Flying : MonoBehaviour
 
         currentAltitude = this.transform.position.y;
         //set vertical velocity to the current velocity plus/minus the velocity per second (Acceleration)
-        if(Mathf.Abs(desireAltitude - currentAltitude) * verticalAcceleration   >= verticalAcceleration )
+        //if(Mathf.Abs(desireAltitude - currentAltitude) * verticalAcceleration   >= verticalAcceleration )
+        //{
+        //    rb.velocity = new Vector3(rb.velocity.x,Mathf.Sign(desireAltitude - currentAltitude) * verticalAcceleration * Time.deltaTime,rb.velocity.z);
+        //}
+        //else
+        //{
+        //    rb.velocity = new Vector3(rb.velocity.x,0f,rb.velocity.z);
+        //}
+
+        float deltaAlt = desireAltitude - currentAltitude;
+        float timeToStop = Mathf.Abs(rb.velocity.y) / fixedAcceleration;
+        float distToStop = rb.velocity.y * timeToStop + -.5f * Mathf.Sign(rb.velocity.y) * fixedAcceleration * timeToStop * timeToStop;
+
+        if (Mathf.Abs(deltaAlt) <= Mathf.Abs(distToStop))
         {
-            rb.velocity = new Vector3(rb.velocity.x,Mathf.Sign(desireAltitude - currentAltitude) * verticalAcceleration * Time.deltaTime,rb.velocity.z);
+            rb.AddForce(0f, -1 * Mathf.Sign(rb.velocity.y) * fixedAcceleration, 0f);
         }
-        else
+        else if (Mathf.Abs(rb.velocity.y) + Mathf.Abs(fixedAcceleration/50) < maxVerticalVelocity)
         {
-            rb.velocity = new Vector3(rb.velocity.x,0f,rb.velocity.z);
+            rb.AddForce(0f, Mathf.Sign(deltaAlt) * fixedAcceleration, 0f);
         }
+
+
         
         //add forward/backward force to reach desired speed
         currentForwardSpeed = this.transform.InverseTransformVector(rb.velocity).z;
