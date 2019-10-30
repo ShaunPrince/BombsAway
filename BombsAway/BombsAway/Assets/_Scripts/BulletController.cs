@@ -63,12 +63,17 @@ public class BulletController : MonoBehaviour
 
     private void HitObject(Collider other)
     {
+        Debug.Log(other.gameObject.layer.ToString());
         if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
             //Take this out
             SetTrailPath();
             other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
-            GameObject.Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.layer.ToString() != "8")
+        {
+            Destroy(this.gameObject);
         }
     }
 
