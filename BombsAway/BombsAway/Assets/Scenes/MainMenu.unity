@@ -2304,6 +2304,8 @@ MonoBehaviour:
   m_text: 'Change Station: Tab(hold) + move mouse to desired area, then let go of
     Tab.
 
+    Change Zoom - MouseWheel up/down
+
 
     Flying - Increse Speed: W
 
