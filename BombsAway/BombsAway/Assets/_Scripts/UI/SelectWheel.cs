@@ -19,9 +19,11 @@ public class SelectWheel : MonoBehaviour
     public GameObject element;
     public GameObject center;
     public Sprite[] center_cog;
+    private EStationID selectedStation;
 
     private List<GameObject> elem;
 
+    private CursorLockMode cursorLockState;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +44,11 @@ public class SelectWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         if (Input.GetKey(KeyCode.Tab)) 
         {
-            CursorLockMode cursorLockState = Cursor.lockState;
+            cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
             SetUIActive(true);
             PointerEventData = new PointerEventData(EventSystem);
@@ -72,11 +75,11 @@ public class SelectWheel : MonoBehaviour
                     float angle = -1 * Mathf.Atan2(pos.x - Screen.width / 2, pos.y - Screen.height / 2) * Mathf.Rad2Deg;
 
                     wheel.transform.rotation = Quaternion.Euler(0, 0, angle);
-                    if(result[0].gameObject.GetComponent<SelectionArea>() != null && Input.GetMouseButtonDown(0))
+                    if(result[0].gameObject.GetComponent<SelectionArea>())
                     {
-                        Cursor.lockState = cursorLockState;
-                        
-                        stationManager.SetMainStation(result[0].gameObject.GetComponent<SelectionArea>().referencesStation);
+
+                        selectedStation = result[0].gameObject.GetComponent<SelectionArea>().referencesStation;
+                        //stationManager.SetMainStation(result[0].gameObject.GetComponent<SelectionArea>().referencesStation);
                         //SetUIActive(false);
                     }
                 }
@@ -90,11 +93,15 @@ public class SelectWheel : MonoBehaviour
             }
 
         }
+        else if(Input.GetKeyUp(KeyCode.Tab))
+        {
+            Cursor.lockState = cursorLockState;
+            stationManager.SetMainStation(selectedStation);
+            SetUIActive(false);
+        }
         else if (wheel.activeSelf) 
         {
             SetUIActive(false);
-
-
         }
 
 

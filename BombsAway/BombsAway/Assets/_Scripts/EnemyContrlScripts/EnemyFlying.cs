@@ -52,6 +52,7 @@ public class EnemyFlying : MonoBehaviour
 
     public float timeBetweenUpdates;
     private float deltaTime = 0f;
+    private EStationID selectedStation;
 
     public Transform GetPlayerPosition()
     {
