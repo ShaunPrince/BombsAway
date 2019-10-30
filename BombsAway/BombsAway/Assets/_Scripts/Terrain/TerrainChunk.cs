@@ -31,7 +31,7 @@ public class TerrainChunk
 
     Transform viewer;
 
-    private float meshYposition = -500f;
+    private float meshYposition = -600f;
 
     public TerrainChunk(Vector2 coord, HeightMapSettings heightMapSettings, MeshSettings meshSettings, LevelOfDetailInfo[] detailLevels, int colliderLODIndex, Transform parent, Transform viewer, Material material)
     {

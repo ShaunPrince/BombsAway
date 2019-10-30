@@ -100,7 +100,7 @@ public class EnemyShooting : DamageableEntity
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();   // MAKE MORE EFFICIENT
         Quaternion rotation = Quaternion.LookRotation(playerTransform.position - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
         // FIX, MAKE SMOOTH MOVEMENT
-        enemyGuns[gunIndex].gun.transform.rotation = rotation;
+        enemyGuns[gunIndex].gun.transform.rotation = Quaternion.Lerp(enemyGuns[gunIndex].gun.transform.rotation, rotation, Time.time * 10);
     }
 
     private void Shoot()
