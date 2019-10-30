@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
+    private TrailRenderer tr;
+
     public EAllegiance allegiance;
 
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class BulletController : MonoBehaviour
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
         this.transform.parent = null;
+        tr = this.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -62,8 +65,22 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
+            //Take this out
+            SetTrailPath();
             other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             GameObject.Destroy(this.gameObject);
         }
+    }
+
+    // Begin trail BS
+    private void SetTrailPath()
+    {
+        int length = tr.positionCount;
+        Vector3[] trail = new Vector3[length];
+        for (int i = 0; i < length; ++i)
+        {
+            trail[i] = tr.GetPosition(i);
+        }
+
     }
 }
