@@ -902,6 +902,40 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_text
+      value: 'Change Active Station:
+
+        (Release Tab Over
+
+        Chosen Station)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206025973003247560, guid: 6e12af4ab3f4b5844b38e21bf49b3252,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e12af4ab3f4b5844b38e21bf49b3252, type: 3}
 --- !u!1 &5699427675935370177 stripped
@@ -1345,12 +1379,12 @@ PrefabInstance:
     - target: {fileID: 7133641171036908175, guid: aa88de070ee633d4b91771675d59bbfd,
         type: 3}
       propertyPath: fixedAcceleration
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7133641171036908175, guid: aa88de070ee633d4b91771675d59bbfd,
         type: 3}
       propertyPath: maxVerticalVelocity
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 7133641171036908175, guid: aa88de070ee633d4b91771675d59bbfd,
         type: 3}
