@@ -152,7 +152,7 @@ public class EnemyShooting : DamageableEntity
         // draw each gun view
         for (int i = 0; i < enemyGuns.Length; i++)
         {
-            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 300);
+            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 500);
         }
 #endif
     }

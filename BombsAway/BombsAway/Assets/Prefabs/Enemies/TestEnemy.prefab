@@ -127,10 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percisionOffset: 0
-  visionDistance: 500
-  parallelDistance: 300
+  visionDistance: 700
+  parallelDistance: 500
   timeToRemainParallel: 5
-  dodgeDistance: 100
+  dodgeDistance: 200
   enemyNormalSpeed: 8
   timeBetweenUpdates: 0
 --- !u!114 &794616682320880691
