@@ -25,6 +25,7 @@ use shaun's script - flying script
 
 public class EnemySpawner : MonoBehaviour
 {
+    // EVENTUALLY GET THIS FROM ONE PLACE
     [Header("Don't worry about the circle, it's only in the editor")]
     public float worldCenterX;
     public float worldCenterZ;
