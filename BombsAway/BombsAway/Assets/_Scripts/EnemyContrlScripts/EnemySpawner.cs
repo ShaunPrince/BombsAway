@@ -32,11 +32,14 @@ public class EnemySpawner : MonoBehaviour
     public float worldLength;
 
     public int timeBetweenSpawn;
+    public int minSpawnTime;
+    [Range(0,1)]
+    public int spawnTimeDecrement;
     [Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
     public float initialSpeedIncrease;
     public EnemySpawn[] Enemies;
 
-    private float deltaTime = 100f;
+    private float deltaTime = 100f;     // to create insta spawn
     private float totalWeightedProb = 0;
 
     // Start is called before the first frame update
@@ -51,11 +54,14 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (deltaTime >= timeBetweenSpawn)
         {
             SpawnEnemy();
+            
+            if (timeBetweenSpawn - spawnTimeDecrement > minSpawnTime) timeBetweenSpawn -= spawnTimeDecrement;
+
             deltaTime = 0;
         }
         else

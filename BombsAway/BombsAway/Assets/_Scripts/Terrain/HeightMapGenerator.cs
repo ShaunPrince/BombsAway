@@ -27,8 +27,6 @@ public static class HeightMapGenerator
             }
         }
 
-        Debug.Log($"MaxHeight: {maxValue}");
-
         return new HeightMap(values, minValue, maxValue);
     }
 }
