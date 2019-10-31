@@ -6,7 +6,7 @@ public class InGameCameraManager : MonoBehaviour
 {
     //   public enum ECamScale { small, even, center }; 
     // public ECamScale chosenCamScale;
-    public float chosenCamScale;
+    public static float chosenCamScale;
     public float smallCamScale;
     public float smallCamOffset;
     public float evenCamScale;

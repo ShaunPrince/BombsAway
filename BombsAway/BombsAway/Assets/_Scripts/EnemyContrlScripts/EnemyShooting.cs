@@ -13,7 +13,7 @@ public class EnemyShooting : DamageableEntity
     private EPosition gunToShoot;
 
     private float timeSinceShot = 0.0f;
-    private float timeReloading = 0.0f;
+    //private float timeReloading = 0.0f;
     //private int ammoCount;
     //private bool reloading = false;
 
@@ -30,16 +30,20 @@ public class EnemyShooting : DamageableEntity
     {
         // always check if the player is within range
         CheckIfPlayerWithinRange();
-        if (gunToShoot != null && !enemyGuns[GetGunIndexFromPosition()].HasAmmo())
-        {
-            //reloading = true;
-            enemyGuns[GetGunIndexFromPosition()].SetReloading(true);
-            ReloadGun();
+        for (int i = 0; i < enemyGuns.Length; i++) { 
+            if (!enemyGuns[i].HasAmmo()) {
+                enemyGuns[i].SetReloading(true);
+            }
+            if (enemyGuns[i].isReloading()) {
+                ReloadGun(i);
+            }
         }
-        else if (playerWithinRange && !enemyGuns[GetGunIndexFromPosition()].isReloading())
+        //reloading = true;
+        if (playerWithinRange && !enemyGuns[GetGunIndexFromPosition()].isReloading())
         {
             if (timeSinceShot >= timeBetweenShots)
             {
+                Debug.Log($"Aiming and shooting");
                 AimGunAtPlayer();
                 Shoot();
                 timeSinceShot = 0.0f;
@@ -100,6 +104,7 @@ public class EnemyShooting : DamageableEntity
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();   // MAKE MORE EFFICIENT
         Quaternion rotation = Quaternion.LookRotation(playerTransform.position - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
         // FIX, MAKE SMOOTH MOVEMENT
+        //enemyGuns[gunIndex].gun.transform.rotation = Quaternion.Lerp(enemyGuns[gunIndex].gun.transform.rotation, rotation, Time.time);
         enemyGuns[gunIndex].gun.transform.rotation = rotation;
     }
 
@@ -109,25 +114,25 @@ public class EnemyShooting : DamageableEntity
         int gunIndex = GetGunIndexFromPosition();
         //ammoCount--;
         enemyGuns[gunIndex].DecreaseAmmo();
-        //Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
+        Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
         enemyGuns[gunIndex].gun.GetComponent<EnemyGunShoot>().FireGun();
 }
 
-    private void ReloadGun()
+    private void ReloadGun(int gunIndex)
     {
-        if (timeReloading >= timeToReload)
+        if (enemyGuns[gunIndex].timeReloading >= timeToReload)
         {
             //reloading = false;
             //ammoCount = magazineSize;
-            int gunIndex = GetGunIndexFromPosition();
+            //int gunIndex = GetGunIndexFromPosition();
             enemyGuns[gunIndex].ReloadAmmo(magazineSize);
             enemyGuns[gunIndex].SetReloading(false);
-            timeReloading = 0.0f;
+            enemyGuns[gunIndex].timeReloading = 0.0f;
             //Debug.Log($"Enemy reloaded and ready to re-enter fight");
         }
         else
         {
-            timeReloading += Time.deltaTime;
+            enemyGuns[gunIndex].timeReloading += Time.deltaTime;
         }
     }
 
@@ -147,7 +152,7 @@ public class EnemyShooting : DamageableEntity
         // draw each gun view
         for (int i = 0; i < enemyGuns.Length; i++)
         {
-            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 300);
+            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 500);
         }
 #endif
     }
@@ -158,8 +163,9 @@ public class EnemyGun
 {
     public EPosition gunPosition;
     public GameObject gun;
-    private int ammo;
-    private bool reloading = false;
+    public int ammo = 20;
+    public float timeReloading = 0.0f;
+    public bool reloading = false;
 
     public void DecreaseAmmo()
     {

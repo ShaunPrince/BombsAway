@@ -29,6 +29,7 @@ public class StationManager : MonoBehaviour
         foreach(Station s in this.GetComponentsInChildren<Station>())
         {
             stations.Add(s);
+            s.controlScheme.isActiveControlScheme = false;
         }
     }
 

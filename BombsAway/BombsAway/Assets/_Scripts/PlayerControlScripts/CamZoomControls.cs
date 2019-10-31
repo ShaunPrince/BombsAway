@@ -24,7 +24,7 @@ public class CamZoomControls : MonoBehaviour
 
     public void UpdateZoom(int newZoomIndex)
     {
-        inGameCamManager.chosenCamScale = scalePresets[newZoomIndex];
+        InGameCameraManager.chosenCamScale = scalePresets[newZoomIndex];
         inGameCamManager.UpdateCameras();
     }
 
