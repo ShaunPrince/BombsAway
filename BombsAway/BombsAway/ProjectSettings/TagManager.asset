@@ -19,6 +19,7 @@ TagManager:
   - Stations
   - Bullet
   - UI
+  - MapGenerator
   layers:
   - Default
   - TransparentFX

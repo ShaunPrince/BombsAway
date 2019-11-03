@@ -23,22 +23,15 @@ use shaun's script - flying script
 
 */
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : WorldEntity
 {
-    // EVENTUALLY GET THIS FROM ONE PLACE
-    [Header("Don't worry about the circle, it's only in the editor")]
-    public float worldCenterX;
-    public float worldCenterZ;
-    [Header("Radius of the world (if square, x-axis)")]
-    public float worldLength;
-
     public int timeBetweenSpawn;
     public int minSpawnTime;
     [Range(0,1)]
     public int spawnTimeDecrement;
     [Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
     public float initialSpeedIncrease;
-    public EnemySpawn[] Enemies;
+    public SpawnableObject[] Enemies;
 
     private float deltaTime = 100f;     // to create insta spawn
     private float totalWeightedProb = 0;
@@ -47,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // calculate the weighted prob
-        foreach (EnemySpawn enemy in Enemies)
+        foreach (SpawnableObject enemy in Enemies)
         {
             totalWeightedProb = enemy.CalculateWeightedSpawnProbability(totalWeightedProb);
         }
@@ -78,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
         // choose random altitude (at same as player, gets affected later)
 
         float randomEnemy = Random.Range(0, totalWeightedProb);
-        foreach (EnemySpawn enemy in Enemies)
+        foreach (SpawnableObject enemy in Enemies)
         {
             // spawn that enemy if it is the proper weight
             if (enemy.ProbWithinRange(randomEnemy))
@@ -88,9 +81,9 @@ public class EnemySpawner : MonoBehaviour
 
                 // get random location off the map (radially)
                 // calculate circumfrence of the map, choose any point along it
-                System.Tuple<float, float> xzPos = CalculateRandomSpawnLocation();
+                Vector2 xzPos = CalculateRandomSpawnLocation();
 
-                Vector3 position = new Vector3(xzPos.Item1, playerYaltitude, xzPos.Item2);
+                Vector3 position = new Vector3(xzPos.x, playerYaltitude, xzPos.y);
 
                 // find direction of player and point that way
                 Vector3 lookingDirection = (GameObject.FindWithTag("Player").transform.position - position);
@@ -98,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
                 rotation.Set(0, rotation.y, 0, rotation.w);    // flatten the x and z rotation out
 
                 //Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
-                GameObject newEnemy = Instantiate(enemy.EnemyPrefab, position, rotation, this.transform);
+                GameObject newEnemy = Instantiate(enemy.spawnPrefab, position, rotation, this.transform);
                 newEnemy.GetComponent<Flying>().SetDesSpeed(GameObject.FindWithTag("PilotStation").GetComponent<Flying>().desiredForwardSpeed + initialSpeedIncrease);
 
                 break;
@@ -107,13 +100,13 @@ public class EnemySpawner : MonoBehaviour
         // if rand prob not high enough, do not spawn anyone
     }
 
-    private System.Tuple<float, float> CalculateRandomSpawnLocation()
+    private Vector2 CalculateRandomSpawnLocation()
     {
         float angle = Random.Range(0, 360);
-        float xPos = worldCenterX + worldLength * Mathf.Cos(angle);
-        float zPoz = worldCenterZ + worldLength * Mathf.Sin(angle);
+        float xPos = WorldCenter.x + WorldLength * Mathf.Cos(angle);
+        float zPos = WorldCenter.y + WorldLength * Mathf.Sin(angle);
 
-        return new System.Tuple<float, float>(xPos, zPoz);
+        return new Vector2(xPos, zPos);
     }
 
     // does not 100% work 😅
@@ -134,36 +127,4 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-#if UNITY_EDITOR
-        // draw spawn radius
-        Vector3 debugPos = new Vector3(worldCenterX, 100, worldCenterZ);
-        UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, worldLength);
-#endif
-    }
-
-}
-
-[System.Serializable]
-public class EnemySpawn
-{
-
-    public GameObject EnemyPrefab;
-    [Range(0, 1)]
-    public float probabilityOfSpawn;
-
-    private float weightedSpawn;
-
-    public float CalculateWeightedSpawnProbability(float sum)
-    {
-        weightedSpawn = sum + probabilityOfSpawn;
-        return weightedSpawn;
-    }
-
-    public bool ProbWithinRange(float probablity)
-    {
-        if (weightedSpawn >= probablity) return true;
-        return false;
-    }
 }
