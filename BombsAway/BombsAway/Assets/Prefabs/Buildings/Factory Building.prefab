@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3928826747768393085}
   - component: {fileID: 7987250728884317064}
+  - component: {fileID: 1583734453837667998}
   m_Layer: 0
   m_Name: Factory Building
   m_TagString: Untagged
@@ -71,6 +72,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 400
   m_Center: {x: 0, y: -10.370392, z: -13.397278}
+--- !u!114 &1583734453837667998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951528309667444875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2374ce13325b5d94c850802ab2d5412b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: 1
+  health: 20
+  buildingType: 2
+  pointValue: 10
 --- !u!1001 &6575165933731854867
 PrefabInstance:
   m_ObjectHideFlags: 0

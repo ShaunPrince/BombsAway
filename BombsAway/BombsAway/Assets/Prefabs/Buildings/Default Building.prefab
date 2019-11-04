@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221127550978869220}
   - component: {fileID: 221127550978869219}
+  - component: {fileID: 2156544953626944637}
   m_Layer: 0
   m_Name: Default Building
   m_TagString: Untagged
@@ -45,6 +46,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 350
   m_Center: {x: 0, y: -10.370392, z: -13.397278}
+--- !u!114 &2156544953626944637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221127550978869218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2374ce13325b5d94c850802ab2d5412b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: 1
+  health: 10
+  buildingType: 1
+  pointValue: -10
 --- !u!65 &221127552269506435
 BoxCollider:
   m_ObjectHideFlags: 0

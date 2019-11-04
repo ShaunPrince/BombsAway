@@ -115,7 +115,7 @@ public class EnemyShooting : DamageableEntity
         //ammoCount--;
         enemyGuns[gunIndex].DecreaseAmmo();
         Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
-        enemyGuns[gunIndex].gun.GetComponent<EnemyGunShoot>().FireGun();
+        enemyGuns[gunIndex].gun.GetComponentInChildren<EnemyGunShoot>().FireGun();
 }
 
     private void ReloadGun(int gunIndex)

@@ -120,7 +120,7 @@ public class BuildingSpawner : WorldEntity
 
                 spawnDictionary.Add(spawnLocation, newBuilding);
 
-                Debug.Log($"Spawning {buildings[buildingIndex].spawnPrefab} at {spawnVector3} rotated {rotation}");
+                //Debug.Log($"Spawning {buildings[buildingIndex].spawnPrefab} at {spawnVector3} rotated {rotation}");
             }
 
             // choose a location on the first ring of the city
@@ -215,7 +215,7 @@ public class BuildingSpawner : WorldEntity
 
                 spawnDictionary.Add(spawnLocation, newBuilding);
 
-                Debug.Log($"Spawning {building.spawnPrefab} at {spawnVector3} rotated {rotation}");
+                //Debug.Log($"Spawning {building.spawnPrefab} at {spawnVector3} rotated {rotation}");
 
                 break;
             }
