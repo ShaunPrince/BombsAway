@@ -43,13 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2668f478a13fb42babe617c9231953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldXsize: 50
-  worldZsize: 50
-  worldCenterX: 0
-  worldCenterZ: 0
-  worldLength: 200
-  timeBetweenSpawn: 10
+  timeBetweenSpawn: 100
+  minSpawnTime: 0
+  spawnTimeDecrement: 0
+  initialSpeedIncrease: 1
   Enemies:
-  - EnemyPrefab: {fileID: 1716435481506396233, guid: 287117a17f01539448ecb71079e88ae1,
+  - spawnPrefab: {fileID: 1716435481506396233, guid: 287117a17f01539448ecb71079e88ae1,
       type: 3}
     probabilityOfSpawn: 1

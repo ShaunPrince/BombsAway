@@ -9,9 +9,16 @@ public class ThreadedDataRequester : MonoBehaviour
     static ThreadedDataRequester instance;
     Queue<ThreadInfo> dataQueue = new Queue<ThreadInfo>();
 
+    private bool finishedInitialUpdate = false;
+
     private void Awake()
     {
         instance = FindObjectOfType<ThreadedDataRequester>();
+    }
+
+    public bool FinishedTerrainGeneration()
+    {
+        return finishedInitialUpdate;
     }
 
     // generateData is the function that is called to generate the data that you want
@@ -46,6 +53,7 @@ public class ThreadedDataRequester : MonoBehaviour
                 threadInfo.callback(threadInfo.parameter);  // call the passed function with the appropriate parameter
             }
         }
+        if (dataQueue.Count <= 0 && !finishedInitialUpdate) finishedInitialUpdate = true;   // for building generation
     }
 
     struct ThreadInfo
