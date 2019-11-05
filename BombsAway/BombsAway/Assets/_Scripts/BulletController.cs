@@ -63,7 +63,7 @@ public class BulletController : MonoBehaviour
 
     private void HitObject(Collider other)
     {
-        Debug.Log(other.gameObject.layer.ToString());
+ //       Debug.Log(other.gameObject.layer.ToString());
         if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
             //Take this out

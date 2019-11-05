@@ -4,32 +4,28 @@ using UnityEngine;
 
 public class CamZoomControls : MonoBehaviour
 {
-    public InGameCameraManager inGameCamManager;
-    public float[] scalePresets;
-    public int chosenScaleIndex;
+    public StationDisplayPosAndScaleController stationDisplayPosAndScaleController;
+    private int chosenScaleIndex;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        scalePresets = new float[3];
-        scalePresets[0] = inGameCamManager.evenCamScale;
-        scalePresets[1] = inGameCamManager.smallCamScale;
-        scalePresets[2] = inGameCamManager.centerCamScale;
+        stationDisplayPosAndScaleController = GameObject.FindObjectOfType<StationDisplayPosAndScaleController>();
+        chosenScaleIndex = (int)stationDisplayPosAndScaleController.chosenCenterCamScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateZoom(CheckForZoom());
+        UpdateZoom(CheckForZoomChange());
     }
 
     public void UpdateZoom(int newZoomIndex)
     {
-        InGameCameraManager.chosenCamScale = scalePresets[newZoomIndex];
-        inGameCamManager.UpdateCameras();
+        stationDisplayPosAndScaleController.chosenCenterCamScale = (ECenterCamScale)newZoomIndex;
     }
 
 
-    public int CheckForZoom()
+    public int CheckForZoomChange()
     {
         float scrollWheelDelta = Input.mouseScrollDelta.y;
         if(scrollWheelDelta < 0)

@@ -19,6 +19,7 @@ TagManager:
   - Stations
   - Bullet
   - UI
+  - PlayerUIandCamera
   layers:
   - Default
   - TransparentFX

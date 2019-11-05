@@ -10,27 +10,11 @@ public class ControlScheme : MonoBehaviour
 
     public bool isActiveControlScheme;
 
-    public virtual void SetAsActiveControl()
+    public virtual void SetActiveControl(bool active)
     {
-        isActiveControlScheme = true;
-        this.enabled = true;
+        isActiveControlScheme = active;
+        this.enabled = active;
     }
 
-    public virtual void SetAsInactive()
-    {
-        isActiveControlScheme = false;
-        this.enabled = false;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 }
