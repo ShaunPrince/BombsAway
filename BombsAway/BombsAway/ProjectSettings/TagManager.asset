@@ -4,21 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - PlayerPlane
-  - SchematicStation
-  - RepairStation
-  - PilotStation
-  - RadarStation
-  - LeftGunnerStation
-  - RightGunnerStation
-  - BombBayStation
-  - TailGunnerStation
-  - MapStation
+  - UI
   - Controls
   - Stations
+  - RadarStation
+  - PilotStation
+  - RightGunnerStation
+  - BombBayStation
+  - LeftGunnerStation
+  - SchematicStation
+  - TailGunnerStation
+  - RepairStation
+  - MapStation
+  - MapGenerator
+  - PlayerUIandCamera
+  - Enemy
   - Bullet
-  - UI
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 
   - 
   - Non-Intercolliding Projectiles
-  - DebugUI
+  - 
   - 
   - 
   - 

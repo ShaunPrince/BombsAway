@@ -61,17 +61,17 @@ public class InGameCameraManager : MonoBehaviour
             c.depth = 2;
         }
 
-        schematicCam.rect = activeCenterCam.rect;
+        //schematicCam.rect = activeCenterCam.rect;
 
-        if (chosenCamScale < .3)
-        {
-            activeCenterCam.rect = new Rect(0, 0, 1, 1);
-        }
-        else
-        {
-            activeCenterCam.rect = new Rect((.5f - chosenCamScale / 2), (.5f - chosenCamScale / 2)
-                , chosenCamScale, chosenCamScale);
-        }
-        activeCenterCam.depth = 0;
+        //if (chosenCamScale < .3)
+        //{
+        //    activeCenterCam.rect = new Rect(0, 0, 1, 1);
+        //}
+        //else
+        //{
+        //    activeCenterCam.rect = new Rect((.5f - chosenCamScale / 2), (.5f - chosenCamScale / 2)
+        //        , chosenCamScale, chosenCamScale);
+        //}
+        //activeCenterCam.depth = 0;
     }
 }

@@ -17,21 +17,13 @@ public class GunnerControls : ControlScheme
     [SerializeField]
     private Camera myCamera;
 
-    override public void SetAsActiveControl()
+    override public void SetActiveControl(bool active)
     {
-        base.SetAsActiveControl();
-        myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = true;
-        myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = true;
+        base.SetActiveControl(active);
+        myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = active;
+        myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = active;
         Cursor.lockState = CursorLockMode.Locked;
         //this.GetComponentInChildren<GunnerUIController>().enabled = true;
-    }
-
-    public override void SetAsInactive()
-    {
-        base.SetAsInactive();
-        myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = false;
-        myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     //private GameObject myGun;

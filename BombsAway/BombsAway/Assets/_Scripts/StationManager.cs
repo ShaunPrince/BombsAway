@@ -5,16 +5,17 @@ using UnityEngine;
 public class StationManager : MonoBehaviour
 {
     public static List<Station> stations = new List<Station>();
-    public Station currentSelectedStation;
+    public static Station currentCenterStation;
 
     public static ControlScheme currentlyActiveControlScheme;
 
-    public InGameCameraManager inGameCameraManager;
+    public StationDisplayManager centerDisplayController;
 
     // Start is called before the first frame update
     void Awake()
     {
         InitializeStationsArray();
+        centerDisplayController = GameObject.FindGameObjectWithTag("PlayerUIandCamera").GetComponent<StationDisplayManager>();
 
     }
 
@@ -41,8 +42,8 @@ public class StationManager : MonoBehaviour
         }
         else
         {
-            currentSelectedStation = stations[(int)newMainStationID];
-            inGameCameraManager.SetMainCam(newMainStationID);
+            currentCenterStation = stations[(int)newMainStationID];
+            centerDisplayController.SetMainStation(newMainStationID);
             SetActiveControlScheme(newMainStationID);
         }
 
@@ -51,13 +52,12 @@ public class StationManager : MonoBehaviour
     public void SetActiveControlScheme(EStationID newStationID)
     {
 
-        if (currentlyActiveControlScheme != null)
-        {
-            currentlyActiveControlScheme.SetAsInactive();
-        }
+
+        currentlyActiveControlScheme?.SetActiveControl(false);
+
 
         //Debug.Log(stations[(int)newStationID].controlScheme);
         currentlyActiveControlScheme = stations[(int)newStationID].controlScheme;
-        currentlyActiveControlScheme.SetAsActiveControl();
+        currentlyActiveControlScheme.SetActiveControl(true);
     }
 }

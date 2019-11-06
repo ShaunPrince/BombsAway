@@ -2,7 +2,7 @@
 
 public class TerrainChunk
 {
-    const float colliderGenerationDistanceThreshold = 5f;
+    const float colliderGenerationDistanceThreshold = 20000;
 
     public event System.Action<TerrainChunk, bool> onVisibilityChanged;
     public Vector2 coord;
