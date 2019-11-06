@@ -19,7 +19,7 @@ public class BulletController : MonoBehaviour
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
         //this.transform.parent = null;
-        tr = this.GetComponent<TrailRenderer>();
+        //tr = this.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class BulletController : MonoBehaviour
         if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
             //Take this out
-            SetTrailPath();
+            //SetTrailPath();
             other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             Destroy(this.gameObject);
         }

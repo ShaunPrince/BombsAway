@@ -17,6 +17,9 @@ TagManager:
   - RepairStation
   - MapStation
   - MapGenerator
+  - PlayerUIandCamera
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Non-Intercolliding Projectiles
   - 
   - 
   - 
