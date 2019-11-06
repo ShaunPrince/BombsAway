@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
         timeAlive = 0.0f;
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
-        this.transform.parent = null;
+        //this.transform.parent = null;
         tr = this.GetComponent<TrailRenderer>();
     }
 

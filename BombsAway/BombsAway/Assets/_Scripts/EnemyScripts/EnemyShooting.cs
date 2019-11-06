@@ -43,7 +43,7 @@ public class EnemyShooting : DamageableEntity
         {
             if (timeSinceShot >= timeBetweenShots)
             {
-                Debug.Log($"Aiming and shooting");
+                //Debug.Log($"Aiming and shooting");
                 AimGunAtPlayer();
                 Shoot();
                 timeSinceShot = 0.0f;
@@ -114,7 +114,7 @@ public class EnemyShooting : DamageableEntity
         int gunIndex = GetGunIndexFromPosition();
         //ammoCount--;
         enemyGuns[gunIndex].DecreaseAmmo();
-        Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
+        //Debug.Log($"Enemy shooting {enemyGuns[gunIndex].gunPosition} gun!");
         enemyGuns[gunIndex].gun.GetComponent<EnemyGunShoot>().FireGun();
 }
 
@@ -152,7 +152,7 @@ public class EnemyShooting : DamageableEntity
         // draw each gun view
         for (int i = 0; i < enemyGuns.Length; i++)
         {
-            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 500);
+            UnityEditor.Handles.DrawLine(enemyGuns[i].gun.transform.position, enemyGuns[i].gun.transform.position + enemyGuns[i].gun.transform.forward * 700);
         }
 #endif
     }

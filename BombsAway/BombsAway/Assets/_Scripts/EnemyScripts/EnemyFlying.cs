@@ -39,14 +39,14 @@ public class EnemyFlying : MonoBehaviour
     public float dodgeDistance;
     private float dodgeAmount = 100;
     public EDodgeType startDodging = EDodgeType.False;
+    private GameObject currentlyDodgingObject;
     private bool currentlyDodging = false;
 
-    [Tooltip("Used for both increasing and decreasing speed")]
     [Range(0,1)]
-    public float speedPercentage;   // increase of decrese in speed
+    public float catchupPercentage;
     private bool needToCatchUp = true;
 
-    public float enemyNormalSpeed;
+    //public float enemyNormalSpeed;
 
     private Transform playerTransform;
     private Flying playerFlyingComponent;
@@ -110,8 +110,6 @@ public class EnemyFlying : MonoBehaviour
         // if dodging
         if (currentlyDodging || startDodging != EDodgeType.False)
         {
-            //startDodging = true;
-
             needToCatchUp = false;
             startParalellMovement = false;
             currentlyParallelToPlayer = false;
@@ -121,17 +119,16 @@ public class EnemyFlying : MonoBehaviour
                  Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= parallelDistance)
         {
             startParalellMovement = true;
-
-            //startDodging = EDodgeType.False;
+            needToCatchUp = false;
             currentlyDodging = false;
 
         }
         // if within vision distance
-        else if (!currentlyDodging &&
-                 Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= visionDistance)
-        {
-            needToCatchUp = false;
-        }
+        //else if (!currentlyDodging &&
+        //         Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= visionDistance)
+        //{
+        //    needToCatchUp = false;
+        //}
         // if outside vision distance
         else
         {
@@ -163,10 +160,8 @@ public class EnemyFlying : MonoBehaviour
         }
         else
         {
-            // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
-            float maxAlt = playerTransform.position.y + percisionOffset;
-            float minAlt = playerTransform.position.y - percisionOffset;
-            altitude = Random.Range(minAlt, maxAlt);
+            
+            altitude = FlyAroundPlayersAltitude();
         }
         
         enemyFlyingComponent.SetDesAlt(altitude);
@@ -188,12 +183,22 @@ public class EnemyFlying : MonoBehaviour
             currentlyDodging = true;
         }
         // if dodging other enemy
+        // keep updating even if currently dodging
         else if (!currentlyDodging && startDodging == EDodgeType.OtherEnemy)
         {
-            if (Random.Range(0,1) < .5) altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
-            else altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
+            //if (Random.Range(0,1) < .5) altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
+            //else altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
+            if (currentlyDodgingObject)
+            {
+                float enemyAlt = currentlyDodgingObject.GetComponent<Flying>().desireAltitude;
+                if (enemyFlyingComponent.currentAltitude < enemyAlt) altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
+                else altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
+                currentlyDodging = true;
+            }
+            // technically if this happens, should stop dodging
+            else altitude = enemyFlyingComponent.desireAltitude;
 
-            currentlyDodging = true;
+
         }
         // if dodging anything stationary, go over
         else if (!currentlyDodging && startDodging == EDodgeType.StationaryObject)
@@ -215,6 +220,15 @@ public class EnemyFlying : MonoBehaviour
         // get players current altitude
         return playerFlyingComponent.currentAltitude;
     }
+
+    private float FlyAroundPlayersAltitude()
+    {
+        // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
+        float maxAlt = playerTransform.position.y + percisionOffset;
+        float minAlt = playerTransform.position.y - percisionOffset;
+
+        return Random.Range(minAlt, maxAlt);
+    }
     #endregion
 
     #region Direction
@@ -232,14 +246,7 @@ public class EnemyFlying : MonoBehaviour
         }
         else
         {
-            // set desired direction to be towards the player (x axis)
-            // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
-            Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
-            float eulerDirection = rotation.eulerAngles.y;
-            float maxDirection = (eulerDirection + percisionOffset);
-            float minDirection = (eulerDirection - percisionOffset);
-
-            direction = (Random.Range(minDirection, maxDirection));
+            direction = FlyTowardsPlayer();
 
             //Debug.Log($"Original rotation: {rotation}, {rotation.eulerAngles}   minOffset: {minDirection}, maxOffset: {maxDirection}\nChoosenDirection: {direction}");
         }
@@ -254,6 +261,18 @@ public class EnemyFlying : MonoBehaviour
         // update constantly to match player's direction for a certain amount of time
         return playerFlyingComponent.currentDir;
     }
+
+    private float FlyTowardsPlayer()
+    {
+        // set desired direction to be towards the player (x axis)
+        // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
+        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
+        float eulerDirection = rotation.eulerAngles.y;
+        float maxDirection = (eulerDirection + percisionOffset);
+        float minDirection = (eulerDirection - percisionOffset);
+
+        return (Random.Range(minDirection, maxDirection));
+    }
     #endregion
 
     #region Speed
@@ -263,31 +282,46 @@ public class EnemyFlying : MonoBehaviour
         // allow enemy to be a bit faster when the first spawn in order to catch up to the player
         if (needToCatchUp)
         {
-            speed = playerFlyingComponent.desiredForwardSpeed + (playerFlyingComponent.desiredForwardSpeed * speedPercentage);
+            speed = playerFlyingComponent.desiredForwardSpeed + (playerFlyingComponent.desiredForwardSpeed * catchupPercentage);
         }
-        // slow down if dodging player, to be safe
+        // slow down if dodging player and player is slowing down
         else if (currentlyDodging && startDodging == EDodgeType.Player)
         {
-            speed = enemyNormalSpeed - (enemyNormalSpeed * speedPercentage);
+            speed = ChangeSpeedBasedOnPlayerWhileDodging();
+        }
+        // if dodging another player, speed up to do so
+        else if (currentlyDodging && startDodging == EDodgeType.OtherEnemy)
+        {
+            speed = playerFlyingComponent.desiredForwardSpeed + (playerFlyingComponent.desiredForwardSpeed * catchupPercentage);
         }
         // if starting to be parallel, start to slow down to player speed
-        else if (startParalellMovement)
-        {
-            // start to get closer to the players speed but not equal to
-            if (playerFlyingComponent.currentForwardSpeed >= enemyNormalSpeed) speed = enemyNormalSpeed + playerFlyingComponent.currentForwardSpeed / 2;
-            else speed = enemyNormalSpeed - playerFlyingComponent.currentForwardSpeed / 2;
-        }
+        //else if (startParalellMovement)
+        //{
+        //    // start to get closer to the players speed but not equal to
+        //    if (playerFlyingComponent.currentForwardSpeed >= enemyFlyingComponent.currentForwardSpeed) speed = enemyFlyingComponent.currentForwardSpeed + playerFlyingComponent.currentForwardSpeed / 2;
+        //    else speed = enemyFlyingComponent.currentForwardSpeed - playerFlyingComponent.currentForwardSpeed / 2;
+        //}
         else if (currentlyParallelToPlayer)
         {
             speed = playerFlyingComponent.currentForwardSpeed;
         }
         else
         {
-            speed = enemyNormalSpeed;
+            speed = playerFlyingComponent.desiredForwardSpeed;
         }
 
         enemyFlyingComponent.SetDesSpeed(speed);
     }
+
+    private float ChangeSpeedBasedOnPlayerWhileDodging()
+    {
+        if (playerFlyingComponent.desiredForwardSpeed < playerFlyingComponent.currentForwardSpeed)
+        {
+            return playerFlyingComponent.desiredForwardSpeed;
+        }
+        else return playerFlyingComponent.desiredForwardSpeed + (playerFlyingComponent.desiredForwardSpeed * catchupPercentage);
+    }
+
     #endregion
 
     private void CheckParallelism()
@@ -308,46 +342,47 @@ public class EnemyFlying : MonoBehaviour
     // if anything else, dodge up
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnterCalled");
-        // if currently dodging, continue dodging
-        if (currentlyDodging)
-        {
-            // do nothing
-        }
-        // ignore bullets
-        else if (other.gameObject.tag == "Bullet")
-        {
-            // do nothing
-            startDodging = EDodgeType.False;
-        }
-        // doge player
-        else if (other.gameObject.transform.parent.tag == "Player")
+         // doge player (dodging the player takes priority)
+        if (other.gameObject.transform.parent.tag == "Player")
         {
             startDodging = EDodgeType.Player;
+            currentlyDodgingObject = other.gameObject;
+        }
+        // ignore bullets or continue to dodge if already doing so
+        else if (currentlyDodgingObject != null || other.gameObject.tag == "Bullet")
+        {
+            // do nothing
         }
         // dodge other enemies
         else if (other.gameObject.tag == "Enemy" && !other.isTrigger)
         {
             startDodging = EDodgeType.OtherEnemy;
+            currentlyDodgingObject = other.gameObject;
         }
         // dodge stationary objects
         else if (!other.isTrigger)
         {
             // dodge anything else
             startDodging = EDodgeType.StationaryObject;
-        }
-        // ignore triggers and anything not hit by prev conditions
-        else
-        {
-            // dodge anything else
-            startDodging = EDodgeType.False;
+            currentlyDodgingObject = other.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        startDodging = EDodgeType.False;
-        currentlyDodging = false;
+        // only if the object that is currently being dodged leaves the dodging radius (and it still exists, do you stop dodging
+        if (currentlyDodgingObject && other.gameObject == currentlyDodgingObject)
+        {
+            startDodging = EDodgeType.False;
+            currentlyDodging = false;
+            currentlyDodgingObject = null;
+        }
+        if (!currentlyDodgingObject)
+        {
+            startDodging = EDodgeType.False;
+            currentlyDodging = false;
+            currentlyDodgingObject = null;
+        }
     }
 
     public enum EDodgeType

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCrash : MonoBehaviour
 {
-    public bool hasCrashed = false;
+    private bool hasCrashed = false;
 
     private void OnCollisionEnter(Collision collision)
     {

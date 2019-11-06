@@ -146,11 +146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percisionOffset: 0
   visionDistance: 800
-  parallelDistance: 600
+  parallelDistance: 800
   dodgeDistance: 400
   startDodging: 0
-  speedPercentage: 0.5
-  enemyNormalSpeed: 100
+  catchupPercentage: 1
   timeBetweenUpdates: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:
@@ -512,21 +511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968117930992352148}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: b16baa08f6d7b9e49815ae0c267af92c,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyShip1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: b16baa08f6d7b9e49815ae0c267af92c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8684251187902555887, guid: b16baa08f6d7b9e49815ae0c267af92c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b16baa08f6d7b9e49815ae0c267af92c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -596,6 +580,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b16baa08f6d7b9e49815ae0c267af92c,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyShip1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: b16baa08f6d7b9e49815ae0c267af92c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8684251187902555887, guid: b16baa08f6d7b9e49815ae0c267af92c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16baa08f6d7b9e49815ae0c267af92c, type: 3}

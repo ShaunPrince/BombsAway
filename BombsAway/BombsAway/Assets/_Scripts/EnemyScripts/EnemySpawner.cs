@@ -29,8 +29,8 @@ public class EnemySpawner : WorldEntity
     public int minSpawnTime;
     [Range(0,1)]
     public int spawnTimeDecrement;
-    [Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
-    public float initialSpeedIncrease;
+    //[Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
+    //public float initialSpeedIncrease;
     public SpawnableObject[] Enemies;
 
     private float deltaTime = 100f;     // to create insta spawn
@@ -92,7 +92,7 @@ public class EnemySpawner : WorldEntity
 
                 //Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
                 GameObject newEnemy = Instantiate(enemy.spawnPrefab, position, rotation, this.transform);
-                newEnemy.GetComponent<Flying>().SetDesSpeed(GameObject.FindWithTag("PilotStation").GetComponent<Flying>().desiredForwardSpeed + initialSpeedIncrease);
+                //newEnemy.GetComponent<Flying>().SetDesSpeed(GameObject.FindWithTag("PilotStation").GetComponent<Flying>().desiredForwardSpeed + initialSpeedIncrease);
 
                 break;
             }
@@ -103,8 +103,13 @@ public class EnemySpawner : WorldEntity
     private Vector2 CalculateRandomSpawnLocation()
     {
         float angle = Random.Range(0, 360);
-        float xPos = WorldCenter.x + WorldLength * Mathf.Cos(angle);
-        float zPos = WorldCenter.y + WorldLength * Mathf.Sin(angle);
+        //float xPos = WorldCenter.x + WorldLength * Mathf.Cos(angle);
+        //float zPos = WorldCenter.y + WorldLength * Mathf.Sin(angle);
+
+        Transform playerTransfrom = GameObject.FindWithTag("Player").transform;
+        float distanceToSpawn = 4000f;
+        float xPos = playerTransfrom.position.x + distanceToSpawn * Mathf.Cos(angle);
+        float zPos = playerTransfrom.position.z + distanceToSpawn * Mathf.Sin(angle);
 
         return new Vector2(xPos, zPos);
     }
@@ -112,7 +117,7 @@ public class EnemySpawner : WorldEntity
     // does not 100% work 😅
     private void OnValidate()
     {
-        if (initialSpeedIncrease <= 0) initialSpeedIncrease = 1;
+        //if (initialSpeedIncrease <= 0) initialSpeedIncrease = 1;
 
         float probSum = 0;
         for (int i = 0; i < Enemies.Length; i++)
@@ -125,6 +130,17 @@ public class EnemySpawner : WorldEntity
             }
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        Transform playerTransfrom = GameObject.FindWithTag("Player").transform;
+        float distanceToSpawn = 4000f;
+        Vector3 debugPos = new Vector3(playerTransfrom.position.x, playerTransfrom.position.y, playerTransfrom.position.z);
+        UnityEditor.Handles.color = Color.magenta;
+        UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, distanceToSpawn);
+#endif
     }
 
 }
