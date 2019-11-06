@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestEnemyScript : MonoBehaviour
+public class TestPlayerScript : MonoBehaviour
 {
     // changes height and direction randomly
 

@@ -7,7 +7,7 @@ public class WorldEntity : MonoBehaviour
 {
     private float worldCenterX = 0;
     private float worldCenterZ = 0;
-    private float worldRadius = 4500;
+    private float worldRadius = 20000;
 
     public Vector2 WorldCenter {
         get {
@@ -29,7 +29,8 @@ public class WorldEntity : MonoBehaviour
 #if UNITY_EDITOR
         // draw spawn radius
         Vector3 debugPos = new Vector3(WorldCenter.x, 100, WorldCenter.y);
-        UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, WorldLength);
+        Vector3 debugSize = new Vector3(worldRadius*2, 1, worldRadius*2);
+        UnityEditor.Handles.DrawWireCube(debugPos, debugSize);
 #endif
     }
 
