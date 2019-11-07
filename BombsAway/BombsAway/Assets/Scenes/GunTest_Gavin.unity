@@ -517,7 +517,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.2734375, y: 0.0859375, z: 0.01953125, w: -0.0859375}
+  m_BoundingSphereOverride: {x: 0, y: 2.5, z: 3.3e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -823,6 +823,31 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileSpeed
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453343162290778180, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.249985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655325481689668241, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -48.124985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655325481689668241, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505095475579497522, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -43.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2505095475579497522, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
