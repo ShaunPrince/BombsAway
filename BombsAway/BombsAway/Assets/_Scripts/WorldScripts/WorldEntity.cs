@@ -30,7 +30,14 @@ public class WorldEntity : MonoBehaviour
         // draw spawn radius
         Vector3 debugPos = new Vector3(WorldCenter.x, 100, WorldCenter.y);
         Vector3 debugSize = new Vector3(worldRadius*2, 1, worldRadius*2);
-        UnityEditor.Handles.DrawWireCube(debugPos, debugSize);
+        try
+        {
+            UnityEditor.Handles.DrawWireCube(debugPos, debugSize);
+        }
+        catch
+        {
+
+        }
 #endif
     }
 
