@@ -115,7 +115,7 @@ public class Flying : MonoBehaviour
     }
 
     //take a float and convert set it t0 its 0-360 degree equivalent
-    public float ConvertToPos360Dir(float dir)
+    public static float ConvertToPos360Dir(float dir)
     {
         dir = dir % 360;
         dir += 360;

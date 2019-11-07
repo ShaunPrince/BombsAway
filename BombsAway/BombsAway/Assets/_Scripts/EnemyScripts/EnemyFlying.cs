@@ -396,7 +396,8 @@ public class EnemyFlying : MonoBehaviour
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
-        // draw view area of enemy
+    try
+    {
         UnityEditor.Handles.color = Color.green;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, visionDistance);
 
@@ -407,6 +408,13 @@ public class EnemyFlying : MonoBehaviour
         // draw enemy dodging distance
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, dodgeDistance);
+    }
+    catch
+    {
+
+    }
+        // draw view area of enemy
+
 #endif
     }
 }

@@ -138,8 +138,16 @@ public class EnemySpawner : WorldEntity
         Transform playerTransfrom = GameObject.FindWithTag("Player").transform;
         float distanceToSpawn = 4000f;
         Vector3 debugPos = new Vector3(playerTransfrom.position.x, playerTransfrom.position.y, playerTransfrom.position.z);
-        UnityEditor.Handles.color = Color.magenta;
-        UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, distanceToSpawn);
+        try
+        {
+            UnityEditor.Handles.color = Color.magenta;
+            UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, distanceToSpawn);
+        }
+        catch
+        {
+
+        }
+
 #endif
     }
 
