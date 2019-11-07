@@ -13,8 +13,8 @@ public class EnemyCrash : MonoBehaviour
         if (collision.gameObject.tag != "Bullet")
         {
             hasCrashed = true;
-            float remainingHealth = this.GetComponent<EnemyShooting>().health;
-            this.GetComponent<EnemyShooting>().TakeDamage(remainingHealth + 100, EAllegiance.Player);   // make sure they die
+            float remainingHealth = this.GetComponent<DamageableEntity>().health;
+            this.GetComponent<DamageableEntity>().TakeDamage(remainingHealth + 100, EAllegiance.Player);   // make sure they die
         }
     }
 }

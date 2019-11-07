@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 507090250176219221}
   - component: {fileID: 294719631488123615}
   - component: {fileID: 4700660192680629950}
+  - component: {fileID: 705753896806380163}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -225,7 +226,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf22162fa4c7ac46be30ccfefed65c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCrashed: 0
+--- !u!114 &705753896806380163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716435481506396233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a517fa6bf4e7343b9a222b5a53d56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: 1
+  health: 10
 --- !u!1 &4649850176708392311
 GameObject:
   m_ObjectHideFlags: 0

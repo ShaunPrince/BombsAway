@@ -20,7 +20,7 @@ public class DamageableEntity : MonoBehaviour
         
     }
 
-    public void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
+    public virtual void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
         if(allegianceOfIncomingDamage != allegiance)
         {

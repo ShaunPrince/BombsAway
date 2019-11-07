@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 3928826747768393085}
   - component: {fileID: 7987250728884317064}
   - component: {fileID: 1583734453837667998}
+  - component: {fileID: -6189460984578610805}
   m_Layer: 0
   m_Name: Factory Building
   m_TagString: Untagged
@@ -88,6 +89,19 @@ MonoBehaviour:
   health: 20
   buildingType: 2
   pointValue: 10
+--- !u!114 &-6189460984578610805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951528309667444875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737832d04d9cdcc4b904612e94d2a40b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempTargetColor: {fileID: 2100000, guid: 8f852b6601e077d40a63b712c712a06b, type: 2}
 --- !u!1001 &6575165933731854867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,21 +109,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3928826747768393085}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Name
-      value: Building2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 23b215332aa4cab4daca6b69203ff4c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +178,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Building Model
+      objectReference: {fileID: 0}
+    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b215332aa4cab4daca6b69203ff4c0, type: 3}
