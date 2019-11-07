@@ -19,9 +19,27 @@ public class BuildingSpawner : WorldEntity
     private Dictionary<Vector2, GameObject> spawnDictionary = new Dictionary<Vector2, GameObject>();
 
     private float totalWeightedProb = 0;
-    private Estatus generateBuildings = Estatus.hasNotStarted;
+    private EStatus buildingGenerationStatus = EStatus.hasNotStarted;
 
     private float[] rotationIncrements = { 0f, 90f, 180f, 360f };
+
+    public void GenerateBuildings()
+    {
+        for (int i = 0; i < numberOfCitiesToSpawn; i++)
+        {
+            SpawnCities();
+        }
+
+        for (int i = 0; i < numberOfBuildingsToSpawn; i++)
+        {
+            SpawnSemiRandomBuildings();
+        }
+    }
+
+    public EStatus GetBuildingGenerationStatus()
+    {
+        return buildingGenerationStatus;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,29 +54,16 @@ public class BuildingSpawner : WorldEntity
 
     private void Update()
     {
-        if (generateBuildings == Estatus.hasNotStarted)
+        if (buildingGenerationStatus == EStatus.hasNotStarted)
         {  
             // FIND SOMETHING BETTER
             GameObject instance = GameObject.FindWithTag("MapGenerator");
-            if (instance.GetComponent<ThreadedDataRequester>().FinishedTerrainGeneration()) generateBuildings = Estatus.start;
+            if (instance.GetComponent<ThreadedDataRequester>().FinishedTerrainGeneration()) buildingGenerationStatus = EStatus.start;
         }
-        if (generateBuildings == Estatus.start)
+        if (buildingGenerationStatus == EStatus.start)
         {
             GenerateBuildings();
-            generateBuildings = Estatus.completed;
-        }
-    }
-
-    public void GenerateBuildings()
-    {
-        for (int i = 0; i < numberOfCitiesToSpawn; i++)
-        {
-            SpawnCities();
-        }
-
-        for (int i = 0; i < numberOfBuildingsToSpawn; i++)
-        {
-            SpawnSemiRandomBuildings();
+            buildingGenerationStatus = EStatus.completed;
         }
     }
 
@@ -248,11 +253,4 @@ public class BuildingSpawner : WorldEntity
     {
         if (maxCitySize < 1) maxCitySize = 1;
     }
-}
-
-enum Estatus
-{
-    hasNotStarted,
-    start,
-    completed
 }

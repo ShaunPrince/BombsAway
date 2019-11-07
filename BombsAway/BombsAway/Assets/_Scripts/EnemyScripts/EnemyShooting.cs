@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : DamageableEntity
+public class EnemyShooting : MonoBehaviour
 {
     //public float aimingDistance;
     public float timeBetweenShots;
