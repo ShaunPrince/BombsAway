@@ -8,7 +8,6 @@ public class BulletController : MonoBehaviour
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
-    private TrailRenderer tr;
 
     public EAllegiance allegiance;
 
@@ -66,8 +65,6 @@ public class BulletController : MonoBehaviour
  //       Debug.Log(other.gameObject.layer.ToString());
         if(other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
-            //Take this out
-            //SetTrailPath();
             other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             Destroy(this.gameObject);
         }
@@ -75,17 +72,5 @@ public class BulletController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-    // Begin trail BS
-    private void SetTrailPath()
-    {
-        int length = tr.positionCount;
-        Vector3[] trail = new Vector3[length];
-        for (int i = 0; i < length; ++i)
-        {
-            trail[i] = tr.GetPosition(i);
-        }
-
     }
 }

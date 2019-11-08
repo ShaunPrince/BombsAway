@@ -48,14 +48,10 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        HitObject(collision.collider);
-    }
-
-    private void OnCollisionEnter(Collider other)
-    {
-        if (!other.tag.Equals("Player") || !other.tag.Equals("Bullet") || !other.tag.Equals("Bomb"))
+        if (!collision.collider.tag.Equals("Bullet") || !collision.collider.tag.Equals("Bomb"))
         {
-            HitObject(other);
+            Debug.Log(collision.collider);
+            HitObject(collision.collider);
         }
     }
 

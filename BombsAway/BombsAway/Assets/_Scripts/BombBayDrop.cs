@@ -5,16 +5,20 @@ using UnityEngine;
 public class BombBayDrop : MonoBehaviour
 {
     public float reloadTime;
-    public GameObject bomb;
+    public GameObject bombPrefab;
+    public Collider playerCollider;
 
     private bool reloading;
     private float timeReloading;
+    private GameObject myBomb;
 
     // Start is called before the first frame update
     void Start()
     {
         reloading = false;
         timeReloading = 0.0f;
+        myBomb = this.transform.GetChild(0).gameObject;
+        Physics.IgnoreCollision(myBomb.GetComponentInChildren<Collider>(), playerCollider);
     }
 
     // Update is called once per frame
@@ -28,9 +32,11 @@ public class BombBayDrop : MonoBehaviour
 
     private void dropBomb()
     {
-        bomb.GetComponent<BombController>().Drop();
+        myBomb.GetComponent<BombController>().Drop();
+        Rigidbody bombRB = myBomb.GetComponent<Rigidbody>();
+        bombRB.useGravity = true;
         reloading = true;
-        ReloadBay();
+        //ReloadBay();
     }
 
     private void ReloadBay()
@@ -42,7 +48,8 @@ public class BombBayDrop : MonoBehaviour
         else
         {
             reloading = false;
-            //make the bomb here
+            GameObject newBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 10.0f), this.transform.rotation);
+            newBomb.GetComponent<BombController>().allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
         }
     }
 }

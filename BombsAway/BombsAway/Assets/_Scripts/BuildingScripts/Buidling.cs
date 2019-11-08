@@ -17,6 +17,9 @@ public class Buidling : DamageableEntity
             if (health <= 0)
             {
                 MissionManager.IncreasePlayerScore(pointValue);
+
+                if (buildingType == EBuildingType.Target) MissionManager.DecreaseTargetCount();
+
                 GameObject.Destroy(this.gameObject);
             }
         }
