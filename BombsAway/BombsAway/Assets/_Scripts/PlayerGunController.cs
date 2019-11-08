@@ -9,7 +9,7 @@ public class PlayerGunController : MonoBehaviour
     public int magazineSize;
 
     private ShootGun sg;
-    private GunnerUIController guic;
+    //private GunnerUIController guic;
     private float timeSinceShot;
     private int ammoCount;
     private float timeReloading;
@@ -19,7 +19,7 @@ public class PlayerGunController : MonoBehaviour
     void Start()
     {
         sg = this.GetComponent<ShootGun>();
-        guic = this.GetComponent<GunnerUIController>();
+        //guic = this.GetComponent<GunnerUIController>();
         timeSinceShot = 0.0f;
         ammoCount = magazineSize;
         timeReloading = 0.0f;
@@ -43,7 +43,7 @@ public class PlayerGunController : MonoBehaviour
             {
                 sg.FireGun();
                 ammoCount--;
-                guic.UpdateAmmoCount(ammoCount);
+                //guic.UpdateAmmoCount(ammoCount);
                 timeSinceShot = 0.0f;
             }
             else if (Input.GetMouseButton(0) && timeSinceShot < timeBetweenShots)
@@ -57,6 +57,11 @@ public class PlayerGunController : MonoBehaviour
         }
     }
 
+    public int AmmoCount()
+    {
+        return ammoCount;
+    }
+
     private void ReloadGun()
     {
         reloading = true;
@@ -68,13 +73,13 @@ public class PlayerGunController : MonoBehaviour
         {
             reloading = false;
             ammoCount = magazineSize;
-            guic.UpdateAmmoCount(ammoCount);
+            //guic.UpdateAmmoCount(ammoCount);
             timeReloading = 0.0f;
         }
         else
         {
             timeReloading += Time.deltaTime;
-            guic.Reloading(ammoCount);
+            //guic.Reloading(ammoCount);
         }
     }
 }

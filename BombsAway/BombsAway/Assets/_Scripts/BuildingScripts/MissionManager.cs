@@ -11,7 +11,8 @@ using UnityEngine;
 
 public class MissionManager : MonoBehaviour
 {
-    public int numberOfTargetBuildings;
+    public static int numberOfTargetBuildings = 10;
+    private static int numberRemainingTargets;
     public static int playerScore = 0; // initialize to zero
 
     private GameObject buildingSpawner;
@@ -21,6 +22,7 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
         buildingSpawner = GameObject.FindWithTag("BuildingSpawner");
+        numberRemainingTargets = numberOfTargetBuildings;
     }
 
     // Update is called once per frame
@@ -52,5 +54,15 @@ public class MissionManager : MonoBehaviour
     {
         playerScore += incrementAmount;
         Debug.Log($"Player score: {playerScore}");
+    }
+
+    public static void DecreaseTargetCount()
+    {
+        numberRemainingTargets--;
+    }
+
+    public static int NumberOfRemainingTargets()
+    {
+        return numberRemainingTargets;
     }
 }
