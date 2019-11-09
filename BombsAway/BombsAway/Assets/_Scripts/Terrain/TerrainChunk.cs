@@ -54,6 +54,7 @@ public class TerrainChunk
         meshCollider = meshObject.AddComponent<MeshCollider>();
 
         meshObject.transform.position = new Vector3(position.x, meshYposition, position.y);
+        meshObject.layer = 9;
         //meshObject.transform.localScale = Vector3.one * size / 10f; // default scale is 10 units (for planes)
         meshObject.transform.parent = parent;
         SetVisible(false);

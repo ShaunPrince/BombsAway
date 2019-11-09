@@ -18,7 +18,7 @@ public class BombBayDrop : MonoBehaviour
         reloading = false;
         timeReloading = 0.0f;
         myBomb = this.transform.GetChild(0).gameObject;
-        Physics.IgnoreCollision(myBomb.GetComponentInChildren<Collider>(), playerCollider);
+        //Physics.IgnoreCollision(myBomb.GetComponentInChildren<Collider>(), playerCollider);
     }
 
     // Update is called once per frame

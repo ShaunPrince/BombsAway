@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6551765141079047584}
   - component: {fileID: 5057058392253844062}
   - component: {fileID: 5205473828321172167}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1914056081709204910}
   - component: {fileID: 5144181233660640997}
   - component: {fileID: 3361507579739062362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

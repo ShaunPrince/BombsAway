@@ -31,13 +31,13 @@ TagManager:
   - 
   - 
   - Non-Intercolliding Projectiles
+  - Terrain
+  - Player
+  - Bombs
+  - Buildings
+  - Guns
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
