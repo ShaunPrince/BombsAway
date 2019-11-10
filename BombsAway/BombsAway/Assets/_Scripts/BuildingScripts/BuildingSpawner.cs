@@ -23,6 +23,8 @@ public class BuildingSpawner : WorldEntity
 
     private float[] rotationIncrements = { 0f, 90f, 180f, 360f };
 
+    private bool firstCity = true;
+
     public void GenerateBuildings()
     {
         for (int i = 0; i < numberOfCitiesToSpawn; i++)
@@ -70,7 +72,14 @@ public class BuildingSpawner : WorldEntity
     private void SpawnCities()
     {
         int citySize = Mathf.FloorToInt(Random.Range(1, maxCitySize));
-        Vector2 citySeed = new Vector2(Random.Range(-WorldLength, WorldLength), Random.Range(-WorldLength, WorldLength));
+        // spawn first city at player's location
+        Vector2 citySeed;
+        if (firstCity)
+        {
+            citySeed = new Vector2(0, 0);
+            firstCity = false;
+        }
+        else citySeed = new Vector2(Random.Range(-WorldLength, WorldLength), Random.Range(-WorldLength, WorldLength));
         float cityRadius = 0;
 
         // for each ring in the city

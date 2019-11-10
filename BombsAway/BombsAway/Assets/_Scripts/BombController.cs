@@ -9,17 +9,20 @@ public class BombController : MonoBehaviour
     public EAllegiance allegiance;
 
     private Rigidbody rb;
-    private bool isDropping;
+    private bool isDropping = false;
     private Vector3 dropVelocity;
+
+    private List<GameObject> listObjectsToDestroy;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        isDropping = false;
         float x_push = Random.Range(0.0f, 1.0f);
         float z_push = Random.Range(0.0f, 1.0f);
-        dropVelocity = new Vector3(x_push, 0.0f, z_push) * pushMagnitude;
+        dropVelocity = new Vector3(x_push, 0.0f, z_push) * pushMagnitude + GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
+
+        listObjectsToDestroy = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -34,37 +37,50 @@ public class BombController : MonoBehaviour
     public void Drop()
     {
         isDropping = true;
-        this.transform.parent = null;
+        rb.isKinematic = false;
+        rb.freezeRotation = false;
+        rb.useGravity = true;
         rb.velocity = dropVelocity;
     }
 
     private void RotateDown()
     {
-        if (this.transform.eulerAngles.x < 180)
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .005f);
+    }
+
+    // when an object enters the bombs radius, add it to items to destroy
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log($"OnTriggerEnter: {other.gameObject}");
+        // ignore terrain
+        if (other.gameObject.layer != 9) listObjectsToDestroy.Add(other.gameObject);
+    }
+
+    // if the item leaves the bombs radius, remove it from items to destroy
+    private void OnTriggerExit(Collider other)
+    {
+        //Debug.Log($"OnTriggerExit: {other.gameObject}");
+        if (listObjectsToDestroy.Contains(other.gameObject))
         {
-            this.transform.Rotate(0.5f, 0.0f, 0.0f, Space.Self);
+            listObjectsToDestroy.Remove(other.gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.collider.tag.Equals("Bullet") || !collision.collider.tag.Equals("Bomb"))
+        // TEMP DELETE LATER
+        TEMPbombExplosionUI.MakeExplosion();
+
+        // when the bomb crashes, destroy everything within it's radius
+        foreach (GameObject objectToDestroy in listObjectsToDestroy)
         {
-            Debug.Log(collision.collider);
-            HitObject(collision.collider);
+            //Debug.Log($"Object to destroy: {objectToDestroy}");
+            if (objectToDestroy && objectToDestroy.GetComponentInParent<DamageableEntity>() != null)
+            {
+                objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
+            }
         }
+        Destroy(this.gameObject);
     }
 
-    private void HitObject(Collider other)
-    {
-        if (other.gameObject.GetComponentInParent<DamageableEntity>() != null)
-        {
-            other.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
-            Destroy(this.gameObject);
-        }
-        else if (other.gameObject.layer.ToString() != "8")
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }
