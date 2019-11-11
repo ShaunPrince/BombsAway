@@ -20,6 +20,8 @@ public class TempRecolorTargetBuilding : MonoBehaviour
                 }
             }
 
+            this.transform.GetChild(1).GetComponent<MeshRenderer>().material = tempTargetColor;
+
             colorUpdated = true;
         }
     }
