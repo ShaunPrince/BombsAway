@@ -18,11 +18,6 @@ public class StationDisplayManager : MonoBehaviour
 
     }
 
-    private void InitializeRawImageList()
-    {
-
-    }
-
     public void SetMainStation(EStationID newStationID)
     {
 
