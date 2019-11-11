@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TEMPbombExplosionUI : MonoBehaviour
+public class TEMPBombExplosion : MonoBehaviour
 {
-    public static Image tempExplosion;
+    public GameObject tempExplosionObject;
+    private GameObject currentExplosion;
     private float timeDisplayImage = 10f;
     private float timeDisplaying = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        tempExplosion = GameObject.Find("TempExplosion").GetComponent<Image>();
-        tempExplosion.enabled = false;
-    }
 
     // Update is called once per frame
     void Update()
@@ -22,7 +16,7 @@ public class TEMPbombExplosionUI : MonoBehaviour
         if (timeDisplaying >= timeDisplayImage)
         {
             timeDisplaying = 0f;
-            tempExplosion.enabled = false;
+            Destroy(currentExplosion);
         }
         else
         {
@@ -30,8 +24,10 @@ public class TEMPbombExplosionUI : MonoBehaviour
         }
     }
 
-    public static void MakeExplosion()
+    public void MakeExplosion(Vector3 pos)
     {
-        tempExplosion.enabled = true;
+        pos.y += 300;
+        currentExplosion = Instantiate(tempExplosionObject, pos, new Quaternion(0,0,0,0));
+
     }
 }

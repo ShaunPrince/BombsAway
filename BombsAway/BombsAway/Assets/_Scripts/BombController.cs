@@ -69,7 +69,8 @@ public class BombController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // TEMP DELETE LATER
-        TEMPbombExplosionUI.MakeExplosion();
+        TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
+        explosion.MakeExplosion(this.transform.position);
 
         // when the bomb crashes, destroy everything within it's radius
         foreach (GameObject objectToDestroy in listObjectsToDestroy)
