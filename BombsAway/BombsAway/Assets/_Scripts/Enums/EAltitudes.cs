@@ -2,6 +2,5 @@
 {
     Low,
     Mid,
-    High,
-    Soaring
+    High
 }

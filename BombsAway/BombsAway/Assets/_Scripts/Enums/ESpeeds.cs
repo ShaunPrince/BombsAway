@@ -2,6 +2,5 @@
 {
     Slow,
     Med,
-    Fast,
-    Full
+    Fast
 }

@@ -36,7 +36,7 @@ public class AltitudeUI : MonoBehaviour
             Vector3 textAlt = new Vector3(70, yPos - 90, 0);
             altitudeObject.transform.localPosition = textAlt;
 
-            Debug.Log($"height%: {heightPercent}, yPos: {yPos}, altitudeObject: {altitudeObject.transform.position}");
+            //Debug.Log($"height%: {heightPercent}, yPos: {yPos}, altitudeObject: {altitudeObject.transform.position}");
             altitudeObject.SetActive(true);
 
             textAlt.x -= 95;

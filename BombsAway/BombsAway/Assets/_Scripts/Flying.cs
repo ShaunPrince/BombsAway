@@ -43,28 +43,21 @@ public class Flying : MonoBehaviour
     private void FixedUpdate()
     {
 
-        currentAltitude = this.transform.position.y;
-        //set vertical velocity to the current velocity plus/minus the velocity per second (Acceleration)
-        //if(Mathf.Abs(desireAltitude - currentAltitude) * verticalAcceleration   >= verticalAcceleration )
-        //{
-        //    rb.velocity = new Vector3(rb.velocity.x,Mathf.Sign(desireAltitude - currentAltitude) * verticalAcceleration * Time.deltaTime,rb.velocity.z);
-        //}
-        //else
-        //{
-        //    rb.velocity = new Vector3(rb.velocity.x,0f,rb.velocity.z);
-        //}
+        currentAltitude = rb.transform.position.y;
+
 
         float deltaAlt = desireAltitude - currentAltitude;
         float timeToStop = Mathf.Abs(rb.velocity.y) / fixedAcceleration;
-        float distToStop = rb.velocity.y * timeToStop + -.5f * Mathf.Sign(rb.velocity.y) * fixedAcceleration * timeToStop * timeToStop;
+        float distToStop = Mathf.Abs(rb.velocity.y * timeToStop + -.5f * Mathf.Sign(rb.velocity.y) * fixedAcceleration * timeToStop * timeToStop);
 
-        if (Mathf.Abs(deltaAlt) <= Mathf.Abs(distToStop))
+        if (Mathf.Abs(deltaAlt) <= distToStop)
         {
-            rb.AddForce(0f, -1 * Mathf.Sign(rb.velocity.y) * fixedAcceleration, 0f);
+            //Debug.Log("Slowing Down " + distToStop.ToString() + " , " +deltaAlt.ToString() );
+            rb.AddForce(0f, -1 * Mathf.Sign(rb.velocity.y) * fixedAcceleration, 0f , ForceMode.Acceleration);
         }
-        else if (Mathf.Abs(rb.velocity.y) + Mathf.Abs(fixedAcceleration/50) < maxVerticalVelocity)
+        else if (Mathf.Abs(rb.velocity.y + Mathf.Sign(deltaAlt) * fixedAcceleration /50) < maxVerticalVelocity)
         {
-            rb.AddForce(0f, Mathf.Sign(deltaAlt) * fixedAcceleration, 0f);
+            rb.AddForce(0f, Mathf.Sign(deltaAlt) * fixedAcceleration, 0f, ForceMode.Acceleration);
         }
 
 
@@ -76,8 +69,6 @@ public class Flying : MonoBehaviour
         //Dampen lateral movement, aka drifting during turns
         rb.AddRelativeForce(-this.transform.InverseTransformVector(rb.velocity).x/lateralMovementDamperScale, 0f, 0f, ForceMode.VelocityChange);
 
-        //Debug.Log(this.transform.InverseTransformDirection(rb.velocity).x);
-        
         //apply rotation toward desired rotation
         rb.MoveRotation(Quaternion.Euler(0f, CalculateTurn(), 0f));
     }

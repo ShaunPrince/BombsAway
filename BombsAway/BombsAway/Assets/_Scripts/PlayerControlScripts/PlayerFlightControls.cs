@@ -32,7 +32,7 @@ public class PlayerFlightControls : ControlScheme
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if((int)currentAltSetting < (int)EAlts.Soaring)
+            if((int)currentAltSetting < (int)EAlts.High)
             {
                 currentAltSetting += 1;
                 fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
@@ -53,7 +53,7 @@ public class PlayerFlightControls : ControlScheme
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if ((int)currentSpeedSetting < (int) ESpeeds.Full)
+            if ((int)currentSpeedSetting < (int) ESpeeds.Fast)
             {
                 currentSpeedSetting += 1;
                 fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
