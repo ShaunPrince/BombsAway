@@ -67,7 +67,7 @@ public class EnemyFlying : MonoBehaviour
         enemyFlyingComponent = this.GetComponent<Flying>();
         playerTransform = GameObject.FindWithTag("Player").transform;
         playerFlyingComponent = GameObject.FindWithTag("PilotStation").GetComponent<Flying>();
-        this.GetComponent<SphereCollider>().radius = dodgeDistance;
+        //this.GetComponentsInChildren<SphereCollider>().radius = dodgeDistance;    FIX DODGE TRIGGER RADIUS LATER
         SetAltitude();
         SetDirection();
         //SetSpeed();
@@ -102,6 +102,24 @@ public class EnemyFlying : MonoBehaviour
     public bool IsDodging()
     {
         return currentlyDodging;
+    }
+
+    public void SetDodging(EDodgeType dodgeType, GameObject dodgingObject)
+    {
+        startDodging = dodgeType;
+        currentlyDodgingObject = dodgingObject;
+    }
+
+    public void SetDodging(EDodgeType dodgeType, GameObject dodgingObject, bool currentDodging)
+    {
+        startDodging = dodgeType;
+        currentlyDodgingObject = dodgingObject;
+        currentlyDodging = currentDodging;
+    }
+
+    public GameObject GetCurrentlyDodgingObject()
+    {
+        return currentlyDodgingObject;
     }
 
     private void CheckPlayerDistance()
@@ -337,62 +355,6 @@ public class EnemyFlying : MonoBehaviour
         else currentlyParallelToPlayer = false;
     }
 
-    // If anything eneters the enemy's dodge box, dodge it
-    // if player dodge either up or down, slow down to not hit player
-    // if anything else, dodge up
-    private void OnTriggerEnter(Collider other)
-    {
-         // doge player (dodging the player takes priority)
-        if (other.gameObject.transform.parent.tag == "Player")
-        {
-            startDodging = EDodgeType.Player;
-            currentlyDodgingObject = other.gameObject;
-        }
-        // ignore bullets or continue to dodge if already doing so
-        else if (currentlyDodgingObject != null || other.gameObject.tag == "Bullet")
-        {
-            // do nothing
-        }
-        // dodge other enemies
-        else if (other.gameObject.tag == "Enemy" && !other.isTrigger)
-        {
-            startDodging = EDodgeType.OtherEnemy;
-            currentlyDodgingObject = other.gameObject;
-        }
-        // dodge stationary objects
-        else if (!other.isTrigger)
-        {
-            // dodge anything else
-            startDodging = EDodgeType.StationaryObject;
-            currentlyDodgingObject = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // only if the object that is currently being dodged leaves the dodging radius (and it still exists, do you stop dodging
-        if (currentlyDodgingObject && other.gameObject == currentlyDodgingObject)
-        {
-            startDodging = EDodgeType.False;
-            currentlyDodging = false;
-            currentlyDodgingObject = null;
-        }
-        if (!currentlyDodgingObject)
-        {
-            startDodging = EDodgeType.False;
-            currentlyDodging = false;
-            currentlyDodgingObject = null;
-        }
-    }
-
-    public enum EDodgeType
-    {
-        False,
-        Player,
-        OtherEnemy,
-        StationaryObject
-    }
-
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
@@ -404,16 +366,11 @@ public class EnemyFlying : MonoBehaviour
         // draw enemy parallel distance
         UnityEditor.Handles.color = Color.yellow;
         UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, parallelDistance);
-
-        // draw enemy dodging distance
-        UnityEditor.Handles.color = Color.red;
-        UnityEditor.Handles.DrawWireDisc(this.transform.position, this.transform.up, dodgeDistance);
     }
     catch
     {
 
     }
-        // draw view area of enemy
 
 #endif
     }
