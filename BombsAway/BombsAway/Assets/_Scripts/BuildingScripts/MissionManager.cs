@@ -53,7 +53,7 @@ public class MissionManager : MonoBehaviour
     public static void IncreasePlayerScore(int incrementAmount)
     {
         playerScore += incrementAmount;
-        Debug.Log($"Player score: {playerScore}");
+        //Debug.Log($"Player score: {playerScore}");
     }
 
     public static void DecreaseTargetCount()
