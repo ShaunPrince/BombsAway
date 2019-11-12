@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SelectWheel : MonoBehaviour
 {
-
+    private bool menuOpen;
     private StationManager stationManager;
 
     private GraphicRaycaster ray;
@@ -27,6 +27,7 @@ public class SelectWheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menuOpen = false;
         stationManager = GameObject.FindGameObjectWithTag("Stations").GetComponent<StationManager>();
         ray = GetComponent<GraphicRaycaster>();
         EventSystem = GetComponent<EventSystem>();
@@ -44,12 +45,23 @@ public class SelectWheel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (Input.GetKey(KeyCode.Tab)) 
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
+            menuOpen = true;
             cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
+        }
+        else if(Input.GetKeyUp(KeyCode.Tab))
+        {
+            menuOpen = false;
+            Cursor.lockState = cursorLockState;
+            stationManager.SetMainStation(selectedStation);
+            SetUIActive(false);
+        }
+
+        if (menuOpen) 
+        {
+
             SetUIActive(true);
             PointerEventData = new PointerEventData(EventSystem);
             PointerEventData.position = Input.mousePosition;
@@ -87,17 +99,10 @@ public class SelectWheel : MonoBehaviour
                 {
                     pointer.SetActive(false);
                     center.GetComponent<Image>().overrideSprite = center_cog[1]; //fake selection outline
-                    Cursor.lockState = cursorLockState;
                 }
 
             }
 
-        }
-        else if(Input.GetKeyUp(KeyCode.Tab))
-        {
-            Cursor.lockState = cursorLockState;
-            stationManager.SetMainStation(selectedStation);
-            SetUIActive(false);
         }
         else if (wheel.activeSelf) 
         {
