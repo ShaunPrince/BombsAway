@@ -25,16 +25,19 @@ use shaun's script - flying script
 
 public class EnemySpawner : WorldEntity
 {
-    public int timeBetweenSpawn;
+    public float distanceToSpawn;
+    public float timeBetweenSpawn;
     public int minSpawnTime;
     [Range(0,1)]
-    public int spawnTimeDecrement;
+    public float spawnTimeDecrement;
     //[Tooltip("Increase in speed that allows the enemy to catch up initially, >0")]
     //public float initialSpeedIncrease;
     public SpawnableObject[] Enemies;
 
     private float deltaTime = 100f;     // to create insta spawn
     private float totalWeightedProb = 0;
+
+    private int enemyCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +95,8 @@ public class EnemySpawner : WorldEntity
 
                 //Debug.Log($"Spawning: {enemy.EnemyPrefab} with probability of {enemy.probabilityOfSpawn}% from random number ({randomEnemy})\nWith position {position} and rotation {rotation}");
                 GameObject newEnemy = Instantiate(enemy.spawnPrefab, position, rotation, this.transform);
+                newEnemy.name = enemy.spawnPrefab.name + " " + enemyCount;
+                enemyCount++;
                 //newEnemy.GetComponent<Flying>().SetDesSpeed(GameObject.FindWithTag("PilotStation").GetComponent<Flying>().desiredForwardSpeed + initialSpeedIncrease);
 
                 break;
@@ -107,7 +112,6 @@ public class EnemySpawner : WorldEntity
         //float zPos = WorldCenter.y + WorldLength * Mathf.Sin(angle);
 
         Transform playerTransfrom = GameObject.FindWithTag("Player").transform;
-        float distanceToSpawn = 4000f;
         float xPos = playerTransfrom.position.x + distanceToSpawn * Mathf.Cos(angle);
         float zPos = playerTransfrom.position.z + distanceToSpawn * Mathf.Sin(angle);
 
@@ -136,12 +140,12 @@ public class EnemySpawner : WorldEntity
     {
 #if UNITY_EDITOR
         Transform playerTransfrom = GameObject.FindWithTag("Player").transform;
-        float distanceToSpawn = 4000f;
+        float distance = distanceToSpawn;
         Vector3 debugPos = new Vector3(playerTransfrom.position.x, playerTransfrom.position.y, playerTransfrom.position.z);
         try
         {
             UnityEditor.Handles.color = Color.magenta;
-            UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, distanceToSpawn);
+            UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, distance);
         }
         catch
         {
