@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4672804719717915483}
   - component: {fileID: 8130011006081244346}
   - component: {fileID: 8986054566006978826}
-  - component: {fileID: 8065828631821864428}
   m_Layer: 20
   m_Name: MapMarker
   m_TagString: Untagged
@@ -105,19 +104,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8065828631821864428
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3686637698579716207}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5951528309667444875
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,41 +188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3928826747768393085}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Name
-      value: Building Model
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2502203975881118265, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 23b215332aa4cab4daca6b69203ff4c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -306,6 +257,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Building Model
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8684251187902555887, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 23b215332aa4cab4daca6b69203ff4c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b215332aa4cab4daca6b69203ff4c0, type: 3}

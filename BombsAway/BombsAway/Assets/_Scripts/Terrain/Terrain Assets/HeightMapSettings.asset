@@ -21,8 +21,8 @@ MonoBehaviour:
     lacunarity: 2
     seed: 0
     offset: {x: 0, y: 0}
-  useFalloff: 0
-  heightMultiplier: 800
+  useFalloff: 1
+  heightMultiplier: 2400
   heightCurve:
     serializedVersion: 2
     m_Curve:

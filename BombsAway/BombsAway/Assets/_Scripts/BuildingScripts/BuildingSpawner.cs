@@ -123,7 +123,7 @@ public class BuildingSpawner : WorldEntity
                 }
 
                 // get y-axis var at spawnLocation
-                float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, 0f, spawnLocation.y));
+                float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
                 Vector3 spawnVector3 = new Vector3(spawnLocation.x, yAxis, spawnLocation.y);
 
                 // give the buidling some rotation?
@@ -205,6 +205,7 @@ public class BuildingSpawner : WorldEntity
                             spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
                             spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
                             notColliding = false;
+                            break;
                         }
                     }
 
@@ -218,7 +219,7 @@ public class BuildingSpawner : WorldEntity
                 }
 
                 // get y-axis var at spawnLocation
-                float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, 0f, spawnLocation.y));
+                float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
                 Vector3 spawnVector3 = new Vector3(spawnLocation.x, yAxis, spawnLocation.y);
 
                 // give the buidling some rotation?

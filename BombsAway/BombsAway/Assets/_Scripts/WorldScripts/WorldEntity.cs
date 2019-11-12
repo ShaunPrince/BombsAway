@@ -7,7 +7,7 @@ public class WorldEntity : MonoBehaviour
 {
     private float worldCenterX = 0;
     private float worldCenterZ = 0;
-    private float worldRadius = 20000;
+    private float worldRadius = 10000;
 
     public Vector2 WorldCenter {
         get {

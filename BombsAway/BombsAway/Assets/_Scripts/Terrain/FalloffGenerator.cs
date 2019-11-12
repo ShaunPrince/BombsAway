@@ -22,6 +22,32 @@ public static class FalloffGenerator
         return map;
     }
 
+    public static float[,] GenerateFallofMap(int size, Vector2 center)
+    {
+        float[,] map = new float[size, size];
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (center.x == 0 && center.y == 0) {
+                    float x = i / (float)size * 2 - 1; // *2-1 to get a number in the range of 0-1
+                    float y = j / (float)size * 2 - 1;
+
+                    float value = Mathf.Max(Mathf.Abs(x), Mathf.Abs(y));
+                    map[i, j] = Evaluate(value);
+                }
+                else
+                {
+                    map[i, j] = 1;
+                }
+                    
+            }
+        }
+
+        return map;
+    }
+
     // decreases the effect of the falloff map, making the falloff only affect the edges
     static float Evaluate(float value)
     {
