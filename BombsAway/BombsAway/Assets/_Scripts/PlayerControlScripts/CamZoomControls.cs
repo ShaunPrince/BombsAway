@@ -21,6 +21,7 @@ public class CamZoomControls : MonoBehaviour
 
     public void UpdateZoom(int newZoomIndex)
     {
+        chosenScaleIndex = newZoomIndex;
         stationDisplayPosAndScaleController.chosenCenterCamScale = (ECenterCamScale)newZoomIndex;
     }
 
