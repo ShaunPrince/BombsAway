@@ -20,6 +20,7 @@ public class SelectWheel : MonoBehaviour
     public GameObject center;
     public Sprite[] center_cog;
     private EStationID selectedStation;
+    private Station curStation;
 
     private List<GameObject> elem;
 
@@ -50,6 +51,7 @@ public class SelectWheel : MonoBehaviour
             menuOpen = true;
             cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
+            curStation = StationManager.currentCenterStation;
         }
         else if(Input.GetKeyUp(KeyCode.Tab))
         {
@@ -97,6 +99,7 @@ public class SelectWheel : MonoBehaviour
                 }
                 else
                 {
+                    selectedStation = curStation.stationID;
                     pointer.SetActive(false);
                     center.GetComponent<Image>().overrideSprite = center_cog[1]; //fake selection outline
                 }

@@ -1,87 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &10770110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 10770111}
-  m_Layer: 0
-  m_Name: Crewmen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &10770111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10770110}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -256.25, y: -39.25, z: 9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 190614392}
-  - {fileID: 223090214}
-  - {fileID: 1332400127}
-  - {fileID: 768482551}
-  m_Father: {fileID: 3655325482448829072}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &190614391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 190614392}
-  - component: {fileID: 190614393}
-  m_Layer: 0
-  m_Name: Crewman_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &190614392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190614391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 10770111}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &190614393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190614391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9073ab47103efc4a8617aa070e25a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmName: 
-  cmHealth: 0
-  startingStation: {fileID: 3655325481478335193}
-  currentStation: {fileID: 0}
-  newStationTest: {fileID: 0}
 --- !u!1 &212042456
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,54 +73,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &223090213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 223090214}
-  - component: {fileID: 223090215}
-  m_Layer: 0
-  m_Name: Crewman_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &223090214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223090213}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 10770111}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &223090215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223090213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9073ab47103efc4a8617aa070e25a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmName: 
-  cmHealth: 0
-  startingStation: {fileID: 3655325482381528470}
-  currentStation: {fileID: 0}
-  newStationTest: {fileID: 0}
 --- !u!1 &256797485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,54 +1007,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &768482550
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 768482551}
-  - component: {fileID: 768482552}
-  m_Layer: 0
-  m_Name: SchematicAlwaysManned
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &768482551
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768482550}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 10770111}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &768482552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768482550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9073ab47103efc4a8617aa070e25a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmName: 
-  cmHealth: 0
-  startingStation: {fileID: 3655325482261300177}
-  currentStation: {fileID: 0}
-  newStationTest: {fileID: 0}
 --- !u!1 &826477289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,54 +2044,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &1332400126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332400127}
-  - component: {fileID: 1332400128}
-  m_Layer: 0
-  m_Name: Crewman_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1332400127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332400126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 10770111}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1332400128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332400126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9073ab47103efc4a8617aa070e25a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmName: 
-  cmHealth: 0
-  startingStation: {fileID: 3655325481795095800}
-  currentStation: {fileID: 0}
-  newStationTest: {fileID: 0}
 --- !u!1 &1359240890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,9 +3898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 3
   stationCamera: {fileID: 3655325481976955772}
   controlScheme: {fileID: 7995422966882947067}
-  stationCrewman: {fileID: 0}
 --- !u!114 &1857341672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4215,9 +3989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 2
   stationCamera: {fileID: 3655325482744258519}
   controlScheme: {fileID: 7995422966676081976}
-  stationCrewman: {fileID: 0}
 --- !u!114 &3655325481478335194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4524,9 +4298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 5
   stationCamera: {fileID: 3655325481009933394}
   controlScheme: {fileID: 7995422967463729947}
-  stationCrewman: {fileID: 0}
 --- !u!114 &6269894267688507217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4688,9 +4462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 6
   stationCamera: {fileID: 3655325481319829430}
   controlScheme: {fileID: 7995422967161939502}
-  stationCrewman: {fileID: 0}
 --- !u!114 &1132148714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5474,9 +5248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 4
   stationCamera: {fileID: 3655325482579767944}
   controlScheme: {fileID: 7995422966635778722}
-  stationCrewman: {fileID: 0}
 --- !u!114 &1777354017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5535,9 +5309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 0
   stationCamera: {fileID: 3655325481949578436}
   controlScheme: {fileID: 7995422966533795556}
-  stationCrewman: {fileID: 768482552}
 --- !u!1 &3655325482288472665
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,9 +5445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 7
   stationCamera: {fileID: 3655325483091090631}
   controlScheme: {fileID: 7995422968014471943}
-  stationCrewman: {fileID: 0}
 --- !u!114 &759652973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5732,9 +5506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 1
   stationCamera: {fileID: 3655325481865035837}
   controlScheme: {fileID: 7995422966809507957}
-  stationCrewman: {fileID: 0}
 --- !u!1 &3655325482448829079
 GameObject:
   m_ObjectHideFlags: 0
@@ -5766,7 +5540,6 @@ Transform:
   m_Children:
   - {fileID: 3655325481388555613}
   - {fileID: 7995422967205028457}
-  - {fileID: 10770111}
   - {fileID: 6005754733655342908}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6013,9 +5786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationID: 8
   stationCamera: {fileID: 3655325482054104176}
   controlScheme: {fileID: 7995422966839512837}
-  stationCrewman: {fileID: 0}
 --- !u!1 &3655325482715486259
 GameObject:
   m_ObjectHideFlags: 0
@@ -7589,7 +7362,7 @@ Transform:
   m_Children:
   - {fileID: 3655325481830587434}
   m_Father: {fileID: 3655325482448829072}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7995422966295509422
 GameObject:

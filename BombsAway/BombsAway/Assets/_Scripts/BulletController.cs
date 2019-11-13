@@ -65,13 +65,13 @@ public class BulletController : MonoBehaviour
         // Debug.Log(other.gameObject.layer.ToString());
         if (other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
-            Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
+            //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
             other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.layer.ToString() != "8")
         {
-            Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
+            //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
             Destroy(this.gameObject);
         }
     }
