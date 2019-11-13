@@ -13,7 +13,7 @@ public class PlayerGunController : MonoBehaviour
     private float timeSinceShot;
     private int ammoCount;
     private float timeReloading;
-    private bool reloading;
+    public bool reloading;
 
     // Start is called before the first frame update
     void Start()
