@@ -34,7 +34,7 @@ public class EnemySpawner : WorldEntity
     //public float initialSpeedIncrease;
     public SpawnableObject[] Enemies;
 
-    private float deltaTime = 100f;     // to create insta spawn
+    private float deltaTime = 30f;     // to create insta spawn
     private float totalWeightedProb = 0;
 
     private int enemyCount = 0;
