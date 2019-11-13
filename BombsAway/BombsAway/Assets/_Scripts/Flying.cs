@@ -97,7 +97,9 @@ public class Flying : MonoBehaviour
 
     public void NoTurn()
     {
+        rb.angularVelocity = Vector3.zero;
         SetDesDir(this.transform.rotation.eulerAngles.y);
+
     }
 
     public void SetDesDir(float newDir)
