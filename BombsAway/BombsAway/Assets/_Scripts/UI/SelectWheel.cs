@@ -21,6 +21,9 @@ public class SelectWheel : MonoBehaviour
     public Sprite[] center_cog;
     private EStationID selectedStation;
     private Station curStation;
+    private ECenterCamScale curCamScale;
+    private CamZoomControls camZoomCont;
+    private StationDisplayPosAndScaleController stationDisplayPosAndScale;
 
     private List<GameObject> elem;
 
@@ -32,6 +35,8 @@ public class SelectWheel : MonoBehaviour
         stationManager = GameObject.FindGameObjectWithTag("Stations").GetComponent<StationManager>();
         ray = GetComponent<GraphicRaycaster>();
         EventSystem = GetComponent<EventSystem>();
+        camZoomCont = GameObject.FindObjectOfType<CamZoomControls>();
+        stationDisplayPosAndScale = GameObject.FindObjectOfType<StationDisplayPosAndScaleController>();
 
         //the 8 UI sprite slices are here
         elem = new List<GameObject>();
@@ -52,6 +57,9 @@ public class SelectWheel : MonoBehaviour
             cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
             curStation = StationManager.currentCenterStation;
+            curCamScale = stationDisplayPosAndScale.chosenCenterCamScale;
+            camZoomCont.UpdateZoom((int)ECenterCamScale.Med);
+        
         }
         else if(Input.GetKeyUp(KeyCode.Tab))
         {
@@ -59,6 +67,7 @@ public class SelectWheel : MonoBehaviour
             Cursor.lockState = cursorLockState;
             stationManager.SetMainStation(selectedStation);
             SetUIActive(false);
+            camZoomCont.UpdateZoom((int)curCamScale);
         }
 
         if (menuOpen) 
