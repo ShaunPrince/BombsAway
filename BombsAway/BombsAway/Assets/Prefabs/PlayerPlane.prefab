@@ -3691,7 +3691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.067
   timeToReload: 5
-  magazineSize: 200
+  magazineSize: 50
 --- !u!114 &3655325482013215748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7357,7 +7357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.067
   timeToReload: 5
-  magazineSize: 200
+  magazineSize: 50
 --- !u!114 &7995422966816541795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7372,7 +7372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 750
+  projectileSpeed: 500
 --- !u!1 &7995422966829095235
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,7 +8813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.067
   timeToReload: 5
-  magazineSize: 200
+  magazineSize: 50
 --- !u!114 &7995422967540031076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8828,7 +8828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 750
+  projectileSpeed: 500
 --- !u!1 &7995422967542785559
 GameObject:
   m_ObjectHideFlags: 0
