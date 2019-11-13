@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 5131622003824262298}
   - component: {fileID: 4940765936404528252}
   - component: {fileID: 7137272829969563141}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: RightGunModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 1538025760985262663}
   - component: {fileID: 4519786279389193223}
   - component: {fileID: 5725041767905479580}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: LeftGunModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046649997104411821}
   - component: {fileID: 6198584906958009761}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Left Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7632379849253029118}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -35, y: 2.7, z: 20.5}
+  m_LocalPosition: {x: -40, y: 2.7, z: 20.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6607052272535616447}
@@ -482,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8845489059999770730}
   - component: {fileID: 790464064765483706}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Right Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7671698934078840248}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 35, y: 2.7, z: 20.5}
+  m_LocalPosition: {x: 40, y: 2.7, z: 20.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3902979515382255934}

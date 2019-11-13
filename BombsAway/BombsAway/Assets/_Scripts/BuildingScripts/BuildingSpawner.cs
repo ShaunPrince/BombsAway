@@ -249,14 +249,17 @@ public class BuildingSpawner : WorldEntity
     {
         // shoot a raycast from the bottom of the building
         // find at what y point it hits the terrain below it
-        RaycastHit hit;
-        if (Physics.Raycast(spawnPoint, Vector3.down, out hit))
+        RaycastHit[] hit = Physics.RaycastAll(spawnPoint, Vector3.down, 5000);
+        for (int i = 0; i < hit.Length; i++)
         {
-            return hit.point.y;
+            if (hit[i].transform.gameObject.layer == 9)
+            {
+                return hit[i].point.y;
+            }
         }
 
         // something went wrong
-        return 0f;
+        return -5000f;
     }
 
     private void OnValidate()

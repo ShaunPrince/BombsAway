@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e67d7b5c6f2904ca648f5752461f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfCitiesToSpawn: 2
+  numberOfCitiesToSpawn: 5
   maxCitySize: 8
   numberOfBuildingsToSpawn: 10
   buildings:
