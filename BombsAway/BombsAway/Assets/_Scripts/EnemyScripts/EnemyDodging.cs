@@ -17,7 +17,7 @@ public class EnemyDodging : MonoBehaviour
     // if anything else, dodge up
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"{this.transform.parent.gameObject.name} collided with {other.gameObject.name}");
+        Debug.Log($"{this.transform.parent.gameObject.name} collided with {other.gameObject.name}");
 
         // doge player (dodging the player takes priority)
         if (other.gameObject.transform.parent.tag == "Player")
