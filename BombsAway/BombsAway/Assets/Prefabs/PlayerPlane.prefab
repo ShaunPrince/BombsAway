@@ -5134,7 +5134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.067
+  timeBetweenShots: 0.25
   timeToReload: 5
   magazineSize: 50
   reloading: 0
@@ -8509,7 +8509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.067
+  timeBetweenShots: 0.25
   timeToReload: 5
   magazineSize: 50
   reloading: 0
@@ -9968,7 +9968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.067
+  timeBetweenShots: 0.25
   timeToReload: 5
   magazineSize: 50
   reloading: 0
