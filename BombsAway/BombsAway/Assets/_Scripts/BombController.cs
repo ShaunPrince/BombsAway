@@ -9,6 +9,8 @@ public class BombController : MonoBehaviour
     public float dropMagnitude;
     public EAllegiance allegiance;
 
+    private AudioSource BombExplode;
+
     private Rigidbody rb;
     private bool isDropping = false;
     private Vector3 dropVelocity;
@@ -19,6 +21,8 @@ public class BombController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BombExplode = this.GetComponent<AudioSource>(); 
+
         rb = this.GetComponent<Rigidbody>();
         float x_push = Random.Range(-1.0f, 1.0f);
         float z_push = Random.Range(-1.0f, 1.0f);
@@ -77,6 +81,7 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         // TEMP DELETE LATER
         TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
         explosion.MakeExplosion(this.transform.position);
@@ -90,6 +95,7 @@ public class BombController : MonoBehaviour
                 objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
             }
         }
+        BombExplode.Play();
         Destroy(this.gameObject);
     }
 

@@ -49,10 +49,19 @@ MonoBehaviour:
   buildings:
   - spawnPrefab: {fileID: 221127550978869218, guid: a7e80d99445b7a942b6d3395824e1aba,
       type: 3}
-    probabilityOfSpawn: 0.25
+    probabilityOfSpawn: 0.2
   - spawnPrefab: {fileID: 5951528309667444875, guid: d86cb7f1549ae644294f1aac23724e86,
       type: 3}
-    probabilityOfSpawn: 0.25
-  - spawnPrefab: {fileID: 221127550978869218, guid: ce2a67328fc80f44a957caa52ffa41cf,
+    probabilityOfSpawn: 0.2
+  - spawnPrefab: {fileID: 221127550978869218, guid: a2de7d29d4ebcee41a2d05b1d5b61db9,
+      type: 3}
+    probabilityOfSpawn: 0.2
+  - spawnPrefab: {fileID: 221127550978869218, guid: bb90aee4ee30be143a0a2d704106c185,
+      type: 3}
+    probabilityOfSpawn: 0.2
+  - spawnPrefab: {fileID: 221127550978869218, guid: 9148d90c37f719f429c27cc90ba6aca0,
+      type: 3}
+    probabilityOfSpawn: 0.2
+  - spawnPrefab: {fileID: 221127550978869218, guid: 0f85bf8cd865c9d4d88a0e05dbe2e12b,
       type: 3}
     probabilityOfSpawn: 0.25
