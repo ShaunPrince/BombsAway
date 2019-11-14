@@ -7,6 +7,8 @@ public class PlayerGunController : MonoBehaviour
     public float timeBetweenShots;
     public float timeToReload;
     public int magazineSize;
+    //public GameObject GunShotCtr;
+    private AudioSource GunShot;
 
     private ShootGun sg;
     //private GunnerUIController guic;
@@ -14,10 +16,10 @@ public class PlayerGunController : MonoBehaviour
     private int ammoCount;
     private float timeReloading;
     public bool reloading;
-
     // Start is called before the first frame update
     void Start()
     {
+        GunShot = this.GetComponent<AudioSource>();
         sg = this.GetComponent<ShootGun>();
         //guic = this.GetComponent<GunnerUIController>();
         timeSinceShot = 0.0f;
@@ -41,6 +43,7 @@ public class PlayerGunController : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && timeSinceShot >= timeBetweenShots)
             {
+                GunShot.Play();
                 sg.FireGun();
                 ammoCount--;
                 //guic.UpdateAmmoCount(ammoCount);
