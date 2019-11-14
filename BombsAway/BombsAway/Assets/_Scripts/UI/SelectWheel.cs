@@ -13,6 +13,8 @@ public class SelectWheel : MonoBehaviour
     private PointerEventData PointerEventData;
     private EventSystem EventSystem;
 
+    public LayerMask lm;
+
     [Header("Hold Tab, move mouse over new camera, let go of tab")]
     public GameObject wheel;
     public GameObject pointer;
