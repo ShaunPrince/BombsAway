@@ -6,11 +6,13 @@ public class BombController : MonoBehaviour
 {
     public float damage;
     public float pushMagnitude;
+    public float dropMagnitude;
     public EAllegiance allegiance;
 
     private Rigidbody rb;
     private bool isDropping = false;
     private Vector3 dropVelocity;
+    private Vector3 planeVeloctiy;
 
     private List<GameObject> listObjectsToDestroy;
 
@@ -18,9 +20,10 @@ public class BombController : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        float x_push = Random.Range(0.0f, 1.0f);
-        float z_push = Random.Range(0.0f, 1.0f);
-        dropVelocity = new Vector3(x_push, 0.0f, z_push) * pushMagnitude + GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
+        float x_push = Random.Range(-1.0f, 1.0f);
+        float z_push = Random.Range(-1.0f, 1.0f);
+        planeVeloctiy = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
+        dropVelocity = new Vector3(x_push * pushMagnitude, -1.0f * dropMagnitude, z_push * pushMagnitude);
 
         listObjectsToDestroy = new List<GameObject>();
     }
@@ -31,6 +34,7 @@ public class BombController : MonoBehaviour
         if (isDropping)
         {
             RotateDown();
+            PushBomb();
         }
     }
 
@@ -40,7 +44,12 @@ public class BombController : MonoBehaviour
         rb.isKinematic = false;
         rb.freezeRotation = false;
         rb.useGravity = true;
-        rb.velocity = dropVelocity;
+        rb.velocity = new Vector3(planeVeloctiy.x, 0.0f, planeVeloctiy.z);
+    }
+
+    private void PushBomb()
+    {
+        rb.AddForce(dropVelocity);
     }
 
     private void RotateDown()
