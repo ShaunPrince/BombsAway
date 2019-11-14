@@ -48,7 +48,7 @@ public class BombController : MonoBehaviour
         rb.isKinematic = false;
         rb.freezeRotation = false;
         rb.useGravity = true;
-        rb.velocity = new Vector3(planeVeloctiy.x, 0.0f, planeVeloctiy.z);
+        rb.velocity = new Vector3(planeVeloctiy.x, planeVeloctiy.y - 100.0f, planeVeloctiy.z);
     }
 
     private void PushBomb()
@@ -58,7 +58,7 @@ public class BombController : MonoBehaviour
 
     private void RotateDown()
     {
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .005f);
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .001f);
     }
 
     // when an object enters the bombs radius, add it to items to destroy
