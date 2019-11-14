@@ -21,15 +21,20 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public AudioSource ShortClank;
 
     public void LoadLevel(int index)
     {
+        ShortClank.Play();
+
         Debug.Log("Menu Start button launches next scene.");
         SceneManager.LoadScene(index);
     }
 
     public void ViewControls()
     {
+        ShortClank.Play();
+
         if (ControlsPage.activeSelf) ControlsPage.SetActive(false);
         else ControlsPage.SetActive(true);
 
@@ -37,6 +42,8 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
+        ShortClank.Play();
+
         Application.Quit();
         Debug.Log("Game is supposed to quit.");
     }
