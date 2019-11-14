@@ -9,19 +9,23 @@ using UnityEngine;
  * Static playerScore, when a building dies, add the value to playerScore
  */
 
-public class MissionManager : MonoBehaviour
+public class MissionManager : WorldEntity
 {
     public static int numberOfTargetBuildings = 10;
     private static int numberRemainingTargets;
     public static int playerScore = 0; // initialize to zero
 
     private GameObject buildingSpawner;
+    private Transform playerTransform;
     private bool buildingTargetingCompleted = false;
+
+    private static bool playerInBounds = true;
 
     // Start is called before the first frame update
     void Start()
     {
         buildingSpawner = GameObject.FindWithTag("BuildingSpawner");
+        playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         numberRemainingTargets = numberOfTargetBuildings;
     }
 
@@ -48,6 +52,16 @@ public class MissionManager : MonoBehaviour
 
             buildingTargetingCompleted = true;
         }
+
+        // check if the player is still within bounds of the map
+        if (Mathf.Abs(playerTransform.position.x) > WorldLength || Mathf.Abs(playerTransform.position.z) > WorldLength)
+        {
+            playerInBounds = false;
+        }
+        else
+        {
+            playerInBounds = true;
+        }
     }
 
     public static void IncreasePlayerScore(int incrementAmount)
@@ -64,5 +78,10 @@ public class MissionManager : MonoBehaviour
     public static int NumberOfRemainingTargets()
     {
         return numberRemainingTargets;
+    }
+
+    public static bool PlayerInBounds()
+    {
+        return playerInBounds;
     }
 }
