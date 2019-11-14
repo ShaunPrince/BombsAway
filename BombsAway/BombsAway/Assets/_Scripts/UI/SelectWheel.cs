@@ -46,7 +46,7 @@ public class SelectWheel : MonoBehaviour
             elem.Add(element.transform.GetChild(i).gameObject);
         foreach (var e in elem)
         {
-            e.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f; // make raycast ignore transparency
+            e.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.01f; // make raycast ignore transparency
         }
     }
 
@@ -86,8 +86,8 @@ public class SelectWheel : MonoBehaviour
 
             List<RaycastResult> result = new List<RaycastResult>();
             ray.Raycast(PointerEventData, result);
-
-            if (result.ToArray().Length != 0)
+            int len = result.ToArray().Length;
+            if (len != 0)
             {
                 var pos = result[0].screenPosition;
 

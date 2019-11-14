@@ -1,33 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 public class ReloadMonitorControl : MonoBehaviour
 {
 
     public GameObject gunner;
     public GameObject MonitorGraphic;
-    public GameObject ReloadGraphic;
-    public Animation anim;
-    public AnimationClip animc;
+    //public GameObject ReloadGraphic;
+    //public Animation anim;
+    //public AnimationClip animc;
 
 
     private float timer;
     private bool isReloading = false;
-    private Animator animator;
+    //private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = gunner.GetComponent<PlayerGunController>().timeToReload;
-        animator = ReloadGraphic.GetComponent<Animator>();
+        //animator = ReloadGraphic.GetComponent<Animator>();
     }
 
-    bool AnimatorIsPlaying()
-    {
-        return animator.GetCurrentAnimatorStateInfo(0).length >
-               animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    /* bool AnimatorIsPlaying()
+     {
+         return animator.GetCurrentAnimatorStateInfo(0).length >
+                animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+     }
+     */
+
+    private void SetMonitorReloadFalse() {
+        MonitorGraphic.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,15 +40,21 @@ public class ReloadMonitorControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) {
             isReloading = gunner.GetComponent<PlayerGunController>().reloading;
+            //Debug.Log(isReloading);
             if (isReloading) {
-                float speed = anim[animc.name].speed;
-                anim[animc.name].speed = anim[animc.name].speed * timer;
-                MonitorGraphic.SetActive(true);
-            }
-        }
 
-        if (!AnimatorIsPlaying()) {
-            MonitorGraphic.SetActive(false);
+                //float speed = anim[animc.name].speed;
+                //anim[animc.name].speed = anim[animc.name].speed * timer;
+                MonitorGraphic.SetActive(true);
+                Invoke("SetMonitorReloadFalse", 5);
+                //this.GetComponent<Animator>().Play(0);
+            }
+  
+                
         }
+        //MonitorGraphic.SetActive(false);
+        //if (!AnimatorIsPlaying()) {
+        //MonitorGraphic.SetActive(false);
+        //}
     }
 }
