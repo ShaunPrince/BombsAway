@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float damage;
+    private float bulletDamage;
     private float timeAlive;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
@@ -14,11 +14,10 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bulletDamage = 1.0f;
         timeAlive = 0.0f;
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
-        //this.transform.parent = null;
-        //tr = this.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -32,6 +31,11 @@ public class BulletController : MonoBehaviour
             Destroy(this.gameObject);
         }
         CheckForHit();
+    }
+
+    public void SetBulletDamage(float damage)
+    {
+        bulletDamage = damage;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -66,7 +70,7 @@ public class BulletController : MonoBehaviour
         if (other.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
-            other.GetComponentInParent<DamageableEntity>().TakeDamage(damage,allegiance);
+            other.GetComponentInParent<DamageableEntity>().TakeDamage(bulletDamage,allegiance);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.layer.ToString() != "8")

@@ -6,6 +6,7 @@ public class ShootGun : MonoBehaviour
 {
     public GameObject projectile;
     public float projectileSpeed;
+    public float gunDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,9 @@ public class ShootGun : MonoBehaviour
     public void FireGun()
     {
         GameObject newProjectile = Instantiate(projectile, this.transform.position + this.transform.forward *30, this.transform.rotation);
-        newProjectile.GetComponent<BulletController>().allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
+        BulletController newBC = newProjectile.GetComponent<BulletController>();
+        newBC.allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
+        newBC.SetBulletDamage(gunDamage);
         newProjectile.GetComponent<Rigidbody>().velocity = this.GetComponentInParent<Rigidbody>().velocity + this.GetComponentInParent<Camera>().gameObject.transform.forward * projectileSpeed;
     }
 }

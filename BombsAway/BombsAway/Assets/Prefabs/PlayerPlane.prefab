@@ -4955,7 +4955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3655325481009933398}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7995422966816541804}
@@ -6556,6 +6556,7 @@ MonoBehaviour:
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
   projectileSpeed: 500
+  gunDamage: 2
 --- !u!82 &1858586749
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7253,7 +7254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3655325482579767948}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3655325482987182591}
@@ -7819,7 +7820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3655325483091090635}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7995422967540031077}
@@ -10048,6 +10049,7 @@ MonoBehaviour:
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
   projectileSpeed: 500
+  gunDamage: 2
 --- !u!82 &3401274020805011484
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11608,6 +11610,7 @@ MonoBehaviour:
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
   projectileSpeed: 500
+  gunDamage: 2
 --- !u!82 &8452900842442458863
 AudioSource:
   m_ObjectHideFlags: 0
