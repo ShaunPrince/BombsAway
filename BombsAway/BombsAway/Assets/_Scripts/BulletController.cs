@@ -9,6 +9,9 @@ public class BulletController : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 currentPosition;
 
+    [SerializeField]
+    private LayerMask layersToHit;
+
     public EAllegiance allegiance;
 
     // Start is called before the first frame update
@@ -57,7 +60,7 @@ public class BulletController : MonoBehaviour
         RaycastHit hit;
         //LayerMask layerMask = LayerMask.GetMask("Bullet");
         float distance = Vector3.Distance(lastPosition, currentPosition);
-        if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance) && !hit.collider.tag.Equals("Bullet"))
+        if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance, layersToHit) && !hit.collider.tag.Equals("Bullet"))
         {
             //Debug.Log("Hit");
             HitObject(hit.collider);

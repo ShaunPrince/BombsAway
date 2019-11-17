@@ -4944,7 +4944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91b9831984746447842ea6e09440e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 34304
   allegiance: 1
 --- !u!1 &6175539062138484808
 GameObject:
