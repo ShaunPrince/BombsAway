@@ -27,8 +27,8 @@ public class Flying : MonoBehaviour
     {
         if(fixedAcceleration == 0 || maxVerticalVelocity == 0)
         {
-            fixedAcceleration = 50;
-            maxVerticalVelocity = 100;
+            fixedAcceleration = 100;
+            maxVerticalVelocity = 150;
         }
     }
 

@@ -10,14 +10,15 @@ public class PlayerFlightControls : ControlScheme
     public ESpeeds currentSpeedSetting;
     public EAlts currentAltSetting;
 
-
+    private DynamicAltitude da;
     public Flying fly;
     // Start is called before the first frame update
     void Start()
     {
+        da = this.gameObject.GetComponentInParent<DynamicAltitude>();
         fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
-        fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
-        fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+        fly.SetDesAlt(da.calcStraightDownAlt(presetAlts[(int)currentAltSetting]));
+        fly.SetDesSpeed( presetSpeeds[(int)currentSpeedSetting]);
     }
 
     // Update is called once per frame
@@ -35,7 +36,6 @@ public class PlayerFlightControls : ControlScheme
             if((int)currentAltSetting < (int)EAlts.High)
             {
                 currentAltSetting += 1;
-                fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Q))
@@ -43,10 +43,10 @@ public class PlayerFlightControls : ControlScheme
             if((int)currentAltSetting > (int) EAlts.Low)
             {
                 currentAltSetting -= 1;
-                fly.SetDesAlt(presetAlts[(int)currentAltSetting]);
 
             }
         }
+        fly.SetDesAlt(da.calcStraightDownAlt(presetAlts[(int)currentAltSetting]));
     }
 
     public void CheckForSpeedChange()
