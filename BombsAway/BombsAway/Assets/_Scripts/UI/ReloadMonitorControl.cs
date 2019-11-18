@@ -5,56 +5,41 @@ using UnityEngine;
 
 public class ReloadMonitorControl : MonoBehaviour
 {
-
     public GameObject gunner;
     public GameObject MonitorGraphic;
-    //public GameObject ReloadGraphic;
-    //public Animation anim;
-    //public AnimationClip animc;
 
 
     private float timer;
     private bool isReloading = false;
-    //private Animator animator;
+    private bool ReloadFlag = true;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         timer = gunner.GetComponent<PlayerGunController>().timeToReload;
-        //animator = ReloadGraphic.GetComponent<Animator>();
+        ReloadFlag = true;
     }
 
-    /* bool AnimatorIsPlaying()
-     {
-         return animator.GetCurrentAnimatorStateInfo(0).length >
-                animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-     }
-     */
 
     private void SetMonitorReloadFalse() {
         MonitorGraphic.SetActive(false);
+        ReloadFlag = true;
+        isReloading = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (ReloadFlag) { 
             isReloading = gunner.GetComponent<PlayerGunController>().reloading;
             //Debug.Log(isReloading);
             if (isReloading) {
 
-                //float speed = anim[animc.name].speed;
-                //anim[animc.name].speed = anim[animc.name].speed * timer;
                 MonitorGraphic.SetActive(true);
+                ReloadFlag = false;
+                isReloading = false;
                 Invoke("SetMonitorReloadFalse", 5);
-                //this.GetComponent<Animator>().Play(0);
             }
-  
-                
+
         }
-        //MonitorGraphic.SetActive(false);
-        //if (!AnimatorIsPlaying()) {
-        //MonitorGraphic.SetActive(false);
-        //}
     }
 }
