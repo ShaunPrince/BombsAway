@@ -23,6 +23,7 @@ public class GunnerControls : ControlScheme
         myCamera.transform.parent.GetComponentInChildren<PlayerGunController>().enabled = active;
         myCamera.transform.parent.GetComponentInChildren<ShootGun>().enabled = active;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //this.GetComponentInChildren<GunnerUIController>().enabled = true;
     }
 

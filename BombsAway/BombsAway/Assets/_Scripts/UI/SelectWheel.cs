@@ -28,12 +28,14 @@ public class SelectWheel : MonoBehaviour
     private StationDisplayPosAndScaleController stationDisplayPosAndScale;
 
     private List<GameObject> elem;
+    private bool curShowCursor;
 
     private CursorLockMode cursorLockState;
     // Start is called before the first frame update
     void Start()
     {
         menuOpen = false;
+        curShowCursor = true;
         stationManager = GameObject.FindGameObjectWithTag("Stations").GetComponent<StationManager>();
         ray = GetComponent<GraphicRaycaster>();
         EventSystem = GetComponent<EventSystem>();
@@ -56,6 +58,8 @@ public class SelectWheel : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             menuOpen = true;
+            curShowCursor = Cursor.visible;
+            Cursor.visible = true;
             cursorLockState = Cursor.lockState;
             Cursor.lockState = CursorLockMode.None;
             curStation = StationManager.currentCenterStation;
@@ -66,6 +70,7 @@ public class SelectWheel : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Tab))
         {
             menuOpen = false;
+            Cursor.visible = curShowCursor;
             Cursor.lockState = cursorLockState;
             stationManager.SetMainStation(selectedStation);
             SetUIActive(false);
