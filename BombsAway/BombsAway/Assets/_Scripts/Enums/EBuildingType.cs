@@ -1,6 +1,7 @@
-﻿public enum EBuildingType
+﻿public enum ETerrainObjectType
 {
     Target,
     Innocent,
-    Enemy
+    Enemy,
+    Shrubery
 }

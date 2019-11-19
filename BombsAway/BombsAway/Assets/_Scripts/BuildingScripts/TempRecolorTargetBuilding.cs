@@ -9,7 +9,7 @@ public class TempRecolorTargetBuilding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.GetComponent<Buidling>().buildingType == EBuildingType.Target && !colorUpdated)
+        if (this.GetComponent<TerrainObject>().objectType == ETerrainObjectType.Target && !colorUpdated)
         {
             Transform model = this.transform.GetChild(0);
             for (int i = 0; i < model.childCount; i++)

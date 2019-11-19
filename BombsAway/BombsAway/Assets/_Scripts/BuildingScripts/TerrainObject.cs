@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buidling : DamageableEntity
+public class TerrainObject : DamageableEntity
 {
-    public EBuildingType buildingType;
+    public ETerrainObjectType objectType;
     public int pointValue;
 
     // upon its death, update playerScore
@@ -18,7 +18,7 @@ public class Buidling : DamageableEntity
             {
                 MissionManager.IncreasePlayerScore(pointValue);
 
-                if (buildingType == EBuildingType.Target) MissionManager.DecreaseTargetCount();
+                if (objectType == ETerrainObjectType.Target) MissionManager.DecreaseTargetCount();
 
                 GameObject.Destroy(this.gameObject);
             }

@@ -8,18 +8,25 @@ using UnityEngine;
     // more likely to be spawned next to another building, but not too close
     // find the y position from the terrain at that point
 
-public class BuildingSpawner : WorldEntity
+public class TerrainObjectSpawner : WorldEntity
 {
     public int numberOfCitiesToSpawn;
     public int maxCitySize;
     public int numberOfBuildingsToSpawn;
     public SpawnableObject[] buildings;
+    private Transform buildingParent;
+
+    public int numberOfShruberiesToSpawn;
+    public SpawnableObject[] shrubery;
+    private Transform shruberyParent;
 
     private List<Vector2> spawnLocations = new List<Vector2>();
     private Dictionary<Vector2, GameObject> spawnDictionary = new Dictionary<Vector2, GameObject>();
 
-    private float totalWeightedProb = 0;
+    private float totalWeightedProbBuildings = 0;
     private EStatus buildingGenerationStatus = EStatus.hasNotStarted;
+
+    private float totalWeightedProbShrubery = 0;
 
     private float[] rotationIncrements = { 0f, 90f, 180f, 360f };
 
@@ -34,7 +41,12 @@ public class BuildingSpawner : WorldEntity
 
         for (int i = 0; i < numberOfBuildingsToSpawn; i++)
         {
-            SpawnSemiRandomBuildings();
+            SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
+        }
+
+        for (int i = 0; i < numberOfShruberiesToSpawn; i++)
+        {
+            SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
         }
     }
 
@@ -46,11 +58,19 @@ public class BuildingSpawner : WorldEntity
     // Start is called before the first frame update
     void Start()
     {
+        buildingParent = this.gameObject.transform.Find("Buildings");
+        shruberyParent = this.gameObject.transform.Find("Shrubery");
 
-        // calculate the weighted prob
+        // calculate the weighted prob for buildings
         foreach (SpawnableObject buidling in buildings)
         {
-            totalWeightedProb = buidling.CalculateWeightedSpawnProbability(totalWeightedProb);
+            totalWeightedProbBuildings = buidling.CalculateWeightedSpawnProbability(totalWeightedProbBuildings);
+        }
+
+        // calculate the weighted prob for shrubery
+        foreach (SpawnableObject plant in shrubery)
+        {
+            totalWeightedProbShrubery = plant.CalculateWeightedSpawnProbability(totalWeightedProbShrubery);
         }
     }
 
@@ -90,7 +110,7 @@ public class BuildingSpawner : WorldEntity
             for (int b = 0; b < numBuildingsInRing; b++)
             {
                 // get a random building
-                int buildingIndex = GetBuildingIndex(Random.Range(0, totalWeightedProb));
+                int buildingIndex = GetBuildingIndex(Random.Range(0, totalWeightedProbBuildings));
                 float buildingRadius = buildings[buildingIndex].spawnPrefab.GetComponent<SphereCollider>().radius;
 
                 float angle = Random.Range(0, 360);
@@ -130,7 +150,7 @@ public class BuildingSpawner : WorldEntity
                 Quaternion rotation = Quaternion.Euler(0, rotationIncrements[Random.Range(0, rotationIncrements.Length)], 0);
 
                 // spawn the buidling
-                GameObject newBuilding = Instantiate(buildings[buildingIndex].spawnPrefab, spawnVector3, rotation, this.transform);
+                GameObject newBuilding = Instantiate(buildings[buildingIndex].spawnPrefab, spawnVector3, rotation, buildingParent);
 
                 spawnDictionary.Add(spawnLocation, newBuilding);
 
@@ -155,14 +175,14 @@ public class BuildingSpawner : WorldEntity
         return -1;
     }
 
-    private void SpawnSemiRandomBuildings()
+    private void SpawnSemiRandomObject(SpawnableObject[] objectArray, float totalProb, Transform parent)
     {
-        float randomBuilding = Random.Range(0, totalWeightedProb);
+        float randomObject = Random.Range(0, totalProb);
 
-        foreach (SpawnableObject building in buildings)
+        foreach (SpawnableObject item in objectArray)
         {
             // spawn that enemy if it is the proper weight
-            if (building.ProbWithinRange(randomBuilding))
+            if (item.ProbWithinRange(randomObject))
             {
                 // choose random x,z within map size
                 Vector2 randomLocation = new Vector2(Random.Range(-WorldLength, WorldLength), Random.Range(-WorldLength, WorldLength));
@@ -190,7 +210,7 @@ public class BuildingSpawner : WorldEntity
 
                     // make sure no other building is with in the radius of current building too
                     // then add new location to List
-                    float buildingRadius = building.spawnPrefab.GetComponent<SphereCollider>().radius;
+                    float buildingRadius = item.spawnPrefab.GetComponent<SphereCollider>().radius;
                     bool notColliding = true;
                     foreach (Vector2 point in spawnDictionary.Keys)
                     {
@@ -226,9 +246,9 @@ public class BuildingSpawner : WorldEntity
                 Quaternion rotation = Quaternion.Euler(0, rotationIncrements[Random.Range(0, rotationIncrements.Length)], 0);
 
                 // spawn the buidling
-                GameObject newBuilding = Instantiate(building.spawnPrefab, spawnVector3, rotation, this.transform);
+                GameObject newObject = Instantiate(item.spawnPrefab, spawnVector3, rotation, parent);
 
-                spawnDictionary.Add(spawnLocation, newBuilding);
+                spawnDictionary.Add(spawnLocation, newObject);
 
                 //Debug.Log($"Spawning {building.spawnPrefab} at {spawnVector3} rotated {rotation}");
 
