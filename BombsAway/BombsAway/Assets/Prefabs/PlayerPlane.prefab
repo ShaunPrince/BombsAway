@@ -5761,6 +5761,7 @@ GameObject:
   - component: {fileID: 3655325481568865516}
   - component: {fileID: 3655325481568865517}
   - component: {fileID: 6269894267688507217}
+  - component: {fileID: 1164897340}
   m_Layer: 0
   m_Name: RightGunnerStation (INDEX 5)
   m_TagString: RightGunnerStation
@@ -5812,6 +5813,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCountText: {fileID: 568209396203672333}
+--- !u!114 &1164897340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655325481568865427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d3641222883145b5eed8ae939300b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3655325481744836149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5926,6 +5939,7 @@ GameObject:
   - component: {fileID: 1132148714}
   - component: {fileID: 1132148715}
   - component: {fileID: 1136080269}
+  - component: {fileID: 657653632}
   m_Layer: 10
   m_Name: BombBayStation (INDEX 6)
   m_TagString: BombBayStation
@@ -6004,6 +6018,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempExplosionObject: {fileID: 8660010355514129089, guid: e2aee7102d55f3945bd457cca6230140,
     type: 3}
+--- !u!114 &657653632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655325481795095806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d3641222883145b5eed8ae939300b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3655325481830587433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6811,6 +6837,7 @@ GameObject:
   - component: {fileID: 3655325482160265462}
   - component: {fileID: 3655325482160265463}
   - component: {fileID: 1777354017}
+  - component: {fileID: 196055790}
   m_Layer: 0
   m_Name: LeftGunnerStation (INDEX 4)
   m_TagString: LeftGunnerStation
@@ -6862,6 +6889,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCountText: {fileID: 2748969461276852693}
+--- !u!114 &196055790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655325482160265461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d3641222883145b5eed8ae939300b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3655325482261300183
 GameObject:
   m_ObjectHideFlags: 0
@@ -7008,6 +7047,7 @@ GameObject:
   - component: {fileID: 3655325482381528469}
   - component: {fileID: 3655325482381528470}
   - component: {fileID: 759652973}
+  - component: {fileID: 1202877715}
   m_Layer: 0
   m_Name: TailGunnerStation (INDEX 7)
   m_TagString: TailGunnerStation
@@ -7059,6 +7099,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCountText: {fileID: 6590633526435763700}
+--- !u!114 &1202877715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655325482381528468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6d3641222883145b5eed8ae939300b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3655325482422284038
 GameObject:
   m_ObjectHideFlags: 0
@@ -13102,6 +13154,12 @@ PrefabInstance:
       objectReference: {fileID: 3655325482013215754}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
+--- !u!224 &6046482625126539024 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 1678689646035218386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2748969461276852693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
@@ -13114,12 +13172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6046482625126539024 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 1678689646035218386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3931366569065692426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13244,6 +13296,12 @@ PrefabInstance:
       objectReference: {fileID: 7995422966816541805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
+--- !u!224 &8227383479192686024 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 3931366569065692426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &568209396203672333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
@@ -13256,12 +13314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8227383479192686024 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 3931366569065692426}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7645713836757498867
 PrefabInstance:
   m_ObjectHideFlags: 0
