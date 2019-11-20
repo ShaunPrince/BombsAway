@@ -40,7 +40,8 @@ public class BombDropController : MonoBehaviour
         bombRB.isKinematic = false;
         bombRB.useGravity = true;
         bombRB.velocity = Vector3.Scale(planeRB.velocity, (new Vector3(1, 0, 1)));
-        bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange); 
+        bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange);
+        bombRB.gameObject.GetComponent<TrailRenderer>().emitting = true;
     }
 
     private void SetR1()

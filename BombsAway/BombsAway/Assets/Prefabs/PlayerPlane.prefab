@@ -9607,9 +9607,9 @@ MonoBehaviour:
   - 100
   - 250
   presetAlts:
-  - 500
   - 1000
   - 1500
+  - 2000
   currentSpeedSetting: 0
   currentAltSetting: 0
   fly: {fileID: 0}

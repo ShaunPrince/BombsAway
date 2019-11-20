@@ -2736,6 +2736,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: presetAlts.Array.data[0]
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: presetAlts.Array.data[1]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: presetAlts.Array.data[2]
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 7995422967847966148, guid: 985981ffd35d23742abe1eabc30a0189,
         type: 3}
       propertyPath: m_AnchorMax.x
