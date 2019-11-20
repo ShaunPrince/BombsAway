@@ -15,12 +15,9 @@ public class BombBayControls : ControlScheme
     private float distanceBelowShip = 20f;
     private float distanceInFrontShip = 0f;
 
-    private BombDropController bdc;
-
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        bdc = this.GetComponentInParent<BombDropController>();
         Quaternion rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
         currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
         rm = this.GetComponentInParent<ReloadManager>();
@@ -46,7 +43,7 @@ public class BombBayControls : ControlScheme
 
     private void DropBomb()
     {
-        bdc.Drop(currentBomb);
+        currentBomb.GetComponent<BombController>().Drop();
         reloading = true;
         numOfBombs--;
     }
