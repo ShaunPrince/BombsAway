@@ -16,7 +16,7 @@ public class DynamicAltitude : MonoBehaviour
     [SerializeField]
     Flying fly;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = this.GetComponentInParent<Rigidbody>();
     }
