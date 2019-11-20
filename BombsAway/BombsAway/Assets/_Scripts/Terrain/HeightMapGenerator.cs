@@ -8,7 +8,7 @@ public static class HeightMapGenerator
     {
         float[,] values = Noise.GenerateNoiseMap(width, height, settings.noiseSettings, sampleCenter);
         //float[,] falloffMap = FalloffGenerator.GenerateFallofMap(meshSettings.numVertsPerLine);
-        float[,] falloffMap = FalloffGenerator.GenerateFallofMap(meshSettings.numVertsPerLine, sampleCenter);
+        float[,] falloffMap = FalloffGenerator.GenerateFallofMap(meshSettings.numVertsPerLine, sampleCenter, settings.noiseSettings, settings.fallOffSprite);
 
         // create a new animation curve for each mesh so that weird spikes dont be spiky (fixes an animation curve 'optamization')
         AnimationCurve heightCurve_threadsafe = new AnimationCurve(settings.heightCurve.keys);

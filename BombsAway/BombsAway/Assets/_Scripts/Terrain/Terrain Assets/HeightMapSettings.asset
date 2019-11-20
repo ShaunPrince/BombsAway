@@ -15,14 +15,14 @@ MonoBehaviour:
   autoUpdate: 1
   noiseSettings:
     normalizeMode: 1
-    scale: 50
+    scale: 23.26
     octaves: 6
     persistance: 0.43
     lacunarity: 2
     seed: 0
     offset: {x: 0, y: 0}
   useFalloff: 0
-  heightMultiplier: 800
+  heightMultiplier: 1277.33
   heightCurve:
     serializedVersion: 2
     m_Curve:
@@ -54,14 +54,14 @@ MonoBehaviour:
       inWeight: 0.1928994
       outWeight: 0.29953244
     - serializedVersion: 3
-      time: 0.64384013
-      value: 0.73812515
-      inSlope: 1.6922562
-      outSlope: 1.6922562
+      time: 0.6988299
+      value: 0.92148536
+      inSlope: 1.3104405
+      outSlope: 1.3104405
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.28460065
-      outWeight: 0.10276759
+      inWeight: 0.13637029
+      outWeight: 0.21227877
     - serializedVersion: 3
       time: 1.048521
       value: 1.1263379
@@ -74,3 +74,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  fallOffSprite: {fileID: 21300000, guid: cedc1307883e0bb41af72756ff0088e2, type: 3}

@@ -33,6 +33,7 @@ public class WorldEntity : MonoBehaviour
         try
         {
             UnityEditor.Handles.DrawWireCube(debugPos, debugSize);
+            UnityEditor.Handles.DrawWireDisc(debugPos, this.transform.up, worldRadius);
         }
         catch
         {

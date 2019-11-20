@@ -12,6 +12,8 @@ public class HeightMapSettings : UpdatableData
     public float heightMultiplier;  // scales on y axis
     public AnimationCurve heightCurve;
 
+    public Sprite fallOffSprite;
+
     public float minHeight
     {
         get

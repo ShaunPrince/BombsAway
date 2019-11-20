@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7691351351800776083}
   - component: {fileID: 7691351351800776082}
   - component: {fileID: 7691351351800776093}
+  - component: {fileID: 437044681}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: MapGenerator
@@ -71,26 +72,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7691351351800776080}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 440e07e57d73a5842ac080646e541712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderLODIndex: 0
-  detailLevels:
-  - levelOfDetail: 0
-    visibleDstThreshold: 20000
-  - levelOfDetail: 1
-    visibleDstThreshold: 50000
-  - levelOfDetail: 4
-    visibleDstThreshold: 80000
-  meshSettings: {fileID: 11400000, guid: c270823b74b9a524f8fa4b515cee8cc1, type: 2}
-  heightMapSettings: {fileID: 11400000, guid: 833f4777ef46dd742a4ccf1d93956f5b, type: 2}
-  textureSettings: {fileID: 11400000, guid: 172c7ebb2649ddb49aa493e5617fb8cf, type: 2}
-  viewer: {fileID: 0}
-  mapMaterial: {fileID: 2100000, guid: a72fadf519918e34f99e11e137417998, type: 2}
-  viewerPosition: {x: 0, y: -500}
 --- !u!114 &7691351351800776093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691351351800776080}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acbf141386947d4b85e7e4968d4c7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &437044681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,9 +98,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7691351351800776080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3acbf141386947d4b85e7e4968d4c7f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 88c86ec2280f1ce46837fa5085bb02d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numOfTerrainChunks: {x: 3, y: 3}
+  colliderLODIndex: 0
+  detailLevels:
+  - levelOfDetail: 0
+    visibleDstThreshold: 2000
+  - levelOfDetail: 1
+    visibleDstThreshold: 5000
+  - levelOfDetail: 4
+    visibleDstThreshold: 20000
+  meshSettings: {fileID: 11400000, guid: c270823b74b9a524f8fa4b515cee8cc1, type: 2}
+  heightMapSettings: {fileID: 11400000, guid: 833f4777ef46dd742a4ccf1d93956f5b, type: 2}
+  textureSettings: {fileID: 11400000, guid: 172c7ebb2649ddb49aa493e5617fb8cf, type: 2}
+  mapMaterial: {fileID: 2100000, guid: a72fadf519918e34f99e11e137417998, type: 2}
+  fallOffSprite: {fileID: 21300000, guid: cedc1307883e0bb41af72756ff0088e2, type: 3}
 --- !u!1 &7691351352256565624
 GameObject:
   m_ObjectHideFlags: 0

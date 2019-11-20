@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TerrainGenerator : MonoBehaviour
-{
+{/*
     const float viewerMoveThresholdForChunkUpdate = 20000f;
     const float sqrMoveThresholdForChunkUpdate = viewerMoveThresholdForChunkUpdate * viewerMoveThresholdForChunkUpdate;
 
@@ -63,7 +64,7 @@ public class TerrainGenerator : MonoBehaviour
     }
 
     void UpdateVisibleChuncks()
-    {
+    {*/
         /*
          *     *----*----*
          *     |    |    |
@@ -71,7 +72,7 @@ public class TerrainGenerator : MonoBehaviour
          *     |    |    |
          *     *----*----(1,-1)                     (240, -240)
          */
-        HashSet<Vector2> alreadyUpdatedChunkCoords = new HashSet<Vector2>();
+      /*  HashSet<Vector2> alreadyUpdatedChunkCoords = new HashSet<Vector2>();
          
         // go through chuncks and update visibilty status, go backwards to deal with changing array
         for (int i = visibleTerrainChunks.Count-1; i >= 0; i--) {
@@ -115,8 +116,8 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (isVisible) visibleTerrainChunks.Add(chunk);
         else visibleTerrainChunks.Remove(chunk);
-    }
-}
+    }*/
+}/*
 
 [System.Serializable]
 public struct LevelOfDetailInfo
@@ -134,3 +135,4 @@ public struct LevelOfDetailInfo
         }
     }
 }
+*/

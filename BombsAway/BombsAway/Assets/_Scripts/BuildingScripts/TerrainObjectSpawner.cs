@@ -80,7 +80,7 @@ public class TerrainObjectSpawner : WorldEntity
         {  
             // FIND SOMETHING BETTER
             GameObject instance = GameObject.FindWithTag("MapGenerator");
-            if (instance.GetComponent<ThreadedDataRequester>().FinishedTerrainGeneration()) buildingGenerationStatus = EStatus.start;
+            if (instance.GetComponent<IslandGenerator>().FinishedTerrainGeneration()) buildingGenerationStatus = EStatus.start;
         }
         if (buildingGenerationStatus == EStatus.start)
         {
@@ -114,6 +114,7 @@ public class TerrainObjectSpawner : WorldEntity
                 float buildingRadius = buildings[buildingIndex].spawnPrefab.GetComponent<SphereCollider>().radius;
 
                 float angle = Random.Range(0, 360);
+                float collidingRadius;
 
                 Vector2 spawnLocation = new Vector2(citySeed.x + cityRadius * Mathf.Cos(angle), citySeed.y + cityRadius * Mathf.Sin(angle));
 
@@ -128,12 +129,22 @@ public class TerrainObjectSpawner : WorldEntity
                         // if distance is <= radius it is inside or on the radius of the building
                         if (distance <= buildingRadius)
                         {
+                            //spawnLocation = GetLocationNotInWater(spawnLocation, buildingRadius);
+
+                            collidingRadius = spawnDictionary[spawnLocation].GetComponent<SphereCollider>().radius;
+
                             angle = Random.Range(0, 360);
 
-                            spawnLocation.x = spawnLocation.x + buildingRadius * Mathf.Cos(angle);
-                            spawnLocation.y = spawnLocation.y + buildingRadius * Mathf.Sin(angle);
+                            spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
+                            spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
                             notColliding = false;
                         }
+                    }
+
+                    if (spawnLocation.x == float.MaxValue || spawnLocation.y == float.MaxValue)
+                    {
+                        // could not find a location, do not spawn
+                        break;
                     }
 
                     if (notColliding)
@@ -142,24 +153,64 @@ public class TerrainObjectSpawner : WorldEntity
                     }
                 }
 
-                // get y-axis var at spawnLocation
-                float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
-                Vector3 spawnVector3 = new Vector3(spawnLocation.x, yAxis, spawnLocation.y);
+                if (spawnLocation.x != float.MaxValue || spawnLocation.y != float.MaxValue)
+                {
+                    // get y-axis var at spawnLocation
+                    float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
+                    Vector3 spawnVector3 = new Vector3(spawnLocation.x, yAxis, spawnLocation.y);
 
-                // give the buidling some rotation?
-                Quaternion rotation = Quaternion.Euler(0, rotationIncrements[Random.Range(0, rotationIncrements.Length)], 0);
+                    // give the buidling some rotation?
+                    Quaternion rotation = Quaternion.Euler(0, rotationIncrements[Random.Range(0, rotationIncrements.Length)], 0);
 
-                // spawn the buidling
-                GameObject newBuilding = Instantiate(buildings[buildingIndex].spawnPrefab, spawnVector3, rotation, buildingParent);
+                    // spawn the buidling
+                    GameObject newBuilding = Instantiate(buildings[buildingIndex].spawnPrefab, spawnVector3, rotation, buildingParent);
 
-                spawnDictionary.Add(spawnLocation, newBuilding);
+                    spawnDictionary.Add(spawnLocation, newBuilding);
 
-                //Debug.Log($"Spawning {buildings[buildingIndex].spawnPrefab} at {spawnVector3} rotated {rotation}");
+                    //Debug.Log($"Spawning {buildings[buildingIndex].spawnPrefab} at {spawnVector3} rotated {rotation}");
+                }
             }
 
             // choose a location on the first ring of the city
             cityRadius += buildings[Random.Range(0, buildings.Length)].spawnPrefab.GetComponent<SphereCollider>().radius * 2;
         }
+    }
+
+    Vector2 GetLocationNotInWater(Vector2 spawnLocation, float buildingRadius)
+    {
+        float yAxis = 0;
+        int numOfAttemps = 0;
+        int maxNumOfAttemps = 10;
+        int totalNumOfAttemps = 0;
+        int cutOffAttemps = 100;
+        float radiusIncrease = 5f;
+        while (yAxis <= -4000)
+        {
+            // if keep trying and all locations are y = 0; check in a wider radius
+            if (totalNumOfAttemps > cutOffAttemps)
+            {
+                spawnLocation = new Vector2(float.MaxValue, float.MaxValue);
+                break;
+            }
+
+            if (numOfAttemps > maxNumOfAttemps)
+            {
+                buildingRadius += radiusIncrease;
+                numOfAttemps = 0;
+            }
+
+            float angle = Random.Range(0, 360);
+
+            spawnLocation.x = spawnLocation.x + buildingRadius * Mathf.Cos(angle);
+            spawnLocation.y = spawnLocation.y + buildingRadius * Mathf.Sin(angle);
+
+            yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
+
+            numOfAttemps++;
+            totalNumOfAttemps++;
+        }
+
+        return spawnLocation;
     }
 
     private int GetBuildingIndex(float buildingProbability)
