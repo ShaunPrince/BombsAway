@@ -127,6 +127,7 @@ MonoBehaviour:
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
   projectileSpeed: 50
+  gunDamage: 0
 --- !u!114 &3695725274393278259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5e480811abf54041b32819d0c08a581, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0

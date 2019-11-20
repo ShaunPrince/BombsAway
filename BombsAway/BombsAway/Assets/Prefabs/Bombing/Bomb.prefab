@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 642524283910520624}
   - component: {fileID: 5205473828321172167}
   - component: {fileID: 7282158582625606722}
-  - component: {fileID: -2228818393138594952}
+  - component: {fileID: -7145317575541327752}
   m_Layer: 11
   m_Name: Bomb
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 300
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &-2228818393138594952
+--- !u!82 &-7145317575541327752
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,15 +91,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 63f93260710dcda4b8c6d46e928558cd, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 85e1f3e647d9f114e90c776783595d7d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 41
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

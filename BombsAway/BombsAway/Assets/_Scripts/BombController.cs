@@ -112,8 +112,11 @@ public class BombController : MonoBehaviour
 
     private void Explode()
     {
+        BombExplode.Play();
+
         //Debug.Log("Exploding");
         // TEMP DELETE LATER
+
         TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
         explosion.MakeExplosion(this.transform.position);
 
@@ -126,7 +129,6 @@ public class BombController : MonoBehaviour
                 objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
             }
         }
-        BombExplode.Play();
         Destroy(this.gameObject);
     }
 
