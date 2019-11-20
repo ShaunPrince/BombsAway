@@ -15,6 +15,8 @@ public class BombController : MonoBehaviour
     private bool isDropping = false;
     private Vector3 dropVelocity;
     private Vector3 planeVeloctiy;
+    private Vector3 lastPosition;
+    private Vector3 currentPosition;
 
     private List<GameObject> listObjectsToDestroy;
 
@@ -28,6 +30,8 @@ public class BombController : MonoBehaviour
         float z_push = Random.Range(-1.0f, 1.0f);
         planeVeloctiy = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
         dropVelocity = new Vector3(x_push * pushMagnitude, -1.0f * dropMagnitude, z_push * pushMagnitude);
+        lastPosition = this.transform.position;
+        currentPosition = this.transform.position;
 
         listObjectsToDestroy = new List<GameObject>();
     }
@@ -39,6 +43,9 @@ public class BombController : MonoBehaviour
         {
             RotateDown();
             PushBomb();
+            lastPosition = currentPosition;
+            currentPosition = this.transform.position;
+            //CheckForHit();
         }
     }
 
@@ -61,6 +68,25 @@ public class BombController : MonoBehaviour
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .001f);
     }
 
+    private void CheckForHit()
+    {
+
+        RaycastHit hit;
+        float distance = Vector3.Distance(lastPosition, currentPosition);
+        bool didHit = Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance);
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            Debug.Log(hit.collider.gameObject.layer);
+            Debug.Log("");
+        }
+        if (didHit && (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 12))
+        {
+            Debug.Log(hit.collider.name);
+            Explode();
+        }
+    }
+
     // when an object enters the bombs radius, add it to items to destroy
     private void OnTriggerEnter(Collider other)
     {
@@ -81,7 +107,12 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Explode();
+    }
 
+    private void Explode()
+    {
+        //Debug.Log("Exploding");
         // TEMP DELETE LATER
         TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
         explosion.MakeExplosion(this.transform.position);

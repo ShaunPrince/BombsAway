@@ -11,6 +11,7 @@ public class PlayerGunController : MonoBehaviour
     private AudioSource GunShot;
 
     private ShootGun sg;
+    private ReloadManager rm;
     //private GunnerUIController guic;
     private float timeSinceShot;
     private int ammoCount;
@@ -26,20 +27,18 @@ public class PlayerGunController : MonoBehaviour
         ammoCount = magazineSize;
         timeReloading = 0.0f;
         reloading = false;
+        rm = this.GetComponentInParent<ReloadManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (reloading)
+        if ((Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading) || (ammoCount <= 0 && !reloading))
         {
-            ReloadingGun();
+            rm.ReloadWeapon(timeToReload);
+            reloading = true;
         }
-        else if ((Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading) || (ammoCount <= 0 && !reloading))
-        {
-            ReloadGun();
-        }
-        else
+        else if (!reloading)
         {
             if (Input.GetMouseButton(0) && timeSinceShot >= timeBetweenShots)
             {
@@ -57,6 +56,10 @@ public class PlayerGunController : MonoBehaviour
             {
                 timeSinceShot = timeBetweenShots;
             }
+        }
+        else
+        {
+            reloading = rm.getReloadingStatus();
         }
     }
 
