@@ -6628,7 +6628,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5e480811abf54041b32819d0c08a581, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9607,11 +9607,11 @@ MonoBehaviour:
   - 100
   - 250
   presetAlts:
-  - 500
-  - 1000
   - 1500
+  - 2000
+  - 2500
   currentSpeedSetting: 0
-  currentAltSetting: 0
+  currentAltSetting: 2
   fly: {fileID: 0}
 --- !u!1 &7995422966738796297
 GameObject:
@@ -10146,8 +10146,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5e480811abf54041b32819d0c08a581, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11707,8 +11707,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5e480811abf54041b32819d0c08a581, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -1118,12 +1118,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1602244922}
+      objectReference: {fileID: 1477807899}
     - target: {fileID: 7691351352427867639, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1602244922}
+      objectReference: {fileID: 1477807899}
     - target: {fileID: 7691351351800776080, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_TagString
@@ -2239,7 +2239,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1602244922
+--- !u!43 &1477807899
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2681,7 +2681,7 @@ PrefabInstance:
     - target: {fileID: 3655325482448829072, guid: 985981ffd35d23742abe1eabc30a0189,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 3655325482448829072, guid: 985981ffd35d23742abe1eabc30a0189,
         type: 3}
@@ -2750,45 +2750,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858586749, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401274020805011484, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401274020805011484, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8452900842442458863, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8452900842442458863, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[0]
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[1]
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7995422966676081976, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: presetAlts.Array.data[2]
-      value: 2500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
