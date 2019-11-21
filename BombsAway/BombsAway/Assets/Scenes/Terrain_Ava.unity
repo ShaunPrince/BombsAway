@@ -318,7 +318,7 @@ PrefabInstance:
     - target: {fileID: 6533585080225803804, guid: 22d2eb128023df94ab12f9432eab8db0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6533585080225803807, guid: 22d2eb128023df94ab12f9432eab8db0,
         type: 3}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 662284052}
   - component: {fileID: 662284051}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -470,7 +470,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &672111628
+--- !u!43 &830977825
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &998342275
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -960,7 +960,7 @@ PrefabInstance:
     - target: {fileID: 652920802664432632, guid: 9fcf3dddbf622984b9835109a0ec101d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 652920802664432630, guid: 9fcf3dddbf622984b9835109a0ec101d,
         type: 3}
@@ -970,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 652920802664432630, guid: 9fcf3dddbf622984b9835109a0ec101d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 652920802664432630, guid: 9fcf3dddbf622984b9835109a0ec101d,
         type: 3}
@@ -1017,6 +1017,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 652920802664432631, guid: 9fcf3dddbf622984b9835109a0ec101d,
+        type: 3}
+      propertyPath: lm.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 652920802664432631, guid: 9fcf3dddbf622984b9835109a0ec101d,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 652920802664432631, guid: 9fcf3dddbf622984b9835109a0ec101d,
+        type: 3}
+      propertyPath: numberOfShruberiesToSpawn
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 652920802664432631, guid: 9fcf3dddbf622984b9835109a0ec101d,
+        type: 3}
+      propertyPath: numberOfCitiesToSpawn
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fcf3dddbf622984b9835109a0ec101d, type: 3}
 --- !u!1001 &7691351351907696197
@@ -1030,6 +1050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TerrainManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691351351274293583, guid: c047b4776d282bc42ba1d8f3b7da0caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7691351351274293582, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
@@ -1100,16 +1125,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 672111628}
+      objectReference: {fileID: 830977825}
+    - target: {fileID: 7691351351800776080, guid: c047b4776d282bc42ba1d8f3b7da0caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691351352256565624, guid: c047b4776d282bc42ba1d8f3b7da0caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7691351351800776093, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7691351352427867627, guid: c047b4776d282bc42ba1d8f3b7da0caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7691351352470028203, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691351352470028203, guid: c047b4776d282bc42ba1d8f3b7da0caf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c047b4776d282bc42ba1d8f3b7da0caf, type: 3}

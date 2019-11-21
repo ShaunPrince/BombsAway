@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class WorldEntity : MonoBehaviour
 {
-    private float worldCenterX = 0;
-    private float worldCenterZ = 0;
-    private float worldRadius = 20000;
+    private float worldCenterX = 28206.21f;
+    private float worldCenterZ = 28206.21f;
+    private float worldRadius = 35000;
 
     public Vector2 WorldCenter {
         get {

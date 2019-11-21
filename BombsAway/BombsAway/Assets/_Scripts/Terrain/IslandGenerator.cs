@@ -23,6 +23,10 @@ public class IslandGenerator : MonoBehaviour
     List<TerrainChunk> visibleTerrainChunks = new List<TerrainChunk>();
 
     private bool finishedTerrainSpawn = false;
+    private bool allTerrianHasMesh = false;
+
+    private float time = 0f;
+    private float maxTime = 3f;
 
     public bool FinishedTerrainGeneration()
     {
@@ -43,6 +47,37 @@ public class IslandGenerator : MonoBehaviour
         UpdateVisibleChuncks(); // might not eval to true in update upon start
 
         finishedTerrainSpawn = true;
+    }
+
+    private void Update()
+    {
+        if (!finishedTerrainSpawn &&  time < maxTime)
+        {
+            time += Time.deltaTime;
+        }
+        else if (!finishedTerrainSpawn && time >= maxTime)
+        {
+            finishedTerrainSpawn = true;
+        }
+        /*
+        if (!finishedTerrainSpawn)
+        {
+            bool allHaveMesh = true;
+            for (int i = 0; i < this.transform.childCount; i++)
+            {
+                if (this.transform.GetChild(i).GetComponent<MeshCollider>().sharedMesh == null)
+                {
+                    allHaveMesh = false;
+                    break;
+                }
+            }
+            if (allHaveMesh) finishedTerrainSpawn = true;
+        }
+        */
+        //if (!finishedTerrainSpawn && this.transform.childCount == Mathf.RoundToInt(numOfTerrainChunks.x) * Mathf.RoundToInt(numOfTerrainChunks.y))
+        //{
+        //    finishedTerrainSpawn = true;
+        //}
     }
 
     void UpdateVisibleChuncks()

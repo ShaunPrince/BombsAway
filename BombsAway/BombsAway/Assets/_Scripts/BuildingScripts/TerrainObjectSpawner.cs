@@ -16,6 +16,8 @@ public class TerrainObjectSpawner : WorldEntity
     public SpawnableObject[] buildings;
     private Transform buildingParent;
 
+    private float lowestYpoint = -6000; // get from terrain chunk later
+
     public int numberOfShruberiesToSpawn;
     public SpawnableObject[] shrubery;
     private Transform shruberyParent;
@@ -32,18 +34,20 @@ public class TerrainObjectSpawner : WorldEntity
 
     private bool firstCity = true;
 
+    public LayerMask layerMask;
+
     public void GenerateBuildings()
     {
         for (int i = 0; i < numberOfCitiesToSpawn; i++)
         {
             SpawnCities();
         }
-
+        
         for (int i = 0; i < numberOfBuildingsToSpawn; i++)
         {
             SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
         }
-
+        
         for (int i = 0; i < numberOfShruberiesToSpawn; i++)
         {
             SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
@@ -99,7 +103,7 @@ public class TerrainObjectSpawner : WorldEntity
             citySeed = new Vector2(0, 0);
             firstCity = false;
         }
-        else citySeed = new Vector2(Random.Range(-WorldLength, WorldLength), Random.Range(-WorldLength, WorldLength));
+        else citySeed = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
         float cityRadius = 0;
 
         // for each ring in the city
@@ -114,7 +118,6 @@ public class TerrainObjectSpawner : WorldEntity
                 float buildingRadius = buildings[buildingIndex].spawnPrefab.GetComponent<SphereCollider>().radius;
 
                 float angle = Random.Range(0, 360);
-                float collidingRadius;
 
                 Vector2 spawnLocation = new Vector2(citySeed.x + cityRadius * Mathf.Cos(angle), citySeed.y + cityRadius * Mathf.Sin(angle));
 
@@ -131,17 +134,15 @@ public class TerrainObjectSpawner : WorldEntity
                         {
                             //spawnLocation = GetLocationNotInWater(spawnLocation, buildingRadius);
 
-                            collidingRadius = spawnDictionary[spawnLocation].GetComponent<SphereCollider>().radius;
-
                             angle = Random.Range(0, 360);
 
-                            spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
-                            spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
+                            spawnLocation.x = spawnLocation.x + buildingRadius * Mathf.Cos(angle);
+                            spawnLocation.y = spawnLocation.y + buildingRadius * Mathf.Sin(angle);
                             notColliding = false;
                         }
                     }
 
-                    if (spawnLocation.x == float.MaxValue || spawnLocation.y == float.MaxValue)
+                    if (spawnLocation.x >= float.MaxValue || spawnLocation.y >= float.MaxValue)
                     {
                         // could not find a location, do not spawn
                         break;
@@ -153,7 +154,7 @@ public class TerrainObjectSpawner : WorldEntity
                     }
                 }
 
-                if (spawnLocation.x != float.MaxValue || spawnLocation.y != float.MaxValue)
+                if (foundLocation)
                 {
                     // get y-axis var at spawnLocation
                     float yAxis = GetTerrainYaxis(new Vector3(spawnLocation.x, this.transform.position.y, spawnLocation.y));
@@ -178,13 +179,13 @@ public class TerrainObjectSpawner : WorldEntity
 
     Vector2 GetLocationNotInWater(Vector2 spawnLocation, float buildingRadius)
     {
-        float yAxis = 0;
+        float yAxis = float.MinValue;
         int numOfAttemps = 0;
         int maxNumOfAttemps = 10;
         int totalNumOfAttemps = 0;
         int cutOffAttemps = 100;
         float radiusIncrease = 5f;
-        while (yAxis <= -4000)
+        while (yAxis <= lowestYpoint)
         {
             // if keep trying and all locations are y = 0; check in a wider radius
             if (totalNumOfAttemps > cutOffAttemps)
@@ -208,6 +209,8 @@ public class TerrainObjectSpawner : WorldEntity
 
             numOfAttemps++;
             totalNumOfAttemps++;
+
+            //Debug.Log($"attemps: {numOfAttemps}, totalAttemps: {totalNumOfAttemps}; location: {spawnLocation}");
         }
 
         return spawnLocation;
@@ -236,7 +239,7 @@ public class TerrainObjectSpawner : WorldEntity
             if (item.ProbWithinRange(randomObject))
             {
                 // choose random x,z within map size
-                Vector2 randomLocation = new Vector2(Random.Range(-WorldLength, WorldLength), Random.Range(-WorldLength, WorldLength));
+                Vector2 randomLocation = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
                 spawnLocations.Add(randomLocation);
 
                 Vector2 spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
@@ -257,6 +260,8 @@ public class TerrainObjectSpawner : WorldEntity
 
                         spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
                         spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
+
+                        spawnLocation = GetLocationNotInWater(spawnLocation, collidingRadius);
                     }
 
                     // make sure no other building is with in the radius of current building too
@@ -275,6 +280,8 @@ public class TerrainObjectSpawner : WorldEntity
 
                             spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
                             spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
+
+                            //spawnLocation = GetLocationNotInWater(spawnLocation, collidingRadius);
                             notColliding = false;
                             break;
                         }
@@ -320,14 +327,22 @@ public class TerrainObjectSpawner : WorldEntity
     {
         // shoot a raycast from the bottom of the building
         // find at what y point it hits the terrain below it
-        RaycastHit[] hit = Physics.RaycastAll(spawnPoint, Vector3.down, 5000);
+        RaycastHit hit;
+        if (Physics.Raycast(spawnPoint, Vector3.down, out hit, 10000, layerMask))
+        {
+            return hit.point.y;
+        }
+
+        /*Debug.Log($"Hit: {hit}");
         for (int i = 0; i < hit.Length; i++)
         {
+            Debug.Log($"Hit: {hit[i].transform.gameObject.name}");
             if (hit[i].transform.gameObject.layer == 9)
             {
+                Debug.Log($"Correcthit: {hit[i].transform.gameObject.name}");
                 return hit[i].point.y;
             }
-        }
+        }*/
 
         // something went wrong
         return -5000f;
