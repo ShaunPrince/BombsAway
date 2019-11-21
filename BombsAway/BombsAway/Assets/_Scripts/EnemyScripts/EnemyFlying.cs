@@ -208,7 +208,8 @@ public class EnemyFlying : MonoBehaviour
             //else altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
             if (currentlyDodgingObject)
             {
-                float enemyAlt = currentlyDodgingObject.GetComponent<Flying>().desireAltitude;
+                //Debug.Log(currentlyDodgingObject);
+                float enemyAlt = currentlyDodgingObject.GetComponentInParent<Flying>().desireAltitude;
                 if (enemyFlyingComponent.currentAltitude < enemyAlt) altitude = enemyFlyingComponent.desireAltitude - dodgeAmount;
                 else altitude = enemyFlyingComponent.desireAltitude + dodgeAmount;
                 currentlyDodging = true;
