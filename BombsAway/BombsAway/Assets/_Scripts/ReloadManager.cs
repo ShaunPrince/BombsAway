@@ -43,7 +43,6 @@ public class ReloadManager : MonoBehaviour
 
     public bool getReloadingStatus()
     {
-        //Debug.Log("Reload status: " + currentlyReloadingObj);
         return currentlyReloadingObj;
     }
 }

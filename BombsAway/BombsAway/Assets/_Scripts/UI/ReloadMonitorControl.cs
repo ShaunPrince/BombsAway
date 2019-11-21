@@ -9,12 +9,14 @@ public class ReloadMonitorControl : MonoBehaviour
     public GameObject MonitorGraphic;
 
 
+    private ReloadManager rm;
     private float timer;
     private bool isReloading = false;
     private bool ReloadFlag = true;
 
     void Awake()
     {
+        rm = this.GetComponent<ReloadManager>();
         timer = gunner.GetComponent<PlayerGunController>().timeToReload;
         ReloadFlag = true;
     }
@@ -29,11 +31,12 @@ public class ReloadMonitorControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ReloadFlag) { 
-            isReloading = gunner.GetComponent<PlayerGunController>().reloading;
-            //Debug.Log(isReloading);
+        if (ReloadFlag) {
+            //isReloading = false;
+            isReloading = rm.getReloadingStatus();
+            //Debug.Log("Reload moniter is reloading: " + isReloading);
             if (isReloading) {
-
+                
                 MonitorGraphic.SetActive(true);
                 ReloadFlag = false;
                 isReloading = false;
