@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class DynamicAltitude : MonoBehaviour
 {
-    [SerializeField]
-    private int referenceAlt;
+
     [SerializeField]
     private LayerMask rayDownLM;
     private Rigidbody rb;
 
-    private float straitDownAlt;
-    private float predictedNextAlt;
+    public float straitDownAlt;
 
     [SerializeField]
     Flying fly;
@@ -22,11 +20,13 @@ public class DynamicAltitude : MonoBehaviour
     }
 
 
+
     public float calcStraightDownAlt(float desiredRelAlt)
     {
         RaycastHit hit;
         if(Physics.Raycast(rb.transform.position, Vector3.down , out hit,1000000, rayDownLM))
         {
+            straitDownAlt = hit.distance;
             //offset the point by the velocity
             Vector3 forwardPoint = hit.point + Vector3.Scale(rb.velocity, new Vector3(1,0,1))/25 ;
             RaycastHit hitForward;
