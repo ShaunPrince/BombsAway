@@ -37,7 +37,7 @@ public class ReloadMonitorControl : MonoBehaviour
                 MonitorGraphic.SetActive(true);
                 ReloadFlag = false;
                 isReloading = false;
-                Invoke("SetMonitorReloadFalse", 5);
+                Invoke("SetMonitorReloadFalse", 5.1f);
             }
 
         }
