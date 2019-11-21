@@ -54,7 +54,7 @@ public class EnemyHit : MonoBehaviour
                         block.SetColor("_BaseColor", originalColor[i]);
 
                         enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
-                        Debug.Log($"back to og color");
+                        //Debug.Log($"back to og color");
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class EnemyHit : MonoBehaviour
 
 
                 enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
-                Debug.Log($"og color: {originalColor[i]}, new color: {newColor}, current color: {enemyModels.transform.GetChild(i).GetComponent<Renderer>().material.color}");
+                //Debug.Log($"og color: {originalColor[i]}, new color: {newColor}, current color: {enemyModels.transform.GetChild(i).GetComponent<Renderer>().material.color}");
             }
         }
     }
