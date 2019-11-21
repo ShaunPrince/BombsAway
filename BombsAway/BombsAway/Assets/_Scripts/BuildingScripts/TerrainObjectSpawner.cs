@@ -16,7 +16,7 @@ public class TerrainObjectSpawner : WorldEntity
     public SpawnableObject[] buildings;
     private Transform buildingParent;
 
-    private float lowestYpoint = -6000; // get from terrain chunk later
+    private float lowestYpoint = -2980; // get from terrain chunk later
 
     public int numberOfShruberiesToSpawn;
     public SpawnableObject[] shrubery;
@@ -132,12 +132,12 @@ public class TerrainObjectSpawner : WorldEntity
                         // if distance is <= radius it is inside or on the radius of the building
                         if (distance <= buildingRadius)
                         {
-                            //spawnLocation = GetLocationNotInWater(spawnLocation, buildingRadius);
+                            spawnLocation = GetLocationNotInWater(spawnLocation, buildingRadius);
 
-                            angle = Random.Range(0, 360);
+                            //angle = Random.Range(0, 360);
 
-                            spawnLocation.x = spawnLocation.x + buildingRadius * Mathf.Cos(angle);
-                            spawnLocation.y = spawnLocation.y + buildingRadius * Mathf.Sin(angle);
+                            //spawnLocation.x = spawnLocation.x + buildingRadius * Mathf.Cos(angle);
+                            //spawnLocation.y = spawnLocation.y + buildingRadius * Mathf.Sin(angle);
                             notColliding = false;
                         }
                     }
@@ -256,10 +256,10 @@ public class TerrainObjectSpawner : WorldEntity
                     {
                         collidingRadius = spawnDictionary[spawnLocation].GetComponent<SphereCollider>().radius;
 
-                        angle = Random.Range(0, 360);
+                        //angle = Random.Range(0, 360);
 
-                        spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
-                        spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
+                        //spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
+                        //spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
 
                         spawnLocation = GetLocationNotInWater(spawnLocation, collidingRadius);
                     }
@@ -276,12 +276,12 @@ public class TerrainObjectSpawner : WorldEntity
                         {
                             collidingRadius = spawnDictionary[point].GetComponent<SphereCollider>().radius;
 
-                            angle = Random.Range(0, 360);
+                            //angle = Random.Range(0, 360);
 
-                            spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
-                            spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
+                            //spawnLocation.x = spawnLocation.x + collidingRadius * Mathf.Cos(angle);
+                            //spawnLocation.y = spawnLocation.y + collidingRadius * Mathf.Sin(angle);
 
-                            //spawnLocation = GetLocationNotInWater(spawnLocation, collidingRadius);
+                            spawnLocation = GetLocationNotInWater(spawnLocation, collidingRadius);
                             notColliding = false;
                             break;
                         }

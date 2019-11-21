@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e67d7b5c6f2904ca648f5752461f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfCitiesToSpawn: 5
+  numberOfCitiesToSpawn: 8
   maxCitySize: 8
   numberOfBuildingsToSpawn: 10
   buildings:
@@ -121,7 +121,7 @@ MonoBehaviour:
   - spawnPrefab: {fileID: 221127550978869218, guid: cf483e05594f5ae4c9616a82dc37d638,
       type: 3}
     probabilityOfSpawn: 0.3
-  numberOfShruberiesToSpawn: 100
+  numberOfShruberiesToSpawn: 300
   shrubery:
   - spawnPrefab: {fileID: 221127550978869218, guid: bb90aee4ee30be143a0a2d704106c185,
       type: 3}
@@ -129,3 +129,6 @@ MonoBehaviour:
   - spawnPrefab: {fileID: 221127550978869218, guid: 9148d90c37f719f429c27cc90ba6aca0,
       type: 3}
     probabilityOfSpawn: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
