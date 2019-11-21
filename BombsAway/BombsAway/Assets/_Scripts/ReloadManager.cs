@@ -27,19 +27,23 @@ public class ReloadManager : MonoBehaviour
             else
             {
                 currentlyReloadingObj = false;
-                timer = 0.0f;
+                //Debug.Log("Done reloading");
+                //timer = 0.0f;
             }
+            //Debug.Log(timer);
         }
     }
 
     public void ReloadWeapon(float timeToReload)
     {
+        timer = 0.0f;
         timeLimit = timeToReload;
         currentlyReloadingObj = true;
     }
 
     public bool getReloadingStatus()
     {
+        //Debug.Log("Reload status: " + currentlyReloadingObj);
         return currentlyReloadingObj;
     }
 }
