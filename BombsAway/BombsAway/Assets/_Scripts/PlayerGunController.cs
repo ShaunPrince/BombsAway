@@ -60,6 +60,10 @@ public class PlayerGunController : MonoBehaviour
         else
         {
             reloading = rm.getReloadingStatus();
+            if (reloading == false)
+            {
+                ammoCount = magazineSize;
+            }
         }
     }
 
