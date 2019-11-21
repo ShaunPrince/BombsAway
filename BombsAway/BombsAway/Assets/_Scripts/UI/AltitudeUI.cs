@@ -31,9 +31,9 @@ public class AltitudeUI : MonoBehaviour
             altitudeObject.GetComponent<TextMeshProUGUI>().text = ((EAlts)i).ToString();
             altitudeObject.name = ((EAlts)i).ToString() + " Altitude Text";
 
-            float heightPercent = playerFlightControls.presetAlts[i] / altSlider.maxValue;
+            float heightPercent = playerFlightControls.presetAlts[i] / (altSlider.maxValue - altSlider.minValue);
             float yPos = altSlider.GetComponent<RectTransform>().rect.height * heightPercent;
-            Vector3 textAlt = new Vector3(70, yPos - 90, 0);
+            Vector3 textAlt = new Vector3(70, yPos - 315, 0);
             altitudeObject.transform.localPosition = textAlt;
 
             //Debug.Log($"height%: {heightPercent}, yPos: {yPos}, altitudeObject: {altitudeObject.transform.position}");
@@ -45,7 +45,7 @@ public class AltitudeUI : MonoBehaviour
 
         prevAltitude = playerFlightControls.currentAltSetting;
         altitudeArrow.transform.localPosition = sliderPresets[(int)playerFlightControls.currentAltSetting];
-        altSlider.value = playerFlyingComponent.currentAltitude;
+        altSlider.value = playerFlightControls.GetDynamicAlt();
     }
 
     // Update is called once per frame
@@ -54,7 +54,7 @@ public class AltitudeUI : MonoBehaviour
         // the altitude fluctuates too much, check within a range
         if (playerFlyingComponent.desireAltitude - 2 > playerFlyingComponent.currentAltitude || playerFlyingComponent.currentAltitude > playerFlyingComponent.desireAltitude + 2)
         {
-            altSlider.value = playerFlyingComponent.currentAltitude;
+            altSlider.value = playerFlightControls.GetDynamicAlt();
             //altText.text = Mathf.RoundToInt(playerFlyingComponent.currentAltitude) + " m";
         }
 

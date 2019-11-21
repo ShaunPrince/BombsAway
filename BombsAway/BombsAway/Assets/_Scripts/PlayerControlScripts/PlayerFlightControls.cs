@@ -12,6 +12,12 @@ public class PlayerFlightControls : ControlScheme
 
     private DynamicAltitude da;
     public Flying fly;
+
+    public float GetDynamicAlt()
+    {
+        return da.straitDownAlt;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

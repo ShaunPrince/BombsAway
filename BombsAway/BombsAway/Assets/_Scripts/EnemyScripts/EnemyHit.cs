@@ -7,12 +7,8 @@ public class EnemyHit : MonoBehaviour
     [Range(0,1)]
     public float colorDifference;
 
-    //private MeshRenderer[] enemyMaterial;
     public GameObject enemyModels;
     private Color[] originalColor;
-
-    private Color currentColor;
-    private Color lerpToColor;
 
     private bool enemyHit;
     private float time = 0f;
@@ -21,7 +17,6 @@ public class EnemyHit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //MeshRenderer[] enemyMaterial = new MeshRenderer[this.GetComponentsInChildren<MeshRenderer>().Length];
         originalColor = new Color[enemyModels.transform.childCount];
 
 
@@ -63,29 +58,12 @@ public class EnemyHit : MonoBehaviour
                 time += Time.deltaTime;
             }
         }
-        /*
-        for (int i = 0; i < originalColor.Length; i++)
-        {
-            Renderer renderer;
-            if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
-            {
-                Color newColor = new Color(1, 1, 1);
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
-                block.SetColor("_BaseColor", newColor);
 
-
-                enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
-                Debug.Log($"og color: {originalColor[i]}, new color: {newColor}, current color: {enemyModels.transform.GetChild(i).GetComponent<Renderer>().material.color}");
-            }
-        }*/
     }
 
     public void VisuallyShowEnemyHit()
     {
         enemyHit = true;
-
-        //MeshRenderer[] enemyMaterial = new MeshRenderer[this.GetComponentsInChildren<MeshRenderer>().Length];
-        //enemyMaterial = this.GetComponentsInChildren<MeshRenderer>();
 
         for (int i = 0; i < originalColor.Length; i++)
         {
