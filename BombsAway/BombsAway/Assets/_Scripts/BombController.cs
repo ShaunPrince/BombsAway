@@ -39,23 +39,26 @@ public class BombController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.DrawRay(this.transform.position, Vector3.down * 1000.0f);
         if (isDropping)
         {
             RotateDown();
-            PushBomb();
+            //PushBomb();
             lastPosition = currentPosition;
             currentPosition = this.transform.position;
-            //CheckForHit();
+            CheckForHit();
         }
     }
 
-    public void Drop()
+    public void SetToDrop()
     {
         isDropping = true;
+        /*
         rb.isKinematic = false;
         rb.freezeRotation = false;
         rb.useGravity = true;
         rb.velocity = new Vector3(planeVeloctiy.x, planeVeloctiy.y - 100.0f, planeVeloctiy.z);
+        */
     }
 
     private void PushBomb()
@@ -73,16 +76,9 @@ public class BombController : MonoBehaviour
 
         RaycastHit hit;
         float distance = Vector3.Distance(lastPosition, currentPosition);
-        bool didHit = Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.forward), out hit, distance);
-        if (hit.collider != null)
+        if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.down), out hit, distance) && (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 12))
         {
-            Debug.Log(hit.collider.gameObject.name);
-            Debug.Log(hit.collider.gameObject.layer);
-            Debug.Log("");
-        }
-        if (didHit && (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 12))
-        {
-            Debug.Log(hit.collider.name);
+            //Debug.Log("Exploding on Raycast from hitting: " + hit.collider.name);
             Explode();
         }
     }
@@ -107,6 +103,7 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("Exploded on collision with: " + collision.collider.name);
         Explode();
     }
 

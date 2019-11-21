@@ -44,7 +44,8 @@ public class BombDropController : MonoBehaviour
         {
             bombRB.velocity = new Vector3(bombRB.velocity.x, planeRB.velocity.y - 1, bombRB.velocity.z);
         }
-        bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange); 
+        bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange);
+        bomb.GetComponent<BombController>().SetToDrop();
     }
 
     private void SetR1()

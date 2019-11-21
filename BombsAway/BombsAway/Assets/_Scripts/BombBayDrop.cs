@@ -37,7 +37,7 @@ public class BombBayDrop : MonoBehaviour
 
     private void DropBomb()
     {
-        currentBomb.GetComponent<BombController>().Drop();
+        currentBomb.GetComponent<BombController>().SetToDrop();
         reloading = true;
         numOfBombs--;
     }
