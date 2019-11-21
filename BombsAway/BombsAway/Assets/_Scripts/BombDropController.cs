@@ -40,6 +40,10 @@ public class BombDropController : MonoBehaviour
         bombRB.isKinematic = false;
         bombRB.useGravity = true;
         bombRB.velocity = Vector3.Scale(planeRB.velocity, (new Vector3(1, 0, 1)));
+        if(planeRB.velocity.y < 0)
+        {
+            bombRB.velocity = new Vector3(bombRB.velocity.x, planeRB.velocity.y - 1, bombRB.velocity.z);
+        }
         bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange); 
     }
 
