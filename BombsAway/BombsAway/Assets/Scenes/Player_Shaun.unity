@@ -2736,6 +2736,23 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1234784098, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234784098, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234784098, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655325482054104176, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1049136
+      objectReference: {fileID: 0}
     - target: {fileID: 7995422967847966148, guid: 985981ffd35d23742abe1eabc30a0189,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2750,11 +2767,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3655325482054104176, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1049136
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 985981ffd35d23742abe1eabc30a0189, type: 3}
