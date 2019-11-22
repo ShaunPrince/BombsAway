@@ -16,7 +16,7 @@ public class ReloadMonitorControl : MonoBehaviour
 
     void Awake()
     {
-        rm = this.GetComponent<ReloadManager>();
+        rm = this.gameObject.GetComponentInParent<ReloadManager>();
         timer = gunner.GetComponent<PlayerGunController>().timeToReload;
         ReloadFlag = true;
     }
