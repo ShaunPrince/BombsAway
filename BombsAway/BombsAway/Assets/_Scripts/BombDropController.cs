@@ -7,8 +7,8 @@ public class BombDropController : MonoBehaviour
 
     private float h1;
     public float theta;
-    private float r1;
-    private float timeOfFlight;
+    public float r1;
+    public float timeOfFlight;
 
     private float xOffsetForce;
     private float zOffsetForce;
