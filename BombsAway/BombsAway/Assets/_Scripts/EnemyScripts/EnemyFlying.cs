@@ -99,6 +99,10 @@ public class EnemyFlying : MonoBehaviour
         return currentlyParallelToPlayer;
     }
 
+    public bool IsWithinVisionRange() {
+        return Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= visionDistance;
+    }
+
     public bool IsDodging()
     {
         return currentlyDodging;

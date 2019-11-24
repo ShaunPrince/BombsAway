@@ -20,26 +20,24 @@ public class MissileContorller : MonoBehaviour
     private Rigidbody rigidbody;
 
     private Vector3 startPos;
-    private Vector3 playerPos;
+    private Transform playerTransform;
     //private Vector3 lastPosition;
     //private Vector3 currentPosition;
-
-    [SerializeField]
-    private LayerMask layersToHit;
 
     public EAllegiance allegiance;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //currentPosition = this.transform.position;
         //lastPosition = currentPosition;
         rigidbody = this.GetComponent<Rigidbody>();
+        rigidbody.centerOfMass = Vector3.zero;
 
         rigidbody.AddRelativeTorque(maxTorque, ForceMode.VelocityChange);
 
         startPos = this.transform.position;
-        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
+        playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         missileModel = this.transform.GetChild(0);
     }
@@ -53,8 +51,6 @@ public class MissileContorller : MonoBehaviour
         }
         else
         {
-            //CheckForHit();
-
             Corkscrew();
 
             timeAlive += Time.deltaTime;
@@ -63,9 +59,10 @@ public class MissileContorller : MonoBehaviour
 
     void Corkscrew()
     {
+
         // if missile is less then half way to the player, start closing in
-        if (Vector3.Distance(missileModel.position, playerPos) < Vector3.Distance(startPos, playerPos)/2 &&
-            Vector3.Distance(missileModel.position, playerPos) <= distanceToMaxRadius)
+        if (Vector3.Distance(missileModel.position, playerTransform.position) < Vector3.Distance(startPos, playerTransform.position)/2 &&
+            Vector3.Distance(missileModel.position, playerTransform.position) <= distanceToMaxRadius)
         {
             // do not go below zero
             if (missileModel.localPosition.x - increaseDistanceFromCenter >= 0)
@@ -86,5 +83,21 @@ public class MissileContorller : MonoBehaviour
         }
 
         //Debug.Log($"distance to max radius: {distanceToMaxRadius}, {Vector3.Distance(startPos, playerPos) / 2}");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log($"Missile colliding with {collision.transform.gameObject.name}");
+        if (collision.transform.gameObject.GetComponentInParent<DamageableEntity>() != null)
+        {
+            //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
+            collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance);
+            Destroy(this.gameObject);
+        }
+        else if (collision.transform.gameObject.layer.ToString() != "8")
+        {
+            //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
+            Destroy(this.gameObject);
+        }
     }
 }

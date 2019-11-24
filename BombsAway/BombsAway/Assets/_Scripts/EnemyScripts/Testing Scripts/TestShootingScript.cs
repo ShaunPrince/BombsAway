@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TestShootingScript : MonoBehaviour
 {
-    private EnemyGunShoot shootGun;
+    private EnemyFireWeapon shootGun;
     // Start is called before the first frame update
     void Start()
     {
-        shootGun = this.GetComponent<EnemyGunShoot>();
+        shootGun = this.GetComponent<EnemyFireWeapon>();
     }
 
     // Update is called once per frame
