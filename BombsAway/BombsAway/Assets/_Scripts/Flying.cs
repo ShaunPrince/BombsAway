@@ -64,7 +64,11 @@ public class Flying : MonoBehaviour
         
         //add forward/backward force to reach desired speed
         currentForwardSpeed = this.transform.InverseTransformVector(rb.velocity).z;
-        rb.AddForce(this.transform.forward * Mathf.Sign(desiredForwardSpeed - currentForwardSpeed) * forwardAcceleration * Time.deltaTime, ForceMode.VelocityChange);
+        if(Mathf.Abs(desiredForwardSpeed - currentForwardSpeed) >= forwardAcceleration * Time.deltaTime)
+        {
+            rb.AddForce(this.transform.forward * Mathf.Sign(desiredForwardSpeed - currentForwardSpeed) * forwardAcceleration * Time.deltaTime, ForceMode.VelocityChange);
+
+        }
 
         //Dampen lateral movement, aka drifting during turns
         rb.AddRelativeForce(-this.transform.InverseTransformVector(rb.velocity).x/lateralMovementDamperScale, 0f, 0f, ForceMode.VelocityChange);
