@@ -15,6 +15,8 @@ public class MissileContorller : MonoBehaviour
 
     private float distanceToMaxRadius;
 
+    private float percisionOffset = 0f;
+
     private float timeAlive = 0f;
     private float maxTimeAlive = 50f;
     private Rigidbody rigidbody;
@@ -51,6 +53,7 @@ public class MissileContorller : MonoBehaviour
         }
         else
         {
+            LookTowardsPlayer();
             Corkscrew();
 
             timeAlive += Time.deltaTime;
@@ -85,6 +88,32 @@ public class MissileContorller : MonoBehaviour
         //Debug.Log($"distance to max radius: {distanceToMaxRadius}, {Vector3.Distance(startPos, playerPos) / 2}");
     }
 
+    private void LookTowardsPlayer()
+    {
+        // set desired direction to be towards the player (x axis)
+        // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
+        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
+        float eulerDirection = rotation.eulerAngles.y;
+        float maxDirection = (eulerDirection + percisionOffset);
+        float minDirection = (eulerDirection - percisionOffset);
+
+        this.transform.rotation.SetLookRotation(playerTransform.position - this.transform.position);
+
+        Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
+    }
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Missile colliding with {other.transform.gameObject.name}");
+        if (other.transform.gameObject.GetComponentInParent<DamageableEntity>() != null)
+        {
+            //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
+            other.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance);
+            Destroy(this.gameObject);
+        }
+    }*/
+
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log($"Missile colliding with {collision.transform.gameObject.name}");
@@ -94,10 +123,10 @@ public class MissileContorller : MonoBehaviour
             collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance);
             Destroy(this.gameObject);
         }
-        else if (collision.transform.gameObject.layer.ToString() != "8")
+        else //if (collision.transform.gameObject.layer.ToString() != "8")
         {
             //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 }
