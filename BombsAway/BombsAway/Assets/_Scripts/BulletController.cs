@@ -76,7 +76,7 @@ public class BulletController : MonoBehaviour
             other.GetComponentInParent<DamageableEntity>().TakeDamage(bulletDamage,allegiance);
             Destroy(this.gameObject);
         }
-        else if (other.gameObject.layer.ToString() != "8")
+        else //if (other.gameObject.layer.ToString() != "8")
         {
             //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
             Destroy(this.gameObject);

@@ -30,7 +30,7 @@ TagManager:
   - UI
   - 
   - 
-  - Non-Intercolliding Projectiles
+  - PLAYER Non-Intercolliding Projectiles
   - Terrain
   - Player
   - Bombs
@@ -39,8 +39,8 @@ TagManager:
   - 
   - Enemy
   - Navigation
-  - 
-  - 
+  - ENEMY Non-Intercolliding Projectiles
+  - ENEMY Non_Intercolliding Missiles
   - 
   - MapElements
   - RepairStation
