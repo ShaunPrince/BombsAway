@@ -1,5 +1,6 @@
 ﻿public enum EAllegiance
 {
     Player,
-    Enemy
+    Enemy,
+    Internal
 }

@@ -17,6 +17,15 @@ public class TankController : MonoBehaviour
         FillIfConnected();
     }
 
+    public void LoseSteam(float steamLoss)
+    {
+        currentFillLevel -= steamLoss;
+        if(currentFillLevel < 0)
+        {
+            currentFillLevel = 0;
+        }
+    }
+
     private void FillIfConnected()
     {
         if(isConnectedToSource)
@@ -28,6 +37,18 @@ public class TankController : MonoBehaviour
             }
         }
 
+    }
+
+    public bool IsFilled()
+    {
+        if(currentFillLevel >= maxFillLevel)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
