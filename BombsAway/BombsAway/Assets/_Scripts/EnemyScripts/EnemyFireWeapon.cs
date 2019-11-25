@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGunShoot : ShootGun
+public class EnemyFireWeapon : ShootGun
 {
     private int lengthOfProjectile = 12;     
     public void FireGun()
