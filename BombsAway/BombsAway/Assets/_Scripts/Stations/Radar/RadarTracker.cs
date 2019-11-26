@@ -5,6 +5,8 @@ using UnityEngine;
 public class RadarTracker : MonoBehaviour
 {
     private float radius;
+    public GameObject PingManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,13 @@ public class RadarTracker : MonoBehaviour
 
     public void enemySpotted(Transform enemyTransform)
     {
-            //Debug.Log("Spotted: " + enemyTransform.gameObject.name.ToString());
+        Debug.Log("Spotted: " + enemyTransform.gameObject.name.ToString());
 
         //The values printed below should be used for drawing the radar blips
-        //Debug.Log(Flying.ConvertToPos360Dir(Vector3.SignedAngle(this.transform.forward, enemyTransform.position,Vector3.up)));
-        //Debug.Log(Vector3.Distance(this.transform.position, enemyTransform.position) / radius);
+        float rotation = Flying.ConvertToPos360Dir(Vector3.SignedAngle(this.transform.forward, enemyTransform.position, Vector3.up));
+        float dist = Vector3.Distance(this.transform.position, enemyTransform.position) / radius;
+        //Debug.Log(rotation);
+       // Debug.Log(dist);
+        PingManager.GetComponent<PingSpawner>().SpawnPing(dist, rotation);
     }
 }

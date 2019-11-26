@@ -22,7 +22,7 @@ public class RadarDetection : MonoBehaviour
     {
         DamageableEntity otherDE;
         if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<DamageableEntity>(out otherDE))
-        {
+        { 
             rt.enemySpotted(other.transform);
         }
     }
