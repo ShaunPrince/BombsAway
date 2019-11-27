@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2000631185766149819}
   - component: {fileID: 2133131745357517130}
   - component: {fileID: 1771554122342746657}
+  - component: {fileID: 7805496582529562130}
   m_Layer: 5
   m_Name: PingController
   m_TagString: Untagged
@@ -58,8 +59,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858ca08029723074d9ea3e7bbd1cc7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimer: 2
+  maxTimer: 2.5
   color: {r: 1, g: 0.019191347, b: 0, a: 0}
+--- !u!114 &7805496582529562130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231038243531611296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efac39f4e21f379468312371800e3f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 1080
+  width: 1920
+  pngRT: {fileID: 0}
 --- !u!1 &6086891137057004276
 GameObject:
   m_ObjectHideFlags: 0

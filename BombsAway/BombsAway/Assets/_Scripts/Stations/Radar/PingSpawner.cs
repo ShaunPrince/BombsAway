@@ -7,11 +7,12 @@ public class PingSpawner : MonoBehaviour
 {
 
     public GameObject Ping;
+    public RadarProperties rp;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        rp = GameObject.FindObjectOfType<RadarProperties>();
     }
 
     // Update is called once per frame
@@ -23,9 +24,12 @@ public class PingSpawner : MonoBehaviour
     public void SpawnPing(float dist, float rot) {
         
         Transform pingt = this.transform;
-        pingt.Rotate(0, 0, rot);
-        Instantiate(Ping, pingt).transform.GetChild(0).gameObject.transform.position =
-            new Vector3(pingt.position.x, pingt.position.y + dist, pingt.position.z);
+        GameObject temp = GameObject.Instantiate(Ping, pingt);
+        PingPosition tempPingPosition = temp.GetComponent<PingPosition>();
+        tempPingPosition.pngRT = temp.transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+        tempPingPosition.PositionPNG(dist, rp.radius);
+        tempPingPosition.RotatePNGParent(rot);
+
 
 
     }
