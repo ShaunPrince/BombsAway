@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 674096220}
   - component: {fileID: 674096221}
   - component: {fileID: 674096222}
-  m_Layer: 10
+  m_Layer: 22
   m_Name: RadarBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1710,7 @@ GameObject:
   - component: {fileID: 857871372}
   - component: {fileID: 857871371}
   - component: {fileID: 857871370}
-  m_Layer: 10
+  m_Layer: 22
   m_Name: RadarBeamModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2015,10 +2015,10 @@ RectTransform:
   m_Father: {fileID: 1296572656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &974972068
 CanvasRenderer:
@@ -3295,6 +3295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ping: {fileID: 2231038243531611296, guid: d2cba159fb75e1a4ab08a6e6f2392b3a, type: 3}
+  rp: {fileID: 0}
 --- !u!1 &1405799460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,7 +5829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91cec4674e00324189b6375a8004731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10000
+  radius: 5000
   radarBeamModelTransform: {fileID: 857871369}
 --- !u!1 &3655325481478335199
 GameObject:
@@ -7008,7 +7009,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1053184
+    m_Bits: 1049088
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: cb49d32645f941342bdbb48f9fa18c64, type: 2}
   m_TargetDisplay: 0

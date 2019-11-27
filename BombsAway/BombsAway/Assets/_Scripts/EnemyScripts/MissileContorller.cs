@@ -99,7 +99,7 @@ public class MissileContorller : MonoBehaviour
 
         this.transform.rotation.SetLookRotation(playerTransform.position - this.transform.position);
 
-        Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
+        //Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
     }
 
     /*

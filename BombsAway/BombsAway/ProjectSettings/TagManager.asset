@@ -44,8 +44,8 @@ TagManager:
   - 
   - MapElements
   - RepairStation
-  - 
-  - 
+  - RadarBeam
+  - EnemyRadarNode
   - 
   - BombScope
   - 

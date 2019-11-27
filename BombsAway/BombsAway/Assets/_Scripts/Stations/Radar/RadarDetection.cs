@@ -20,10 +20,10 @@ public class RadarDetection : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        DamageableEntity otherDE;
-        if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<DamageableEntity>(out otherDE))
-        { 
+        //if (other.gameObject.CompareTag("Enemy") && other.gameObject.TryGetComponent<DamageableEntity>(out otherDE))
+        //{ 
+
             rt.enemySpotted(other.transform);
-        }
+
     }
 }
