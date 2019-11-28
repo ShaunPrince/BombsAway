@@ -5606,6 +5606,7 @@ GameObject:
   - component: {fileID: 3655325481319829435}
   - component: {fileID: 3655325481319829430}
   - component: {fileID: 3655325481319829428}
+  - component: {fileID: 828554060}
   m_Layer: 10
   m_Name: Bomb Bay Cam
   m_TagString: Untagged
@@ -5621,7 +5622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3655325481319829434}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7995422967091039288}
@@ -5686,6 +5687,22 @@ MonoBehaviour:
   xCord: 0
   yCord: 0
   canvas: {fileID: 0}
+--- !u!114 &828554060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655325481319829434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89c8689c352e634586ceb0d7af56fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactSpotTF: {fileID: 883747490}
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &3655325481388555612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6370,7 +6387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf12f51fff2a33458c7928d86ed1cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta: 10
+  theta: 20
   r1: 0
   timeOfFlight: 0
   planeRB: {fileID: 3655325482448829074}
@@ -7503,7 +7520,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1534368892
 MonoBehaviour:
@@ -8310,7 +8327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34117648}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13624,15 +13641,15 @@ PrefabInstance:
       objectReference: {fileID: 7995422966816541805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
---- !u!1 &5082844601040645449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 3931366569065692426}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8227383479192686024 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 3931366569065692426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5082844601040645449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
     type: 3}
   m_PrefabInstance: {fileID: 3931366569065692426}
   m_PrefabAsset: {fileID: 0}
@@ -13772,6 +13789,12 @@ PrefabInstance:
       objectReference: {fileID: 7995422967540031078}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
+--- !u!224 &3366867909460298545 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 7645713836757498867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6590633526435763700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
@@ -13787,12 +13810,6 @@ MonoBehaviour:
 --- !u!1 &1881916497672252336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 7645713836757498867}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &3366867909460298545 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
     type: 3}
   m_PrefabInstance: {fileID: 7645713836757498867}
   m_PrefabAsset: {fileID: 0}
