@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858ca08029723074d9ea3e7bbd1cc7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimer: 2.5
-  color: {r: 1, g: 0.019191347, b: 0, a: 0}
+  maxTimer: 2.2
+  color: {r: 1, g: 0.029988142, b: 0, a: 0.627451}
 --- !u!114 &7805496582529562130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Material: {fileID: 2100000, guid: b4a3058a825e32e41be2af51d7ab6080, type: 2}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
