@@ -2042,7 +2042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43867922, g: 1, b: 0.59546906, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9299,7 +9299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: b4a3058a825e32e41be2af51d7ab6080, type: 2}
-  m_Color: {r: 1, g: 0.58041376, b: 0.4764151, a: 0.26666668}
+  m_Color: {r: 0.50771976, g: 1, b: 0.21226418, a: 0.26666668}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13738,12 +13738,6 @@ PrefabInstance:
 --- !u!224 &8227383479192686024 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 3931366569065692426}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5082844601040645449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
     type: 3}
   m_PrefabInstance: {fileID: 3931366569065692426}
   m_PrefabAsset: {fileID: 0}
