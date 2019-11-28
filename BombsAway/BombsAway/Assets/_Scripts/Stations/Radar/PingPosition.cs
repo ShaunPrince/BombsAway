@@ -21,7 +21,7 @@ public class PingPosition : MonoBehaviour
 
     public void PositionPNG(float worldDistance , float beamDistance)
     {
-        Debug.Log(worldDistance * height * .00925);
+        //Debug.Log(worldDistance * height * .00925);
         pngRT.Translate(0, (worldDistance) * height/2 * .00925f, 0, Space.Self);
     }
 
