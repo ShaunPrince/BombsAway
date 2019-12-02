@@ -81,13 +81,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73e71960611ac34bab0d6b709512b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percisionOffset: 0
-  visionDistance: 1800
-  parallelDistance: 1000
+  percisionOffset: 50
+  visionDistance: 2500
+  parallelDistance: 1500
   dodgeDistance: 500
-  startDodging: 0
+  dodgeType: 0
   catchupPercentage: 1
   timeBetweenUpdates: 0
+  swoopInTimeRange: {x: 1, y: 15}
+  runawayTimeRange: {x: 5, y: 20}
+  currentEnemyAction: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028cd215a3f063542a5a1c1631cd29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.25
   timeToReload: 5
-  magazineSize: 20
+  magazineSize: 10
   enemyGuns:
   - gunPosition: 0
     gun: {fileID: 7632379849253029118}
@@ -145,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf50e2cb437776746907c10205254480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 2
+  timeBetweenShots: 1
   timeToReload: 15
   magazineSize: 1
   enemyMissiles:
@@ -511,6 +514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}
@@ -969,6 +977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rolloffMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}

@@ -59,8 +59,11 @@ public class EnemyShootMissile : MonoBehaviour
 
     private void CheckIfPlayerWithinRange()
     {
+        // only shoot missiles if farther away (not doding, or parallel
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();  //CHANGE
-        if (this.GetComponent<EnemyFlying>().IsWithinVisionRange() && !this.GetComponent<EnemyFlying>().IsDodging())
+        if (this.GetComponent<EnemyFlying>().IsWithinVisionRange() && 
+            !this.GetComponent<EnemyFlying>().IsDodging() && 
+            !this.GetComponent<EnemyFlying>().IsParallel())
         {
             playerWithinRange = true;
             CheckWhichPositionPlayerIs(playerTransform);

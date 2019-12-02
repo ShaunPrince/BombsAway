@@ -1,6 +1,6 @@
 ﻿public enum EDodgeType
 {
-    False,
+    Nothing,
     Player,
     OtherEnemy,
     StationaryObject

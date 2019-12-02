@@ -687,7 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &184737078
 Transform:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 234943441}
   - component: {fileID: 234943440}
   - component: {fileID: 234943439}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5469,7 +5469,8 @@ GameObject:
   - component: {fileID: 1949104719}
   - component: {fileID: 1949104716}
   - component: {fileID: 1949104717}
-  m_Layer: 0
+  - component: {fileID: 1949104718}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5499,11 +5500,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949104715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df2903b7ea4184d429e57f303f6bdb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1949104718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949104715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a517fa6bf4e7343b9a222b5a53d56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: 0
+  health: 20000
 --- !u!4 &1949104719
 Transform:
   m_ObjectHideFlags: 0
@@ -5806,7 +5821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037836545}
   - component: {fileID: 2037836546}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PilotStation
   m_TagString: PilotStation
   m_Icon: {fileID: 0}
@@ -6649,7 +6664,17 @@ PrefabInstance:
     - target: {fileID: 2029788900657391509, guid: 86640fcc7068b1649997ac5856caa2e1,
         type: 3}
       propertyPath: timeBetweenSpawn
-      value: 10
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029788900657391509, guid: 86640fcc7068b1649997ac5856caa2e1,
+        type: 3}
+      propertyPath: distanceToSpawn
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029788900657391509, guid: 86640fcc7068b1649997ac5856caa2e1,
+        type: 3}
+      propertyPath: minSpawnTime
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86640fcc7068b1649997ac5856caa2e1, type: 3}

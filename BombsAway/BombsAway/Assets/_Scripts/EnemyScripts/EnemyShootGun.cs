@@ -20,6 +20,10 @@ public class EnemyShootGun : MonoBehaviour
 
     private bool playerWithinRange = false;
 
+    public EPosition CurrentGunBeingShot() {
+        return gunToShoot;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

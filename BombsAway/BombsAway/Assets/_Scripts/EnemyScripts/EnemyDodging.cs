@@ -22,7 +22,7 @@ public class EnemyDodging : MonoBehaviour
         // doge player (dodging the player takes priority)
         if (other.gameObject.transform.parent.tag == "Player")
         {
-            enemyFlyingComponent.SetDodging(EDodgeType.Player, other.gameObject);
+            enemyFlyingComponent.SetDodging(EDodgeType.Player, other.gameObject, true);
         }
         // ignore bullets or continue to dodge if already doing so
         //else if (currentlyDodgingObject != null)
@@ -32,13 +32,13 @@ public class EnemyDodging : MonoBehaviour
         // dodge other enemies
         else if (other.gameObject.transform.parent.tag == "Enemy" && !other.isTrigger)
         {
-            enemyFlyingComponent.SetDodging(EDodgeType.OtherEnemy, other.gameObject);
+            enemyFlyingComponent.SetDodging(EDodgeType.OtherEnemy, other.gameObject, true);
         }
         // dodge stationary objects
         else if (!other.isTrigger)
         {
             // dodge anything else
-            enemyFlyingComponent.SetDodging(EDodgeType.StationaryObject, other.gameObject);
+            enemyFlyingComponent.SetDodging(EDodgeType.StationaryObject, other.gameObject, true);
         }
     }
 
@@ -48,11 +48,11 @@ public class EnemyDodging : MonoBehaviour
         // only if the object that is currently being dodged leaves the dodging radius (and it still exists, do you stop dodging
         if (currentlyDodgingObject && other.gameObject == currentlyDodgingObject)
         {
-            enemyFlyingComponent.SetDodging(EDodgeType.False, null, false);
+            enemyFlyingComponent.SetDodging(EDodgeType.Nothing, null, false);
         }
         if (!currentlyDodgingObject)
         {
-            enemyFlyingComponent.SetDodging(EDodgeType.False, null, false);
+            enemyFlyingComponent.SetDodging(EDodgeType.Nothing, null, false);
         }
     }
 
