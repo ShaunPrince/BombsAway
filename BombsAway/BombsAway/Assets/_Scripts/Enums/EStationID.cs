@@ -1,13 +1,13 @@
 ﻿public enum EStationID
 {
     Schematic,
-    Repair,
+    Map,
     Pilot,
     Radar,
     LGun,
     RGun,
     BombBay,
     TGun,
-    Map,
+    Repair,
     None
 }
