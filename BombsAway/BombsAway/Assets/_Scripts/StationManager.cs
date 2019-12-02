@@ -11,12 +11,13 @@ public class StationManager : MonoBehaviour
 
     public StationDisplayManager centerDisplayController;
 
+    private SchematicSphereManager schematicManager;
     // Start is called before the first frame update
     void Awake()
     {
         InitializeStationsArray();
         centerDisplayController = GameObject.FindGameObjectWithTag("PlayerUIandCamera").GetComponent<StationDisplayManager>();
-
+        schematicManager = this.GetComponentInChildren<SchematicSphereManager>();
     }
 
     // Update is called once per frame
@@ -44,6 +45,7 @@ public class StationManager : MonoBehaviour
         {
             currentCenterStation = stations[(int)newMainStationID];
             centerDisplayController.SetMainStation(newMainStationID);
+            schematicManager.SetNewActiveStation((int)newMainStationID);
             SetActiveControlScheme(newMainStationID);
         }
 

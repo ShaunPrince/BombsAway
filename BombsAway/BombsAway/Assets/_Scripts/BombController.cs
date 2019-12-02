@@ -11,10 +11,7 @@ public class BombController : MonoBehaviour
 
     private AudioSource BombExplode;
 
-    private Rigidbody rb;
     private bool isDropping = false;
-    private Vector3 dropVelocity;
-    private Vector3 planeVeloctiy;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
 
@@ -23,16 +20,9 @@ public class BombController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BombExplode = this.GetComponent<AudioSource>(); 
-
-        rb = this.GetComponent<Rigidbody>();
-        float x_push = Random.Range(-1.0f, 1.0f);
-        float z_push = Random.Range(-1.0f, 1.0f);
-        planeVeloctiy = GameObject.FindWithTag("Player").GetComponent<Rigidbody>().velocity;
-        dropVelocity = new Vector3(x_push * pushMagnitude, -1.0f * dropMagnitude, z_push * pushMagnitude);
+        BombExplode = this.GetComponent<AudioSource>();
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
-
         listObjectsToDestroy = new List<GameObject>();
     }
 
@@ -43,7 +33,6 @@ public class BombController : MonoBehaviour
         if (isDropping)
         {
             RotateDown();
-            //PushBomb();
             lastPosition = currentPosition;
             currentPosition = this.transform.position;
             CheckForHit();
@@ -53,17 +42,6 @@ public class BombController : MonoBehaviour
     public void SetToDrop()
     {
         isDropping = true;
-        /*
-        rb.isKinematic = false;
-        rb.freezeRotation = false;
-        rb.useGravity = true;
-        rb.velocity = new Vector3(planeVeloctiy.x, planeVeloctiy.y - 100.0f, planeVeloctiy.z);
-        */
-    }
-
-    private void PushBomb()
-    {
-        rb.AddForce(dropVelocity);
     }
 
     private void RotateDown()
