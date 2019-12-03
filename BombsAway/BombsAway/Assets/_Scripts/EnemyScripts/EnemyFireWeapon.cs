@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyFireWeapon : ShootGun
 {
     private int lengthOfProjectile = 12;
+
     public void FireGun()
     {
         GameObject newProjectile = Instantiate(projectile, this.transform.position + this.transform.forward, this.transform.rotation);
