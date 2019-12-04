@@ -19,11 +19,11 @@ public class ReapairControls : ControlScheme
     void Update()
     {
         currentSelectedJunction = selector.overJunction;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             currentSelectedJunction.RotateCW();
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetMouseButtonDown(1))
         {
             currentSelectedJunction.RotateCCW();
         }
