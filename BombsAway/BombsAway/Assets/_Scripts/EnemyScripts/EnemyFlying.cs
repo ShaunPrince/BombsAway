@@ -51,12 +51,14 @@ public class EnemyFlying : MonoBehaviour
     // PARALLEL TIMER
     [SerializeField]
     private Vector2 swoopInTimeRange;
+    private bool setSwoop = false;
     private float swoopInTime = -1f;
     private float swoopDeltaTime = 0f;
 
     // RUNNING AWAY TIMER
     [SerializeField]
     private Vector2 runawayTimeRange;
+    private bool setRunaway = false;
     private float runawayTime = 5f;
     private float runawayDeltaTime = 0f;
 
@@ -71,7 +73,7 @@ public class EnemyFlying : MonoBehaviour
 
     public bool IsParallel()
     {
-        if (currentEnemyAction == EEnemyAction.currentlyParallelToPlayer) return true;
+        if (currentEnemyAction == EEnemyAction.currentlyParallelToPlayer || currentEnemyAction == EEnemyAction.startParallelMovement) return true;
         else return false;
     }
 
@@ -82,7 +84,7 @@ public class EnemyFlying : MonoBehaviour
 
     public bool IsDodging()
     {
-        if (currentEnemyAction == EEnemyAction.currentlyDodging) return true;
+        if (currentEnemyAction == EEnemyAction.currentlyDodging || currentEnemyAction == EEnemyAction.startDodging) return true;
         else return false;
     }
 
@@ -128,6 +130,8 @@ public class EnemyFlying : MonoBehaviour
         {
             deltaTime += Time.deltaTime;
         }
+
+        CheckTimersAndParallelism();
     }
 
     private void SetEnemysCurrentAction()
@@ -145,13 +149,7 @@ public class EnemyFlying : MonoBehaviour
         else if (Mathf.Abs(Vector3.Distance(playerTransform.position, this.transform.position)) <= parallelDistance)
         {
             currentEnemyAction = EEnemyAction.startParallelMovement;
-
-            // set time to stay parallel
-            if (swoopInTime == -1)
-            {
-                swoopInTime = Random.Range(swoopInTimeRange.x, swoopInTimeRange.y);
-            }
-
+            setSwoop = true;
         }
         else
         {
@@ -186,22 +184,40 @@ public class EnemyFlying : MonoBehaviour
         else if (currentEnemyAction == EEnemyAction.startParallelMovement)
         {
             SetStartParallelMovement();
-            CheckParallelism();
+            if (setSwoop) {
+                swoopInTime = Random.Range(swoopInTimeRange.x, swoopInTimeRange.y);
+                setSwoop = false;
+            }
         }
         else if (currentEnemyAction == EEnemyAction.currentlyParallelToPlayer)
         {
             SetCurrentlyParallel();
-            ParallelismCountDown();
         }
         else if (currentEnemyAction == EEnemyAction.runningAwayFromPlayer)
         {
             SetRunningAwayFromPlayer();
-            RunningAwayCountDown();
+            if (setRunaway) setRunaway = false;
         }
         else
         {
             // something went wrong
             Debug.Log($"{this.transform.name} is trying to {currentEnemyAction} but that is not allowed, something has gone terribly wrong");
+        }
+    }
+
+    private void CheckTimersAndParallelism()
+    {
+        if (currentEnemyAction == EEnemyAction.currentlyParallelToPlayer)
+        {
+            ParallelismCountDown();
+        }
+        else if (currentEnemyAction == EEnemyAction.runningAwayFromPlayer)
+        {
+            RunningAwayCountDown();
+        }
+        else if (currentEnemyAction == EEnemyAction.startParallelMovement)
+        {
+            CheckParallelism();
         }
     }
 
@@ -396,8 +412,8 @@ public class EnemyFlying : MonoBehaviour
                 currentEnemyAction = EEnemyAction.runningAwayFromPlayer;
                 runawayTime = Random.Range(runawayTimeRange.x, runawayTimeRange.y);
 
-                swoopInTime = -1;
                 swoopDeltaTime = 0f;
+                setRunaway = true;
             }
             else
             {
@@ -423,7 +439,7 @@ public class EnemyFlying : MonoBehaviour
     private float RandomRunawayAltitude()
     {
         float offset = 200f;
-        if (Mathf.Approximately(runawayDeltaTime, 0) )
+        if (setRunaway)
         {
             return Random.Range(playerFlyingComponent.desireAltitude - offset, playerFlyingComponent.desireAltitude + offset);
         }
@@ -433,7 +449,7 @@ public class EnemyFlying : MonoBehaviour
     private float TurnAwayFromPlayer()
     {
         float offset = 130f;
-        if (Mathf.Approximately(runawayDeltaTime, 0))
+        if (setRunaway)
         {
             EPosition enemySide = this.GetComponent<EnemyShootGun>().CurrentGunBeingShot();
             // if the enemy is to the left of the player

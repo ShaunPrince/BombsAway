@@ -87,9 +87,9 @@ MonoBehaviour:
   dodgeDistance: 500
   dodgeType: 0
   catchupPercentage: 1
-  timeBetweenUpdates: 0
+  timeBetweenUpdates: 2
   swoopInTimeRange: {x: 1, y: 15}
-  runawayTimeRange: {x: 5, y: 20}
+  runawayTimeRange: {x: 8, y: 20}
   currentEnemyAction: 0
 --- !u!114 &794616682320880691
 MonoBehaviour:

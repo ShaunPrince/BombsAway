@@ -98,7 +98,7 @@ public class MissileContorller : MonoBehaviour
             if (missileModel.localPosition.x - increaseDistanceFromCenter >= 0)
             {
                 this.transform.GetChild(0).GetChild(0).localPosition = new Vector3(missileModel.localPosition.x - increaseDistanceFromCenter, 0, 0);
-                Debug.Log($"Decreasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
+                //Debug.Log($"Decreasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
             }
         }
         // if missile is more then half way from player, spiral out
@@ -108,7 +108,7 @@ public class MissileContorller : MonoBehaviour
             {
                 this.transform.GetChild(0).GetChild(0).localPosition = new Vector3(missileModel.localPosition.x + increaseDistanceFromCenter, 0, 0);
                 distanceToMaxRadius = Vector3.Distance(missileModel.position, startPos);
-                Debug.Log($"Increasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
+                //Debug.Log($"Increasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
             }
         }
 
