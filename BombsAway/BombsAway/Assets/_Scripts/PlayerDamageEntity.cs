@@ -14,11 +14,20 @@ public class PlayerDamageEntity : DamageableEntity
                 repSysMan.RollForSteamLoss();
             }
             health -= incomingDamage;
+            FindObjectOfType<AudioManager>().PlayGotHit();
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
                 //Load Game Over
+                FindObjectOfType<AudioManager>().Play("GameOver");
+                FindObjectOfType<AudioManager>().Play("GunBattle");
+
                 GameObject.Destroy(this.gameObject);
+            }
+            if(health <= 10)
+            {
+                FindObjectOfType<AudioManager>().Play("EmergencyAlarm");
+
             }
 
         }
