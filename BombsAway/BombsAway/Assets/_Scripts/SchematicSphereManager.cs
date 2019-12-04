@@ -31,8 +31,8 @@ public class SchematicSphereManager : MonoBehaviour
     {
         //GameObject currentActiveSphere = schematicSpheres[currentStationID];
         //GameObject newActiveSphere = schematicSpheres[newStationID-1];
-        schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-        schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+        //schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        //schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
         currentStationID = newStationID - 1;
     }
 }

@@ -45,7 +45,7 @@ public class StationManager : MonoBehaviour
         {
             currentCenterStation = stations[(int)newMainStationID];
             centerDisplayController.SetMainStation(newMainStationID);
-            schematicManager.SetNewActiveStation((int)newMainStationID);
+            //schematicManager.SetNewActiveStation((int)newMainStationID);
             SetActiveControlScheme(newMainStationID);
         }
 

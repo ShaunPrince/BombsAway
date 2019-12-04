@@ -18,8 +18,10 @@ public class AAGunAiming : MonoBehaviour
     {
         if(targetRB != null)
         {
-            gunTF.LookAt(targetRB.transform);
+            gunTF.LookAt(targetRB.position + (targetRB.velocity * 2));
         }
 
     }
+
+
 }
