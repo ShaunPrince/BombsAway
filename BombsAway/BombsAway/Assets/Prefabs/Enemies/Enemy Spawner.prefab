@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2668f478a13fb42babe617c9231953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToSpawn: 3000
+  distanceToSpawn: 4000
   timeBetweenSpawn: 30
   minSpawnTime: 25
   spawnTimeDecrement: 1

@@ -19,6 +19,8 @@ public class EnemyFireWeapon : ShootGun
         GameObject newProjectile = Instantiate(projectile, this.transform.position + this.transform.forward, this.transform.rotation);
         newProjectile.layer = 18; // ENEMY Non_Intercolliding Missiles
         newProjectile.GetComponent<MissileContorller>().allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
-        newProjectile.GetComponent<Rigidbody>().velocity = this.GetComponentInParent<Rigidbody>().velocity + this.gameObject.transform.forward * projectileSpeed;
+        //newProjectile.GetComponent<Rigidbody>().velocity = this.GetComponentInParent<Rigidbody>().velocity + this.gameObject.transform.forward * projectileSpeed;
+        //newProjectile.GetComponent<Flying>().SetDesSpeed(projectileSpeed);
+        newProjectile.GetComponent<MissileContorller>().SetSpeed(projectileSpeed);
     }
 }

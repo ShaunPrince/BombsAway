@@ -6,12 +6,13 @@ public class MissileContorller : MonoBehaviour
 {
     private float missileDamage = 10f;
     [SerializeField]
-    private Vector3 maxTorque;
+    private float maxTorque;
     [SerializeField]
     private float increaseDistanceFromCenter;
     [SerializeField]
     private float maxDistanceFromCenter;
     private Transform missileModel;
+    private float speed;
 
     private float distanceToMaxRadius;
 
@@ -23,10 +24,16 @@ public class MissileContorller : MonoBehaviour
 
     private Vector3 startPos;
     private Transform playerTransform;
+    private Flying flyingComponent;
     //private Vector3 lastPosition;
     //private Vector3 currentPosition;
 
     public EAllegiance allegiance;
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -36,12 +43,14 @@ public class MissileContorller : MonoBehaviour
         rigidbody = this.GetComponent<Rigidbody>();
         rigidbody.centerOfMass = Vector3.zero;
 
-        rigidbody.AddRelativeTorque(maxTorque, ForceMode.VelocityChange);
+        //rigidbody.AddRelativeTorque(maxTorque, ForceMode.VelocityChange);
 
         startPos = this.transform.position;
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        missileModel = this.transform.GetChild(0);
+        missileModel = this.transform.GetChild(0).GetChild(0);
+
+        flyingComponent = this.GetComponent<Flying>();
     }
 
     // Update is called once per frame
@@ -54,10 +63,28 @@ public class MissileContorller : MonoBehaviour
         else
         {
             LookTowardsPlayer();
+            //MoveTowardsPlayer();
             Corkscrew();
 
             timeAlive += Time.deltaTime;
         }
+    }
+
+    private void LookTowardsPlayer()
+    {
+        this.transform.LookAt(playerTransform);
+        rigidbody.velocity = this.gameObject.transform.forward * speed;
+
+        //Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
+    }
+
+    private void MoveTowardsPlayer()
+    {
+        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
+        float eulerDirection = rotation.eulerAngles.y;
+
+        flyingComponent.SetDesAlt(playerTransform.GetComponentInChildren<Flying>().currentAltitude);
+        flyingComponent.SetDesDir(eulerDirection);
     }
 
     void Corkscrew()
@@ -70,8 +97,8 @@ public class MissileContorller : MonoBehaviour
             // do not go below zero
             if (missileModel.localPosition.x - increaseDistanceFromCenter >= 0)
             {
-                this.transform.GetChild(0).localPosition = new Vector3(missileModel.localPosition.x - increaseDistanceFromCenter, 0, 0);
-                //Debug.Log($"Decreasing radius { this.transform.GetChild(0).localPosition}");
+                this.transform.GetChild(0).GetChild(0).localPosition = new Vector3(missileModel.localPosition.x - increaseDistanceFromCenter, 0, 0);
+                Debug.Log($"Decreasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
             }
         }
         // if missile is more then half way from player, spiral out
@@ -79,27 +106,16 @@ public class MissileContorller : MonoBehaviour
         {
             if (missileModel.localPosition.x < maxDistanceFromCenter)
             {
-                this.transform.GetChild(0).localPosition = new Vector3(missileModel.localPosition.x + increaseDistanceFromCenter, 0, 0);
+                this.transform.GetChild(0).GetChild(0).localPosition = new Vector3(missileModel.localPosition.x + increaseDistanceFromCenter, 0, 0);
                 distanceToMaxRadius = Vector3.Distance(missileModel.position, startPos);
-                //Debug.Log($"Increasing radius { this.transform.GetChild(0).localPosition}");
+                Debug.Log($"Increasing radius { this.transform.GetChild(0).GetChild(0).localPosition}");
             }
         }
 
+        this.transform.GetChild(0).transform.Rotate(new Vector3(0, 0, maxTorque));
+        this.transform.GetChild(0).GetChild(0).transform.Rotate(new Vector3(0, 1, 0));
+
         //Debug.Log($"distance to max radius: {distanceToMaxRadius}, {Vector3.Distance(startPos, playerPos) / 2}");
-    }
-
-    private void LookTowardsPlayer()
-    {
-        // set desired direction to be towards the player (x axis)
-        // chose a range between playerPos - percisionOffset and playerPos + percisionOffset
-        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - this.transform.position, Vector3.up);
-        float eulerDirection = rotation.eulerAngles.y;
-        float maxDirection = (eulerDirection + percisionOffset);
-        float minDirection = (eulerDirection - percisionOffset);
-
-        this.transform.rotation.SetLookRotation(playerTransform.position - this.transform.position);
-
-        //Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
     }
 
     /*
