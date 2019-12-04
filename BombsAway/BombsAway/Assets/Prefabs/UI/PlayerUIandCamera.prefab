@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4143334756258718436}
   - component: {fileID: 6771202925417142974}
   - component: {fileID: 834752717645304932}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: OverlayBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 5783402179705784393}
   - component: {fileID: 5783402179705784399}
   - component: {fileID: 5783402179705784396}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: TGunDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5783402179709162404}
   - component: {fileID: 5783402179709162394}
   - component: {fileID: 5783402179709162395}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: LGunDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5783402179720668278}
   - component: {fileID: 5783402179720668276}
   - component: {fileID: 5783402179720668277}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: RadarDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5783402179789625397}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: StationDisplays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 5783402179857774623}
   - component: {fileID: 5783402179857774621}
   - component: {fileID: 5783402179857774620}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 5783402179871667616}
   - component: {fileID: 5783402179871667622}
   - component: {fileID: 5783402179871667623}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: RepairDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 5783402180226517222}
   - component: {fileID: 5783402180226517217}
   - component: {fileID: 9088800052792722754}
-  m_Layer: 0
+  m_Layer: 27
   m_Name: PlayerUIandCamera
   m_TagString: PlayerUIandCamera
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5783402180226517218}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 5783402180253168935}
   - component: {fileID: 5783402180253168933}
   - component: {fileID: 5783402180253168922}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: BombBayDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 5783402180259430146}
   - component: {fileID: 5783402180259430144}
   - component: {fileID: 5783402180259430147}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783402180418968903}
   - component: {fileID: 5783402180418968900}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: MapDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 5783402180503583935}
   - component: {fileID: 5783402180503583933}
   - component: {fileID: 5783402180503583932}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 5783402180675015859}
   - component: {fileID: 5783402180675015857}
   - component: {fileID: 5783402180675015856}
-  m_Layer: 0
+  m_Layer: 27
   m_Name: MasterCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 5783402180685035463}
   - component: {fileID: 5783402180685035461}
   - component: {fileID: 5783402180685035460}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 5783402180907204439}
   - component: {fileID: 5783402180907204437}
   - component: {fileID: 5783402180907204436}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ GameObject:
   - component: {fileID: 5783402180909909991}
   - component: {fileID: 5783402180909909990}
   - component: {fileID: 5783402180909909985}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 5783402180985087830}
   - component: {fileID: 5783402180985087828}
   - component: {fileID: 5783402180985087831}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 5783402180994533275}
   - component: {fileID: 5783402180994533273}
   - component: {fileID: 5783402180994533278}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: RGunDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 5783402181259236815}
   - component: {fileID: 5783402181259236813}
   - component: {fileID: 5783402181259236812}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 5783402181340907328}
   - component: {fileID: 5783402181340907334}
   - component: {fileID: 5783402181340907329}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783402181364942315}
   - component: {fileID: 5783402181364942312}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: SchematicDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 5783402181580387993}
   - component: {fileID: 5783402181580387999}
   - component: {fileID: 5783402181580387998}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1520,7 +1520,7 @@ GameObject:
   - component: {fileID: 5783402181624566391}
   - component: {fileID: 5783402181624566389}
   - component: {fileID: 5783402181624566378}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: PilotDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1579,7 @@ GameObject:
   - component: {fileID: 5783402181774890471}
   - component: {fileID: 5783402181774890469}
   - component: {fileID: 5783402181774890468}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1649,7 @@ GameObject:
   - component: {fileID: 9088800053238430097}
   - component: {fileID: 9088800053238430111}
   - component: {fileID: 9088800053238430096}
-  m_Layer: 5
+  m_Layer: 27
   m_Name: PlayerOutOfBoundsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 26
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1777,7 +1777,7 @@ MonoBehaviour:
     spaceCount: 5
     wordCount: 6
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
