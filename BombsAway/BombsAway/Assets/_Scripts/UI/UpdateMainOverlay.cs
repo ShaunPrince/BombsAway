@@ -19,7 +19,7 @@ public class UpdateMainOverlay : MonoBehaviour
 
 
 
-    void LateUpdate() {
+    void Update() {
         // was gonna have events here but w/e
         value = (int)manager.GetComponent<StationDisplayPosAndScaleController>().chosenCenterCamScale;
         UpdateOverlay(value);
