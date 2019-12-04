@@ -16,20 +16,20 @@ public class AAGunController : MonoBehaviour
 
     public void Tick()
     {
-        switch(currentState)
+        SetFiringState();
+        switch (currentState)
         {
             case EAAGunState.Idle:
-                SetFiringState();
                 break;
 
             case EAAGunState.ShootingLowAlt:
                 gunShooting.ShootBurst();
-                //gunShooting.ShootMissle();
+                gunShooting.ShootMissle();
                 //Shoot Guns and missle
                 break;
 
             case EAAGunState.ShootingMedAlt:
-                //gunShooting.ShootMissle();
+                gunShooting.ShootMissle();
                 //Shoot Missles Only
                 break;
         }

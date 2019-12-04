@@ -17,7 +17,8 @@ public class AAGunShooting : MonoBehaviour
 
     private int bulletsFiredThisBurst;
 
-    public EnemyFireWeapon enemyFireWeapon;
+    public EnemyFireWeapon gunFireWeapon;
+    public EnemyFireWeapon missleFireWeapon;
 
 
 
@@ -53,7 +54,7 @@ public class AAGunShooting : MonoBehaviour
             { 
                 if(bulletsFiredThisBurst < bulletsPerBurst)
                 {
-                    enemyFireWeapon.FireGun();
+                    gunFireWeapon.FireGun();
                     bulletsFiredThisBurst += 1;
                     timeSinceLastShot = 0f;
                 }
@@ -72,7 +73,7 @@ public class AAGunShooting : MonoBehaviour
         if (timeSinceLastMissle >= timeBetweenMissles)
         {
             timeSinceLastMissle= 0;
-            enemyFireWeapon.FireMissile();
+            missleFireWeapon.FireMissile();
 
         }
     }
