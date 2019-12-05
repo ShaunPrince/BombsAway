@@ -42,7 +42,7 @@ public class SpawnAAGuns : WorldEntity
         Vector2 spawnLocation = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
         float gunRadius = gun.spawnPrefab.GetComponent<SphereCollider>().radius;
 
-        Debug.Log($"{spawnLocation}; {gunRadius}");
+        //Debug.Log($"{spawnLocation}; {gunRadius}");
 
         bool foundLocation = false;
         while (!foundLocation)
@@ -51,14 +51,14 @@ public class SpawnAAGuns : WorldEntity
             foreach (Vector2 point in spawnLocations)
             {
                 float distance = this.GetComponent<TerrainObjectSpawner>().PythagoreanTheorem(spawnLocation, point);
-                Debug.Log($"Distance: {distance}, Point: {point}, {distance + gunRadius <= gunRadius}");
+                //Debug.Log($"Distance: {distance}, Point: {point}, {distance + gunRadius <= gunRadius}");
                 // if distance is <= radius it is inside or on the radius of the building
                 if (distance <= gunRadius)
                 {
                     spawnLocation = this.GetComponent<TerrainObjectSpawner>().GetLocationNotInWater(spawnLocation, gunRadius);
                     notColliding = false;
 
-                    Debug.Log($"NewSpawn: {spawnLocation}");
+                    //Debug.Log($"NewSpawn: {spawnLocation}");
                 }
             }
 
