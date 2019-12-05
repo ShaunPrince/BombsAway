@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 652920802664432630}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1080054254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080054255}
+  m_Layer: 0
+  m_Name: AA Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080054255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080054254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 652920802664432630}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506269988
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652920802664432630}
   - component: {fileID: 652920802664432631}
+  - component: {fileID: 1421210083}
   m_Layer: 0
   m_Name: Map Object Spawner
   m_TagString: Untagged
@@ -90,6 +121,7 @@ Transform:
   m_Children:
   - {fileID: 1506269989}
   - {fileID: 889289601}
+  - {fileID: 1080054255}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,3 +164,20 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &1421210083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652920802664432632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ca788fc264a6d4c83319cd58fb2d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGunsToSpawn: 10
+  gun:
+    spawnPrefab: {fileID: 3712106855168143267, guid: fbf3c5a2230db9c4abe3b3e0c5a395f8,
+      type: 3}
+    probabilityOfSpawn: 1

@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22d2eb128023df94ab12f9432eab8db0, type: 3}
---- !u!43 &646235623
+--- !u!43 &995045842
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -987,7 +987,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 646235623}
+      objectReference: {fileID: 995045842}
     - target: {fileID: 7691351352427867626, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
