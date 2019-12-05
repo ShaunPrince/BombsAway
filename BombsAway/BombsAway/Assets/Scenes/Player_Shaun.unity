@@ -349,7 +349,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &490151478
+--- !u!43 &523134774
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1286,12 +1286,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 490151478}
+      objectReference: {fileID: 523134774}
     - target: {fileID: 7691351352427867639, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 490151478}
+      objectReference: {fileID: 523134774}
     - target: {fileID: 7691351351800776080, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_TagString
@@ -2792,6 +2792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659336732993930662, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: probOfSteamLoss
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6408970836920272884, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}

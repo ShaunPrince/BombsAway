@@ -27,7 +27,8 @@ public class RepairSystemManager : MonoBehaviour
 
     public void RollForSteamLoss()
     {
-        float randF = Random.Range(0, 1);
+        float randF = Random.Range(0f, 1f);
+        Debug.Log(randF);
         if(randF <= probOfSteamLoss)
         {
             int rIndex = Random.Range(0, steamTanks.Length - 1);
