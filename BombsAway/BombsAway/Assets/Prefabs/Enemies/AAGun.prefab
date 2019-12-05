@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3712106853563078918}
-  m_Layer: 17
+  m_Layer: 12
   m_Name: Models
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3712106853924875200}
   - component: {fileID: 3712106853924875201}
   - component: {fileID: 3712106853924875206}
-  m_Layer: 17
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3712106855168143278}
   - component: {fileID: 3712106855168143279}
   - component: {fileID: 3712106855168143273}
-  m_Layer: 17
+  m_Layer: 12
   m_Name: AAGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,17 +20,22 @@ public class AAGunAiming : MonoBehaviour
 
         if(targetRB != null)
         {
-            calculateTOF();
-            gunTF.LookAt(targetRB.position + (targetRB.velocity * timeOfFlight));
+            CalculateTOF();
+            gunTF.LookAt(targetRB.position + CalculateOffset());
         }
 
     }
 
-    private void calculateTOF()
+    private void CalculateTOF()
     {
         EnemyFireWeapon efw = this.GetComponentInChildren<EnemyFireWeapon>();
         timeOfFlight = Vector3.Distance(this.transform.position, targetRB.transform.position) / efw.projectileSpeed;
 
+    }
+
+    private Vector3 CalculateOffset()
+    {
+        return (targetRB.velocity * timeOfFlight) + (Vector3.up * (float)(.5 * 9.8 * timeOfFlight * timeOfFlight));
     }
 
 
