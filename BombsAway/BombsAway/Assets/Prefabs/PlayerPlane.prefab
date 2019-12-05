@@ -6145,11 +6145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steamTanks: []
-  probOfSteamLoss: 0.1
+  probOfSteamLoss: 0.05
   minSteamLoss: 5
   maxSteamLoss: 15
   damageToDealToPlayerPerUnfilledTank: 1
-  timeBetweenInternalDamageTicks: 5
+  timeBetweenInternalDamageTicks: 10
 --- !u!1 &6408970836937904739
 GameObject:
   m_ObjectHideFlags: 0
