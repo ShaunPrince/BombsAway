@@ -32,6 +32,8 @@ public class SchematicSphereManager : MonoBehaviour
     void Update()
     {
         SetLeftGunAim();
+        SetRightGunAim();
+        SetTailGunAim();
     }
 
     public void SetNewActiveStation(int newStationID)
@@ -44,9 +46,27 @@ public class SchematicSphereManager : MonoBehaviour
     private void SetLeftGunAim()
     {
         GameObject leftGunCircle = schematicSpheres[3];
-        Vector3 linePos = new Vector3(leftGunCircle.transform.position.x, leftGunCircle.transform.position.y + 0.01f, leftGunCircle.transform.position.z);
-
+        Vector3 linePos = leftGunCircle.transform.position;
+        leftGunCircle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -leftGun.transform.localRotation.eulerAngles.y);
         leftGunLR.SetPosition(0, linePos);
         leftGunLR.SetPosition(1, leftGunCircle.transform.right * -0.5f + linePos);
+    }
+
+    private void SetRightGunAim()
+    {
+        GameObject rightGunCircle = schematicSpheres[4];
+        Vector3 linePos = rightGunCircle.transform.position;
+        rightGunCircle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -rightGun.transform.localRotation.eulerAngles.y);
+        rightGunLR.SetPosition(0, linePos);
+        rightGunLR.SetPosition(1, (rightGunCircle.transform.right * 0.5f) + linePos);
+    }
+
+    private void SetTailGunAim()
+    {
+        GameObject tailGunCircle = schematicSpheres[6];
+        Vector3 linePos = tailGunCircle.transform.position;
+        tailGunCircle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -tailGun.transform.localRotation.eulerAngles.y);
+        tailGunLR.SetPosition(0, linePos);
+        tailGunLR.SetPosition(1, (tailGunCircle.transform.up * -0.5f) + linePos);
     }
 }
