@@ -36,22 +36,9 @@ public class TerrainObjectSpawner : WorldEntity
 
     public LayerMask layerMask;
 
-    public void GenerateBuildings()
+    public EStatus SpawningStatus()
     {
-        for (int i = 0; i < numberOfCitiesToSpawn; i++)
-        {
-            SpawnCities();
-        }
-        
-        for (int i = 0; i < numberOfBuildingsToSpawn; i++)
-        {
-            SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
-        }
-        
-        for (int i = 0; i < numberOfShruberiesToSpawn; i++)
-        {
-            SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
-        }
+        return buildingGenerationStatus;
     }
 
     public EStatus GetBuildingGenerationStatus()
@@ -91,6 +78,26 @@ public class TerrainObjectSpawner : WorldEntity
             GenerateBuildings();
             buildingGenerationStatus = EStatus.completed;
         }
+    }
+
+    private void GenerateBuildings()
+    {
+        for (int i = 0; i < numberOfCitiesToSpawn; i++)
+        {
+            SpawnCities();
+        }
+
+        for (int i = 0; i < numberOfBuildingsToSpawn; i++)
+        {
+            SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
+        }
+
+        for (int i = 0; i < numberOfShruberiesToSpawn; i++)
+        {
+            SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
+        }
+
+        this.GetComponent<SpawnAAGuns>().SpawnGuns();
     }
 
     private void SpawnCities()
@@ -177,7 +184,7 @@ public class TerrainObjectSpawner : WorldEntity
         }
     }
 
-    Vector2 GetLocationNotInWater(Vector2 spawnLocation, float buildingRadius)
+    public Vector2 GetLocationNotInWater(Vector2 spawnLocation, float buildingRadius)
     {
         float yAxis = float.MinValue;
         int numOfAttemps = 0;
@@ -316,14 +323,14 @@ public class TerrainObjectSpawner : WorldEntity
         }
     }
 
-    private float PythagoreanTheorem(Vector2 point1, Vector2 point2)
+    public float PythagoreanTheorem(Vector2 point1, Vector2 point2)
     {
         float x = Mathf.Pow((point2.x - point1.x), 2);
         float y = Mathf.Pow((point2.y - point1.y), 2);
         return Mathf.Sqrt(x + y);
     }
 
-    private float GetTerrainYaxis(Vector3 spawnPoint)
+    public float GetTerrainYaxis(Vector3 spawnPoint)
     {
         // shoot a raycast from the bottom of the building
         // find at what y point it hits the terrain below it
