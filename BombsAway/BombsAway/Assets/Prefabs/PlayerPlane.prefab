@@ -6286,7 +6286,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1049088
+    m_Bits: 1049104
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: cb49d32645f941342bdbb48f9fa18c64, type: 2}
   m_TargetDisplay: 0
@@ -6741,7 +6741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationID: 1
+  stationID: 8
   stationCamera: {fileID: 0}
   controlScheme: {fileID: 341742500817408129}
 --- !u!114 &7659336732993930662
@@ -6757,7 +6757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steamTanks: []
-  probOfSteamLoss: 0.05
+  probOfSteamLoss: 0.25
   minSteamLoss: 5
   maxSteamLoss: 15
   damageToDealToPlayerPerUnfilledTank: 1
@@ -6965,7 +6965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5e4c4369fdaca49a5ee14d1fb6cea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationID: 8
+  stationID: 1
   stationCamera: {fileID: 6408970836543970436}
   controlScheme: {fileID: 341742500839827441}
 --- !u!114 &7659336734476839889
