@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3712106853563078919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 33, z: 0}
   m_LocalScale: {x: 29.835, y: 29.835, z: 29.835}
   m_Children:
   - {fileID: 3712106853924875207}
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 3712106853924875200}
   - component: {fileID: 3712106853924875201}
   - component: {fileID: 3712106853924875206}
+  - component: {fileID: 6726604419600814689}
   m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
@@ -211,11 +212,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3712106853924875204}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!65 &6726604419600814689
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712106853924875204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3712106855168143267
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +240,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3712106855168143277}
   - component: {fileID: 3712106855168143266}
-  - component: {fileID: 7201144039416600973}
   - component: {fileID: 3712106855168143276}
   - component: {fileID: 3712106855168143278}
   - component: {fileID: 3712106855168143279}
@@ -271,21 +284,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
---- !u!135 &7201144039416600973
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712106855168143267}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10000
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3712106855168143276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,12 +447,12 @@ PrefabInstance:
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
@@ -531,11 +531,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 750
-      objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -544,12 +539,12 @@ PrefabInstance:
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
@@ -590,6 +585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6842678429601702904, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}

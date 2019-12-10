@@ -6,10 +6,16 @@ public class TankStatusColor : MonoBehaviour
 {
     public TankController tc;
     public Material[] materials;
+
+    public float timeBetweenFlickers;
+    private float timeSinceLastFlicker;
+
+    private int flickerIndex;
     // Start is called before the first frame update
     void Start()
     {
-
+        timeSinceLastFlicker = 0f;
+        flickerIndex = 2;
     }
 
     // Update is called once per frame
@@ -36,6 +42,19 @@ public class TankStatusColor : MonoBehaviour
         }
         else if (tc.currentFillLevel < tc.maxFillLevel && !tc.isConnectedToSource)
         {
+            timeSinceLastFlicker += Time.deltaTime;
+            if(timeSinceLastFlicker >= timeBetweenFlickers)
+            {
+                if(flickerIndex == 2)
+                {
+                    flickerIndex = 3;
+                }
+                else
+                {
+                    flickerIndex = 2;
+                }
+                timeSinceLastFlicker = 0;
+            }
             foreach (MeshRenderer mr in this.GetComponentsInChildren<MeshRenderer>())
             {
                 mr.material = materials[2];

@@ -1125,6 +1125,16 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
+        type: 3}
+      propertyPath: materials.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
+        type: 3}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2f8908f6fa7c4743a4cee9125098460, type: 2}
     - target: {fileID: 5281561571463698, guid: 2823f93e612ad1e418a1c9af67653286, type: 3}
       propertyPath: m_IsKinematic
       value: 1

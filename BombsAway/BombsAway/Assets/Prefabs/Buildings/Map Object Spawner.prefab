@@ -181,3 +181,4 @@ MonoBehaviour:
     spawnPrefab: {fileID: 3712106855168143267, guid: fbf3c5a2230db9c4abe3b3e0c5a395f8,
       type: 3}
     probabilityOfSpawn: 1
+  gunRadius: 10000

@@ -77,4 +77,21 @@ public class AAGunShooting : MonoBehaviour
 
         }
     }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        // draw spawn radius
+        float gunRadius = GameObject.Find("Buidling Spawner").GetComponent<SpawnAAGuns>().gunRadius;
+        Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y + 300, this.transform.position.z);
+        try
+        {
+            UnityEditor.Handles.DrawWireDisc(position, this.transform.up, gunRadius);
+        }
+        catch
+        {
+
+        }
+#endif
+    }
 }

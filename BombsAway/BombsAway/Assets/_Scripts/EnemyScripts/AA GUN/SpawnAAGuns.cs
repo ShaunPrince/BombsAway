@@ -6,6 +6,7 @@ public class SpawnAAGuns : WorldEntity
 {
     public int numberOfGunsToSpawn;
     public SpawnableObject gun;
+    public float gunRadius;
     private Transform gunParent;
 
     private List<Vector2> spawnLocations = new List<Vector2>();
@@ -40,7 +41,7 @@ public class SpawnAAGuns : WorldEntity
     private void SpawnGun()
     {
         Vector2 spawnLocation = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
-        float gunRadius = gun.spawnPrefab.GetComponent<SphereCollider>().radius;
+        //float gunRadius = gun.spawnPrefab.GetComponent<SphereCollider>().radius;
 
         //Debug.Log($"{spawnLocation}; {gunRadius}");
 
@@ -72,7 +73,7 @@ public class SpawnAAGuns : WorldEntity
             Vector3 spawnVector3 = new Vector3(spawnLocation.x, yAxis, spawnLocation.y);
 
             // spawn the buidling
-            GameObject newBuilding = Instantiate(gun.spawnPrefab, spawnVector3, Quaternion.identity, gunParent);
+            GameObject newGun = Instantiate(gun.spawnPrefab, spawnVector3, Quaternion.identity, gunParent);
 
             spawnLocations.Add(spawnLocation);
 
