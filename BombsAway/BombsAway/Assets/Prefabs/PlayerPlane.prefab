@@ -7801,6 +7801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsPerRotation: 3
   radarswipe: {fileID: 4227715025284900244}
+  parentTransform: {fileID: 6408970836937904739}
 --- !u!114 &7659336733627703327
 MonoBehaviour:
   m_ObjectHideFlags: 0
