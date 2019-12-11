@@ -27,6 +27,7 @@ public class SchematicSphereManager : MonoBehaviour
         {
             schematicSpheres.Add(this.transform.GetChild(i-1).gameObject);
             schematicSpheres[i-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            SetGunnerChildSphereColor(i - 1, Color.red);
         }
         currentStationID = 0;
         leftGunLR1 = schematicSpheres[3].GetComponent<LineRenderer>();
@@ -51,7 +52,9 @@ public class SchematicSphereManager : MonoBehaviour
     public void SetNewActiveStation(int newStationID)
     {
         schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        SetGunnerChildSphereColor(currentStationID, Color.red);
         schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+        SetGunnerChildSphereColor(newStationID - 1, Color.green);
         currentStationID = newStationID - 1;
     }
 
@@ -116,5 +119,14 @@ public class SchematicSphereManager : MonoBehaviour
         tailGunLR2.SetPosition(1, (tailGunCircle2.transform.up * -0.5f) + linePos2);
         tailGunLR3.SetPosition(0, linePos3);
         tailGunLR3.SetPosition(1, (tailGunCircle3.transform.up * -0.5f) + linePos3);
+    }
+
+    private void SetGunnerChildSphereColor(int index, Color color)
+    {
+        if (index == 3 || index == 4 || index == 6)
+        {
+            schematicSpheres[index].transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_BaseColor", color);
+            schematicSpheres[index].transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_BaseColor", color);
+        }
     }
 }
