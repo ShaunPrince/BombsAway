@@ -1234,8 +1234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.25
-  timeToReload: 5
+  timeBetweenShots: 0.15
+  timeToReload: 3
   magazineSize: 50
   reloading: 0
 --- !u!114 &341742499401250448
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 500
+  projectileSpeed: 1000
   gunDamage: 2
 --- !u!82 &2235424418369908251
 AudioSource:
@@ -3280,8 +3280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.25
-  timeToReload: 5
+  timeBetweenShots: 0.15
+  timeToReload: 3
   magazineSize: 50
   reloading: 0
 --- !u!114 &341742500825244823
@@ -3298,7 +3298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 500
+  projectileSpeed: 1000
   gunDamage: 2
 --- !u!82 &5005942980684988648
 AudioSource:
@@ -9724,8 +9724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f83a7bf3ad40745846063c4122f704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.25
-  timeToReload: 5
+  timeBetweenShots: 0.15
+  timeToReload: 3
   magazineSize: 50
   reloading: 0
 --- !u!114 &6408970838382142704
@@ -9742,7 +9742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 500
+  projectileSpeed: 1000
   gunDamage: 2
 --- !u!82 &7659336733620297865
 AudioSource:
