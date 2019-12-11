@@ -23,6 +23,8 @@ public class TankController : MonoBehaviour
         if(currentFillLevel < 0)
         {
             currentFillLevel = 0;
+            FindObjectOfType<AudioManager>().Play("RepairSounds", 4);  
+
         }
     }
 

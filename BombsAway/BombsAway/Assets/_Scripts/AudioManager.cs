@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sounds[] General;
     public Sounds[] GettingHit;
-
+    public Sounds[] RepairSounds;
 
     // Start is called before the first frame update
 
@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
+            s.source.priority = s.priority;
         }
         foreach (Sounds a in GettingHit)
         {
@@ -25,6 +26,17 @@ public class AudioManager : MonoBehaviour
             a.source.clip = a.clip;
             a.source.volume = a.volume;
             a.source.loop = a.loop;
+            a.source.priority = a.priority;
+
+        }
+        foreach (Sounds b in RepairSounds)
+        {
+            b.source = gameObject.AddComponent<AudioSource>();
+            b.source.clip = b.clip;
+            b.source.volume = b.volume;
+            b.source.loop = b.loop;
+            b.source.priority = b.priority;
+
         }
 
     }
@@ -39,6 +51,14 @@ public class AudioManager : MonoBehaviour
             Sounds a = GettingHit[randomHit];
             a.source.PlayOneShot(a.source.clip);
         }
+    }
+
+    public void PlayPipeMove()
+    {
+        int randomHit = UnityEngine.Random.Range(0, GettingHit.Length);
+        Sounds a = RepairSounds[randomHit];
+        a.source.PlayOneShot(a.source.clip);
+        
     }
 
     public void PlayAlarm()
@@ -59,15 +79,23 @@ public class AudioManager : MonoBehaviour
     
 
     //doesnt work.need to fix then delete the top functions
-    public void Play(string name)
+    public void Play( string name, int i)
     {
-       Sounds s =  Array.Find(General, General => General.name == name);
-       if (s == null)
+        Sounds s;
+        if (name == "GettingHit")
         {
-            Debug.LogError("Sound " + name + "not found.");
-            return;
+            s = GettingHit[i];
+            s.source.Play();
+        } else if (name == "General")
+        {
+            s = General[i];
+            s.source.Play();
+        } else if (name == "RepairSounds")
+        {
+            s = RepairSounds[i];
+            s.source.Play();
         }
-       s.source.Play();
+
     }
     // Update is called once per frame
     void Update()

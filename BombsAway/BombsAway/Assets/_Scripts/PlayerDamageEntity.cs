@@ -16,6 +16,7 @@ public class PlayerDamageEntity : DamageableEntity
             health -= incomingDamage;
             FindObjectOfType<AudioManager>().PlayGotHit();
 
+
             if (health <= 50)
             {
                 FindObjectOfType<AudioManager>().PlayAlarm();  //need to fix creating instances
