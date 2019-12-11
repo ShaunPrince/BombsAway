@@ -24,8 +24,10 @@ public class RadarTracker : MonoBehaviour
         //Debug.Log("Spotted: " + enemyTransform.gameObject.name.ToString());
 
         //The values printed below should be used for drawing the radar blips
-        float rotation = Flying.ConvertToPos360Dir(Vector3.SignedAngle(this.transform.forward, enemyTransform.position, Vector3.up));
+        float rotation = Flying.ConvertToPos360Dir(Vector3.SignedAngle(this.transform.forward, enemyTransform.position - this.transform.position, Vector3.up));
         float dist = Vector3.Distance(this.transform.position, enemyTransform.position) / radius;
+
+        //Debug.Log(this.transform.forward);
         //Debug.Log(rotation);
         //Debug.Log(dist);
         PingManager.GetComponent<PingSpawner>().SpawnPing(dist, rotation);
