@@ -45,10 +45,11 @@ public class EnemyShootMissile : MonoBehaviour
         {
             if (timeSinceShot >= timeBetweenShots)
             {
+                timeSinceShot = 0.0f;
                 //Debug.Log($"Aiming and shooting");
                 AimGunAtPlayer();
                 Shoot();
-                timeSinceShot = 0.0f;
+
             }
             else
             {

@@ -889,7 +889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &341742499313924146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3608,8 +3608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiveControlScheme: 0
-  numOfBombs: 500
-  reloadTime: 0.00001
+  numOfBombs: 20
+  reloadTime: 2
   bombPrefab: {fileID: 3402075689999084018, guid: 0a6e4765f36ed9749a06e58c8c28b69d,
     type: 3}
 --- !u!1 &341742500925897112
@@ -7233,7 +7233,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1048608
+    m_Bits: 1049136
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: cb49d32645f941342bdbb48f9fa18c64, type: 2}
   m_TargetDisplay: 0
@@ -9959,7 +9959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf12f51fff2a33458c7928d86ed1cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta: 20
+  theta: 28
   r1: 0
   timeOfFlight: 0
   planeRB: {fileID: 6408970836937904742}

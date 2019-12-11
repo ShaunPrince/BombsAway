@@ -17,7 +17,11 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bulletDamage = 1.0f;
+        if(bulletDamage <= 0)
+        {
+            bulletDamage = 1.0f;
+        }
+
         timeAlive = 0.0f;
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
