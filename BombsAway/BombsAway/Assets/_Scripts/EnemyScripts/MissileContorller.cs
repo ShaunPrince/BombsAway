@@ -135,6 +135,8 @@ public class MissileContorller : MonoBehaviour
         //Debug.Log($"Missile colliding with {collision.transform.gameObject.name}");
         if (collision.transform.gameObject.GetComponentInParent<DamageableEntity>() != null)
         {
+            FindObjectOfType<AudioManager>().PlayExplosion();
+
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
             collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance);
             Destroy(this.gameObject);

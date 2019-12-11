@@ -15,21 +15,19 @@ public class PlayerDamageEntity : DamageableEntity
             }
             health -= incomingDamage;
             FindObjectOfType<AudioManager>().PlayGotHit();
+
+            if (health <= 50)
+            {
+                FindObjectOfType<AudioManager>().PlayAlarm();  //need to fix creating instances
+ 
+            }
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
                 //Load Game Over
-                FindObjectOfType<AudioManager>().Play("GameOver");
-                FindObjectOfType<AudioManager>().Play("GunBattle");
-
                 GameObject.Destroy(this.gameObject);
             }
-            if(health <= 10)
-            {
-                FindObjectOfType<AudioManager>().Play("EmergencyAlarm");
-
-            }
-
+            
         }
     }
 }
