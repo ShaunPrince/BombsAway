@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamageEntity : DamageableEntity
 {
@@ -26,6 +27,7 @@ public class PlayerDamageEntity : DamageableEntity
             if (health <= 0)
             {
                 //Load Game Over
+                SceneManager.LoadScene("MainMenu");
                 GameObject.Destroy(this.gameObject);
             }
             
