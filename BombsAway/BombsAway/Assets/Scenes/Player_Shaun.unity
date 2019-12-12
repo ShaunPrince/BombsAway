@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09692462, g: 0.14026183, b: 0.20772864, a: 1}
+  m_IndirectSpecularColor: {r: 0.09701417, g: 0.14021364, b: 0.20771632, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2441,12 +2441,14 @@ MonoBehaviour:
     name: WarningBeep
     volume: 0.45
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: ba779c8d96a371f41b6d5ce744f4e7f3, type: 3}
     name: Exposion
     volume: 0.45
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   GettingHit:
@@ -2454,38 +2456,45 @@ MonoBehaviour:
     name: 3x
     volume: 0.275
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: b52e3f51bc92cdb4b9f6457ae5c8025b, type: 3}
     name: Bang
     volume: 0.325
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: d93f17eb75739dd48becf67c94e52a35, type: 3}
     name: MetalImpact
     volume: 0.319
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: c8f408d989b4d9345a6e8c41bfeee726, type: 3}
     name: MetalImpact2
     volume: 0.387
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: 302a97ea4b4ff3f44b4c6c94f1ab2140, type: 3}
     name: Whack
     volume: 0.276
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: faf3a0bf09b1f8a4e852971882828d6b, type: 3}
     name: GlassBreak
     volume: 0.32
     pitch: 0
+    priority: 0
     source: {fileID: 0}
     loop: 0
+  RepairSounds: []
 --- !u!4 &1744625968
 Transform:
   m_ObjectHideFlags: 0
@@ -2776,6 +2785,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408970837631901799, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7659336734844180367, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
       propertyPath: theta
@@ -2796,10 +2810,35 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 1049136
       objectReference: {fileID: 0}
+    - target: {fileID: 341742499245521615, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 341742499313924147, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341742500668072375, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 341742500807595387, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 341742501091615945, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408970837301419580, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
