@@ -19,7 +19,7 @@ public class MissileContorller : MonoBehaviour
     private float percisionOffset = 0f;
 
     private float timeAlive = 0f;
-    private float maxTimeAlive = 50f;
+    private float maxTimeAlive = 80f;
     private Rigidbody rigidbody;
 
     private Vector3 startPos;

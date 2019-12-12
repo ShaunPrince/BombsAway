@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231c81ba5580ee646ae54928d9bf20ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTorque: 1
+  maxTorque: 0.5
   increaseDistanceFromCenter: 0.5
   maxDistanceFromCenter: 100
   allegiance: 1

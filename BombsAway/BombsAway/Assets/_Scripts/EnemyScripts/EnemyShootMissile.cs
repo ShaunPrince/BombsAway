@@ -32,10 +32,10 @@ public class EnemyShootMissile : MonoBehaviour
         CheckIfPlayerWithinRange();
         for (int i = 0; i < enemyMissiles.Length; i++)
         {
-            if (!enemyMissiles[i].HasAmmo())
-            {
-                enemyMissiles[i].SetReloading(true);
-            }
+            //if (!enemyMissiles[i].HasAmmo())
+            //{
+            //    enemyMissiles[i].SetReloading(true);
+            //}
             if (enemyMissiles[i].isReloading())
             {
                 ReloadGun(i);
@@ -43,18 +43,11 @@ public class EnemyShootMissile : MonoBehaviour
         }
         if (playerWithinRange && !enemyMissiles[GetGunIndexFromPosition()].isReloading())
         {
-            if (timeSinceShot >= timeBetweenShots)
-            {
                 timeSinceShot = 0.0f;
                 //Debug.Log($"Aiming and shooting");
                 AimGunAtPlayer();
                 Shoot();
-
-            }
-            else
-            {
-                timeSinceShot += Time.deltaTime;
-            }
+                enemyMissiles[GetGunIndexFromPosition()].SetReloading(true);
         }
     }
 
