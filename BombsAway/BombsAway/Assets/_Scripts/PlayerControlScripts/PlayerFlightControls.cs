@@ -19,7 +19,7 @@ public class PlayerFlightControls : ControlScheme
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         da = this.gameObject.GetComponentInParent<DynamicAltitude>();
         fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
