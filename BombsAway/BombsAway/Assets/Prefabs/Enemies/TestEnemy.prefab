@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 1
-  timeToReload: 15
+  timeToReload: 40
   magazineSize: 1
   enemyMissiles:
   - gunPosition: 1
