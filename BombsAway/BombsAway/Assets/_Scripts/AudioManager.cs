@@ -7,11 +7,21 @@ public class AudioManager : MonoBehaviour
     public Sounds[] General;
     public Sounds[] GettingHit;
     public Sounds[] RepairSounds;
+    public static AudioManager instance;
 
     // Start is called before the first frame update
 
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         foreach(Sounds s in General)
         {
             s.source = gameObject.AddComponent<AudioSource>();
