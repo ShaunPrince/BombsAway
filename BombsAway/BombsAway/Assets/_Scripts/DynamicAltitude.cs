@@ -7,6 +7,7 @@ public class DynamicAltitude : MonoBehaviour
 
     [SerializeField]
     private LayerMask rayDownLM;
+    [SerializeField]
     private Rigidbody rb;
 
     public float straitDownAlt;

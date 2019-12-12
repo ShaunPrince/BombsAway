@@ -23,6 +23,10 @@ public class PlayerFlightControls : ControlScheme
     {
         da = this.gameObject.GetComponentInParent<DynamicAltitude>();
         fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
+    }
+    private void Start()
+    {
+       
         fly.SetDesAlt(da.calcStraightDownAlt(presetAlts[(int)currentAltSetting]));
         fly.SetDesSpeed( presetSpeeds[(int)currentSpeedSetting]);
     }
