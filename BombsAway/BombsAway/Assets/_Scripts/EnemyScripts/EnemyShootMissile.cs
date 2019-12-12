@@ -26,7 +26,7 @@ public class EnemyShootMissile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // always check if the player is within range
         CheckIfPlayerWithinRange();
@@ -120,6 +120,7 @@ public class EnemyShootMissile : MonoBehaviour
 
     private void ReloadGun(int gunIndex)
     {
+
         if (enemyMissiles[gunIndex].TimeSpentReloading() >= timeToReload)
         {
             enemyMissiles[gunIndex].ReloadAmmo(magazineSize);
