@@ -57,7 +57,7 @@ public class TankStatusColor : MonoBehaviour
             }
             foreach (MeshRenderer mr in this.GetComponentsInChildren<MeshRenderer>())
             {
-                mr.material = materials[2];
+                mr.material = materials[flickerIndex];
             }
         }
     }

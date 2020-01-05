@@ -260,7 +260,6 @@ MonoBehaviour:
   drawMode: 1
   meshSettings: {fileID: 11400000, guid: c270823b74b9a524f8fa4b515cee8cc1, type: 2}
   heightMapSettings: {fileID: 11400000, guid: 833f4777ef46dd742a4ccf1d93956f5b, type: 2}
-  textureData: {fileID: 11400000, guid: 172c7ebb2649ddb49aa493e5617fb8cf, type: 2}
   terrainMaterial: {fileID: 2100000, guid: 26e5f2403c3aa2241935f22b8b5c84aa, type: 2}
   editorPreviewLevelOfDetail: 0
   autoUpdate: 1

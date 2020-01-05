@@ -68,7 +68,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 81ddd42856e23704eb6b822950307489, type: 2}
   - {fileID: 2100000, guid: d5e302d4714296049a006a8755cc8d98, type: 2}
   - {fileID: 2100000, guid: a2f8908f6fa7c4743a4cee9125098460, type: 2}
-  timeBetweenFlickers: 0
+  timeBetweenFlickers: 0.5
 --- !u!1 &5281560338988632
 GameObject:
   m_ObjectHideFlags: 0
