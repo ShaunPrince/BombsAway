@@ -5,9 +5,23 @@ using UnityEngine;
 
 public class WorldEntity : MonoBehaviour
 {
-    private float worldCenterX = 28206.21f;
-    private float worldCenterZ = 28206.21f;
-    private float worldRadius = 35000;
+    private float worldCenterX = 28200;
+    private float worldCenterZ = 28200;
+    private float worldRadius = 42000;
+
+    private float sizeOfChunk = 28200;
+
+    private void Awake()
+    {
+        float numChunks = GameObject.FindWithTag("MapGenerator").GetComponent<IslandGenerator>().numOfTerrainChunks.x;
+
+        worldCenterX = (sizeOfChunk * (numChunks - 1  > 0 ? numChunks - 1 : 1)) / 2;
+        worldCenterZ = (sizeOfChunk * (numChunks - 1 > 0 ? numChunks - 1 : 1)) / 2;
+
+        worldRadius = (sizeOfChunk * numChunks) / 2;
+
+        Debug.Log($"Num chunks: {numChunks}, World center: ({worldCenterX}, {worldCenterZ}), World radius: {worldRadius}");
+    }
 
     public Vector2 WorldCenter {
         get {
