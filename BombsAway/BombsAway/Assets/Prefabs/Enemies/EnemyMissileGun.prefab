@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7573655050151989966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f3fbe5baffe4f45be77c10f29a33af, type: 3}
   m_Name: 
@@ -19,6 +19,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMissileGun
+      objectReference: {fileID: 0}
     - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: projectile
@@ -89,11 +94,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyMissileGun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}
