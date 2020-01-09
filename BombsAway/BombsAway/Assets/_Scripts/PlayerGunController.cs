@@ -48,14 +48,14 @@ public class PlayerGunController : MonoBehaviour
                 //guic.UpdateAmmoCount(ammoCount);
                 timeSinceShot = 0.0f;
             }
-            else if (Input.GetMouseButton(0) && timeSinceShot < timeBetweenShots)
+            else if (timeSinceShot < timeBetweenShots)
             {
                 timeSinceShot += Time.deltaTime;
             }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                timeSinceShot = timeBetweenShots;
-            }
+            //else if (Input.GetMouseButtonUp(0))
+            //{
+            //    timeSinceShot = timeBetweenShots;
+            //}
         }
         else
         {
