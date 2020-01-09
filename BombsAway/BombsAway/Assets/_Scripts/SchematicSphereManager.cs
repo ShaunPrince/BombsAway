@@ -51,11 +51,11 @@ public class SchematicSphereManager : MonoBehaviour
 
     public void SetNewActiveStation(int newStationID)
     {
-        //schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-        //SetGunnerChildSphereColor(currentStationID, Color.red);
-        //schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
-        //SetGunnerChildSphereColor(newStationID - 1, Color.green);
-        //currentStationID = newStationID - 1;
+        schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        SetGunnerChildSphereColor(currentStationID, Color.red);
+        schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+        SetGunnerChildSphereColor(newStationID - 1, Color.green);
+        currentStationID = newStationID - 1;
     }
 
     private void SetLeftGunAim()
