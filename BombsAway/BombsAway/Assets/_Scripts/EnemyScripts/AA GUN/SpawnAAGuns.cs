@@ -63,6 +63,12 @@ public class SpawnAAGuns : WorldEntity
                 }
             }
 
+            if (Mathf.Approximately(spawnLocation.x, float.MaxValue) || Mathf.Approximately(spawnLocation.y, float.MaxValue))
+            {
+                // could not find a location, do not spawn
+                break;
+            }
+
             if (notColliding) foundLocation = true;
         }
 

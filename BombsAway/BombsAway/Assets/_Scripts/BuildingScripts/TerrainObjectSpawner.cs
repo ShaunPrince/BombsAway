@@ -89,12 +89,12 @@ public class TerrainObjectSpawner : WorldEntity
 
         for (int i = 0; i < numberOfBuildingsToSpawn; i++)
         {
-            SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
+            //SpawnSemiRandomObject(buildings, totalWeightedProbBuildings, buildingParent);
         }
 
         for (int i = 0; i < numberOfShruberiesToSpawn; i++)
         {
-            SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
+            //SpawnSemiRandomObject(shrubery, totalWeightedProbShrubery, shruberyParent);
         }
 
         this.GetComponent<SpawnAAGuns>().SpawnGuns();
@@ -112,6 +112,8 @@ public class TerrainObjectSpawner : WorldEntity
         }
         else citySeed = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
         float cityRadius = 0;
+
+        Debug.Log($"City seed: {citySeed}");
 
         // for each ring in the city
         for (int i = 0; i < citySize; i++)
@@ -149,7 +151,7 @@ public class TerrainObjectSpawner : WorldEntity
                         }
                     }
 
-                    if (spawnLocation.x >= float.MaxValue || spawnLocation.y >= float.MaxValue)
+                    if (Mathf.Approximately(spawnLocation.x, float.MaxValue) || Mathf.Approximately(spawnLocation.y, float.MaxValue))
                     {
                         // could not find a location, do not spawn
                         break;
@@ -181,6 +183,7 @@ public class TerrainObjectSpawner : WorldEntity
 
             // choose a location on the first ring of the city
             cityRadius += buildings[Random.Range(0, buildings.Length)].spawnPrefab.GetComponent<SphereCollider>().radius * 2;
+            Debug.Log($"{cityRadius}");
         }
     }
 
