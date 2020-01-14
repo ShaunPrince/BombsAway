@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamegableEnemy : DamageableEntity
 {
-    private EnemyHit enemyHitScript;
+    private ColorTweening enemyHitScript;
 
     private void Start()
     {
-        enemyHitScript = this.GetComponent<EnemyHit>();
+        enemyHitScript = this.GetComponent<ColorTweening>();
     }
 
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
@@ -16,7 +16,8 @@ public class DamegableEnemy : DamageableEntity
         if (allegianceOfIncomingDamage != allegiance)
         {
             health -= incomingDamage;
-            enemyHitScript.VisuallyShowEnemyHit();
+            enemyHitScript.FlashWhite();
+            //enemyHitScript.VisuallyShowEnemyHit();
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {

@@ -49,7 +49,6 @@ public class EnemyHit : MonoBehaviour
                         block.SetColor("_BaseColor", originalColor[i]);
 
                         enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
-                        //Debug.Log($"back to og color");
                     }
                 }
             }

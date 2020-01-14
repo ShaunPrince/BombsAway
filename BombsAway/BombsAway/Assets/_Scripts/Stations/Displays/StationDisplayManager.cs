@@ -31,10 +31,20 @@ public class StationDisplayManager : MonoBehaviour
             Vector2 tempNewCords = rectTrans[(int)newStationID].gameObject.GetComponent<DisplayBoxCords>().cords;
             Vector2 tempSchematicCords = schematicRT.gameObject.GetComponent<DisplayBoxCords>().cords;
 
+            // Camera fade out
+            //rectTrans[(int)centerRT].GetComponent<CameraTween>().FadeOut();
+            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeOut();
+            rectTrans[(int)newStationID].GetChild(0).GetComponent<CameraTween>().FadeOut();
+
             centerRT.GetComponent<DisplayBoxCords>().cords = tempSchematicCords;
             schematicRT.gameObject.GetComponent<DisplayBoxCords>().cords = tempNewCords;
             rectTrans[(int)newStationID].gameObject.GetComponent<DisplayBoxCords>().cords = new Vector2(1, 1);
             centerRT = rectTrans[(int)newStationID];
+
+            // Camera fade in
+            //centerRT.GetComponent<CameraTween>().FadeIn();
+            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeIn();
+            rectTrans[(int)newStationID].GetChild(0).GetComponent<CameraTween>().FadeIn();
         }
 
     }

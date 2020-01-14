@@ -113,7 +113,7 @@ public class TerrainObjectSpawner : WorldEntity
         else citySeed = new Vector2(Random.Range(WorldCenter.x - WorldLength, WorldCenter.x + WorldLength), Random.Range(WorldCenter.y - WorldLength, WorldCenter.y + WorldLength));
         float cityRadius = 0;
 
-        Debug.Log($"City seed: {citySeed}");
+        //Debug.Log($"City seed: {citySeed}");
 
         // for each ring in the city
         for (int i = 0; i < citySize; i++)
@@ -183,7 +183,7 @@ public class TerrainObjectSpawner : WorldEntity
 
             // choose a location on the first ring of the city
             cityRadius += buildings[Random.Range(0, buildings.Length)].spawnPrefab.GetComponent<SphereCollider>().radius * 2;
-            Debug.Log($"{cityRadius}");
+            //Debug.Log($"{cityRadius}");
         }
     }
 

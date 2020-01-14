@@ -539,7 +539,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5783402180226517218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 016a998a1df02ba45a9bc130e0e559ce, type: 3}
   m_Name: 
@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 5783402180259430146}
   - component: {fileID: 5783402180259430144}
   - component: {fileID: 5783402180259430147}
+  - component: {fileID: 808668565}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -674,6 +675,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &808668565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180259430157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402180418968902
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +748,7 @@ GameObject:
   - component: {fileID: 5783402180503583935}
   - component: {fileID: 5783402180503583933}
   - component: {fileID: 5783402180503583932}
+  - component: {fileID: 985159439}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -794,6 +808,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &985159439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180503583934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402180675015858
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +915,7 @@ GameObject:
   - component: {fileID: 5783402180685035463}
   - component: {fileID: 5783402180685035461}
   - component: {fileID: 5783402180685035460}
+  - component: {fileID: 1244223358}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -948,6 +975,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1244223358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180685035462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402180907204438
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +998,7 @@ GameObject:
   - component: {fileID: 5783402180907204439}
   - component: {fileID: 5783402180907204437}
   - component: {fileID: 5783402180907204436}
+  - component: {fileID: 726573066}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1018,6 +1058,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &726573066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180907204438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402180909909984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1183,7 @@ GameObject:
   - component: {fileID: 5783402180985087830}
   - component: {fileID: 5783402180985087828}
   - component: {fileID: 5783402180985087831}
+  - component: {fileID: 1583026786}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1190,6 +1243,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1583026786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180985087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402180994533274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1325,7 @@ GameObject:
   - component: {fileID: 5783402181259236815}
   - component: {fileID: 5783402181259236813}
   - component: {fileID: 5783402181259236812}
+  - component: {fileID: 380377340}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1319,6 +1385,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &380377340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402181259236814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402181340907331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1408,7 @@ GameObject:
   - component: {fileID: 5783402181340907328}
   - component: {fileID: 5783402181340907334}
   - component: {fileID: 5783402181340907329}
+  - component: {fileID: 279971805}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1389,6 +1468,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &279971805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402181340907331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402181364942314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1541,7 @@ GameObject:
   - component: {fileID: 5783402181580387993}
   - component: {fileID: 5783402181580387999}
   - component: {fileID: 5783402181580387998}
+  - component: {fileID: 1237488615}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1509,6 +1601,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1237488615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402181580387992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5783402181624566390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1683,7 @@ GameObject:
   - component: {fileID: 5783402181774890471}
   - component: {fileID: 5783402181774890469}
   - component: {fileID: 5783402181774890468}
+  - component: {fileID: 1446188307}
   m_Layer: 27
   m_Name: CameraFeed
   m_TagString: Untagged
@@ -1638,6 +1743,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1446188307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402181774890470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b20258f1e4a8a4fb97265276efaf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9088800053238430098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9088800053238430097
 RectTransform:
   m_ObjectHideFlags: 0
