@@ -13,6 +13,8 @@ public class PlayerFlightControls : ControlScheme
     private DynamicAltitude da;
     public Flying fly;
 
+    public bool turningLeft;
+
     public float GetDynamicAlt()
     {
         return da.straitDownAlt;
@@ -85,10 +87,12 @@ public class PlayerFlightControls : ControlScheme
         if(Input.GetKey(KeyCode.A))
         {
             fly.TurnLeft();
+            turningLeft = true;
         }
         else if(Input.GetKey(KeyCode.D))
         {
             fly.TurnRight();
+            turningLeft = false;
         }
         else
         {

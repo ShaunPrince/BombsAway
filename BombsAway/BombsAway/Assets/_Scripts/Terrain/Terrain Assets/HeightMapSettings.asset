@@ -18,10 +18,10 @@ MonoBehaviour:
     scale: 23.26
     octaves: 6
     persistance: 0.43
-    lacunarity: 2
+    lacunarity: 3
     seed: 0
     offset: {x: 0, y: 0}
-  useFalloff: 0
+  useFalloff: 1
   heightMultiplier: 1277.33
   heightCurve:
     serializedVersion: 2
