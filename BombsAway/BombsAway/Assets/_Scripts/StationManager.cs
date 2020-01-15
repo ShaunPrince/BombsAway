@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StationManager : MonoBehaviour
 {
-    public static List<Station> stations = new List<Station>();
+    public static List<Station> stations;
     public static Station currentCenterStation;
 
     public static ControlScheme currentlyActiveControlScheme;
@@ -15,6 +15,7 @@ public class StationManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        stations = new List<Station>();
         InitializeStationsArray();
         centerDisplayController = GameObject.FindGameObjectWithTag("PlayerUIandCamera").GetComponent<StationDisplayManager>();
         schematicManager = this.GetComponentInChildren<SchematicSphereManager>();
