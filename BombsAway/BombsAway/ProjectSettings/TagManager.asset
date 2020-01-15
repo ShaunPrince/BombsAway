@@ -21,6 +21,7 @@ TagManager:
   - Enemy
   - Bullet
   - BuildingSpawner
+  - BulletTransformStorage
   layers:
   - Default
   - TransparentFX
