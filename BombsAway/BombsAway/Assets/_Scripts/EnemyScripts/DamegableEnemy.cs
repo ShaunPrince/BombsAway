@@ -21,9 +21,20 @@ public class DamegableEnemy : DamageableEntity
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
-                GameObject.Destroy(this.gameObject);
+                Die();
+
             }
         }
 
+    }
+
+    public void Die()
+    {
+        EnemyFragmentOnDeath temp = this.GetComponent<EnemyFragmentOnDeath>();
+        if (temp != null)
+        {
+            temp.Fragment();
+        }
+        //GameObject.Destroy(this.gameObject);
     }
 }
