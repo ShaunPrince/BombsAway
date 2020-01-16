@@ -10,6 +10,7 @@ public class SchematicSphereManager : MonoBehaviour
 
     private List<GameObject> schematicSpheres = new List<GameObject>();
     private int currentStationID;
+    private bool stationsSet;
     private LineRenderer leftGunLR1;
     private LineRenderer leftGunLR2;
     private LineRenderer leftGunLR3;
@@ -34,6 +35,7 @@ public class SchematicSphereManager : MonoBehaviour
             schematicSpheres[i - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
             SetGunnerChildSphereColor(i - 1, Color.red);
         }
+        stationsSet = true;
         currentStationID = 0;
         leftGunLR1 = schematicSpheres[3].GetComponent<LineRenderer>();
         leftGunLR2 = schematicSpheres[3].transform.GetChild(0).GetComponent<LineRenderer>();
@@ -49,18 +51,24 @@ public class SchematicSphereManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetLeftGunAim();
-        SetRightGunAim();
-        SetTailGunAim();
+        if (stationsSet)
+        {
+            SetLeftGunAim();
+            SetRightGunAim();
+            SetTailGunAim();
+        }
     }
 
     public void SetNewActiveStation(int newStationID)
     {
-        schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-        SetGunnerChildSphereColor(currentStationID, Color.red);
-        schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
-        SetGunnerChildSphereColor(newStationID - 1, Color.green);
-        currentStationID = newStationID - 1;
+        if (stationsSet)
+        {
+            schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            SetGunnerChildSphereColor(currentStationID, Color.red);
+            schematicSpheres[newStationID - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+            SetGunnerChildSphereColor(newStationID - 1, Color.green);
+            currentStationID = newStationID - 1;
+        }
     }
 
     private void SetLeftGunAim()

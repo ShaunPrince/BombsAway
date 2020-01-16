@@ -33,6 +33,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_CA8499AA:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -69,8 +73,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: a61493a6a07b8f64c8b002599a68156f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_A39C01DE_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 794da16d515d13c4aab9bf462f9815aa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_AFCA43CB_Texture_1:
         m_Texture: {fileID: 2800000, guid: a61493a6a07b8f64c8b002599a68156f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_C01735AC_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 794da16d515d13c4aab9bf462f9815aa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_D17F72BD_Texture_1:
@@ -106,6 +118,7 @@ Material:
     m_Colors:
     - Color_35F2104F: {r: 0.14809537, g: 0.21701762, b: 0.49056596, a: 0}
     - Color_CCE0C61C: {r: 0.17924526, g: 0.15333685, b: 0.12344248, a: 0}
+    - Vector2_733F92AB: {r: 50, g: 50, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
