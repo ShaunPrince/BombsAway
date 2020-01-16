@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5281560294798383}
   - component: {fileID: 5281560294798380}
   - component: {fileID: 872583113938419397}
+  - component: {fileID: 4695552378412412300}
   m_Layer: 0
   m_Name: SteamTank
   m_TagString: Untagged
@@ -69,6 +70,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d5e302d4714296049a006a8755cc8d98, type: 2}
   - {fileID: 2100000, guid: a2f8908f6fa7c4743a4cee9125098460, type: 2}
   timeBetweenFlickers: 0.5
+--- !u!114 &4695552378412412300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281560294798382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankColorChanger: {fileID: 8474113348545996597}
 --- !u!1 &5281560338988632
 GameObject:
   m_ObjectHideFlags: 0

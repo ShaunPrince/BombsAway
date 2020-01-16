@@ -6,59 +6,63 @@ public class TankStatusColor : MonoBehaviour
 {
     public TankController tc;
     public Material[] materials;
+    private Material prevMaterial;
+    private float prevFillLevel;
 
     public float timeBetweenFlickers;
-    private float timeSinceLastFlicker;
 
-    private int flickerIndex;
+    public void ResetPrevFillLevel()
+    {
+        prevFillLevel = float.MinValue;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        timeSinceLastFlicker = 0f;
-        flickerIndex = 2;
+        prevMaterial = materials[0];
+        prevFillLevel = tc.currentFillLevel;
+        ChangeColor();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChangeColorIfNeeded();
+        if ( prevFillLevel != tc.currentFillLevel )
+        {
+            ChangeColor();
+        }
     }
 
-    private void ChangeColorIfNeeded()
+    private void ChangeColor()
     {
+        // turn green
         if (tc.currentFillLevel == tc.maxFillLevel)
         {
-            foreach (MeshRenderer mr in this.GetComponentsInChildren<MeshRenderer>())
+            this.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[0]);
+            prevMaterial = materials[0];
+            prevFillLevel = tc.currentFillLevel;
+        }
+        // turn red if not connected and below threshold
+        else if (tc.currentFillLevel < tc.maxFillLevel - 20 && !tc.isConnectedToSource)
+        {
+            if (prevMaterial != materials[2])
             {
-                mr.material = materials[0];
+                this.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[2]);
+                prevMaterial = materials[2];
+                prevFillLevel = tc.currentFillLevel;
+            }
+            else if (prevMaterial != materials[3])
+            {
+                this.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[3]);
+                prevMaterial = materials[3];
+                prevFillLevel = tc.currentFillLevel;
             }
         }
-        else if (tc.currentFillLevel < tc.maxFillLevel && tc.isConnectedToSource)
+        // turn yellow if not full
+        else if (prevMaterial != materials[1] && tc.currentFillLevel < tc.maxFillLevel)
         {
-            foreach (MeshRenderer mr in this.GetComponentsInChildren<MeshRenderer>())
-            {
-                mr.material = materials[1];
-            }
-        }
-        else if (tc.currentFillLevel < tc.maxFillLevel && !tc.isConnectedToSource)
-        {
-            timeSinceLastFlicker += Time.deltaTime;
-            if(timeSinceLastFlicker >= timeBetweenFlickers)
-            {
-                if(flickerIndex == 2)
-                {
-                    flickerIndex = 3;
-                }
-                else
-                {
-                    flickerIndex = 2;
-                }
-                timeSinceLastFlicker = 0;
-            }
-            foreach (MeshRenderer mr in this.GetComponentsInChildren<MeshRenderer>())
-            {
-                mr.material = materials[flickerIndex];
-            }
+            this.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[1]);
+            prevMaterial = materials[1];
+            prevFillLevel = tc.currentFillLevel;
         }
     }
 }
