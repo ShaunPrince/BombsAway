@@ -23,6 +23,10 @@ public class SchematicSphereManager : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+    void Start()
+    {
         int size = 9;
         for (int i = 1; i < size; ++i)
         {
@@ -31,10 +35,6 @@ public class SchematicSphereManager : MonoBehaviour
             SetGunnerChildSphereColor(i - 1, Color.red);
         }
         currentStationID = 0;
-    }
-    void Start()
-    {
-
         leftGunLR1 = schematicSpheres[3].GetComponent<LineRenderer>();
         leftGunLR2 = schematicSpheres[3].transform.GetChild(0).GetComponent<LineRenderer>();
         leftGunLR3 = schematicSpheres[3].transform.GetChild(1).GetComponent<LineRenderer>();
@@ -56,8 +56,6 @@ public class SchematicSphereManager : MonoBehaviour
 
     public void SetNewActiveStation(int newStationID)
     {
-
-
         schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
         SetGunnerChildSphereColor(currentStationID, Color.red);
         schematicSpheres[newStationID-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
