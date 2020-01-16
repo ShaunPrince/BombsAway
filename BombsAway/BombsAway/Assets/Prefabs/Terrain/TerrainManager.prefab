@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9af36be8f0f295f46aa3bed9bfde0b91, type: 2}
+  - {fileID: 2100000, guid: d2e83bfca34197b4fafa4281bc1d3f3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   meshSettings: {fileID: 11400000, guid: c270823b74b9a524f8fa4b515cee8cc1, type: 2}
   heightMapSettings: {fileID: 11400000, guid: 833f4777ef46dd742a4ccf1d93956f5b, type: 2}
   textureSettings: {fileID: 11400000, guid: 172c7ebb2649ddb49aa493e5617fb8cf, type: 2}
-  mapMaterial: {fileID: 2100000, guid: a72fadf519918e34f99e11e137417998, type: 2}
+  mapMaterial: {fileID: 2100000, guid: db8a49263297af1479e794528e00d682, type: 2}
   fallOffSprite: {fileID: 21300000, guid: cedc1307883e0bb41af72756ff0088e2, type: 3}
 --- !u!1 &7691351352256565624
 GameObject:
@@ -321,7 +321,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a72fadf519918e34f99e11e137417998, type: 2}
+  - {fileID: 2100000, guid: db8a49263297af1479e794528e00d682, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

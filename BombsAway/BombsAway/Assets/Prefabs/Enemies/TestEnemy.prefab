@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2725199497815225187}
   - component: {fileID: 3888086213274896464}
   - component: {fileID: 3178060731583118274}
+  - component: {fileID: 6342379052765935013}
   m_Layer: 15
   m_Name: Blimp
   m_TagString: Untagged
@@ -234,6 +235,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &6342379052765935013
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667382277893184046}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1316505761818062666
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +262,7 @@ GameObject:
   - component: {fileID: 6856971447265490867}
   - component: {fileID: 6698802029711855557}
   - component: {fileID: 1725910912266620517}
+  - component: {fileID: 4285209494441824892}
   m_Layer: 15
   m_Name: FrontRod1
   m_TagString: Untagged
@@ -312,6 +330,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &4285209494441824892
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316505761818062666}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1497026819443912801
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +445,7 @@ GameObject:
   - component: {fileID: 5536615327576157248}
   - component: {fileID: 689211223410844976}
   - component: {fileID: 8998360276545189324}
+  - component: {fileID: 1693923045066688452}
   m_Layer: 15
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -629,6 +664,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWings: {fileID: 4368013452246685960}
   rightWings: {fileID: 6172985507180476924}
+--- !u!114 &1693923045066688452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716435481506396233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e1b0d00f04b48498adafa6fd599375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragForce: 200
+  fragments:
+  - {fileID: 8527224541306850456}
+  - {fileID: 2673759575831017500}
+  - {fileID: 667382277893184046}
+  - {fileID: 6895500159475256170}
+  - {fileID: 6062546659164663970}
+  - {fileID: 1316505761818062666}
+  - {fileID: 8808708488698018876}
+  - {fileID: 4368013452246685960}
+  - {fileID: 6172985507180476924}
+  timeUntilDespawn: 3
 --- !u!1 &2196075536423926839
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +777,7 @@ GameObject:
   - component: {fileID: 1870880513109100747}
   - component: {fileID: 4751678824947691888}
   - component: {fileID: 1062839533039151908}
+  - component: {fileID: 6334384470009897589}
   m_Layer: 15
   m_Name: BackRod2
   m_TagString: Untagged
@@ -785,6 +845,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &6334384470009897589
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673759575831017500}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2698359264048947301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4457409170729377556}
+  - component: {fileID: 3917090207695994255}
   m_Layer: 15
   m_Name: LeftWings
   m_TagString: Untagged
@@ -1122,6 +1199,22 @@ Transform:
   m_Father: {fileID: 1380677283854111350}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &3917090207695994255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4368013452246685960}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5097477145745790094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530420963020351999}
+  - component: {fileID: 313436788897091818}
   m_Layer: 15
   m_Name: Propellor
   m_TagString: Untagged
@@ -1342,6 +1436,22 @@ Transform:
   m_Father: {fileID: 1380677283854111350}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &313436788897091818
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062546659164663970}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6172985507180476924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2927663089931131870}
+  - component: {fileID: 3876628781163330090}
   m_Layer: 15
   m_Name: RightWings
   m_TagString: Untagged
@@ -1374,6 +1485,22 @@ Transform:
   m_Father: {fileID: 1380677283854111350}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &3876628781163330090
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172985507180476924}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6640496647722764523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1725,7 @@ GameObject:
   - component: {fileID: 1995530809520991915}
   - component: {fileID: 5177196258250627956}
   - component: {fileID: 3640392972698456570}
+  - component: {fileID: 3677392294834689936}
   m_Layer: 15
   m_Name: Boat
   m_TagString: Untagged
@@ -1665,6 +1793,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &3677392294834689936
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895500159475256170}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7012363556656068403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1928,7 @@ GameObject:
   - component: {fileID: 5157120317928469817}
   - component: {fileID: 4268296119067480188}
   - component: {fileID: 7764733012688420560}
+  - component: {fileID: 1995589432678111569}
   m_Layer: 15
   m_Name: BackRod1
   m_TagString: Untagged
@@ -1851,6 +1996,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &1995589432678111569
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527224541306850456}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8808708488698018876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,6 +2023,7 @@ GameObject:
   - component: {fileID: 7778225125490062779}
   - component: {fileID: 9201143270057762695}
   - component: {fileID: 4892233669211403716}
+  - component: {fileID: 13369145712535685}
   m_Layer: 15
   m_Name: FrontRod2
   m_TagString: Untagged
@@ -1929,6 +2091,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &13369145712535685
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808708488698018876}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9207429204618905450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,6 +2246,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968117930992352148}
     m_Modifications:
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMissileGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2121,16 +2309,6 @@ PrefabInstance:
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyMissileGun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2225,15 +2403,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}
---- !u!4 &3874252512087591659 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7163253171306636801}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1136509129942153912 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7163253171306636801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3874252512087591659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
     type: 3}
   m_PrefabInstance: {fileID: 7163253171306636801}
   m_PrefabAsset: {fileID: 0}
