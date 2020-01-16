@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2267326891866786152}
   - component: {fileID: 2267326891866786155}
-  - component: {fileID: 2267326891866786154}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,16 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   playerPlane: {fileID: 0}
---- !u!114 &2267326891866786154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2267326891866786157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be7bee40988f5d429c3f57b8f45ad20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   controlsPage: {fileID: 0}

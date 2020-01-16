@@ -21,5 +21,6 @@ public class PauseMenu : MonoBehaviour
     public void ViewControls()
     {
         controlsPage.SetActive(!controlsPage.activeSelf);
+        this.gameObject.SetActive(!this.gameObject.activeSelf);
     }
 }
