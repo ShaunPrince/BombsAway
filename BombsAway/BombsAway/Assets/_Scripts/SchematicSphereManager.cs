@@ -20,16 +20,21 @@ public class SchematicSphereManager : MonoBehaviour
     private LineRenderer tailGunLR2;
     private LineRenderer tailGunLR3;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        int size = 9;
+        for (int i = 1; i < size; ++i)
+        {
+            schematicSpheres.Add(this.transform.GetChild(i - 1).gameObject);
+            schematicSpheres[i - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            SetGunnerChildSphereColor(i - 1, Color.red);
+        }
+        currentStationID = 0;
+    }
     void Start()
     {
-        //int size = StationManager.stations.Count;
-        //for (int i = 1; i < size; ++i)
-        //{
-        //    schematicSpheres.Add(this.transform.GetChild(i-1).gameObject);
-        //    schematicSpheres[i-1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-        //    SetGunnerChildSphereColor(i - 1, Color.red);
-        //}
-        currentStationID = 0;
+
         leftGunLR1 = schematicSpheres[3].GetComponent<LineRenderer>();
         leftGunLR2 = schematicSpheres[3].transform.GetChild(0).GetComponent<LineRenderer>();
         leftGunLR3 = schematicSpheres[3].transform.GetChild(1).GetComponent<LineRenderer>();
@@ -51,13 +56,7 @@ public class SchematicSphereManager : MonoBehaviour
 
     public void SetNewActiveStation(int newStationID)
     {
-        int size = StationManager.stations.Count;
-        for (int i = 1; i < size; ++i)
-        {
-            schematicSpheres.Add(this.transform.GetChild(i - 1).gameObject);
-            schematicSpheres[i - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-            SetGunnerChildSphereColor(i - 1, Color.red);
-        }
+
 
         schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
         SetGunnerChildSphereColor(currentStationID, Color.red);
