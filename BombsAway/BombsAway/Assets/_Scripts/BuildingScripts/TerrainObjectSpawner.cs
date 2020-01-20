@@ -52,6 +52,8 @@ public class TerrainObjectSpawner : WorldEntity
         buildingParent = this.gameObject.transform.Find("Buildings");
         shruberyParent = this.gameObject.transform.Find("Shrubery");
 
+        lowestYpoint = GameObject.FindWithTag("Water").transform.position.y;
+
         // calculate the weighted prob for buildings
         foreach (SpawnableObject buidling in buildings)
         {

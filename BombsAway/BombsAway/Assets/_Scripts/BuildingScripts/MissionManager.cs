@@ -33,7 +33,7 @@ public class MissionManager : WorldEntity
     void Update()
     {
         // if the buuldings are done spawning, randomly select N-number to be target
-        if (buildingSpawner.GetComponentInParent<TerrainObjectSpawner>().GetBuildingGenerationStatus() == EStatus.completed && !buildingTargetingCompleted)
+        if (buildingSpawner.GetComponentInParent<ObjectSpawner>().GetBuildingGenerationStatus() == EStatus.completed && !buildingTargetingCompleted)
         {
             HashSet<int> alreadyChosenBuilding = new HashSet<int>();
 

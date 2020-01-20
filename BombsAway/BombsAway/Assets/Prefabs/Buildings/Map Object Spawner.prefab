@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 652920802664432630}
   - component: {fileID: 652920802664432631}
   - component: {fileID: 1421210083}
+  - component: {fileID: 2042633871}
+  - component: {fileID: 2042633872}
   m_Layer: 0
   m_Name: Map Object Spawner
   m_TagString: Untagged
@@ -132,7 +134,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652920802664432632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e67d7b5c6f2904ca648f5752461f8c, type: 3}
   m_Name: 
@@ -182,3 +184,65 @@ MonoBehaviour:
       type: 3}
     probabilityOfSpawn: 1
   gunRadius: 10000
+--- !u!114 &2042633871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652920802664432632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d022615faeb7fa74e9407542690dec1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  city: 1
+  numberOfCities: 4
+  cityLayouts:
+  - spawnPrefab: {fileID: 8478846588850520822, guid: 533956bcb44b6b547a543ae997d4b838,
+      type: 3}
+    probabilityOfSpawn: 1
+  buildings:
+  - spawnPrefab: {fileID: 5951528309667444875, guid: d86cb7f1549ae644294f1aac23724e86,
+      type: 3}
+    probabilityOfSpawn: 0.3
+  - spawnPrefab: {fileID: 221127550978869218, guid: a2de7d29d4ebcee41a2d05b1d5b61db9,
+      type: 3}
+    probabilityOfSpawn: 0.3
+  - spawnPrefab: {fileID: 221127550978869218, guid: cf483e05594f5ae4c9616a82dc37d638,
+      type: 3}
+    probabilityOfSpawn: 0.3
+  - spawnPrefab: {fileID: 221127550978869218, guid: 0f85bf8cd865c9d4d88a0e05dbe2e12b,
+      type: 3}
+    probabilityOfSpawn: 0.2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &2042633872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652920802664432632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d022615faeb7fa74e9407542690dec1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  city: 0
+  numberOfCities: 2
+  cityLayouts:
+  - spawnPrefab: {fileID: 1895550977619084157, guid: 535100dc5ae63fc40a190a5f3e3923db,
+      type: 3}
+    probabilityOfSpawn: 1
+  buildings:
+  - spawnPrefab: {fileID: 221127550978869218, guid: bb90aee4ee30be143a0a2d704106c185,
+      type: 3}
+    probabilityOfSpawn: 0.5
+  - spawnPrefab: {fileID: 221127550978869218, guid: 9148d90c37f719f429c27cc90ba6aca0,
+      type: 3}
+    probabilityOfSpawn: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
