@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamegableEnemy : DamageableEntity
 {
     private ColorTweening enemyHitScript;
+    public float delayedDeathTime;
 
     private void Start()
     {
@@ -34,10 +35,21 @@ public class DamegableEnemy : DamageableEntity
         if (temp != null)
         {
             temp.Fragment();
+            StartCoroutine(DelayCoroutine());
+
         }
         else
         {
             GameObject.Destroy(this.gameObject);
         }
+    }
+
+    IEnumerator DelayCoroutine()
+    {
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(delayedDeathTime);
+        GameObject.Destroy(this.gameObject);
+
     }
 }
