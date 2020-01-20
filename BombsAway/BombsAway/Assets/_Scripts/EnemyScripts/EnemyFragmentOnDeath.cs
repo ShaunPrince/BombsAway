@@ -6,8 +6,6 @@ public class EnemyFragmentOnDeath : MonoBehaviour
 {
     public float fragForce;
     public List<GameObject> fragments;
-    public float timeUntilDespawn;
-    private float timeSinceFrag;
     private bool isFragged;
     // Start is called before the first frame update
     void Start()
@@ -22,17 +20,6 @@ public class EnemyFragmentOnDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFragged)
-        {
-            if (timeSinceFrag < timeUntilDespawn)
-            {
-                timeSinceFrag += Time.deltaTime;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-        }
 
     }
 

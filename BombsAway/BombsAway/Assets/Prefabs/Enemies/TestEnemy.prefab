@@ -672,6 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 10
+  delayedDeathTime: 5
 --- !u!114 &5536615327576157248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e1b0d00f04b48498adafa6fd599375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragForce: 200
+  fragForce: 100
   fragments:
   - {fileID: 8527224541306850456}
   - {fileID: 2673759575831017500}
@@ -736,7 +737,6 @@ MonoBehaviour:
   - {fileID: 8808708488698018876}
   - {fileID: 4368013452246685960}
   - {fileID: 6172985507180476924}
-  timeUntilDespawn: 3
 --- !u!1 &2196075536423926839
 GameObject:
   m_ObjectHideFlags: 0
