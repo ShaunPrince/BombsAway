@@ -37,11 +37,11 @@ public class StationSelectControls : MonoBehaviour
         {
             return EStationID.Repair;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Backslash))
         {
             return EStationID.Pilot;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Slash))
         {
             return EStationID.Radar;
         }
@@ -65,10 +65,42 @@ public class StationSelectControls : MonoBehaviour
         {
             return EStationID.Map;
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            return PrevStation(StationManager.currentCenterStation.stationID);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            return NextStation(StationManager.currentCenterStation.stationID);
+        }
         else
         {
             return EStationID.None;
         }
+    }
+
+    private EStationID PrevStation(EStationID currentStationID)
+    {
+        int currentStation = (int)currentStationID;
+        int newStation = currentStation - 1;
+        //check to see if we need to loop back to the start of the enum
+        if (newStation < 0 )
+        {
+            newStation = (System.Enum.GetNames(typeof(EStationID))).Length - 2;
+        }
+        return ((EStationID)newStation);
+    }
+
+    private EStationID NextStation(EStationID currentStationID)
+    {
+        int currentStation = (int)currentStationID;
+        int newStation = currentStation + 1;
+        //check to see if we need to loop back to the start of the enum
+        if(newStation == (System.Enum.GetNames(typeof(EStationID))).Length)
+        {
+            newStation = 0;
+        }
+        return ((EStationID)newStation);
     }
 
 

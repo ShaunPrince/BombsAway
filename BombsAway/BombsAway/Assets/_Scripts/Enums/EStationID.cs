@@ -1,6 +1,6 @@
 ﻿public enum EStationID
 {
-    Schematic,
+    Schematic = 0,
     Map,
     Pilot,
     Radar,
