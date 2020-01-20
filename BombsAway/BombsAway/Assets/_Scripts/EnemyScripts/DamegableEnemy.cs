@@ -35,6 +35,9 @@ public class DamegableEnemy : DamageableEntity
         {
             temp.Fragment();
         }
-        //GameObject.Destroy(this.gameObject);
+        else
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 }
