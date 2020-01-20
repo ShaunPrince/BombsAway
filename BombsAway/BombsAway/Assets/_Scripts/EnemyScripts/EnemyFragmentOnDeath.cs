@@ -6,8 +6,6 @@ public class EnemyFragmentOnDeath : MonoBehaviour
 {
     public float fragForce;
     public List<GameObject> fragments;
-    public float timeUntilDespawn;
-    private float timeSinceFrag;
     private bool isFragged;
     // Start is called before the first frame update
     void Start()
@@ -22,17 +20,6 @@ public class EnemyFragmentOnDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFragged)
-        {
-            if (timeSinceFrag < timeUntilDespawn)
-            {
-                timeSinceFrag += Time.deltaTime;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-        }
 
     }
 
@@ -48,6 +35,17 @@ public class EnemyFragmentOnDeath : MonoBehaviour
                 temp.AddForce(new Vector3(Random.Range(-fragForce, fragForce), Random.Range(-fragForce, 0), Random.Range(-fragForce, fragForce)),ForceMode.VelocityChange);
                 
             }
+
+        }
+        if (this.gameObject.GetComponentInChildren<ParticleSystem>() != null)
+        {
+            this.gameObject.GetComponentInChildren<ParticleSystem>().gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
+            if (this.gameObject.GetComponentInChildren<ParticleSystem>().isPlaying == false)
+            {
+                this.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            }
+            
+
         }
         isFragged = true;
 
