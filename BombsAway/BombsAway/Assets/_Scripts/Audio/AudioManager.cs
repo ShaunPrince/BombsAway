@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -22,13 +22,14 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        foreach(Sounds s in General)
+        foreach (Sounds s in General)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
             s.source.priority = s.priority;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
         }
         foreach (Sounds a in GettingHit)
         {
@@ -37,6 +38,7 @@ public class AudioManager : MonoBehaviour
             a.source.volume = a.volume;
             a.source.loop = a.loop;
             a.source.priority = a.priority;
+            a.source.outputAudioMixerGroup = a.mixerGroup;
 
         }
         foreach (Sounds b in RepairSounds)
@@ -46,6 +48,8 @@ public class AudioManager : MonoBehaviour
             b.source.volume = b.volume;
             b.source.loop = b.loop;
             b.source.priority = b.priority;
+            b.source.outputAudioMixerGroup = b.mixerGroup;
+
 
         }
 
@@ -68,7 +72,7 @@ public class AudioManager : MonoBehaviour
         int randomHit = UnityEngine.Random.Range(0, GettingHit.Length);
         Sounds a = RepairSounds[randomHit];
         a.source.PlayOneShot(a.source.clip);
-        
+
     }
 
     public void PlayAlarm()
@@ -76,7 +80,7 @@ public class AudioManager : MonoBehaviour
         int alarm = 0;
         Sounds a = General[alarm];
         a.source.PlayOneShot(a.source.clip);
-  
+
     }
 
     public void PlayExplosion()
@@ -86,28 +90,51 @@ public class AudioManager : MonoBehaviour
         a.source.PlayOneShot(a.source.clip);
 
     }
-    
+
 
     //doesnt work.need to fix then delete the top functions
-    public void Play( string name, int i)
+    public void Play(string name, int i)
     {
         Sounds s;
         if (name == "GettingHit")
         {
             s = GettingHit[i];
             s.source.Play();
-        } else if (name == "General")
+        }
+        else if (name == "General")
         {
             s = General[i];
             s.source.Play();
-        } else if (name == "RepairSounds")
+        }
+        else if (name == "RepairSounds")
         {
             s = RepairSounds[i];
             s.source.Play();
         }
 
     }
-    // Update is called once per frame
+
+    public void Stop(string name, int i)
+    {
+        Sounds s;
+        if (name == "GettingHit")
+        {
+            s = GettingHit[i];
+            s.source.Stop();
+        }
+        else if (name == "General")
+        {
+            s = General[i];
+            s.source.Stop();
+        }
+        else if (name == "RepairSounds")
+        {
+            s = RepairSounds[i];
+            s.source.Stop();
+        }
+
+    }
+   
     void Update()
     {
 
