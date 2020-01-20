@@ -48,6 +48,10 @@ public class EnemyFragmentOnDeath : MonoBehaviour
                 temp.AddForce(new Vector3(Random.Range(-fragForce, fragForce), Random.Range(-fragForce, 0), Random.Range(-fragForce, fragForce)),ForceMode.VelocityChange);
                 
             }
+            if(frag.GetComponentInChildren<ParticleSystem>() != null)
+            {
+                frag.GetComponentInChildren<ParticleSystem>().Play();
+            }
         }
         isFragged = true;
 
