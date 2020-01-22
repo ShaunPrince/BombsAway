@@ -120,7 +120,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_35F2104F: {r: 0.56639373, g: 0.6142531, b: 0.8113208, a: 0}
+    - Color_35F2104F: {r: 0.38670343, g: 0.46069592, b: 0.745283, a: 0}
     - Color_CCE0C61C: {r: 0.17924526, g: 0.15333685, b: 0.12344248, a: 0}
     - Vector2_733F92AB: {r: 50, g: 50, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
