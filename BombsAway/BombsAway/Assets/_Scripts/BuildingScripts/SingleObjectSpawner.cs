@@ -105,7 +105,6 @@ public class SingleObjectSpawner : WorldEntity
 
     private void UpdateTerrainIndex()
     {
-        Debug.Log($"{GameObject.FindWithTag("MapGenerator").transform.childCount}");
         if (mapGeneratorTerrainIndex < GameObject.FindWithTag("MapGenerator").transform.childCount - 1)
         {
             mapGeneratorTerrainIndex++;
