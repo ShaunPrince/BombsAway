@@ -115,11 +115,11 @@ public class ObjectSpawner : WorldEntity
 
     private void UpdateTerrainIndex()
     {
-        if (mapGeneratorTerrainIndex < GameObject.FindWithTag("MapGenerator").transform.childCount)
+        if (mapGeneratorTerrainIndex < GameObject.FindWithTag("MapGenerator").transform.childCount - 1)
         {
             mapGeneratorTerrainIndex++;
         }
-        else if (mapGeneratorTerrainIndex == GameObject.FindWithTag("MapGenerator").transform.childCount)
+        else if (mapGeneratorTerrainIndex == GameObject.FindWithTag("MapGenerator").transform.childCount - 1)
         {
             mapGeneratorTerrainIndex = 0;   // reset the index and start over again
         }

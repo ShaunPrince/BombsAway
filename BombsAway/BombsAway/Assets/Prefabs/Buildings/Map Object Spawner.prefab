@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1421210083}
   - component: {fileID: 2042633871}
   - component: {fileID: 2042633872}
+  - component: {fileID: 884428830}
   m_Layer: 0
   m_Name: Map Object Spawner
   m_TagString: Untagged
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652920802664432632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ca788fc264a6d4c83319cd58fb2d85, type: 3}
   m_Name: 
@@ -243,6 +244,26 @@ MonoBehaviour:
   - spawnPrefab: {fileID: 221127550978869218, guid: 9148d90c37f719f429c27cc90ba6aca0,
       type: 3}
     probabilityOfSpawn: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &884428830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652920802664432632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c89f706b87b04348b387f454129d1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfObjects: 4
+  Object:
+    spawnPrefab: {fileID: 3712106855168143267, guid: fbf3c5a2230db9c4abe3b3e0c5a395f8,
+      type: 3}
+    probabilityOfSpawn: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 512
