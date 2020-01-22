@@ -38,6 +38,8 @@ public class ObjectSpawner : WorldEntity
     // Start is called before the first frame update
     void Start()
     {
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
+
         if (city) buildingParent = this.gameObject.transform.Find("Buildings");
         else buildingParent = this.gameObject.transform.Find("Shrubery");
         lowestYpoint = GameObject.FindWithTag("Water").transform.position.y;

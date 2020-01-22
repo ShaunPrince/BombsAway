@@ -24,6 +24,8 @@ public class SingleObjectSpawner : WorldEntity
     // Start is called before the first frame update
     void Start()
     {
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
+
         objectParent = this.gameObject.transform.Find("AA Guns");
         lowestYpoint = GameObject.FindWithTag("Water").transform.position.y;
     }
