@@ -10,7 +10,6 @@ public static class SeedRandomGeneration
     {
         //randomSeed = Random.Range(-10000, 10000);
         //randomSeed = 2;
-        Debug.Log($"World Seed: {randomSeed}");
     }
     
     public static int GetRandomSeed()
