@@ -591,8 +591,8 @@ MonoBehaviour:
   desiredDir: 0
   turningRate: 25
   lateralMovementDamperScale: 2
-  fixedAcceleration: 0
-  maxVerticalVelocity: 0
+  fixedAcceleration: 100
+  maxVerticalVelocity: 50
   rb: {fileID: 8844719370579842519}
 --- !u!114 &294719631488123615
 MonoBehaviour:
@@ -7079,6 +7079,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968117930992352148}
     m_Modifications:
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMissileGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7133,16 +7143,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyMissileGun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfb6e1462b71c04e976dff48a3b565d, type: 3}
