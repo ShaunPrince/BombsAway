@@ -42,7 +42,7 @@ public class TerrainChunk
         this.meshSettings = meshSettings;
 
         sampleCenter = coord * meshSettings.meshWorldSize / meshSettings.meshScale;
-        Vector2 position = coord * meshSettings.meshWorldSize;
+        Vector2 position = coord * 10000;   // this is a random number, should probably fix it later >.<
         bounds = new Bounds(position, Vector2.one * meshSettings.meshWorldSize);
 
         //meshObject = GameObject.CreatePrimitive(PrimitiveType.Plane);

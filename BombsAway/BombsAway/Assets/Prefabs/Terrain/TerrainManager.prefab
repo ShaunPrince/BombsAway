@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c86ec2280f1ce46837fa5085bb02d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomGeneration: 1
   numOfTerrainChunks: {x: 2, y: 2}
   colliderLODIndex: 0
   detailLevels:

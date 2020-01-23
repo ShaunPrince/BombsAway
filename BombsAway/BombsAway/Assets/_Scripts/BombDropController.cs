@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombDropController : MonoBehaviour
 {
 
-    private float h1;
+    public float h1;
     public float theta;
     public float r1;
     public float timeOfFlight;
@@ -27,8 +27,8 @@ public class BombDropController : MonoBehaviour
     void Update()
     {
         h1 = da.straitDownAlt;
-        SetR1();
         CalcTOF(h1);
+        SetR1();
         CalcX(r1);
         CalcZ(xOffsetForce, r1);
         

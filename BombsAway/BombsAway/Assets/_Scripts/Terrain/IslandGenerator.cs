@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IslandGenerator : MonoBehaviour
 {
-
+    public bool randomGeneration;
     public Vector2 numOfTerrainChunks;
 
     public int colliderLODIndex;
@@ -28,6 +28,8 @@ public class IslandGenerator : MonoBehaviour
     private float time = 0f;
     private float maxTime = 3f;
 
+    private Dictionary<Vector2, bool> usedPositions = new Dictionary<Vector2, bool>();
+
     public bool FinishedTerrainGeneration()
     {
         return finishedTerrainSpawn;
@@ -35,6 +37,10 @@ public class IslandGenerator : MonoBehaviour
 
     private void Start()
     {
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
+        heightMapSettings.noiseSettings.seed = SeedRandomGeneration.GetRandomSeed();
+        Debug.Log($"World Seed: {SeedRandomGeneration.GetRandomSeed()}");
+
         textureSettings.ApplyToMaterial(mapMaterial);
         textureSettings.UpdateMeshHeights(mapMaterial, heightMapSettings.minHeight, heightMapSettings.maxHeight);
 
@@ -44,7 +50,16 @@ public class IslandGenerator : MonoBehaviour
 
         meshWorldSize = meshSettings.meshWorldSize;
 
-        UpdateVisibleChuncks(); // might not eval to true in update upon start
+        // spawn the chunks unorderly, needs to be islands for it to look good too
+        if (randomGeneration && heightMapSettings.useFalloff)
+        {
+            UpdateVisibleChuncksRandomly();
+        }
+        // else if not random terrain generation, spawn the chunks as a grid
+        else
+        {
+            UpdateVisibleChuncks(); // might not eval to true in update upon start
+        }
 
         finishedTerrainSpawn = true;
     }
@@ -96,6 +111,37 @@ public class IslandGenerator : MonoBehaviour
                 terrainChunkDictionary.Add(chunkCenter, newChunk);
             }
         }
+    }
+
+    void UpdateVisibleChuncksRandomly()
+    {
+
+        Vector2 chunkCenter = new Vector2(0, 0);
+        int numChunks = Mathf.RoundToInt(numOfTerrainChunks.x) * Mathf.RoundToInt(numOfTerrainChunks.y);
+
+        for (int y = 0; y < Mathf.RoundToInt(numOfTerrainChunks.y); y++)
+        {
+            for (int x = 0; x < Mathf.RoundToInt(numOfTerrainChunks.x); x++)
+            {
+                chunkCenter = FindGoodPosition();
+
+                TerrainChunk newChunk = new TerrainChunk(chunkCenter, heightMapSettings, meshSettings, detailLevels, colliderLODIndex, this.transform, mapMaterial);
+                terrainChunkDictionary.Add(chunkCenter, newChunk);
+            }
+        }
+    }
+
+    Vector2 FindGoodPosition()
+    {
+        int randMax = 3;
+        Vector2 position = new Vector2(Random.Range(0, randMax), Random.Range(0, randMax));
+        while (usedPositions.ContainsKey(position))
+        {
+            position = new Vector2(Random.Range(0, randMax), Random.Range(0, randMax));
+        }
+
+        usedPositions.Add(position, true);
+        return position;
     }
 }
 
