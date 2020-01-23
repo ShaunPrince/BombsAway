@@ -8,7 +8,7 @@ public class ImpactAreaZone : MonoBehaviour
     [SerializeField]
     private BombDropController bdc;
     [SerializeField]
-    private Light spotLight;
+    private BombAreaParent bap;
     private DynamicAltitude da;
     private Rigidbody planeRB;
     // Start is called before the first frame update
@@ -30,18 +30,20 @@ public class ImpactAreaZone : MonoBehaviour
 
     private void SetHeight()
     {
-        spotLight.transform.parent.localPosition = new Vector3(0, 0, 0);
+        //spotLight.transform.parent.localPosition = new Vector3(0, 0, 0);
         //    Vector3.Scale(planeRB.velocity, new Vector3(1, 0, 1)).magnitude * bdc.timeOfFlight);
     }
 
     private void SetScale()
     {
+        bap.radius = Mathf.Tan(Mathf.Deg2Rad * bdc.theta) * bdc.h1;
         //modelTF.localScale = new Vector3(bdc.r1 * 2 * bdc.timeOfFlight, 5, bdc.r1 * 2 * bdc.timeOfFlight);
-        spotLight.spotAngle = bdc.theta;
+        //spotLight.spotAngle = bdc.theta;
     }
 
     private void SetOffset()
     {
-        spotLight.transform.parent.Translate(0,0, Vector3.Magnitude(Vector3.Scale(planeRB.velocity, new Vector3(1, 0, 1))) * bdc.timeOfFlight,Space.Self);
+        bap.transform.localPosition = Vector3.forward * Vector3.Magnitude(Vector3.Scale(planeRB.velocity, new Vector3(1, 0, 1))) * bdc.timeOfFlight;
+        //bap.transform.Translate(0,0, Vector3.Magnitude(Vector3.Scale(planeRB.velocity, new Vector3(1, 0, 1))) * bdc.timeOfFlight,Space.Self);
     }
 }
