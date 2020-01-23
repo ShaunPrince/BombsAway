@@ -39,7 +39,7 @@ public class IslandGenerator : MonoBehaviour
     {
         Random.InitState(SeedRandomGeneration.GetRandomSeed());
         heightMapSettings.noiseSettings.seed = SeedRandomGeneration.GetRandomSeed();
-        Debug.Log($"{SeedRandomGeneration.GetRandomSeed()}");
+        Debug.Log($"World Seed: {SeedRandomGeneration.GetRandomSeed()}");
 
         textureSettings.ApplyToMaterial(mapMaterial);
         textureSettings.UpdateMeshHeights(mapMaterial, heightMapSettings.minHeight, heightMapSettings.maxHeight);
