@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour
     public Canvas pauseMenu;
     public GameObject playerPlane;
     public GameObject controlsPage;
+    public GameObject optionsPage;
 
     private bool gamePaused;
     private StationManager stationManager;
@@ -60,6 +61,12 @@ public class PauseGame : MonoBehaviour
     public void ViewControls()
     {
         controlsPage.SetActive(!controlsPage.activeSelf);
+        pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
+    }
+
+    public void ViewOptions()
+    {
+        optionsPage.SetActive(!optionsPage.activeSelf);
         pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
     }
 }
