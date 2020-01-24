@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3712106853696034623}
   - component: {fileID: 3712106853696034620}
   - component: {fileID: 3712106853696034621}
-  m_Layer: 17
+  m_Layer: 20
   m_Name: RangeSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9626e39b38db0942bb7cbce7510cdc7, type: 2}
+  - {fileID: 2100000, guid: 10b0a6a19b1218642a4cd80fc7bb8c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

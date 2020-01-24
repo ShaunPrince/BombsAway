@@ -1828,8 +1828,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341742499029158000}
   m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: 0.6532815, w: -0.27059805}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 65000, y: 65000, z: 65000}
+  m_LocalPosition: {x: 0.000067186, y: 0.000091553, z: 352}
+  m_LocalScale: {x: 45087.902, y: 45087.902, z: 45087.902}
   m_Children: []
   m_Father: {fileID: 7659336733327396819}
   m_RootOrder: 0
@@ -7620,7 +7620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35446d53ba30a7140a66c75c087ba061, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fd458c7e2741fe4f9ecb20985864839, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
