@@ -9,9 +9,13 @@ public class BombBayControls : ControlScheme
     public GameObject bombPrefab;
 
     private GameObject currentBomb;
+    private bool dropLeftBomb = true;   // which bomb to drop
+    private GameObject leftBomb;
+    private GameObject rightBomb;
     private ReloadManager rm;
     private bool reloading = false;
     private float timeReloading = 0.0f;
+    private float distanceToSideShip = 20f;
     private float distanceBelowShip = 20f;
     private float distanceInFrontShip = 0f;
 
@@ -21,32 +25,39 @@ public class BombBayControls : ControlScheme
     void Awake()
     {
         bdc = this.GetComponentInParent<BombDropController>();
-        Quaternion rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
-        currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+        //Quaternion rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
+        //currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+        //leftBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x - distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+        //rightBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x + distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+        reloading = true;
+        ReloadBay();
+        ReloadBay();
         rm = this.GetComponentInParent<ReloadManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !reloading && numOfBombs > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && !reloading &&  numOfBombs > 0)
         {
             DropBomb();
             rm.ReloadWeapon(reloadTime);
+            ReloadBay();
         }
         else if (reloading)
         {
             reloading = rm.getReloadingStatus();
             if (!reloading)
             {
-                ReloadBay();
+                
             }
         }
     }
 
     private void DropBomb()
     {
-        bdc.Drop(currentBomb);
+        if (dropLeftBomb) bdc.Drop(leftBomb);
+        else bdc.Drop(rightBomb);
         reloading = true;
         numOfBombs--;
     }
@@ -56,7 +67,19 @@ public class BombBayControls : ControlScheme
         //if (timeReloading >= reloadTime)
         //{
             Quaternion rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
-            currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+        if (dropLeftBomb)
+        {
+            leftBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x - distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+            leftBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(distanceToSideShip/2, reloadTime);
+            dropLeftBomb = false;
+        }
+        else
+        {
+            rightBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x + distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
+            rightBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(-distanceToSideShip/2, reloadTime);
+            dropLeftBomb = true;
+        }
+            //currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
 
         /*    reloading = false;
             timeReloading = 0f;

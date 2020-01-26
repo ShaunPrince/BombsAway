@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7282158582625606722}
   - component: {fileID: -7145317575541327752}
   - component: {fileID: 7551254558378217250}
+  - component: {fileID: 6255589862269987901}
   m_Layer: 11
   m_Name: Bomb
   m_TagString: Untagged
@@ -274,6 +275,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &6255589862269987901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3402075689999084018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6ce625176096943ab46616b7ca0314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3495593405974312739
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +344,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5479142168109580576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: -1.27, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 6551765141079047584}
   m_RootOrder: 0
@@ -416,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 6997089665500216339}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children: []
   m_Father: {fileID: 493582272803177776}
   m_RootOrder: 0
