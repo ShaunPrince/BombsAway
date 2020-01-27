@@ -39,6 +39,7 @@ public class LookSensitivityController : MonoBehaviour
         }
         float sliderVal = slider.value;
         mouseSens = Mathf.Pow(10.0f, sliderVal);
+        //mouseSens = sliderVal * 10.0f;
         lControls.lookSensitivity = mouseSens;
         rControls.lookSensitivity = mouseSens;
         tControls.lookSensitivity = mouseSens;
