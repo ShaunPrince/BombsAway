@@ -49,6 +49,7 @@ public class PauseGame : MonoBehaviour
         else
         {
             gamePaused = false;
+            DisableOtherMenus();
             pauseMenu.gameObject.SetActive(false);
             stationManager.gameObject.SetActive(true);
             selectWheel.gameObject.SetActive(true);
@@ -68,5 +69,11 @@ public class PauseGame : MonoBehaviour
     {
         optionsPage.SetActive(!optionsPage.activeSelf);
         pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
+    }
+
+    private void DisableOtherMenus()
+    {
+        controlsPage.SetActive(false);
+        optionsPage.SetActive(false);
     }
 }
