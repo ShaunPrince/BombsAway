@@ -16,7 +16,6 @@ public class SetVolume : MonoBehaviour
     public void SetLevel()
     {
         float sliderValue = slider.value;
-        Debug.Log(sliderValue);
         if (sliderValue > 0)
         {
             mixer.SetFloat("MasterSound", Mathf.Log10(sliderValue) * 60);
