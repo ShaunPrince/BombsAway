@@ -33,8 +33,16 @@ public class EnemyFragmentOnDeath : MonoBehaviour
             if (temp != null)
             {
                 temp.isKinematic = false;
-                temp.AddForce(new Vector3(Random.Range(-fragForce, fragForce), Random.Range(-fragForce, 0), Random.Range(-fragForce, fragForce)),ForceMode.VelocityChange);
-                temp.AddTorque(new Vector3(Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce)), ForceMode.VelocityChange);
+                if(temp.gameObject.name == "Blimp")
+                {
+                    temp.AddForce(new Vector3(Random.Range(-fragForce*.1f, fragForce*.1f), Random.Range(10, 20), Random.Range(-fragForce*.1f, fragForce*.1f)), ForceMode.VelocityChange);
+                    temp.AddTorque(new Vector3(Random.Range(-.06f, -.04f), Random.Range(-fragRotatingForce * .1f, fragRotatingForce * .1f), Random.Range(-fragRotatingForce * .1f, fragRotatingForce * .1f)), ForceMode.VelocityChange);
+                }
+                else
+                {
+                    temp.AddForce(new Vector3(Random.Range(-fragForce, fragForce), Random.Range(-fragForce, -fragForce/2), Random.Range(-fragForce, fragForce)), ForceMode.VelocityChange);
+                    temp.AddTorque(new Vector3(Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce)), ForceMode.VelocityChange);
+                }
             }
 
         }

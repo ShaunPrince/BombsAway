@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BurnDissolve
+  m_Name: Red_Burnable
   m_Shader: {fileID: -6465566751694194690, guid: 76379c3f8ac99be41af1106523d4b3a2,
     type: 3}
   m_ShaderKeywords: 
