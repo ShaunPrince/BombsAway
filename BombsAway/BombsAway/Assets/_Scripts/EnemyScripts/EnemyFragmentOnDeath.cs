@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyFragmentOnDeath : MonoBehaviour
 {
     public float fragForce;
+    public float fragRotatingForce;
     public List<GameObject> fragments;
     private bool isFragged;
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class EnemyFragmentOnDeath : MonoBehaviour
             {
                 temp.isKinematic = false;
                 temp.AddForce(new Vector3(Random.Range(-fragForce, fragForce), Random.Range(-fragForce, 0), Random.Range(-fragForce, fragForce)),ForceMode.VelocityChange);
-                
+                temp.AddTorque(new Vector3(Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce), Random.Range(-fragRotatingForce, fragRotatingForce)), ForceMode.VelocityChange);
             }
 
         }
@@ -48,6 +49,10 @@ public class EnemyFragmentOnDeath : MonoBehaviour
 
         }
         isFragged = true;
+        foreach(Animator A in this.GetComponentsInChildren<Animator>())
+        {
+            A.SetBool("Alive", false);
+        }
 
 
     }

@@ -726,7 +726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e1b0d00f04b48498adafa6fd599375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragForce: 100
+  fragForce: 50
+  fragRotatingForce: 0.1
   fragments:
   - {fileID: 8527224541306850456}
   - {fileID: 2673759575831017500}
@@ -1149,9 +1150,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 275
-      minScalar: 5
+      minMaxState: 3
+      scalar: 350
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1728,7 +1729,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 21.8
+      value: 200
       mode: 0
       spread: 0
       speed:
@@ -1847,7 +1848,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1000
+      scalar: 500
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4923,19 +4924,19 @@ ParticleSystem:
     dieWithParticles: 0
     sizeAffectsWidth: 0
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 0
     colorOverLifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4950,7 +4951,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 22359
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -4993,7 +4994,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 50
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5045,13 +5046,13 @@ ParticleSystem:
         m_RotationOrder: 4
     colorOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5691,7 +5692,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 80c11a482ed1e1a4a809337536ce4adc, type: 2}
-  - {fileID: 2100000, guid: 0aa3f572e29910d4a94381de6233b1b9, type: 2}
+  - {fileID: 2100000, guid: dbae24568224a8546aab4c0f322341b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
