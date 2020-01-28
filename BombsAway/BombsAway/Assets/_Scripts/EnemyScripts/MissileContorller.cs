@@ -138,8 +138,9 @@ public class MissileContorller : MonoBehaviour
             FindObjectOfType<AudioManager>().PlayExplosion();
 
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
-            collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance);
-            Destroy(this.gameObject);
+            collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance); // hurt player
+            this.GetComponent<DamageableEntity>().TakeDamage(missileDamage, EAllegiance.Player); // kill missile
+            //Destroy(this.gameObject);
         }
         else //if (collision.transform.gameObject.layer.ToString() != "8")
         {

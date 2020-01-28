@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class DamegableEnemy : DamageableEntity
 {
-    private ColorTweening enemyHitScript;
+    //private EnemyHit enemyHitScript;
     public float delayedDeathTime;
+    public GameObject deathExplosion;
+
+    private bool isDying = false;
 
     private void Start()
     {
-        enemyHitScript = this.GetComponent<ColorTweening>();
+        //enemyHitScript = this.GetComponent<EnemyHit>();
     }
 
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
@@ -17,16 +20,26 @@ public class DamegableEnemy : DamageableEntity
         if (allegianceOfIncomingDamage != allegiance)
         {
             health -= incomingDamage;
-            enemyHitScript.FlashWhite();
+
+            if (this.GetComponent<ColorTweening>()) this.GetComponent<ColorTweening>().FlashWhite();
+            else if (this.GetComponent<EnemyHit>()) this.GetComponent<EnemyHit>().VisuallyShowEnemyHit();
+
+            //enemyHitScript.FlashWhite();
             //enemyHitScript.VisuallyShowEnemyHit();
             //Debug.Log(this + " Is taking damage");
-            if (health <= 0)
+            if (health <= 0 && !isDying)
             {
                 Die();
+                isDying = true;
 
             }
         }
 
+    }
+
+    public bool IsEnemyDying()
+    {
+        return isDying;
     }
 
     public void Die()
@@ -34,9 +47,21 @@ public class DamegableEnemy : DamageableEntity
         EnemyFragmentOnDeath temp = this.GetComponent<EnemyFragmentOnDeath>();
         if (temp != null)
         {
+            if (deathExplosion != null)
+            {
+                GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
+                GameObject.Destroy(explosion, 5f);
+            }
             temp.Fragment();
             StartCoroutine(DelayCoroutine());
 
+        }
+        else if (deathExplosion != null)
+        {
+            GameObject explosion =  Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
+            //explosion.transform.localScale.Set(50f, 50f, 50f);
+            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(explosion, 5f);
         }
         else
         {

@@ -34,6 +34,19 @@ public class MaterialTweening : MonoBehaviour
         //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
     }
 
+    public void MergeMaterial(GameObject objectToChange, Material startMat, Material endMat, float time)
+    {
+        tankColorChanger = objectToChange;
+        startMaterial = startMat;
+        endMaterial = endMat;
+        iTween.ValueTo(objectToChange, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "linear",
+            "onupdate", "LerpMaterial"));
+
+        Debug.Log($"Tweening {objectToChange.name}, from {startMat} to {endMat}");
+    }
+
     private void LerpMaterial(float time)
     {
         tankColorChanger.GetComponent<MeshRenderer>().material.Lerp(startMaterial, endMaterial, time);

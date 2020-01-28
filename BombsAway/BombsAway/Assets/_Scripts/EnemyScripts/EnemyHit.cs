@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class EnemyHit : MonoBehaviour
 {
-    [Range(0,1)]
-    public float colorDifference;
+    //[Range(0,1)]
+    //public float colorDifference;
 
     public GameObject enemyModels;
-    private Color[] originalColor;
+    //private Color[] originalColor;
+    private Material[] originalMaterial;
+    public Material hitMaterial;
 
     private bool enemyHit;
     private float time = 0f;
-    private float maxTime = .2f;
+    private float maxTime = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        originalColor = new Color[enemyModels.transform.childCount];
+        //originalColor = new Color[enemyModels.transform.childCount];
+        originalMaterial = new Material[enemyModels.transform.childCount];
 
 
-        for (int i = 0; i < originalColor.Length; i++)
+        for (int i = 0; i < originalMaterial.Length; i++)
         {
             Renderer renderer;
             if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
             {
-                originalColor[i] = renderer.material.GetColor("_BaseColor");
+                //originalColor[i] = renderer.material.GetColor("_BaseColor");
+                originalMaterial[i] = renderer.material;
+                enemyModels.transform.GetChild(i).gameObject.AddComponent<MaterialTweening>();
             }
         }
     }
@@ -40,15 +45,16 @@ public class EnemyHit : MonoBehaviour
                 enemyHit = false;
                 time = 0f;
 
-                for (int i = 0; i < originalColor.Length; i++)
+                for (int i = 0; i < originalMaterial.Length; i++)
                 {
-                    Renderer renderer;
-                    if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
+                    MaterialTweening materialMerger; ;
+                    if (enemyModels.transform.GetChild(i).TryGetComponent<MaterialTweening>(out materialMerger))
                     {
-                        MaterialPropertyBlock block = new MaterialPropertyBlock();
-                        block.SetColor("_BaseColor", originalColor[i]);
+                        //MaterialPropertyBlock block = new MaterialPropertyBlock();
+                        //block.SetColor("_BaseColor", originalColor[i]);
 
-                        enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
+                        //enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
+                        materialMerger.MergeMaterial(enemyModels.transform.GetChild(i).gameObject,hitMaterial, originalMaterial[i], maxTime);
                     }
                 }
             }
@@ -64,17 +70,18 @@ public class EnemyHit : MonoBehaviour
     {
         enemyHit = true;
 
-        for (int i = 0; i < originalColor.Length; i++)
+        for (int i = 0; i < originalMaterial.Length; i++)
         {
-            Renderer renderer;
-            if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
+            MaterialTweening materialMerger;
+            if (enemyModels.transform.GetChild(i).TryGetComponent<MaterialTweening>(out materialMerger))
             {
-                Color newColor = new Color(originalColor[i].a + colorDifference, originalColor[i].b + colorDifference, originalColor[i].g + colorDifference);
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
-                block.SetColor("_BaseColor", newColor);
+                //Color newColor = new Color(originalColor[i].a + colorDifference, originalColor[i].b + colorDifference, originalColor[i].g + colorDifference);
+                //MaterialPropertyBlock block = new MaterialPropertyBlock();
+                //block.SetColor("_BaseColor", newColor);
 
+                //enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
 
-                enemyModels.transform.GetChild(i).GetComponent<Renderer>().SetPropertyBlock(block);
+                materialMerger.MergeMaterial(enemyModels.transform.GetChild(i).gameObject, originalMaterial[i], hitMaterial, maxTime);
                 //Debug.Log($"og color: {originalColor[i]}, new color: {newColor}, current color: {enemyModels.transform.GetChild(i).GetComponent<Renderer>().material.color}");
             }
         }

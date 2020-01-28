@@ -15,10 +15,13 @@ public class EnemyShootMissile : MonoBehaviour
     private float timeSinceShot = 0.0f;
 
     private bool playerWithinRange = false;
+    private DamegableEnemy enemyEntity;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyEntity = this.GetComponent<DamegableEnemy>();
+
         for (int i = 0; i < enemyMissiles.Length; i++)
         {
             enemyMissiles[i].SetAmmo(magazineSize);
@@ -28,26 +31,29 @@ public class EnemyShootMissile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // always check if the player is within range
-        CheckIfPlayerWithinRange();
-        for (int i = 0; i < enemyMissiles.Length; i++)
+        if (!enemyEntity.IsEnemyDying())
         {
-            //if (!enemyMissiles[i].HasAmmo())
-            //{
-            //    enemyMissiles[i].SetReloading(true);
-            //}
-            if (enemyMissiles[i].isReloading())
+            // always check if the player is within range
+            CheckIfPlayerWithinRange();
+            for (int i = 0; i < enemyMissiles.Length; i++)
             {
-                ReloadGun(i);
+                //if (!enemyMissiles[i].HasAmmo())
+                //{
+                //    enemyMissiles[i].SetReloading(true);
+                //}
+                if (enemyMissiles[i].isReloading())
+                {
+                    ReloadGun(i);
+                }
             }
-        }
-        if (playerWithinRange && !enemyMissiles[GetGunIndexFromPosition()].isReloading())
-        {
+            if (playerWithinRange && !enemyMissiles[GetGunIndexFromPosition()].isReloading())
+            {
                 timeSinceShot = 0.0f;
                 //Debug.Log($"Aiming and shooting");
                 AimGunAtPlayer();
                 Shoot();
                 enemyMissiles[GetGunIndexFromPosition()].SetReloading(true);
+            }
         }
     }
 
