@@ -70,6 +70,8 @@ MonoBehaviour:
   pushMagnitude: 10
   dropMagnitude: 100
   allegiance: 0
+  explosion: {fileID: 5180436719103788620, guid: 93c0057cd66d79340958287fd530975d,
+    type: 3}
 --- !u!135 &7282158582625606722
 SphereCollider:
   m_ObjectHideFlags: 0
