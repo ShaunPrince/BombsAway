@@ -13,6 +13,7 @@ public class BombAreaParent : MonoBehaviour
         this.GetComponent<Rigidbody>().centerOfMass = this.transform.position;
         this.GetComponent<Rigidbody>().AddTorque(0, rotateForce, 0);
         SetNodeDistance();
+
     }
 
     // Update is called once per frame

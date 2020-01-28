@@ -10,6 +10,7 @@ public class BombController : MonoBehaviour
     public EAllegiance allegiance;
 
     public float BombMapMarkerTime;
+    public GameObject explosion;
 
     private AudioSource BombExplode;
 
@@ -96,6 +97,9 @@ public class BombController : MonoBehaviour
 
         //TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
         //explosion.MakeExplosion(this.transform.position);
+        GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
+        GameObject.Destroy(boom, 20f);
+
 
         // when the bomb crashes, destroy everything within it's radius
         foreach (GameObject objectToDestroy in listObjectsToDestroy)

@@ -622,12 +622,11 @@ GameObject:
   - component: {fileID: 294719631488123615}
   - component: {fileID: 7400426310479744584}
   - component: {fileID: 4700660192680629950}
-  - component: {fileID: 4016954554768584291}
   - component: {fileID: 136321900803500458}
-  - component: {fileID: 5536615327576157248}
   - component: {fileID: 689211223410844976}
   - component: {fileID: 8998360276545189324}
   - component: {fileID: 1693923045066688452}
+  - component: {fileID: 9163159213313668640}
   m_Layer: 15
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -778,20 +777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf22162fa4c7ac46be30ccfefed65c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4016954554768584291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716435481506396233}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fdcd40a193ca91408ccf655ad249208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorDifference: 0.15
-  enemyModels: {fileID: 2698359264048947301}
 --- !u!114 &136321900803500458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,20 +792,7 @@ MonoBehaviour:
   allegiance: 1
   health: 10
   delayedDeathTime: 15
---- !u!114 &5536615327576157248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716435481506396233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd93ba3f4b93f424486a612f277dfb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorDifference: 1
-  enemyModels: {fileID: 2698359264048947301}
+  deathExplosion: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!114 &689211223410844976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,6 +846,19 @@ MonoBehaviour:
   - {fileID: 210413301487303608}
   - {fileID: 404038777298407760}
   - {fileID: 2196075536423926839}
+--- !u!114 &9163159213313668640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716435481506396233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankColorChanger: {fileID: 0}
 --- !u!1 &2196075536423926839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7425,11 +7410,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968117930992352148}
     m_Modifications:
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyMissileGun
-      objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7484,6 +7464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMissileGun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfb6e1462b71c04e976dff48a3b565d, type: 3}

@@ -21,7 +21,7 @@ public class ColorTweening : MonoBehaviour
         for (int i = 0; i < originalColor.Length; i++)
         {
             Renderer renderer;
-            if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
+            if (enemyModels.transform.GetChild(i).GetComponent<MeshRenderer>() && enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
             {
                 originalColor[i] = renderer.material.GetColor("_BaseColor");
                 whiteColor[i] = new Color(originalColor[i].r + colorDifference, originalColor[i].g + colorDifference, originalColor[i].b + colorDifference);
@@ -57,7 +57,7 @@ public class ColorTweening : MonoBehaviour
         for (int i = 0; i < originalColor.Length; i++)
         {
             Renderer renderer;
-            if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
+            if (enemyModels.transform.GetChild(i).GetComponent<MeshRenderer>() && enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
             {
                 Color newColor = new Color(originalColor[i].r + colorChange, originalColor[i].g + colorChange, originalColor[i].b + colorChange);
                 MaterialPropertyBlock block = new MaterialPropertyBlock();
@@ -73,7 +73,7 @@ public class ColorTweening : MonoBehaviour
         for (int i = 0; i < originalColor.Length; i++)
         {
             Renderer renderer;
-            if (enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
+            if (enemyModels.transform.GetChild(i).GetComponent<MeshRenderer>() && enemyModels.transform.GetChild(i).TryGetComponent<Renderer>(out renderer))
             {
                 Color newColor = new Color(whiteColor[i].r - colorChange, whiteColor[i].g - colorChange, whiteColor[i].b - colorChange);
                 MaterialPropertyBlock block = new MaterialPropertyBlock();

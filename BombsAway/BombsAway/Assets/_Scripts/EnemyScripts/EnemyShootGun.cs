@@ -19,6 +19,7 @@ public class EnemyShootGun : MonoBehaviour
     //private bool reloading = false;
 
     private bool playerWithinRange = false;
+    private DamegableEnemy enemyEntity;
 
     public EPosition CurrentGunBeingShot() {
         return gunToShoot;
@@ -27,6 +28,8 @@ public class EnemyShootGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyEntity = this.GetComponent<DamegableEnemy>();
+
         for (int i = 0; i < enemyGuns.Length; i++)
         {
             enemyGuns[i].SetAmmo(magazineSize);
@@ -36,28 +39,34 @@ public class EnemyShootGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // always check if the player is within range
-        CheckIfPlayerWithinRange();
-        for (int i = 0; i < enemyGuns.Length; i++) { 
-            if (!enemyGuns[i].HasAmmo()) {
-                enemyGuns[i].SetReloading(true);
-            }
-            if (enemyGuns[i].isReloading()) {
-                ReloadGun(i);
-            }
-        }
-        if (playerWithinRange && !enemyGuns[GetGunIndexFromPosition()].isReloading())
+        if (!enemyEntity.IsEnemyDying())
         {
-            if (timeSinceShot >= timeBetweenShots)
+            // always check if the player is within range
+            CheckIfPlayerWithinRange();
+            for (int i = 0; i < enemyGuns.Length; i++)
             {
-                //Debug.Log($"Aiming and shooting");
-                AimGunAtPlayer();
-                Shoot();
-                timeSinceShot = 0.0f;
+                if (!enemyGuns[i].HasAmmo())
+                {
+                    enemyGuns[i].SetReloading(true);
+                }
+                if (enemyGuns[i].isReloading())
+                {
+                    ReloadGun(i);
+                }
             }
-            else
+            if (playerWithinRange && !enemyGuns[GetGunIndexFromPosition()].isReloading())
             {
-                timeSinceShot += Time.deltaTime;
+                if (timeSinceShot >= timeBetweenShots)
+                {
+                    //Debug.Log($"Aiming and shooting");
+                    AimGunAtPlayer();
+                    Shoot();
+                    timeSinceShot = 0.0f;
+                }
+                else
+                {
+                    timeSinceShot += Time.deltaTime;
+                }
             }
         }
     }
