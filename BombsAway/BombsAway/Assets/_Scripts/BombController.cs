@@ -9,6 +9,8 @@ public class BombController : MonoBehaviour
     public float dropMagnitude;
     public EAllegiance allegiance;
 
+    public float BombMapMarkerTime;
+
     private AudioSource BombExplode;
 
     private bool isDropping = false;
@@ -92,8 +94,8 @@ public class BombController : MonoBehaviour
         //Debug.Log("Exploding");
         // TEMP DELETE LATER
 
-        TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
-        explosion.MakeExplosion(this.transform.position);
+        //TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
+        //explosion.MakeExplosion(this.transform.position);
 
         // when the bomb crashes, destroy everything within it's radius
         foreach (GameObject objectToDestroy in listObjectsToDestroy)
@@ -104,7 +106,20 @@ public class BombController : MonoBehaviour
                 objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
             }
         }
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        this.transform.GetChild(2).gameObject.SetActive(true);
+        StartCoroutine(DelayCoroutine());
+
+
+    }
+
+    IEnumerator DelayCoroutine()
+    {
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(BombMapMarkerTime);
+        GameObject.Destroy(this.gameObject);
+
     }
 
 }
