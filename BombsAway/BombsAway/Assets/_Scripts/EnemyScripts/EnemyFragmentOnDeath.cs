@@ -59,7 +59,7 @@ public class EnemyFragmentOnDeath : MonoBehaviour
         isFragged = true;
         foreach(Animator A in this.GetComponentsInChildren<Animator>())
         {
-            A.SetBool("Alive", false);
+            A.SetTrigger("Die");
         }
 
 

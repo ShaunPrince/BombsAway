@@ -791,7 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 10
-  delayedDeathTime: 15
+  delayedDeathTime: 25
   deathExplosion: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!114 &689211223410844976
 MonoBehaviour:
