@@ -22,6 +22,7 @@ public class DamegableEnemy : DamageableEntity
             health -= incomingDamage;
 
             if (this.GetComponent<ColorTweening>()) this.GetComponent<ColorTweening>().FlashWhite();
+            else if (this.GetComponent<ShaderTweening>()) this.GetComponent<ShaderTweening>().FlashWhite();
             else if (this.GetComponent<EnemyHit>()) this.GetComponent<EnemyHit>().VisuallyShowEnemyHit();
 
             //enemyHitScript.FlashWhite();

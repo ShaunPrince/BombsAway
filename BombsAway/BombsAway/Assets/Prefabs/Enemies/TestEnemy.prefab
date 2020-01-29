@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 689211223410844976}
   - component: {fileID: 8998360276545189324}
   - component: {fileID: 1693923045066688452}
-  - component: {fileID: 9163159213313668640}
+  - component: {fileID: 1666434137167848852}
   m_Layer: 15
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -846,7 +846,7 @@ MonoBehaviour:
   - {fileID: 210413301487303608}
   - {fileID: 404038777298407760}
   - {fileID: 2196075536423926839}
---- !u!114 &9163159213313668640
+--- !u!114 &1666434137167848852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -855,10 +855,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716435481506396233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Script: {fileID: 11500000, guid: fc57d6d6e588a1c47a71442a0a7fddae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 0}
+  colorDifference: 0.75
+  enemyModels: {fileID: 2698359264048947301}
 --- !u!1 &2196075536423926839
 GameObject:
   m_ObjectHideFlags: 0
