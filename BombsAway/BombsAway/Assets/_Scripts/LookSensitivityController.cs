@@ -17,7 +17,7 @@ public class LookSensitivityController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.value = 0.25f;
+        slider.value = PlayerPrefs.GetFloat("MouseSensitivity", 0.2f);
         mouseSens = 1.0f;
         lControls = leftGunStationControls.GetComponent<GunnerControls>();
         rControls = rightGunStationControls.GetComponent<GunnerControls>();
@@ -33,15 +33,24 @@ public class LookSensitivityController : MonoBehaviour
 
     public void SetLookSensitivity()
     {
+        //Debug.Log(slider.value);
         if (lControls == null)
         {
             return;
         }
         float sliderVal = slider.value;
-        mouseSens = Mathf.Pow(10.0f, sliderVal);
-        //mouseSens = sliderVal * 10.0f;
+        PlayerPrefs.SetFloat("MouseSensitivity", sliderVal);
+        mouseSens = GetMouseSensFromSlider(sliderVal);
         lControls.lookSensitivity = mouseSens;
         rControls.lookSensitivity = mouseSens;
         tControls.lookSensitivity = mouseSens;
+    }
+
+    private float GetMouseSensFromSlider(float sliderVal)
+    {
+        if (sliderVal > 0)
+            return sliderVal * 5;
+        else
+            return 0.01f;
     }
 }

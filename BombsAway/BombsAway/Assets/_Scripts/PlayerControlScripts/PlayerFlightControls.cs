@@ -43,14 +43,14 @@ public class PlayerFlightControls : ControlScheme
 
     public void CheckForAltChange()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetMouseButtonDown(0))
         {
             if((int)currentAltSetting < (int)EAlts.High)
             {
                 currentAltSetting += 1;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetMouseButtonDown(1))
         {
             if((int)currentAltSetting > (int) EAlts.Low)
             {

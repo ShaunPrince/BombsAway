@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -59,6 +60,14 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        if (gamePaused)
+            TogglePauseGame();
+        StationManager.currentlyActiveControlScheme = null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void ViewControls()
     {
         controlsPage.SetActive(!controlsPage.activeSelf);
@@ -69,6 +78,16 @@ public class PauseGame : MonoBehaviour
     {
         optionsPage.SetActive(!optionsPage.activeSelf);
         pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
+    }
+
+    public void LoadMainMenu()
+    {
+        if (gamePaused)
+            TogglePauseGame();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        StationManager.currentlyActiveControlScheme = null;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void DisableOtherMenus()

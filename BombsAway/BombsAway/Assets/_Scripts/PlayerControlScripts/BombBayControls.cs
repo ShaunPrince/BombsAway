@@ -38,7 +38,8 @@ public class BombBayControls : ControlScheme
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !reloading &&  numOfBombs > 0)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.W)) && 
+            !reloading &&  numOfBombs > 0)
         {
             DropBomb();
             rm.ReloadWeapon(reloadTime);
