@@ -62,7 +62,8 @@ public class PauseGame : MonoBehaviour
 
     public void RestartGame()
     {
-        TogglePauseGame();
+        if (gamePaused)
+            TogglePauseGame();
         StationManager.currentlyActiveControlScheme = null;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -81,7 +82,8 @@ public class PauseGame : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        TogglePauseGame();
+        if (gamePaused)
+            TogglePauseGame();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         StationManager.currentlyActiveControlScheme = null;

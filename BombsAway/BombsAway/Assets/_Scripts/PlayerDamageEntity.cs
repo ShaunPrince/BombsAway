@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDamageEntity : DamageableEntity
 {
     public RepairSystemManager repSysMan;
+    //public GameObject gameManager;
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
         if (allegianceOfIncomingDamage != allegiance)
@@ -27,8 +28,8 @@ public class PlayerDamageEntity : DamageableEntity
             if (health <= 0)
             {
                 //Load Game Over
+                //gameManager.GetComponent<PauseGame>().LoadMainMenu();
                 SceneManager.LoadScene("MainMenu");
-                GameObject.Destroy(this.gameObject);
             }
             
         }
