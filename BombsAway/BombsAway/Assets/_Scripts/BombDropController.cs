@@ -21,6 +21,11 @@ public class BombDropController : MonoBehaviour
     {
         planeRB = this.GetComponentInParent<Rigidbody>();
         da = GameObject.FindObjectOfType<DynamicAltitude>();
+        h1 = da.straitDownAlt;
+        CalcTOF(h1);
+        SetR1();
+        CalcX(r1);
+        CalcZ(xOffsetForce, r1);
     }
 
     // Update is called once per frame

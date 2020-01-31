@@ -11,6 +11,7 @@ public class ImpactAreaZone : MonoBehaviour
     private BombAreaParent bap;
     private DynamicAltitude da;
     private Rigidbody planeRB;
+    public float radius;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,7 +37,7 @@ public class ImpactAreaZone : MonoBehaviour
 
     private void SetScale()
     {
-        bap.radius = Mathf.Tan(Mathf.Deg2Rad * bdc.theta) * bdc.h1;
+        radius = Mathf.Tan(Mathf.Deg2Rad * bdc.theta) * bdc.h1;
         //modelTF.localScale = new Vector3(bdc.r1 * 2 * bdc.timeOfFlight, 5, bdc.r1 * 2 * bdc.timeOfFlight);
         //spotLight.spotAngle = bdc.theta;
     }
