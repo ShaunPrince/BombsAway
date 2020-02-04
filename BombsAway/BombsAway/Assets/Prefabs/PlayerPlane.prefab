@@ -1150,7 +1150,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 33554960
+    m_Bits: 570425872
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 2c0c198485ca8424ba2208a7d5f02463, type: 2}
   m_TargetDisplay: 0
@@ -4717,8 +4717,8 @@ RectTransform:
   m_Father: {fileID: 341742499837258617}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12440,7 +12440,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 442167
+    m_Bits: 537313079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: bd865958d994eca41b30207c36aeffa5, type: 2}
   m_TargetDisplay: 0
@@ -12773,7 +12773,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 442167
+    m_Bits: 537313079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 7d1da59eb6413294696dc9c27330a66b, type: 2}
   m_TargetDisplay: 0
@@ -13161,7 +13161,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 442167
+    m_Bits: 537313079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 947ffde0f4a24874a8f948acdf45267b, type: 2}
   m_TargetDisplay: 0
@@ -13524,7 +13524,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 442167
+    m_Bits: 537313079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 9ac003e550f62b348909d0bd72385e67, type: 2}
   m_TargetDisplay: 0
@@ -13813,7 +13813,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6408970837847507499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb31559a65be9f44482d75d1e1658ad7, type: 3}
   m_Name: 
@@ -14001,7 +14001,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 442167
+    m_Bits: 537313079
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 7d1e27ef80284364881439468b4080da, type: 2}
   m_TargetDisplay: 0
@@ -19728,7 +19728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7659336734746084621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20940,7 +20940,7 @@ GameObject:
   - component: {fileID: 7718390322457661040}
   - component: {fileID: 3166231814368306629}
   - component: {fileID: 2088089453}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: cloudbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

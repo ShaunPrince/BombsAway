@@ -5,6 +5,8 @@ using UnityEngine;
 public class JunctionConnectedColor : MonoBehaviour
 {
     public Junction j;
+    public bool connectedToHealthTank;
+    public SourceConnectedColor sourceConnection;
     //public MaterialTweening tweener;
     public Material connectedMaterial;
     public Material disconnectedMaterial;
@@ -13,15 +15,30 @@ public class JunctionConnectedColor : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (j.isConnectedToSource && !currentlyConnected)
+        if (!connectedToHealthTank)
         {
-            this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
-            currentlyConnected = true;
+            if (j.isConnectedToSource && !currentlyConnected)
+            {
+                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                currentlyConnected = true;
+            }
+            else if (!j.isConnectedToSource && currentlyConnected)
+            {
+                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                currentlyConnected = false;
+            }
         }
-        else if (!j.isConnectedToSource && currentlyConnected)
-        {
-            this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
-            currentlyConnected = false;
+        else if (connectedToHealthTank) {
+            if (sourceConnection.AtLeastOneTankConnected() && !currentlyConnected)
+            {
+                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                currentlyConnected = true;
+            }
+            else if (!sourceConnection.AtLeastOneTankConnected() && currentlyConnected)
+            {
+                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                currentlyConnected = false;
+            }
         }
     }
 }
