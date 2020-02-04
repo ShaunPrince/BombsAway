@@ -16,12 +16,12 @@ public class TankConnectedColor : MonoBehaviour
     {
         if (tc.isConnectedToSource && !currentlyConnected)
         {
-            this.GetComponent<MaterialTweening>().MergeMaterial(disconnectedMaterial, connectedMaterial);
+            this.GetComponent<MaterialTweening>().MergeMaterial(disconnectedMaterial, connectedMaterial, .2f);
             currentlyConnected = true;
         }
         else if (!tc.isConnectedToSource && currentlyConnected)
         {
-            this.GetComponent<MaterialTweening>().MergeMaterial(connectedMaterial, disconnectedMaterial);
+            this.GetComponent<MaterialTweening>().MergeMaterial(connectedMaterial, disconnectedMaterial, .2f);
             currentlyConnected = false;
         }
     }

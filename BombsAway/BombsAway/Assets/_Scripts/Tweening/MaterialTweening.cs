@@ -34,6 +34,30 @@ public class MaterialTweening : MonoBehaviour
         //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
     }
 
+    public void MergeMaterial(Material startMat, Material endMat, float time)
+    {
+        startMaterial = startMat;
+        endMaterial = endMat;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "linear",
+            "onupdate", "LerpMaterial"));
+
+        //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
+    }
+
+    public void MergeMultipleMaterial(Material startMat, Material endMat, float time)
+    {
+        startMaterial = startMat;
+        endMaterial = endMat;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "linear",
+            "onupdate", "LerpMultMaterial"));
+
+        //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
+    }
+
     public void MergeMaterial(GameObject objectToChange, Material startMat, Material endMat, float time)
     {
         tankColorChanger = objectToChange;
@@ -51,6 +75,15 @@ public class MaterialTweening : MonoBehaviour
     {
         //Debug.Log($"Lerping {tankColorChanger} from {startMaterial} to {endMaterial}");
         tankColorChanger.GetComponent<MeshRenderer>().material.Lerp(startMaterial, endMaterial, time);
+    }
+
+    private void LerpMultMaterial(float time)
+    {
+        foreach (MeshRenderer mr in tankColorChanger.GetComponentsInChildren<MeshRenderer>())
+        {
+            //Debug.Log($"Lerping {mr.name} from {startMaterial} to {endMaterial}");
+            mr.material.Lerp(startMaterial, endMaterial, time);
+        }
     }
 
     public void FlickerMaterial(Material startMat, Material endMat)

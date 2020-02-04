@@ -711,6 +711,8 @@ GameObject:
   - component: {fileID: 5415511738045520051}
   - component: {fileID: 5415511738045520050}
   - component: {fileID: 1130540135015674200}
+  - component: {fileID: 5289358910497094559}
+  - component: {fileID: 2723263593918813349}
   m_Layer: 21
   m_Name: Junction
   m_TagString: Untagged
@@ -779,7 +781,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5415511738045520045}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e000746ae37b2b44b6a2c158e566fd4, type: 3}
   m_Name: 
@@ -788,6 +790,35 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 54e128279cc7d664b95eecfc8ede6690, type: 2}
   - {fileID: 2100000, guid: b4fe5f3591d57704d9d30f2736fa39fc, type: 2}
+--- !u!114 &5289358910497094559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415511738045520045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93941d4e6fc851748947af7d4454942b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  j: {fileID: 5415511738045520050}
+  connectedMaterial: {fileID: 2100000, guid: 54e128279cc7d664b95eecfc8ede6690, type: 2}
+  disconnectedMaterial: {fileID: 2100000, guid: b4fe5f3591d57704d9d30f2736fa39fc,
+    type: 2}
+--- !u!114 &2723263593918813349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415511738045520045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankColorChanger: {fileID: 5415511738045520045}
 --- !u!1 &5415511738104789822
 GameObject:
   m_ObjectHideFlags: 0
