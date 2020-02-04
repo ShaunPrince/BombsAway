@@ -44,11 +44,12 @@ public class MaterialTweening : MonoBehaviour
             "time", time, "easetype", "linear",
             "onupdate", "LerpMaterial"));
 
-        Debug.Log($"Tweening {objectToChange.name}, from {startMat} to {endMat}");
+        //Debug.Log($"Tweening {objectToChange.name}, from {startMat} to {endMat}");
     }
 
     private void LerpMaterial(float time)
     {
+        //Debug.Log($"Lerping {tankColorChanger} from {startMaterial} to {endMaterial}");
         tankColorChanger.GetComponent<MeshRenderer>().material.Lerp(startMaterial, endMaterial, time);
     }
 
