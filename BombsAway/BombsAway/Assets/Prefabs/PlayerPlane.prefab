@@ -7536,8 +7536,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 145.61676, y: 123.92645, z: 300.15744}
-  m_Center: {x: -0.45033646, y: -0.45184326, z: -8.135513}
+  m_Size: {x: 145.61676, y: 123.92645, z: 262.21185}
+  m_Center: {x: -0.45033264, y: -0.45184326, z: 10.837273}
 --- !u!1 &3926141085566442819
 GameObject:
   m_ObjectHideFlags: 0
@@ -8943,7 +8943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6408970836870882656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 25, z: -120}
+  m_LocalPosition: {x: 0, y: 25, z: -130}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6408970837321184304}
@@ -16687,13 +16687,14 @@ GameObject:
   - component: {fileID: 4044710142836290185}
   - component: {fileID: 7718390322457661040}
   - component: {fileID: 3166231814368306629}
+  - component: {fileID: 2088089453}
   m_Layer: 0
   m_Name: cloudbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5006512736488786111
 Transform:
   m_ObjectHideFlags: 0
@@ -16702,8 +16703,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172667513666220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1666.8994, y: 759.5047, z: 1527.1412}
+  m_LocalPosition: {x: -0, y: 85, z: 0}
+  m_LocalScale: {x: 5302.407, y: 2415.9844, z: 4857.8364}
   m_Children: []
   m_Father: {fileID: 6408970836937904740}
   m_RootOrder: 3
@@ -16773,6 +16774,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2088089453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172667513666220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6e8171a6a89894aa84e165298970a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8704302170224431487
 GameObject:
   m_ObjectHideFlags: 0
@@ -17165,11 +17178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 452092086619762989, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 397
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 423ca9fbbb3c96c45b7e012b0afc37a5, type: 3}
