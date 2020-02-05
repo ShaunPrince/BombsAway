@@ -9,9 +9,6 @@ public class PlayerGunController : MonoBehaviour
     public int magazineSize;
     //public GameObject GunShotCtr;
     private AudioSource GunShot;
-    //public AudioSource startFiring;
-    //public AudioSource gunFiring;
-    //public AudioSource endFiring;
 
     private ShootGun sg;
     private ReloadManager rm;
