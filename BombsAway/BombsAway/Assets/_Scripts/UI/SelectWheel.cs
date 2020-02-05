@@ -20,7 +20,8 @@ public class SelectWheel : MonoBehaviour
     public GameObject pointer;
     public GameObject element;
     public GameObject center;
-    public Sprite[] center_cog;
+    //public Sprite[] center_cog;
+    public GameObject darkscreen;
     private EStationID selectedStation;
     private Station curStation;
     private ECenterCamScale curCamScale;
@@ -35,6 +36,7 @@ public class SelectWheel : MonoBehaviour
     void Start()
     {
         menuOpen = false;
+        darkscreen.SetActive(false);
         curShowCursor = true;
         stationManager = GameObject.FindGameObjectWithTag("Stations").GetComponent<StationManager>();
         ray = GetComponent<GraphicRaycaster>();
@@ -58,6 +60,7 @@ public class SelectWheel : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             menuOpen = true;
+            darkscreen.SetActive(true);
             curShowCursor = Cursor.visible;
             Cursor.visible = true;
             cursorLockState = Cursor.lockState;
@@ -70,6 +73,7 @@ public class SelectWheel : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.Tab))
         {
             menuOpen = false;
+            darkscreen.SetActive(false);
             Cursor.visible = curShowCursor;
             Cursor.lockState = cursorLockState;
             stationManager.SetMainStation(selectedStation);
@@ -99,12 +103,12 @@ public class SelectWheel : MonoBehaviour
                 if (result[0].gameObject.tag != "Finish")
                 {
                     pointer.SetActive(true);
-                    center.GetComponent<Image>().overrideSprite = center_cog[0]; //revert cog wheel
+                    //center.GetComponent<Image>().overrideSprite = center_cog[0]; //revert cog wheel
                     result[0].gameObject.GetComponent<Image>().enabled = false; // "hide" the selected slice
 
                     float angle = -1 * Mathf.Atan2(pos.x - Screen.width / 2, pos.y - Screen.height / 2) * Mathf.Rad2Deg;
 
-                    wheel.transform.rotation = Quaternion.Euler(0, 0, angle);
+                    wheel.transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, angle);
                     if(result[0].gameObject.GetComponent<SelectionArea>())
                     {
 
@@ -117,7 +121,7 @@ public class SelectWheel : MonoBehaviour
                 {
                     selectedStation = curStation.stationID;
                     pointer.SetActive(false);
-                    center.GetComponent<Image>().overrideSprite = center_cog[1]; //fake selection outline
+                    //center.GetComponent<Image>().overrideSprite = center_cog[1]; //fake selection outline
                 }
 
             }
