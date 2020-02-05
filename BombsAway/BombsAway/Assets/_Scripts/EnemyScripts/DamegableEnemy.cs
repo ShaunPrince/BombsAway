@@ -8,6 +8,8 @@ public class DamegableEnemy : DamageableEntity
     public float delayedDeathTime;
     public GameObject deathExplosion;
 
+    public GameObject explosionCenter;
+
     private bool isDying = false;
 
     private void Start()
@@ -45,24 +47,34 @@ public class DamegableEnemy : DamageableEntity
 
     public void Die()
     {
-        EnemyFragmentOnDeath temp = this.GetComponent<EnemyFragmentOnDeath>();
-        if (temp != null)
+        EnemyFragmentOnDeath fragment = this.GetComponent<EnemyFragmentOnDeath>();
+        if (fragment != null)
         {
             if (deathExplosion != null)
             {
                 GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
                 GameObject.Destroy(explosion, 5f);
             }
-            temp.Fragment();
+            fragment.Fragment();
             StartCoroutine(DelayCoroutine());
 
         }
         else if (deathExplosion != null)
         {
-            GameObject explosion =  Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
-            //explosion.transform.localScale.Set(50f, 50f, 50f);
-            GameObject.Destroy(this.gameObject);
-            GameObject.Destroy(explosion, 5f);
+            if (explosionCenter != null)
+            {
+                // explosion needs to be at center of rotating missile, not center of rotation
+                GameObject explosion = Instantiate(deathExplosion, explosionCenter.transform.position, explosionCenter.transform.rotation);
+                GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(explosion, 5f);
+            }
+            else
+            {
+                GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
+                GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(explosion, 5f);
+            }
+            
         }
         else
         {

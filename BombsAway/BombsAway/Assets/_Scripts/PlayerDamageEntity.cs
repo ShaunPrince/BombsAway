@@ -27,9 +27,12 @@ public class PlayerDamageEntity : DamageableEntity
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
+                // Show player dying
+                this.GetComponent<PlayerEndGameDeath>().ShowPlayerDying();
+
                 //Load Game Over
                 //gameManager.GetComponent<PauseGame>().LoadMainMenu();
-                SceneManager.LoadScene("MainMenu");
+                //SceneManager.LoadScene("MainMenu");
             }
             
         }
