@@ -91,12 +91,6 @@ public class BombController : MonoBehaviour
     private void Explode()
     {
         BombExplode.Play();
-
-        //Debug.Log("Exploding");
-        // TEMP DELETE LATER
-
-        //TEMPBombExplosion explosion = GameObject.FindWithTag("BombBayStation").GetComponent<TEMPBombExplosion>();
-        //explosion.MakeExplosion(this.transform.position);
         GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
         GameObject.Destroy(boom, 20f);
 
