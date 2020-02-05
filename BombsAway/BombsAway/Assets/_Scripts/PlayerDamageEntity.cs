@@ -27,14 +27,37 @@ public class PlayerDamageEntity : DamageableEntity
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)
             {
-                // Show player dying
-                this.GetComponent<PlayerEndGameDeath>().ShowPlayerDying();
-
-                //Load Game Over
-                //gameManager.GetComponent<PauseGame>().LoadMainMenu();
-                //SceneManager.LoadScene("MainMenu");
+                Die();
             }
             
+        }
+    }
+
+    private void Die()
+    {
+        // Dissable all stations
+        StationManager.currentlyActiveControlScheme.SetActiveControl(false);
+
+        // Show player dying
+        this.GetComponent<PlayerEndGameDeath>().ShowPlayerDying();
+
+        // Fragment the player
+        StartCoroutine(DelayFragmentation());
+
+
+        //Load Game Over
+        //gameManager.GetComponent<PauseGame>().LoadMainMenu();
+        //SceneManager.LoadScene("MainMenu");
+
+    }
+
+    private IEnumerator DelayFragmentation()
+    {
+        yield return new WaitForSeconds(2f);
+        PlayerFragmentOnDeath fragment = this.GetComponent<PlayerFragmentOnDeath>();
+        if (fragment != null)
+        {
+            fragment.Fragment();
         }
     }
 }
