@@ -5808,7 +5808,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670497317504660260}
-  - component: {fileID: 2197960144103331379}
   - component: {fileID: 2705026717996313567}
   m_Layer: 0
   m_Name: RightBottom Propellor
@@ -5837,22 +5836,6 @@ Transform:
   m_Father: {fileID: 3514413950915220899}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2197960144103331379
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360179343887012782}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2705026717996313567
 Animator:
   serializedVersion: 3
@@ -5998,7 +5981,6 @@ GameObject:
   - component: {fileID: 8834956412233551513}
   - component: {fileID: 7515280293347573936}
   - component: {fileID: 7598367557527648028}
-  - component: {fileID: 7698544863158091814}
   - component: {fileID: 7114960841474256713}
   m_Layer: 0
   m_Name: FanWing.020
@@ -6067,22 +6049,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7698544863158091814
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385870997627932943}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &7114960841474256713
 Animator:
   serializedVersion: 3
@@ -6177,7 +6143,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5823014795038329741}
-  - component: {fileID: 5487077667077568078}
   - component: {fileID: 6537883497004153673}
   m_Layer: 0
   m_Name: RightUpper Propellor
@@ -6206,22 +6171,6 @@ Transform:
   m_Father: {fileID: 3514413950915220899}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &5487077667077568078
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620014420065110650}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &6537883497004153673
 Animator:
   serializedVersion: 3
@@ -6482,7 +6431,6 @@ GameObject:
   - component: {fileID: 1059857223660219208}
   - component: {fileID: 3936470420659061641}
   - component: {fileID: 1730400511531876329}
-  - component: {fileID: 7541811746930497144}
   - component: {fileID: 3162324239320815342}
   m_Layer: 0
   m_Name: FanWing.010
@@ -6551,22 +6499,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7541811746930497144
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138757036180306475}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &3162324239320815342
 Animator:
   serializedVersion: 3
@@ -7103,7 +7035,6 @@ GameObject:
   - component: {fileID: 6245017963096656235}
   - component: {fileID: 1234793860774009800}
   - component: {fileID: 870466799363776991}
-  - component: {fileID: 1868474520701303409}
   - component: {fileID: 8944992538446852872}
   m_Layer: 0
   m_Name: FanWing.009
@@ -7172,22 +7103,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &1868474520701303409
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613843071603335131}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &8944992538446852872
 Animator:
   serializedVersion: 3
@@ -7218,7 +7133,6 @@ GameObject:
   - component: {fileID: 3428374601766318088}
   - component: {fileID: 8683503903412989273}
   - component: {fileID: 3736393839182696890}
-  - component: {fileID: 7512933806750443599}
   - component: {fileID: 8165205216841076178}
   m_Layer: 0
   m_Name: FanWing.017
@@ -7287,22 +7201,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7512933806750443599
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757123032881727231}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &8165205216841076178
 Animator:
   serializedVersion: 3
@@ -7333,7 +7231,6 @@ GameObject:
   - component: {fileID: 7881560687553656536}
   - component: {fileID: 1175523182463292910}
   - component: {fileID: 3509937973497238947}
-  - component: {fileID: 4707318413244260696}
   - component: {fileID: 1353776830609972280}
   m_Layer: 0
   m_Name: FanWing.006
@@ -7402,22 +7299,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &4707318413244260696
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028681844853679746}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1353776830609972280
 Animator:
   serializedVersion: 3
@@ -7866,7 +7747,6 @@ GameObject:
   - component: {fileID: 8740034722955675622}
   - component: {fileID: 5788036403387922535}
   - component: {fileID: 579115788523146191}
-  - component: {fileID: 3644117778235683486}
   - component: {fileID: 9142486985490768670}
   m_Layer: 0
   m_Name: FanWing.011
@@ -7935,22 +7815,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &3644117778235683486
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670398817822546393}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &9142486985490768670
 Animator:
   serializedVersion: 3
@@ -7981,7 +7845,6 @@ GameObject:
   - component: {fileID: 7796260028764338622}
   - component: {fileID: 7097832362144250531}
   - component: {fileID: 105645462978749679}
-  - component: {fileID: 12890325080015476}
   - component: {fileID: 2417761947093401534}
   m_Layer: 0
   m_Name: FanWing.034
@@ -8050,22 +7913,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &12890325080015476
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2674333311018299532}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2417761947093401534
 Animator:
   serializedVersion: 3
@@ -9039,7 +8886,6 @@ GameObject:
   - component: {fileID: 3063415956091190969}
   - component: {fileID: 9067488813422939253}
   - component: {fileID: 7861800241189581012}
-  - component: {fileID: 5823693113509973726}
   - component: {fileID: 2128107527547676065}
   m_Layer: 0
   m_Name: FanWing.016
@@ -9108,22 +8954,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &5823693113509973726
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3300358624227451149}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2128107527547676065
 Animator:
   serializedVersion: 3
@@ -9422,7 +9252,6 @@ GameObject:
   - component: {fileID: 928738799154214020}
   - component: {fileID: 497873682853805926}
   - component: {fileID: 3151393694629765786}
-  - component: {fileID: 8570045010473853778}
   - component: {fileID: 6215570986564474131}
   m_Layer: 0
   m_Name: FanWing.007
@@ -9491,22 +9320,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8570045010473853778
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588793663846790431}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &6215570986564474131
 Animator:
   serializedVersion: 3
@@ -9884,7 +9697,6 @@ GameObject:
   - component: {fileID: 4278279541929112233}
   - component: {fileID: 4136136204084539149}
   - component: {fileID: 3662289219171564694}
-  - component: {fileID: 7525788440671789634}
   - component: {fileID: 3329725015078718781}
   m_Layer: 0
   m_Name: FanWing.013
@@ -9953,22 +9765,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7525788440671789634
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3920676566778720623}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &3329725015078718781
 Animator:
   serializedVersion: 3
@@ -10070,7 +9866,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8264809735936572212}
-  - component: {fileID: 8956695788424286330}
   - component: {fileID: 5816839233927649513}
   m_Layer: 0
   m_Name: LeftUpper Propellor
@@ -10099,22 +9894,6 @@ Transform:
   m_Father: {fileID: 3514413950915220899}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &8956695788424286330
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4002220690859700822}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &5816839233927649513
 Animator:
   serializedVersion: 3
@@ -10145,7 +9924,6 @@ GameObject:
   - component: {fileID: 7843278144888850313}
   - component: {fileID: 652924769986796863}
   - component: {fileID: 4681740108021784386}
-  - component: {fileID: 278340018966475342}
   - component: {fileID: 3628124817760089086}
   m_Layer: 0
   m_Name: FanWing.035
@@ -10214,22 +9992,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &278340018966475342
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115502087252312635}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &3628124817760089086
 Animator:
   serializedVersion: 3
@@ -10260,7 +10022,6 @@ GameObject:
   - component: {fileID: 8191651734692861262}
   - component: {fileID: 2951264710460312373}
   - component: {fileID: 1237167975789623634}
-  - component: {fileID: 8089300658543570415}
   - component: {fileID: 9078550362904220115}
   m_Layer: 0
   m_Name: FanWing.015
@@ -10329,22 +10090,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8089300658543570415
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128694548027334192}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &9078550362904220115
 Animator:
   serializedVersion: 3
@@ -10468,7 +10213,6 @@ GameObject:
   - component: {fileID: 7392033695655955855}
   - component: {fileID: 8966931029000439625}
   - component: {fileID: 5305492588061565880}
-  - component: {fileID: 3558658680378707170}
   - component: {fileID: 2654715580090724863}
   m_Layer: 0
   m_Name: FanWing.008
@@ -10537,22 +10281,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &3558658680378707170
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4308229238810451152}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2654715580090724863
 Animator:
   serializedVersion: 3
@@ -10698,7 +10426,6 @@ GameObject:
   - component: {fileID: 6063748362868042039}
   - component: {fileID: 5560913167809750564}
   - component: {fileID: 8617579199581544264}
-  - component: {fileID: 2757874657436329981}
   - component: {fileID: 1027995192597074888}
   m_Layer: 0
   m_Name: FanWing.022
@@ -10767,22 +10494,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &2757874657436329981
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4333539348955140057}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1027995192597074888
 Animator:
   serializedVersion: 3
@@ -10813,7 +10524,6 @@ GameObject:
   - component: {fileID: 1384908733587682490}
   - component: {fileID: 2805979972761918649}
   - component: {fileID: 356188401878236742}
-  - component: {fileID: 5536075918329211533}
   - component: {fileID: 702930493273799866}
   m_Layer: 0
   m_Name: FanWing.019
@@ -10882,22 +10592,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &5536075918329211533
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4470123226795690824}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &702930493273799866
 Animator:
   serializedVersion: 3
@@ -11480,7 +11174,6 @@ GameObject:
   - component: {fileID: 7091332942532002837}
   - component: {fileID: 4267649616777203288}
   - component: {fileID: 4385894936226442044}
-  - component: {fileID: 8123249666064202177}
   - component: {fileID: 661339205237908234}
   m_Layer: 0
   m_Name: FanWing.033
@@ -11549,22 +11242,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8123249666064202177
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179427781222054673}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &661339205237908234
 Animator:
   serializedVersion: 3
@@ -12143,7 +11820,6 @@ GameObject:
   - component: {fileID: 8468589418082095018}
   - component: {fileID: 1823413705060918217}
   - component: {fileID: 2075294983605250727}
-  - component: {fileID: 4861516779790423585}
   - component: {fileID: 5286571398899774224}
   m_Layer: 0
   m_Name: FanWing.021
@@ -12212,22 +11888,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &4861516779790423585
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5392050220775739197}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &5286571398899774224
 Animator:
   serializedVersion: 3
@@ -12371,7 +12031,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6374407630524382229}
-  - component: {fileID: 3151426144123201206}
   - component: {fileID: 7701104295881923609}
   m_Layer: 0
   m_Name: LeftBottom Propellor
@@ -12400,22 +12059,6 @@ Transform:
   m_Father: {fileID: 3514413950915220899}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3151426144123201206
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5404496785527303665}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &7701104295881923609
 Animator:
   serializedVersion: 3
@@ -12561,7 +12204,6 @@ GameObject:
   - component: {fileID: 5519956744559990316}
   - component: {fileID: 4888587678657567463}
   - component: {fileID: 6596478700909187691}
-  - component: {fileID: 7065366492204258618}
   - component: {fileID: 8860032376932580880}
   m_Layer: 0
   m_Name: FanWing.018
@@ -12630,22 +12272,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7065366492204258618
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5445622621401979841}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &8860032376932580880
 Animator:
   serializedVersion: 3
@@ -12941,7 +12567,6 @@ GameObject:
   - component: {fileID: 1420663172077461189}
   - component: {fileID: 612123610629620602}
   - component: {fileID: 6115851669697309173}
-  - component: {fileID: 5259703558441159559}
   - component: {fileID: 2760868481956283206}
   m_Layer: 0
   m_Name: FanWing.012
@@ -13010,22 +12635,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &5259703558441159559
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5705522931566829628}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2760868481956283206
 Animator:
   serializedVersion: 3
@@ -13056,7 +12665,6 @@ GameObject:
   - component: {fileID: 8617840406293838170}
   - component: {fileID: 876163219242744595}
   - component: {fileID: 2088789702599143177}
-  - component: {fileID: 5568892512646657768}
   - component: {fileID: 2338315560846657759}
   m_Layer: 0
   m_Name: FanWing.031
@@ -13125,22 +12733,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &5568892512646657768
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5807348682523661127}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2338315560846657759
 Animator:
   serializedVersion: 3
@@ -14438,10 +14030,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCamObject: {fileID: 213986565511820215}
-  deathTexture: {fileID: 0}
+  deathCanvas: {fileID: 0}
   explosionFX: {fileID: 5180436719103788620, guid: 93c65a7a9e371754699c52ad5f8cc483,
     type: 3}
-  objectsToDisable: []
+  canvasToDisable: {fileID: 0}
+  selectionWheelToDisable: {fileID: 2689494964846366030}
 --- !u!114 &4055877599534142118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16870,7 +16463,6 @@ GameObject:
   - component: {fileID: 6681860007939003699}
   - component: {fileID: 7179661180130208766}
   - component: {fileID: 2459363952302606436}
-  - component: {fileID: 7249967328488976179}
   - component: {fileID: 8724075080238053777}
   m_Layer: 0
   m_Name: FanWing.023
@@ -16939,22 +16531,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7249967328488976179
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7233093841504950270}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &8724075080238053777
 Animator:
   serializedVersion: 3
@@ -16985,7 +16561,6 @@ GameObject:
   - component: {fileID: 8337907526371221653}
   - component: {fileID: 4266838318057594213}
   - component: {fileID: 5916561923282485142}
-  - component: {fileID: 2123610231729030682}
   - component: {fileID: 5879328953502573135}
   m_Layer: 0
   m_Name: FanWing.014
@@ -17054,22 +16629,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &2123610231729030682
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423074747652298605}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &5879328953502573135
 Animator:
   serializedVersion: 3
@@ -17530,7 +17089,6 @@ GameObject:
   - component: {fileID: 2249206733045180382}
   - component: {fileID: 1032648624241037910}
   - component: {fileID: 8898442116990248025}
-  - component: {fileID: 660468619693235589}
   - component: {fileID: 5873778091955200499}
   m_Layer: 0
   m_Name: FanWing.030
@@ -17599,22 +17157,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &660468619693235589
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7604370950984530102}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &5873778091955200499
 Animator:
   serializedVersion: 3
@@ -22442,7 +21984,6 @@ GameObject:
   - component: {fileID: 6830127761219970598}
   - component: {fileID: 4538341360422923758}
   - component: {fileID: 7667320968444369143}
-  - component: {fileID: 8284266605543357691}
   - component: {fileID: 6202699415057637577}
   m_Layer: 0
   m_Name: FanWing.032
@@ -22511,22 +22052,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8284266605543357691
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767536212939398142}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &6202699415057637577
 Animator:
   serializedVersion: 3
@@ -24145,6 +23670,18 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
+--- !u!1 &938552298358675301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 9007350416119170854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4152888148905637860 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 9007350416119170854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5507096422744582433 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,

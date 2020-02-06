@@ -32,19 +32,22 @@ public class CloudboxController : MonoBehaviour
     void Update()
     {
         // change in alt
-        if (player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting != prevAlt)
+        if (player.GetChild(0).gameObject.active)
         {
-            UpdateCloudBoxDensity((int)player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting);
-            prevAlt = player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting;
-        }
+            if (player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting != prevAlt)
+            {
+                UpdateCloudBoxDensity((int)player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting);
+                prevAlt = player.GetComponentInChildren<PlayerFlightControls>().currentAltSetting;
+            }
 
-        // change in speed
-        if (player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting != prevSpeed)
-        {
-            // figure out how to smooth this!
-            //UpdateCloudBoxSpeed((int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting);
-            UpdateSpeed(speeds[(int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting]);
-            prevSpeed = player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting;
+            // change in speed
+            if (player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting != prevSpeed)
+            {
+                // figure out how to smooth this!
+                //UpdateCloudBoxSpeed((int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting);
+                UpdateSpeed(speeds[(int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting]);
+                prevSpeed = player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting;
+            }
         }
     }
 

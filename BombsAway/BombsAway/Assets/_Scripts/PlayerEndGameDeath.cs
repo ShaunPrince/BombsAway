@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerEndGameDeath : MonoBehaviour
 {
     public GameObject deathCamObject;
-    public GameObject deathTexture;
+    public GameObject deathCanvas;
+    //public GameObject deathTexture;
     public GameObject explosionFX;
-    public List<GameObject> objectsToDisable;
+    public GameObject canvasToDisable;
+    public GameObject selectionWheelToDisable;
     private GameObject player;
 
     private bool hasDied = false;
@@ -32,19 +34,32 @@ public class PlayerEndGameDeath : MonoBehaviour
                                                         "time", 50f, "easetype", "linear",
                                                         "looptype", "loop"));
 
-            // disable other UI elements
-            foreach(GameObject item in objectsToDisable)
-            {
-                item.SetActive(false);
-            }
+            //StartCoroutine(DisableCanvas());
+            //canvasToDisable.SetActive(false);
+            selectionWheelToDisable.SetActive(false);
+            StartCoroutine(DelayFragmentation());
 
             // tween from main camera to new death cam
-            deathTexture.SetActive(true);
+            //deathTexture.SetActive(true);
+            deathCanvas.SetActive(true);
+            GameObject deathTexture = GameObject.Find("DeathCamTexture");
             deathTexture.gameObject.AddComponent<CameraTween>();
             deathTexture.gameObject.GetComponent<CameraTween>().FadeIn();
 
             hasDied = true;
         }
                
+    }
+
+    private IEnumerable DisableCanvas()
+    {
+        yield return new WaitForSeconds(2f);
+        canvasToDisable.SetActive(false);
+    }
+
+    private IEnumerator DelayFragmentation()
+    {
+        yield return new WaitForSeconds(2f);
+        canvasToDisable.SetActive(false);
     }
 }
