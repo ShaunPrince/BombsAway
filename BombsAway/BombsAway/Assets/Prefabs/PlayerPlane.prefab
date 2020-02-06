@@ -14516,10 +14516,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCamObject: {fileID: 213986565511820215}
-  deathTexture: {fileID: 0}
+  deathCanvas: {fileID: 0}
   explosionFX: {fileID: 5180436719103788620, guid: 93c65a7a9e371754699c52ad5f8cc483,
     type: 3}
-  objectsToDisable: []
+  canvasToDisable: {fileID: 0}
+  selectionWheelToDisable: {fileID: 2689494964846366030}
 --- !u!114 &4055877599534142118
 MonoBehaviour:
   m_ObjectHideFlags: 0
