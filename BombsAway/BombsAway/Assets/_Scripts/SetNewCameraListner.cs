@@ -20,13 +20,13 @@ public class SetNewCameraListner : MonoBehaviour
     {
         if (oldStation != null)
         {
-            AudioListener oldListner = oldStation.gameObject.GetComponent<AudioListener>();
+            AudioListener oldListner = oldStation.gameObject.GetComponentInChildren<AudioListener>();
             if (oldListner != null)
             {
                 oldListner.enabled = false;
             }
         }
-        AudioListener newListner = newStation.gameObject.GetComponent<AudioListener>();
+        AudioListener newListner = newStation.gameObject.GetComponentInChildren<AudioListener>();
         if (newListner != null)
         {
             newListner.enabled = true;
