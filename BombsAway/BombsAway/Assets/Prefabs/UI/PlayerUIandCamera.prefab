@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 182099789}
   - component: {fileID: 182099788}
   - component: {fileID: 182099787}
+  - component: {fileID: 1750385443}
   m_Layer: 27
   m_Name: DeathCanvas
   m_TagString: Untagged
@@ -101,6 +102,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1750385443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182099785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e68b57ce7bc5f4c97faee718442c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 6140430944131126118}
+  - {fileID: 1300744845}
 --- !u!1 &935304679
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +285,7 @@ GameObject:
   - component: {fileID: 1300744849}
   - component: {fileID: 1300744848}
   - component: {fileID: 1300744847}
+  - component: {fileID: 1243553339}
   m_Layer: 27
   m_Name: ButtonMainMenu
   m_TagString: Untagged
@@ -291,10 +308,10 @@ RectTransform:
   m_Father: {fileID: 182099786}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -135.8}
-  m_SizeDelta: {x: 244.9, y: 30}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35.8}
+  m_SizeDelta: {x: 267.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1300744849
 CanvasRenderer:
@@ -355,8 +372,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8735534, b: 0, a: 1}
     m_PressedColor: {r: 0.7924528, g: 0.21306513, b: 0.21306513, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -370,7 +387,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 935304681}
   m_OnClick:
     m_PersistentCalls:
@@ -386,6 +403,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1243553339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300744845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b22407792ad854bbfa3368a3d65801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &235159936498167096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4277,7 @@ GameObject:
   - component: {fileID: 8469100254721982395}
   - component: {fileID: 4141076721086664738}
   - component: {fileID: 6049296770982552830}
+  - component: {fileID: 1023124446}
   m_Layer: 27
   m_Name: ButtonNewGame
   m_TagString: Untagged
@@ -4270,9 +4300,9 @@ RectTransform:
   m_Father: {fileID: 182099786}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -85}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 78.3}
   m_SizeDelta: {x: 244.9, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8469100254721982395
@@ -4335,7 +4365,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 0.8735534, b: 0, a: 1}
     m_PressedColor: {r: 0.7924528, g: 0.21306513, b: 0.21306513, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4349,7 +4379,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8301024056701359291}
   m_OnClick:
     m_PersistentCalls:
@@ -4365,6 +4395,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1023124446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140430944131126118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b22407792ad854bbfa3368a3d65801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6189022603041789855
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,16 +5791,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 182099786}
     m_Modifications:
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: DeathCamTexture
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5864,6 +5896,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathCamTexture
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}
 --- !u!224 &2693186432534563541 stripped
@@ -5879,11 +5921,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5783402180909909988}
     m_Modifications:
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: DeathCamTexture
-      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5988,6 +6025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathCamTexture
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}

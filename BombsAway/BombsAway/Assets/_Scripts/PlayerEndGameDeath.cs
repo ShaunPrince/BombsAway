@@ -34,10 +34,8 @@ public class PlayerEndGameDeath : MonoBehaviour
                                                         "time", 50f, "easetype", "linear",
                                                         "looptype", "loop"));
 
-            //StartCoroutine(DisableCanvas());
-            //canvasToDisable.SetActive(false);
             selectionWheelToDisable.SetActive(false);
-            StartCoroutine(DelayFragmentation());
+            StartCoroutine(DisableCanvas());
 
             // tween from main camera to new death cam
             //deathTexture.SetActive(true);
@@ -51,13 +49,7 @@ public class PlayerEndGameDeath : MonoBehaviour
                
     }
 
-    private IEnumerable DisableCanvas()
-    {
-        yield return new WaitForSeconds(2f);
-        canvasToDisable.SetActive(false);
-    }
-
-    private IEnumerator DelayFragmentation()
+    private IEnumerator DisableCanvas()
     {
         yield return new WaitForSeconds(2f);
         canvasToDisable.SetActive(false);
