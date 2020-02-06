@@ -14045,7 +14045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allegiance: 0
-  health: 100
+  health: 2
   repSysMan: {fileID: 7659336732993930662}
 --- !u!114 &1780471627
 MonoBehaviour:

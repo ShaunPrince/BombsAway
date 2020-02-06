@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.19586255, g: 0.2305665, b: 0.19247997, a: 1}
+  m_IndirectSpecularColor: {r: 0.19583638, g: 0.23065777, b: 0.1925632, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3347,11 +3347,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659336733296342152, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: health
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1780471627, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
       propertyPath: deathCanvas
