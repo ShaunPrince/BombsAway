@@ -10,11 +10,16 @@ public class StationSelectControls : MonoBehaviour
 
     public EStationID initialMainStation;
 
+    Dictionary<int, int> clockwiseOrderDictClockToNum;
+    Dictionary<int, int> clockwiseOrderDictNumToClock;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        InitializeClockwiseDictClockToNum();
+        InitializeClockwiseDictNumToClock();
         //Cursor.lockState = CursorLockMode.Locked;
         sm.SetMainStation(initialMainStation);
     }
@@ -35,7 +40,7 @@ public class StationSelectControls : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            return EStationID.Repair;
+            return EStationID.Map;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -63,7 +68,7 @@ public class StationSelectControls : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            return EStationID.Map;
+            return EStationID.Repair;
         }
         else if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -81,26 +86,56 @@ public class StationSelectControls : MonoBehaviour
 
     private EStationID PrevStation(EStationID currentStationID)
     {
-        int currentStation = (int)currentStationID;
+        int currentStation = clockwiseOrderDictClockToNum[(int)currentStationID];
         int newStation = currentStation - 1;
         //check to see if we need to loop back to the start of the enum
-        if (newStation < 0 )
+        if (newStation <= 0 )
         {
             newStation = (System.Enum.GetNames(typeof(EStationID))).Length - 2;
         }
-        return ((EStationID)newStation);
+        return ((EStationID)clockwiseOrderDictNumToClock[newStation]);
     }
 
     private EStationID NextStation(EStationID currentStationID)
     {
-        int currentStation = (int)currentStationID;
+        int currentStation = clockwiseOrderDictClockToNum[(int)currentStationID];
         int newStation = currentStation + 1;
         //check to see if we need to loop back to the start of the enum
-        if(newStation == (System.Enum.GetNames(typeof(EStationID))).Length)
+        if(newStation == (System.Enum.GetNames(typeof(EStationID))).Length - 1)
         {
-            newStation = 0;
+            newStation = 1;
         }
-        return ((EStationID)newStation);
+        return ((EStationID)clockwiseOrderDictNumToClock[newStation]);
+    }
+
+    private void InitializeClockwiseDictNumToClock()
+    {
+        clockwiseOrderDictNumToClock = new Dictionary<int, int>
+        {
+            { 1, 1 },
+            { 2, 2 },
+            { 3, 3 },
+            { 4, 5 },
+            { 5, 8 },
+            { 6, 7 },
+            { 7, 6 },
+            { 8, 4 }
+        };
+    }
+
+    private void InitializeClockwiseDictClockToNum()
+    {
+        clockwiseOrderDictClockToNum = new Dictionary<int, int>
+        {
+            { 1, 1 },
+            { 2, 2 },
+            { 3, 3 },
+            { 4, 8 },
+            { 5, 4 },
+            { 6, 7 },
+            { 7, 6 },
+            { 8, 5 }
+        };
     }
 
 
