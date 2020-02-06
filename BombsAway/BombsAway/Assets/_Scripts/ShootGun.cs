@@ -23,7 +23,8 @@ public class ShootGun : MonoBehaviour
 
     public void FireGun()
     {
-        GameObject newProjectile = Instantiate(projectile, this.transform.position + this.transform.forward *30, this.transform.rotation);
+        GameObject newProjectile = Instantiate(projectile, this.transform.position, this.transform.rotation);
+        //UnityEditor.EditorApplication.isPaused = true;
         newProjectile.layer = 8; // PLAYER Non-Intercolliding Projectiles
         BulletController newBC = newProjectile.GetComponent<BulletController>();
         newBC.allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
