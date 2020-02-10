@@ -37,7 +37,9 @@ public class BombBayControls : ControlScheme
         //rightBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x + distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
         reloading = true;
         ReloadBay();
+        UpdateBombToDrop();
         ReloadBay();
+        UpdateBombToDrop();
         rm = this.GetComponentInParent<ReloadManager>();
     }
 
@@ -53,6 +55,7 @@ public class BombBayControls : ControlScheme
             {
                 ReloadBay();
             }
+            UpdateBombToDrop();
         }
         else if (reloading)
         {
@@ -93,8 +96,6 @@ public class BombBayControls : ControlScheme
             Transform model = leftBomb.transform.Find("BombModel").transform;
             model.localPosition = new Vector3(-distanceToSideShip*2, model.localPosition.y, model.localPosition.z);
             leftBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(distanceToSideShip*2, reloadTime);
-
-            dropLeftBomb = false;
         }
         else
         {
@@ -103,8 +104,6 @@ public class BombBayControls : ControlScheme
             Transform model = rightBomb.transform.Find("BombModel").transform;
             model.localPosition = new Vector3(distanceToSideShip * 2, model.localPosition.y, model.localPosition.z);
             rightBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(-distanceToSideShip*2, reloadTime);
-
-            dropLeftBomb = true;
         }
             //currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
 
@@ -116,5 +115,17 @@ public class BombBayControls : ControlScheme
 
             timeReloading += Time.deltaTime;
         }*/
+    }
+
+    private void UpdateBombToDrop()
+    {
+        if (dropLeftBomb)
+        {
+            dropLeftBomb = false;
+        }
+        else
+        {
+            dropLeftBomb = true;
+        }
     }
 }

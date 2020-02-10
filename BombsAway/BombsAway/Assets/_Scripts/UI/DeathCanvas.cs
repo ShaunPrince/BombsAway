@@ -38,6 +38,14 @@ public class DeathCanvas : MonoBehaviour
                 uiElement.SetActive(true);
                 uiElement.GetComponent<FadeText>().FadeIn();
             }
+            if (uiElement.GetComponent<FadeAndFlashText>())
+            {
+                if (uiElement.GetComponent<FadeAndFlashText>().setActive)
+                {
+                    uiElement.SetActive(true);
+                    uiElement.GetComponent<FadeAndFlashText>().FlashDeathReason();
+                }
+            }
         }
     }
 }
