@@ -35,11 +35,8 @@ public class PlayerDamageEntity : DamageableEntity
 
     private void Die()
     {
-        // Dissable all stations
-        StationManager.currentlyActiveControlScheme.SetActiveControl(false);
-
         // Show player dying
-        this.GetComponent<PlayerEndGameDeath>().ShowPlayerDying();
+        this.GetComponent<PlayerEndGame>().ShowPlayerDying();
 
         // Fragment the player
         StartCoroutine(DelayFragmentation());

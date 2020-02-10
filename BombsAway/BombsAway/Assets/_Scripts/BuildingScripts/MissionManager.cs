@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class MissionManager : WorldEntity
 {
-    public static int numberOfTargetBuildings = 10;
+    public static int numberOfTargetBuildings = 5;
     private static int numberRemainingTargets;
     public static int playerScore = 0; // initialize to zero
 
@@ -83,5 +83,11 @@ public class MissionManager : WorldEntity
     public static bool PlayerInBounds()
     {
         return playerInBounds;
+    }
+
+    public static bool HasPlayerWon()
+    {
+        if (numberRemainingTargets <= 0) return true;
+        else return false;
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DeathCanvas : MonoBehaviour
 {
-    public List<GameObject> buttons;
+    public List<GameObject> uiElements;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (GameObject button in buttons)
+        foreach (GameObject button in uiElements)
         {
             button.SetActive(false);
         }
@@ -26,12 +26,17 @@ public class DeathCanvas : MonoBehaviour
     private IEnumerator DelayFade()
     {
         yield return new WaitForSeconds(2f);
-        foreach (GameObject button in buttons)
+        foreach (GameObject uiElement in uiElements)
         {
-            if (button.GetComponent<FadeButton>())
+            if (uiElement.GetComponent<FadeButton>())
             {
-                button.SetActive(true);
-                button.GetComponent<FadeButton>().FadeIn();
+                uiElement.SetActive(true);
+                uiElement.GetComponent<FadeButton>().FadeIn();
+            }
+            if (uiElement.GetComponent<FadeText>())
+            {
+                uiElement.SetActive(true);
+                uiElement.GetComponent<FadeText>().FadeIn();
             }
         }
     }

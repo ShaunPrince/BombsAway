@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5180436719104051882}
   - component: {fileID: 5180436719089935804}
   - component: {fileID: 5180436719089949914}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: FX_Explosion_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4741,7 +4741,7 @@ GameObject:
   - component: {fileID: 5180436719104069602}
   - component: {fileID: 5180436719089933982}
   - component: {fileID: 5180436719087969074}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: FX_Bomb_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9419,7 +9419,7 @@ GameObject:
   - component: {fileID: 5180436719104140262}
   - component: {fileID: 5180436719090007180}
   - component: {fileID: 5180436719087951912}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: FX_Explosion_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
