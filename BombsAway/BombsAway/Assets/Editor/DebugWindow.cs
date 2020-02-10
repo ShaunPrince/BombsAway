@@ -37,6 +37,8 @@ public class DebugWindow : EditorWindow
         playerUnlimitedBombs = EditorGUILayout.Toggle("Player Unlimited Bombs", playerUnlimitedBombs);
         playerRapidBombReload = EditorGUILayout.Toggle("Player Instant Bomb Reload", playerRapidBombReload);
 
+
+
         GUILayout.Label("Spawn Objects", EditorStyles.boldLabel);
 
         objectName = EditorGUILayout.TextField("Custom Name (Blank For Default)", objectName);
@@ -55,6 +57,18 @@ public class DebugWindow : EditorWindow
         {
             //SpawnObject(Resources.Load("Assets/Prefabs/Enemies/TestEnemy.prefab") as GameObject);
             SpawnObject(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Enemies/TestEnemy.prefab" , typeof(GameObject)) as GameObject);
+        }
+
+        GUILayout.Label("Game Options", EditorStyles.boldLabel);
+
+        if (GUILayout.Button("Kill Player"))
+        {
+            KillPlayer();
+        }
+
+        if (GUILayout.Button("Win Game"))
+        {
+            WinGame();
         }
     }
 
@@ -162,6 +176,19 @@ public class DebugWindow : EditorWindow
         {
             bombBayControls.reloadTime = prevBombReloadTime;
         }
+    }
+
+    private void KillPlayer()
+    {
+        PlayerDamageEntity playerDamageableEntity = GameObject.FindObjectOfType<PlayerDamageEntity>();
+
+
+        playerDamageableEntity.health = 0;
+    }
+
+    private void WinGame()
+    {
+        MissionManager.numberRemainingTargets = 0;
     }
 
 }

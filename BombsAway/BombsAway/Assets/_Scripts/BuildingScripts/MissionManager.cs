@@ -12,7 +12,7 @@ using UnityEngine;
 public class MissionManager : WorldEntity
 {
     public static int numberOfTargetBuildings = 5;
-    private static int numberRemainingTargets;
+    public static int numberRemainingTargets;
     public static int playerScore = 0; // initialize to zero
 
     private GameObject buildingSpawner;
