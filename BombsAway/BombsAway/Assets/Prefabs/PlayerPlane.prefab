@@ -13991,6 +13991,7 @@ GameObject:
   - component: {fileID: 1780471627}
   - component: {fileID: 4055877599534142118}
   - component: {fileID: 1780471629}
+  - component: {fileID: 1780471630}
   m_Layer: 10
   m_Name: PlayerPlane
   m_TagString: Player
@@ -14046,7 +14047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allegiance: 0
-  health: 300
+  health: Infinity
+  isInvincible: 0
   repSysMan: {fileID: 7659336732993930662}
 --- !u!114 &1780471627
 MonoBehaviour:
@@ -14093,6 +14095,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113bf6c1ec4f68141952dc2ded2169bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1780471630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408970836937904739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70101d1ea5e6efa488f7eeae32ac7ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombBay: {fileID: 341742500901408474}
 --- !u!1 &6408970836965439279
 GameObject:
   m_ObjectHideFlags: 0
@@ -23401,12 +23416,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-        type: 3}
-      propertyPath: gunner
-      value: 
-      objectReference: {fileID: 7995422967540031078, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
     - target: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
         type: 3}
       propertyPath: m_fontAsset
@@ -23429,6 +23438,12 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+        type: 3}
+      propertyPath: gunner
+      value: 
+      objectReference: {fileID: 7995422967540031078, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
 --- !u!224 &4968291362278810565 stripped
@@ -23462,6 +23477,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6408970836937904740}
     m_Modifications:
+    - target: {fileID: 452092088508479600, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
+        type: 3}
+      propertyPath: m_Name
+      value: EndGameCam
+      objectReference: {fileID: 0}
     - target: {fileID: 452092088508479607, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23516,11 +23536,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 452092088508479600, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
-        type: 3}
-      propertyPath: m_Name
-      value: EndGameCam
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 423ca9fbbb3c96c45b7e012b0afc37a5, type: 3}
@@ -23653,12 +23668,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-        type: 3}
-      propertyPath: gunner
-      value: 
-      objectReference: {fileID: 7995422966816541805, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
     - target: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
         type: 3}
       propertyPath: m_fontAsset
@@ -23681,8 +23690,20 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+        type: 3}
+      propertyPath: gunner
+      value: 
+      objectReference: {fileID: 7995422966816541805, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
+--- !u!1 &3225292092087731645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+    type: 3}
+  m_PrefabInstance: {fileID: 6684585658797757950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1758347253363025212 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4945670095913562306, guid: 50cc9b90f39fefa46be4fcfb2b210756,
@@ -23701,12 +23722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3225292092087731645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8072386964332712003, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-    type: 3}
-  m_PrefabInstance: {fileID: 6684585658797757950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9007350416119170854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23824,12 +23839,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
-        type: 3}
-      propertyPath: gunner
-      value: 
-      objectReference: {fileID: 3655325482013215754, guid: 985981ffd35d23742abe1eabc30a0189,
-        type: 3}
     - target: {fileID: 3561690346075450887, guid: 50cc9b90f39fefa46be4fcfb2b210756,
         type: 3}
       propertyPath: m_fontAsset
@@ -23852,6 +23861,12 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1831169769073343949, guid: 50cc9b90f39fefa46be4fcfb2b210756,
+        type: 3}
+      propertyPath: gunner
+      value: 
+      objectReference: {fileID: 3655325482013215754, guid: 985981ffd35d23742abe1eabc30a0189,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc9b90f39fefa46be4fcfb2b210756, type: 3}
 --- !u!224 &4152888148905637860 stripped
