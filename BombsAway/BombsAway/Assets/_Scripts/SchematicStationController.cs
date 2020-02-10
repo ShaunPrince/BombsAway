@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class SchematicStationController : MonoBehaviour
 {
-    private GameObject schematicCam;
-    private GameObject sphereManager;
-
-    private Vector3 camPos;
-    private Vector3 managerPos;
+    private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
-        schematicCam = this.transform.GetChild(0).gameObject;
-        camPos = schematicCam.transform.position;
-        sphereManager = this.transform.GetChild(2).gameObject;
-        managerPos = sphereManager.transform.position;
+        startPos = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        schematicCam.transform.position = camPos;
-        sphereManager.transform.position = managerPos;
+        this.transform.position = startPos;
     }
 }
