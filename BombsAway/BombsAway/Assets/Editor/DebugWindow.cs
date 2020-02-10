@@ -143,7 +143,7 @@ public class DebugWindow : EditorWindow
         BombBayControls bombBayControls = GameObject.FindObjectOfType<BombBayControls>();
 
 
-        if (bombBayControls.numOfBombs != 999999999)
+        if (bombBayControls.numOfBombs < 1000)
         {
             prevBombCount = bombBayControls.numOfBombs;
         }
