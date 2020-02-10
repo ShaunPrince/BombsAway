@@ -15,6 +15,7 @@ public class PlayerGunController : MonoBehaviour
 
     private ShootGun sg;
     private ReloadManager rm;
+    private GunRecoiler gr;
     //private GunnerUIController guic;
     private float timeSinceShot;
     private int ammoCount;
@@ -25,6 +26,7 @@ public class PlayerGunController : MonoBehaviour
     {
         GunShot = this.GetComponent<AudioSource>();
         sg = this.GetComponent<ShootGun>();
+        gr = this.GetComponentInParent<GunRecoiler>();
         //guic = this.GetComponent<GunnerUIController>();
         timeSinceShot = 0.0f;
         ammoCount = magazineSize;
@@ -47,6 +49,7 @@ public class PlayerGunController : MonoBehaviour
             {
                 GunShot.Play();
                 sg.FireGun();
+                gr.RecoilGun();
                 ammoCount--;
                 //guic.UpdateAmmoCount(ammoCount);
                 timeSinceShot = 0.0f;
