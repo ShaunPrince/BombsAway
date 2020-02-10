@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloudboxController : MonoBehaviour
 {
     private Transform player;
-    private float[] densities = { 0.1f, 0.5f, 1f };
+    private float[] densities = { 0.1f, 0.3f, .5f };
     private float[] speeds = { 0.5f, 0.8f, 1.2f };
 
     private float changeOverTime = 5f;

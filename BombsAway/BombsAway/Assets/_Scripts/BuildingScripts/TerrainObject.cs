@@ -10,7 +10,7 @@ public class TerrainObject : DamageableEntity
     // upon its death, update playerScore
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
-        if (allegianceOfIncomingDamage != allegiance)
+        if (allegianceOfIncomingDamage != allegiance )
         {
             health -= incomingDamage;
             //Debug.Log(this + " Is taking damage");

@@ -50,7 +50,7 @@ TagManager:
   - EnemyRadarNode
   - 
   - BombScope
-  - 
+  - Explosion
   - MainUI
   - 
   - Weather

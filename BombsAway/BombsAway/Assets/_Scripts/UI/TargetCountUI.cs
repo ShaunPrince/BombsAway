@@ -20,7 +20,8 @@ public class TargetCountUI : MonoBehaviour
     {
         if (MissionManager.NumberOfRemainingTargets() != prevNumTargets)
         {
-            targetCountText.text = MissionManager.NumberOfRemainingTargets() + "/" + MissionManager.numberOfTargetBuildings;
+            int buildings = MissionManager.NumberOfRemainingTargets() < 0 ? 0 : MissionManager.NumberOfRemainingTargets();
+            targetCountText.text = buildings + "/" + MissionManager.numberOfTargetBuildings;
             prevNumTargets = MissionManager.NumberOfRemainingTargets();
         }
     }
