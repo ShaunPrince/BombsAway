@@ -7,6 +7,8 @@ public class DebugWindow : EditorWindow
     bool playerInvincible = false;
     bool playerUnlimitedBombs = false;
     bool playerRapidBombReload = false;
+    bool dissableExplosions = false;
+    GameObject prevExplosionRef;
     string objectName = "";
     int objectID = 1;
     GameObject objectToSpawn;
@@ -70,6 +72,10 @@ public class DebugWindow : EditorWindow
         {
             WinGame();
         }
+
+        dissableExplosions = EditorGUILayout.Toggle("Dissable Future Explosions", dissableExplosions);
+
+
     }
 
     private void SpawnObject(GameObject templateObj)
@@ -108,6 +114,7 @@ public class DebugWindow : EditorWindow
     private void Update()
     {
         ApplyPlayerOptions();
+        ApplyWorldOptions();
     }
 
     private void ApplyPlayerOptions()
@@ -115,6 +122,30 @@ public class DebugWindow : EditorWindow
         HandlePlayerInvincible();
         HandlePlayerUnlimitedBombs();
         HandlePlayerInstantBombReload();
+
+    }
+
+    private void ApplyWorldOptions()
+    {
+        HandleDissableExplosions();
+    }
+
+    private void HandleDissableExplosions()
+    {
+        if(prevExplosionRef == null)
+        {
+            prevExplosionRef = (AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Bombing/Bomb.prefab", typeof(GameObject)) as GameObject).GetComponent<BombController>().explosion;
+        }
+
+        if(dissableExplosions == true)
+        {
+            (AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Bombing/Bomb.prefab", typeof(GameObject)) as GameObject).GetComponent<BombController>().explosion = null;
+        }
+        else
+        {
+            (AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Bombing/Bomb.prefab", typeof(GameObject)) as GameObject).GetComponent<BombController>().explosion = prevExplosionRef;
+        }
+
 
     }
 
