@@ -11,6 +11,7 @@ public class BombController : MonoBehaviour
 
     public float BombMapMarkerTime;
     public GameObject explosion;
+    private bool hasExploded = false;
 
     private AudioSource BombExplode;
 
@@ -45,6 +46,11 @@ public class BombController : MonoBehaviour
     public void SetToDrop()
     {
         isDropping = true;
+    }
+
+    public bool HasExploded()
+    {
+        return hasExploded;
     }
 
     private void RotateDown()
@@ -90,6 +96,7 @@ public class BombController : MonoBehaviour
 
     private void Explode()
     {
+        hasExploded = true;
         BombExplode.Play();
         GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
         GameObject.Destroy(boom, 20f);

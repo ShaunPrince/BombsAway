@@ -12,6 +12,7 @@ public class BombBayControls : ControlScheme
     private bool dropLeftBomb = true;   // which bomb to drop
     private GameObject leftBomb;
     private GameObject rightBomb;
+    private GameObject prevDroppedBomb;
     private ReloadManager rm;
     private bool reloading = false;
     private float timeReloading = 0.0f;
@@ -20,6 +21,11 @@ public class BombBayControls : ControlScheme
     private float distanceInFrontShip = 0f;
 
     private BombDropController bdc;
+
+    public GameObject GetMostRecentDroppedBomb()
+    {
+        return prevDroppedBomb;
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -43,7 +49,10 @@ public class BombBayControls : ControlScheme
         {
             DropBomb();
             rm.ReloadWeapon(reloadTime);
-            ReloadBay();
+            if (numOfBombs > 1 )
+            {
+                ReloadBay();
+            }
         }
         else if (reloading)
         {
@@ -57,8 +66,16 @@ public class BombBayControls : ControlScheme
 
     private void DropBomb()
     {
-        if (dropLeftBomb) bdc.Drop(leftBomb);
-        else bdc.Drop(rightBomb);
+        if (dropLeftBomb)
+        {
+            bdc.Drop(leftBomb);
+            prevDroppedBomb = leftBomb;
+        }
+        else
+        {
+            bdc.Drop(rightBomb);
+            prevDroppedBomb = rightBomb;
+        }
         reloading = true;
         numOfBombs--;
     }

@@ -19,5 +19,9 @@ public class PlayerVictory : MonoBehaviour
             // make player invinsible so that they can no longer win
             this.GetComponent<PlayerEndGame>().ShowPlayerWinning();
         }
+        else if (this.GetComponent<BombToTargetCount>().NoMoreBombsButStillTargets())
+        {
+            this.GetComponent<PlayerEndGame>().ShowPlayerWinning(); // not winning but yeee
+        }
     }
 }
