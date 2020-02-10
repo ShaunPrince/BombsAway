@@ -9,7 +9,7 @@ public class PlayerDamageEntity : DamageableEntity
     //public GameObject gameManager;
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
-        if (allegianceOfIncomingDamage != allegiance)
+        if (allegianceOfIncomingDamage != allegiance && !isInvincible)
         {
             if (allegianceOfIncomingDamage == EAllegiance.Enemy)
             {

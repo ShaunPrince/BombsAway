@@ -19,7 +19,7 @@ public class DamegableEnemy : DamageableEntity
 
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
-        if (allegianceOfIncomingDamage != allegiance && health >0)
+        if (allegianceOfIncomingDamage != allegiance && health >0 && !isInvincible)
         {
             health -= incomingDamage;
 
