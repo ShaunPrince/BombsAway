@@ -5,6 +5,8 @@ using UnityEditor;
 public class DebugWindow : EditorWindow
 {
     bool playerInvincible = false;
+    bool playerUnlimitedBombs = false;
+    bool playerRapidBombReload = false;
     string objectName = "";
     int objectID = 1;
     GameObject objectToSpawn;
@@ -12,54 +14,67 @@ public class DebugWindow : EditorWindow
     float spawnRadius = 2500;
     Vector3 spawnLocation;
 
+
+    private float prevHealth;
+    private int prevBombCount;
+    private float prevBombReloadTime;
+
+    private Transform playerTransform;
+
     [MenuItem("BombsAway/DebugTools")]
     public static void ShowWindow()
     {
         GetWindow(typeof(DebugWindow));
     }
 
+
     private void OnGUI()
     {
+
         GUILayout.Label("Player Info / Options", EditorStyles.boldLabel);
 
         playerInvincible = EditorGUILayout.Toggle("Player Invincible", playerInvincible);
-
-        if (GUILayout.Button("Apply"))
-        {
-            ApplyPlayerOptions();
-        }
+        playerUnlimitedBombs = EditorGUILayout.Toggle("Player Unlimited Bombs", playerUnlimitedBombs);
+        playerRapidBombReload = EditorGUILayout.Toggle("Player Instant Bomb Reload", playerRapidBombReload);
 
         GUILayout.Label("Spawn Objects", EditorStyles.boldLabel);
 
         objectName = EditorGUILayout.TextField("Custom Name (Blank For Default)", objectName);
         objectID = EditorGUILayout.IntField("Object ID", objectID);
         objectToSpawn = EditorGUILayout.ObjectField("Prefab to spawn", objectToSpawn, typeof(GameObject),false) as GameObject;
-        spawnLocation = EditorGUILayout.Vector3Field("Coords To Spawn (leave 0 and set radius and alt for random", spawnLocation);
-        spawnRadius = EditorGUILayout.FloatField("Radius From Center", spawnRadius);
-        spawnAlt = EditorGUILayout.FloatField("Alt", spawnAlt);
+        spawnLocation = EditorGUILayout.Vector3Field("Coords To Spawn From (leave 0 for players location)", spawnLocation);
+        spawnRadius = EditorGUILayout.FloatField("Radius From Spawn Point", spawnRadius);
+        spawnAlt = EditorGUILayout.FloatField("Alt Offset From Spawn", spawnAlt);
 
         if(GUILayout.Button("Spawn Object"))
         {
-            SpawnObject();
+            SpawnObject(objectToSpawn);
+        }
+
+        if(GUILayout.Button("Spawn Basic Enemy"))
+        {
+            //SpawnObject(Resources.Load("Assets/Prefabs/Enemies/TestEnemy.prefab") as GameObject);
+            SpawnObject(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Enemies/TestEnemy.prefab" , typeof(GameObject)) as GameObject);
         }
     }
 
-    private void SpawnObject()
+    private void SpawnObject(GameObject templateObj)
     {
-        if(objectToSpawn != null)
+        if(templateObj != null)
         {
+            playerTransform = GameObject.FindObjectOfType<PlayerDamageEntity>().transform;
             Vector3 finalSpawnPos = new Vector3(0, 0, 0);
             if(spawnLocation == Vector3.zero)
             {
-                Vector2 spawnCircle = Random.insideUnitCircle * spawnRadius;
-                finalSpawnPos = new Vector3(spawnCircle.x, spawnAlt, spawnCircle.y);
+                Vector2 spawnCircle = Random.insideUnitCircle.normalized * spawnRadius;
+                finalSpawnPos = playerTransform.position + new Vector3(spawnCircle.x, spawnAlt, spawnCircle.y);
             }
             else
             {
                 finalSpawnPos = spawnLocation;
             }
 
-            GameObject newGameObject = GameObject.Instantiate(objectToSpawn, finalSpawnPos, Quaternion.identity);
+            GameObject newGameObject = GameObject.Instantiate(templateObj, finalSpawnPos, Quaternion.identity);
 
             if(objectName.Length != 0)
             {
@@ -68,7 +83,7 @@ public class DebugWindow : EditorWindow
             else
             {
 
-                newGameObject.name = objectToSpawn.name + objectID;
+                newGameObject.name = templateObj.name + objectID;
             }
 
 
@@ -76,10 +91,77 @@ public class DebugWindow : EditorWindow
         }
     }
 
-    private void ApplyPlayerOptions()
+    private void Update()
     {
-        GameObject.FindObjectOfType<PlayerDamageEntity>().isInvincible = playerInvincible;
+        ApplyPlayerOptions();
     }
 
+    private void ApplyPlayerOptions()
+    {
+        HandlePlayerInvincible();
+        HandlePlayerUnlimitedBombs();
+        HandlePlayerInstantBombReload();
+
+    }
+
+    private void HandlePlayerInvincible()
+    {
+        PlayerDamageEntity playerDamageableEntity = GameObject.FindObjectOfType<PlayerDamageEntity>();
+
+
+        if (playerDamageableEntity.health != float.PositiveInfinity)
+        {
+            prevHealth = playerDamageableEntity.health;
+        }
+
+        if (playerInvincible == true)
+        {
+            playerDamageableEntity.health = float.PositiveInfinity;
+        }
+        else
+        {
+            playerDamageableEntity.health = prevHealth;
+        }
+    }
+
+    private void HandlePlayerUnlimitedBombs()
+    {
+        BombBayControls bombBayControls = GameObject.FindObjectOfType<BombBayControls>();
+
+
+        if (bombBayControls.numOfBombs != 999999999)
+        {
+            prevBombCount = bombBayControls.numOfBombs;
+        }
+
+        if (playerUnlimitedBombs == true)
+        {
+            bombBayControls.numOfBombs = 999999999;
+        }
+        else
+        {
+            bombBayControls.numOfBombs = prevBombCount;
+        }
+    }
+
+    private void HandlePlayerInstantBombReload()
+    {
+        BombBayControls bombBayControls = GameObject.FindObjectOfType<BombBayControls>();
+
+
+        if (bombBayControls.reloadTime != 0)
+        {
+            prevBombReloadTime = bombBayControls.reloadTime;
+        }
+
+        if (playerRapidBombReload == true)
+        {
+            bombBayControls.reloadTime = 0;
+        }
+        else
+        {
+            bombBayControls.reloadTime = prevBombReloadTime;
+        }
+    }
 
 }

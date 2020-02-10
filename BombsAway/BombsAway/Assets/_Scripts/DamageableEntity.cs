@@ -23,7 +23,7 @@ public class DamageableEntity : MonoBehaviour
 
     public virtual void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
-        if(allegianceOfIncomingDamage != allegiance && !isInvincible)
+        if(allegianceOfIncomingDamage != allegiance )
         {
             health -= incomingDamage;
             //Debug.Log(this + " Is taking damage");
