@@ -34,6 +34,18 @@ public class PlayerEndGame : MonoBehaviour
 
     }
 
+    public void ShowPlayerRanOutOfBombs()
+    {
+        if (!gameEnded)
+        {
+
+            SetScoreCamerasAndControls();
+            SetDeathReason();
+
+            gameEnded = true;
+        }
+    }
+
     public void ShowPlayerDying()
     {
         if (!gameEnded)
@@ -81,5 +93,13 @@ public class PlayerEndGame : MonoBehaviour
         GameObject deathTexture = GameObject.Find("EndGameCamTexture");
         deathTexture.gameObject.AddComponent<CameraTween>();
         deathTexture.gameObject.GetComponent<CameraTween>().FadeIn();
+    }
+
+    private void SetDeathReason()
+    {
+        // trigger reason for death display
+        Transform deathReason = endGameCanvas.transform.Find("RanOutOfBombs");
+        deathReason.GetComponent<TMP_Text>().text = "0 BOMBS     REMAINING\n" + MissionManager.NumberOfRemainingTargets() + " TARGETS REMAINING";
+        deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
     }
 }
