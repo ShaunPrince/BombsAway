@@ -7,11 +7,13 @@ public class BombDropController : MonoBehaviour
 
     public float h1;
     public float theta;
-    public float r1;
+
     public float timeOfFlight;
 
     private float xOffsetForce;
     private float zOffsetForce;
+
+    private float radiusGround;
 
     [SerializeField]
     private Rigidbody planeRB;
@@ -23,9 +25,8 @@ public class BombDropController : MonoBehaviour
         da = GameObject.FindObjectOfType<DynamicAltitude>();
         h1 = da.straitDownAlt;
         CalcTOF(h1);
-        SetR1();
-        CalcX(r1);
-        CalcZ(xOffsetForce, r1);
+        CalcRadGround();
+
     }
 
     // Update is called once per frame
@@ -33,9 +34,8 @@ public class BombDropController : MonoBehaviour
     {
         h1 = da.straitDownAlt;
         CalcTOF(h1);
-        SetR1();
-        CalcX(r1);
-        CalcZ(xOffsetForce, r1);
+        CalcRadGround();
+
         
     }
 
@@ -49,30 +49,19 @@ public class BombDropController : MonoBehaviour
         {
             bombRB.velocity = new Vector3(bombRB.velocity.x, planeRB.velocity.y - 1, bombRB.velocity.z);
         }
-        bombRB.AddForce(xOffsetForce, 0, zOffsetForce, ForceMode.VelocityChange);
+        Vector2 circVect = Random.insideUnitCircle * (radiusGround / timeOfFlight);
+        bombRB.AddForce(circVect.x, 0, circVect.y, ForceMode.VelocityChange);
         bomb.GetComponent<BombController>().SetToDrop();
     }
 
-    private void SetR1()
-    {
-        r1 = Mathf.Tan(Mathf.Deg2Rad * theta) * timeOfFlight;
-    }
 
     private void CalcTOF(float h1)
     {
         timeOfFlight = Mathf.Sqrt((2 * h1) / 9.81f);
     }
 
-    private void CalcX(float r1)
+    private void CalcRadGround()
     {
-        xOffsetForce = Random.Range(-r1, r1);
-    }
-
-    private void CalcZ(float x, float r1)
-    {
-        float temp;
-        temp = (Mathf.Sqrt((r1 * r1) - (x * x)));
-        zOffsetForce = Random.Range(-temp, temp);
-
+        radiusGround = Mathf.Tan(Mathf.Deg2Rad * theta) * h1;
     }
 }
