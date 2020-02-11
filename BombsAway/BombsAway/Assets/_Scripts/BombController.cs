@@ -55,7 +55,8 @@ public class BombController : MonoBehaviour
 
     private void RotateDown()
     {
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .001f);
+        //this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(360, 0, 0), Time.time * .001f);
+        this.transform.LookAt(this.transform.position + this.GetComponent<Rigidbody>().velocity);
     }
 
     private void CheckForHit()
