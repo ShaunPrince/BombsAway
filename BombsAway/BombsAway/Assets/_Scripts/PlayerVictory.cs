@@ -27,5 +27,10 @@ public class PlayerVictory : MonoBehaviour
             this.GetComponent<PlayerEndGame>().ShowPlayerRanOutOfBombs();
             gameEnded = true;
         }
+        else if (GameObject.FindWithTag("PlayerUIandCamera").GetComponent<PlayerOutOfBoundsUI>().playerOutOfBoundsForTooLong && !gameEnded)
+        {
+            this.GetComponent<PlayerEndGame>().ShowPlayerDesertedMission();
+            gameEnded = true;
+        }
     }
 }
