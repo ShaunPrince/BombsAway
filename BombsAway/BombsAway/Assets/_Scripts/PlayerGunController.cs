@@ -47,9 +47,11 @@ public class PlayerGunController : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && timeSinceShot >= timeBetweenShots)
             {
+                this.GetComponentInParent<Animator>().SetTrigger("RecoilGun");
+                this.GetComponentInParent<Animator>().SetTrigger("Boom");
                 GunShot.Play();
                 sg.FireGun();
-                gr.RecoilGun();
+                //gr.RecoilGun();
                 ammoCount--;
                 //guic.UpdateAmmoCount(ammoCount);
                 timeSinceShot = 0.0f;

@@ -87,7 +87,7 @@ public class BombBayControls : ControlScheme
     {
         //if (timeReloading >= reloadTime)
         //{
-            Quaternion rotation = this.transform.parent.rotation * Quaternion.Euler(-90, 0, 0);
+            Quaternion rotation = this.transform.parent.rotation * Quaternion.Euler(0, 0, 0);
         if (dropLeftBomb)
         {
             // this.transform.parent.position.x - distanceToSideShip, this.transform.parent.position.y - distanceBelowShip, this.transform.parent.position.z
