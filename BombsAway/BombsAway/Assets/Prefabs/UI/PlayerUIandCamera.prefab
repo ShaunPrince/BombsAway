@@ -3684,7 +3684,6 @@ GameObject:
   - component: {fileID: 5783402180675015859}
   - component: {fileID: 5783402180675015857}
   - component: {fileID: 5783402180675015856}
-  - component: {fileID: 1097999746}
   - component: {fileID: 1097999747}
   - component: {fileID: 1097999745}
   m_Layer: 27
@@ -3763,23 +3762,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5783402180675015858}
   m_Enabled: 0
---- !u!114 &1097999746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5783402180675015858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: f5178d4bddbec6944bdaeae3ea49dcaf, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!114 &1097999747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4038,6 +4020,7 @@ GameObject:
   - component: {fileID: 5783402180909909991}
   - component: {fileID: 5783402180909909990}
   - component: {fileID: 5783402180909909985}
+  - component: {fileID: 9047208114368512260}
   m_Layer: 27
   m_Name: Canvas
   m_TagString: Untagged
@@ -4130,6 +4113,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9047208114368512260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783402180909909984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: f5178d4bddbec6944bdaeae3ea49dcaf, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &5783402180985087825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6239,6 +6239,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 182099786}
     m_Modifications:
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: EndGameCamTexture
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6344,16 +6354,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: EndGameCamTexture
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}
 --- !u!224 &2693186432534563541 stripped
@@ -6369,6 +6369,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5783402180909909988}
     m_Modifications:
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathCamTexture
+      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6473,11 +6478,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: DeathCamTexture
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}
