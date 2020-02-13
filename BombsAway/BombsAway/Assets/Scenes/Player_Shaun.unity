@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.039167278, g: 0.046131555, b: 0.038512643, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.03917251, g: 0.0461133, b: 0.038495995, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -932,7 +932,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.722962e-15, z: 6.84e-43, w: 7.22e-43}
+  m_BoundingSphereOverride: {x: 9.53e-43, y: NaN, z: 9.53e-43, w: 2.1622916e-28}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2704,6 +2704,18 @@ Transform:
   m_Father: {fileID: 1744625968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1520290617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 182099785, guid: 508e9fc3bf461b14f96c86de50fa6b3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5783402179862558074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1545607754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5783402180909909984, guid: 508e9fc3bf461b14f96c86de50fa6b3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5783402179862558074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591217126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 341742499608308724, guid: 1e85e8316a5ef78418012a118a7d0f5b,
@@ -3412,50 +3424,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7659336734724812473, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+    - target: {fileID: 1780471627, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
+      propertyPath: canvasToDisable
+      value: 
+      objectReference: {fileID: 1545607754}
+    - target: {fileID: 1780471627, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
+      propertyPath: endGameCanvas
+      value: 
+      objectReference: {fileID: 1520290617}
+    - target: {fileID: 213986565275925220, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659336734904603141, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 341742499596685381, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1563224794746388491, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 341742500171579091, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 341742500392012067, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7408632162337103609, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408970838382142705, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: timeBetweenShots
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643265132122876930, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: timeBetweenShots
-      value: 0.3
+      propertyPath: m_CullingMask.m_Bits
+      value: 442135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
