@@ -2109,10 +2109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiveControlScheme: 0
   lookSensitivity: 1
-  minXLook: 280
-  maxXLook: 80
-  minYLook: 280
-  maxYLook: 80
+  minXLook: 330
+  maxXLook: 30
+  minYLook: 300
+  maxYLook: 60
   myCamera: {fileID: 0}
 --- !u!1 &341742499138848491
 GameObject:
@@ -3060,10 +3060,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiveControlScheme: 0
   lookSensitivity: 1
-  minXLook: 280
-  maxXLook: 80
-  minYLook: 280
-  maxYLook: 80
+  minXLook: 330
+  maxXLook: 30
+  minYLook: 300
+  maxYLook: 60
   myCamera: {fileID: 0}
 --- !u!1 &341742499709975857
 GameObject:
@@ -3764,10 +3764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiveControlScheme: 0
   lookSensitivity: 1
-  minXLook: 280
-  maxXLook: 80
-  minYLook: 280
-  maxYLook: 80
+  minXLook: 330
+  maxXLook: 30
+  minYLook: 300
+  maxYLook: 60
   myCamera: {fileID: 0}
 --- !u!1 &341742500392012067
 GameObject:
@@ -3786,7 +3786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &341742500392012066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22989,7 +22989,7 @@ PrefabInstance:
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.98
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
