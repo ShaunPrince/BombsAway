@@ -12,7 +12,7 @@ public class GunRecoiler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunModel = this.transform;
+        gunModel = this.transform.GetChild(0);
         restingZPos = gunModel.localPosition.z;
         recoilDisplacement = 1.0f;
         recoilTime = 0.05f;
