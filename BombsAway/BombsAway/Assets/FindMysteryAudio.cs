@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FindMysteryAudio : MonoBehaviour
 {
-    private Object[] objectsWithAudioSource;
+    private Object[] objects;
     // Start is called before the first frame update
     void Start()
     {
-        objectsWithAudioSource = Object.FindObjectsOfType<AudioSource>();
-        for (int i = 0; i < objectsWithAudioSource.Length; ++i)
+        objects = Object.FindObjectsOfType<AudioListener>();
+        for (int i = 0; i < objects.Length; ++i)
         {
-            Debug.Log(objectsWithAudioSource[i].name);
+            Debug.Log(objects[i].name);
         }
     }
 
