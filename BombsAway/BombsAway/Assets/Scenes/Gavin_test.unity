@@ -2392,6 +2392,11 @@ PrefabInstance:
       propertyPath: minYLook
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 7659336733296342152, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: health
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
 --- !u!114 &1872165012 stripped
