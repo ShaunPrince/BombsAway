@@ -848,6 +848,10 @@ MonoBehaviour:
   - {fileID: 210413301487303608}
   - {fileID: 404038777298407760}
   - {fileID: 2196075536423926839}
+  objectsToHide:
+  - {fileID: 7632379849253029118}
+  - {fileID: 1136509129942153912}
+  - {fileID: 4307049604255817577}
 --- !u!114 &1666434137167848852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7553,6 +7557,12 @@ PrefabInstance:
 --- !u!4 &127257345686400826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5971405799082200487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4307049604255817577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
     type: 3}
   m_PrefabInstance: {fileID: 5971405799082200487}
   m_PrefabAsset: {fileID: 0}

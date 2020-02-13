@@ -55,6 +55,7 @@ public class PlayerDamageEntity : DamageableEntity
         if (fragment != null)
         {
             fragment.Fragment();
+            fragment.HideObjects();
         }
     }
 }
