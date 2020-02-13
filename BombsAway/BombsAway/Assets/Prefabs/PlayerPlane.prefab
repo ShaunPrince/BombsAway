@@ -22903,12 +22903,12 @@ PrefabInstance:
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.23
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.98
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
@@ -22954,11 +22954,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296697604542683587, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d49d7766c64d41a5b6138dc7ffbbc, type: 3}
@@ -22989,7 +22984,7 @@ PrefabInstance:
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.23
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
@@ -23040,11 +23035,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296697604542683587, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d49d7766c64d41a5b6138dc7ffbbc, type: 3}
@@ -23246,7 +23236,7 @@ PrefabInstance:
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.23
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 6590765702313793227, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
         type: 3}
@@ -23297,11 +23287,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296697604542683587, guid: 949d49d7766c64d41a5b6138dc7ffbbc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d49d7766c64d41a5b6138dc7ffbbc, type: 3}

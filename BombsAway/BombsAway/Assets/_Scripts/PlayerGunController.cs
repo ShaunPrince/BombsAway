@@ -51,7 +51,7 @@ public class PlayerGunController : MonoBehaviour
                 this.GetComponentInParent<Animator>().SetTrigger("Boom");
                 GunShot.Play();
                 sg.FireGun();
-                //gr.RecoilGun();
+                gr.RecoilGun();
                 ammoCount--;
                 //guic.UpdateAmmoCount(ammoCount);
                 timeSinceShot = 0.0f;
