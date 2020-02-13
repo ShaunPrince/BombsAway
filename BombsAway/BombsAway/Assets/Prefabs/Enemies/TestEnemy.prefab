@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc57d6d6e588a1c47a71442a0a7fddae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorDifference: 0.75
+  colorDifference: 1
   enemyModels: {fileID: 2698359264048947301}
 --- !u!1 &2196075536423926839
 GameObject:
