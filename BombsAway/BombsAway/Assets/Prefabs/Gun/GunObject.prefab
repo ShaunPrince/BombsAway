@@ -1165,7 +1165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 5662486450848976616, guid: a825b978aec33bb4ca057a9a1823b9d7,
     type: 3}
-  projectileSpeed: 1000
+  projectileSpeed: 1500
   gunDamage: 2
   bulletOrganizationTransform: {fileID: 0}
 --- !u!82 &4726978247625820225
