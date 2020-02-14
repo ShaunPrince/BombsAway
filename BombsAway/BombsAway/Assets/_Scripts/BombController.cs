@@ -97,26 +97,28 @@ public class BombController : MonoBehaviour
 
     private void Explode()
     {
-        hasExploded = true;
-        BombExplode.Play();
-        GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
-        GameObject.Destroy(boom, 20f);
+        if (!hasExploded) {
+            hasExploded = true;
+            BombExplode.Play();
+            GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
+            GameObject.Destroy(boom, 20f);
 
 
-        // when the bomb crashes, destroy everything within it's radius
-        foreach (GameObject objectToDestroy in listObjectsToDestroy)
-        {
-            //Debug.Log($"Object to destroy: {objectToDestroy}");
-            if (objectToDestroy && objectToDestroy.GetComponentInParent<DamageableEntity>() != null)
+            // when the bomb crashes, destroy everything within it's radius
+            foreach (GameObject objectToDestroy in listObjectsToDestroy)
             {
-                objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
+                //Debug.Log($"Object to destroy: {objectToDestroy}");
+                if (objectToDestroy && objectToDestroy.GetComponentInParent<DamageableEntity>() != null)
+                {
+                    objectToDestroy.GetComponentInParent<DamageableEntity>().TakeDamage(damage, allegiance);
+                }
             }
+            //Destroy(this.gameObject);
+            this.transform.GetChild(2).gameObject.SetActive(true);
+            //StartCoroutine(DelayCoroutine());
+            GameObject.Destroy(this.gameObject, BombMapMarkerTime);
         }
-        //Destroy(this.gameObject);
-        this.transform.GetChild(2).gameObject.SetActive(true);
-        StartCoroutine(DelayCoroutine());
-
-
+        
     }
 
     IEnumerator DelayCoroutine()

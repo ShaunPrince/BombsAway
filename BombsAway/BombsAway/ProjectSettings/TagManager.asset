@@ -54,7 +54,7 @@ TagManager:
   - MainUI
   - 
   - Weather
-  - 
+  - ParabolaNodes
   - 
   m_SortingLayers:
   - name: Default

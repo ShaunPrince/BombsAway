@@ -4,58 +4,93 @@ using UnityEngine;
 
 public class BombCamTrack : MonoBehaviour
 {
-    public Transform impactSpotTF;
-    public LayerMask layersToHit;
-    public BombDropController bdc;
+
     public Transform cylinder;
-    public ImpactAreaZone IAZ;
+    public Rigidbody planeRB;
 
     private Vector3 centerOfImpactAreaPos;
+
+    private BombDropController bdc;
+
+    private float deltaH;
+    private float deltaZ;
+    private float thetaT;
+    private float thetaA;
+    private float thetaG;
+    private float thetaO;
+    private float deltaL;
+
+    private float offsetZ;
+    private float offsetY;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bdc = GameObject.FindObjectOfType<BombDropController>();
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    private void FixedUpdate()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(impactSpotTF.position,Vector3.down, out hit, 10000f,layersToHit))
-        {
-            centerOfImpactAreaPos = hit.point;
-            //Debug.DrawLine(this.transform.position , centerOfImpactAreaPos);
-
-            float theta1; //= Vector3.Angle(-this.transform.parent.up * 100000, hit.point);
-            //Debug.DrawRay(this.transform.position, -this.transform.parent.up * 100,Color.green);
-            float theta2;// = Vector3.Angle(-this.transform.parent.up * 100000, hit.point + this.transform.parent.TransformVector(new Vector3(0, 0, -IAZ.radius)));
-            //Debug.Log("tvect: " +this.transform.parent.TransformVector(0, 0, -bap.radius));
-            //Debug.Log("hit+-tvect: " + (hit.point + this.transform.parent.TransformVector(0,0, -bap.radius)));
-            //Debug.DrawLine(this.transform.parent.position, hit.point + this.transform.parent.TransformVector(0, 0, -bap.radius), Color.blue);
-
-            float x1 = Vector3.Magnitude(new Vector3(this.transform.parent.position.x, hit.point.y, this.transform.parent.position.z)
-                        - hit.point);
-            float x2 = x1 - IAZ.radius;
-            if(x1 > .01f)
-            {
-                float y1 = this.transform.position.y - hit.point.y;
-                theta1 = Mathf.Atan(x1 / y1);
-                theta2 = Mathf.Atan(x2 / y1);
-                float y2 = 1 / (Mathf.Tan(theta1) - Mathf.Tan(theta2));
-                //Debug.Log(hit.point);
-                //Debug.Log("Radius: " + IAZ.radius);
-                //Debug.Log("x1: " + x1);
-                //Debug.Log("Theta 1: " + theta1);
-                //Debug.Log(Mathf.Rad2Deg * Mathf.Atan(x1 / y1));
-                //Debug.Log("Theta 2: " + theta2);
-                //Debug.Log("y1: " + y1);
-                //Debug.Log("y2: " + y2);
-                cylinder.transform.localPosition = Vector3.zero;
-                cylinder.transform.localPosition = new Vector3(0, -y2, (Mathf.Tan(theta2) * y2) + 1);
-                this.gameObject.transform.LookAt(centerOfImpactAreaPos);
-            }
-
-        }
-
+        centerOfImpactAreaPos = this.GetComponentInParent<FindImpactCenter>().impactCenterPos;
+        this.transform.LookAt(centerOfImpactAreaPos);
+        //Debug.Log(new Vector3((int)centerOfImpactAreaPos.x, (int)centerOfImpactAreaPos.y, (int)centerOfImpactAreaPos.z));
+        CalcDeltaZ();
+        CalcDeltaH();
+        CalcThetaT();
+        CalcThetaG();
+        CalcThetaA();
+        CalcThetaO();
+        CalcDeltaL();
+        CalcOffset();
+        Debug.DrawRay(this.transform.position, this.transform.forward * 10000, Color.black);
+        cylinder.transform.localPosition = new Vector3(0, 0, deltaL);
+        //Debug.Log("Zoff: " + offsetZ.ToString() + "\nYoff: " + offsetY);
+        cylinder.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
+
+    private void CalcDeltaZ()
+    {
+        deltaZ = Mathf.Abs(Vector3.Magnitude(Vector3.Scale(centerOfImpactAreaPos, new Vector3(1, 0, 1))
+                          - Vector3.Scale(planeRB.transform.position, new Vector3(1,0,1))));
+    }
+
+    private void CalcDeltaH()
+    {
+        deltaH = Mathf.Abs(Vector3.Magnitude(Vector3.Scale(centerOfImpactAreaPos, new Vector3(0, 1, 0))
+                          - Vector3.Scale(planeRB.transform.position, new Vector3(0, 1, 0))) -65);
+    }
+
+    private void CalcThetaT()
+    {
+        thetaT = Mathf.Rad2Deg * Mathf.Atan(deltaZ / deltaH);
+    }
+
+    private void CalcThetaG()
+    {
+        thetaG = 90 - thetaT;
+    }
+
+    private void CalcThetaA()
+    {
+        thetaA = thetaT - Mathf.Rad2Deg * Mathf.Atan((deltaZ - bdc.radiusGround) / deltaH);
+    }
+
+    private void CalcThetaO()
+    {
+        thetaO = 180 - thetaG - thetaA;
+    }
+
+    private void CalcDeltaL()
+    {
+        deltaL = Mathf.Sin(Mathf.Deg2Rad * thetaO) / Mathf.Sin(Mathf.Deg2Rad * thetaA);
+    }
+
+    private void CalcOffset()
+    {
+        offsetZ = Mathf.Sin(Mathf.Deg2Rad * thetaT) * deltaL;
+        offsetY = Mathf.Sqrt((deltaL * deltaL) - (offsetZ * offsetZ));
+    }
+
+    
+
 }

@@ -13,18 +13,24 @@ public class BombDropController : MonoBehaviour
     private float xOffsetForce;
     private float zOffsetForce;
 
-    private float radiusGround;
+    public float radiusGround;
+
+    private FindImpactCenter findImpactCent;
 
     [SerializeField]
     private Rigidbody planeRB;
-    private DynamicAltitude da;
+
     // Start is called before the first frame update
     void Awake()
     {
         planeRB = this.GetComponentInParent<Rigidbody>();
-        da = GameObject.FindObjectOfType<DynamicAltitude>();
-        h1 = da.straitDownAlt;
-        CalcTOF(h1);
+        findImpactCent = this.GetComponent<FindImpactCenter>();
+
+
+
+        // h1 = da.straitDownAlt;
+        CalcH1();
+        CalcTOF();
         CalcRadGround();
 
     }
@@ -32,11 +38,9 @@ public class BombDropController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        h1 = da.straitDownAlt;
-        CalcTOF(h1);
+        CalcH1();
+        CalcTOF();
         CalcRadGround();
-
-        
     }
 
     public void Drop(GameObject bomb)
@@ -55,9 +59,15 @@ public class BombDropController : MonoBehaviour
     }
 
 
-    private void CalcTOF(float h1)
+    private void CalcH1()
     {
-        timeOfFlight = Mathf.Sqrt((2 * h1) / 9.81f);
+        h1 = Mathf.Abs(planeRB.transform.position.y - 65 - findImpactCent.impactCenterPos.y);
+        //Debug.Log(h1);
+    }
+
+    private void CalcTOF()
+    {
+        timeOfFlight = Mathf.Sqrt(Mathf.Abs((2 * h1) / Physics.gravity.y));
     }
 
     private void CalcRadGround()
