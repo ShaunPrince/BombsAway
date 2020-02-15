@@ -97,11 +97,18 @@ public class BombController : MonoBehaviour
 
     private void Explode()
     {
+<<<<<<< HEAD
         if (!hasExploded) {
             hasExploded = true;
-            //BombExplode.Play();
+            BombExplode.Play();
             GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
             GameObject.Destroy(boom, 20f);
+=======
+        hasExploded = true;
+        //BombExplode.Play();
+        GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
+        GameObject.Destroy(boom, 20f);
+>>>>>>> 7bdfd1b85b05477d67168ae80f2370d82a362cec
 
 
             // when the bomb crashes, destroy everything within it's radius

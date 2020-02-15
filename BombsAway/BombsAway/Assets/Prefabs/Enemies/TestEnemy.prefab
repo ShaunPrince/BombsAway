@@ -791,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 10
+  isInvincible: 0
   delayedDeathTime: 25
   deathExplosion: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
   explosionCenter: {fileID: 0}
@@ -847,6 +848,10 @@ MonoBehaviour:
   - {fileID: 210413301487303608}
   - {fileID: 404038777298407760}
   - {fileID: 2196075536423926839}
+  objectsToHide:
+  - {fileID: 7632379849253029118}
+  - {fileID: 1136509129942153912}
+  - {fileID: 4307049604255817577}
 --- !u!114 &1666434137167848852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc57d6d6e588a1c47a71442a0a7fddae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorDifference: 0.75
+  colorDifference: 1
   enemyModels: {fileID: 2698359264048947301}
 --- !u!1 &2196075536423926839
 GameObject:
@@ -7401,11 +7406,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Gun
       objectReference: {fileID: 0}
-    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 750
-      objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7461,16 +7461,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5425415802422240305, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425415802422240305, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}
 --- !u!4 &6046649997104411821 stripped
@@ -7505,7 +7495,7 @@ PrefabInstance:
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.6
+      value: 20.86
       objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
@@ -7552,11 +7542,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4605625511951316148, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605625511951316148, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfb6e1462b71c04e976dff48a3b565d, type: 3}
 --- !u!4 &127257345686400826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5971405799082200487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4307049604255817577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
     type: 3}
   m_PrefabInstance: {fileID: 5971405799082200487}
   m_PrefabAsset: {fileID: 0}

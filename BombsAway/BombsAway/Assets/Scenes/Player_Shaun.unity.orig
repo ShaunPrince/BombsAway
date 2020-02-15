@@ -1587,12 +1587,20 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+<<<<<<< HEAD
+      objectReference: {fileID: 590222987}
+=======
       objectReference: {fileID: 706241703}
+>>>>>>> 7bdfd1b85b05477d67168ae80f2370d82a362cec
     - target: {fileID: 7691351352427867639, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_Mesh
       value: 
+<<<<<<< HEAD
+      objectReference: {fileID: 590222987}
+=======
       objectReference: {fileID: 706241703}
+>>>>>>> 7bdfd1b85b05477d67168ae80f2370d82a362cec
     - target: {fileID: 7691351352256565626, guid: c047b4776d282bc42ba1d8f3b7da0caf,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3587,6 +3595,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 7659336734724812473, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659336734904603141, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341742499596685381, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+=======
     - target: {fileID: 1780471627, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
       propertyPath: canvasToDisable
       value: 
@@ -3599,6 +3623,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 442135
+>>>>>>> 7bdfd1b85b05477d67168ae80f2370d82a362cec
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}

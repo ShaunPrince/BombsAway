@@ -7,6 +7,7 @@ public class PlayerFragmentOnDeath : MonoBehaviour
     public float fragForce;
     public float fragRotatingForce;
     public GameObject model;
+    public List<GameObject> objectsToHide;
     private bool isFragged;
     // Start is called before the first frame update
     void Start()
@@ -63,5 +64,13 @@ public class PlayerFragmentOnDeath : MonoBehaviour
         }
 
 
+    }
+
+    public void HideObjects()
+    {
+        foreach (GameObject item in objectsToHide)
+        {
+            item.SetActive(false);
+        }
     }
 }

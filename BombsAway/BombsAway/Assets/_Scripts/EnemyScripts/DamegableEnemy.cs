@@ -56,6 +56,7 @@ public class DamegableEnemy : DamageableEntity
                 GameObject.Destroy(explosion, 5f);
             }
             fragment.Fragment();
+            fragment.HideObjects();
             StartCoroutine(DelayCoroutine());
 
         }
