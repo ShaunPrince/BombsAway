@@ -41,7 +41,7 @@ public class PauseGame : MonoBehaviour
             gamePaused = true;
             pauseMenu.gameObject.SetActive(true);
             //stationManager.gameObject.SetActive(false);
-            SetStationControlsActive(false);
+            SetStationControlActive(false);
             selectWheel.gameObject.SetActive(false);
             showCursor = Cursor.visible;
             Cursor.visible = true;
@@ -54,7 +54,7 @@ public class PauseGame : MonoBehaviour
             DisableOtherMenus();
             pauseMenu.gameObject.SetActive(false);
             //stationManager.gameObject.SetActive(true);
-            SetStationControlsActive(true);
+            SetStationControlActive(true);
             selectWheel.gameObject.SetActive(true);
             Cursor.lockState = cursorLockState;
             Cursor.visible = showCursor;
@@ -98,12 +98,9 @@ public class PauseGame : MonoBehaviour
         optionsPage.SetActive(false);
     }
 
-    private void SetStationControlsActive(bool isActive)
+    private void SetStationControlActive(bool isActive)
     {
-        ControlScheme[] controls = stationManager.GetComponentsInChildren<ControlScheme>();
-        foreach (ControlScheme c in controls)
-        {
-            c.SetActiveControl(isActive);
-        }
+        Station currentStation = StationManager.currentCenterStation;
+        currentStation.controlScheme.SetActiveControl(isActive);
     }
 }
