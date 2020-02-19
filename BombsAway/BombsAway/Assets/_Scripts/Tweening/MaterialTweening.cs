@@ -100,4 +100,14 @@ public class MaterialTweening : MonoBehaviour
     {
         this.GetComponent<TankStatusColor>().ResetPrevFillLevel();
     }
+
+    public void PingPongMaterial(Material startMat, Material endMat, float time)
+    {
+        startMaterial = startMat;
+        endMaterial = endMat;
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "linear",
+            "onupdate", "LerpMaterial", "looptype", "pingPong"));
+    }
 }
