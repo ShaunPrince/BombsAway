@@ -10,10 +10,18 @@ public class AltitudeDisplay : MonoBehaviour
     public List<Material> bulbColors;
 
     public GameObject altitudeHightMeter;
+    public float normalizingNum;
+
+    private float prevAlt;
 
     private PlayerFlightControls playerFlightControls;
     private Flying playerFlyingComponent;
     private EAlts prevAltitude;
+
+    private float maxAlt = -480;    // bad , dont do this
+    private float minAlt = -1480;
+
+    private float heightDifference;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +35,13 @@ public class AltitudeDisplay : MonoBehaviour
         //altSlider.minValue = playerFlightControls.presetAlts[0];
 
         prevAltitude = playerFlightControls.currentAltSetting;
+        prevAlt = normalizingNum;
 
         // set current alt on meter
         SetBulb(prevAltitude);
         // altSlider.value = playerFlightControls.GetDynamicAlt();
+
+        heightDifference = Mathf.Abs( Mathf.Abs(maxAlt) - Mathf.Abs(minAlt) );
     }
 
     // Update is called once per frame
@@ -42,6 +53,12 @@ public class AltitudeDisplay : MonoBehaviour
             SetBulb(playerFlightControls.currentAltSetting);
             prevAltitude = playerFlightControls.currentAltSetting;
         }
+
+        // the altitude fluctuates too much, check within a range
+        if (playerFlyingComponent.desireAltitude - 2 > playerFlyingComponent.currentAltitude || playerFlyingComponent.currentAltitude > playerFlyingComponent.desireAltitude + 2)
+        {
+            SetAltitudeLiquid();
+        }
     }
 
     private void SetBulb(EAlts index)
@@ -49,5 +66,30 @@ public class AltitudeDisplay : MonoBehaviour
         altitudeBulbs[(int)prevAltitude].GetComponent<MeshRenderer>().material = bulbColors[0];
         // lerp, do a little flicker
         altitudeBulbs[(int)index].GetComponent<MeshRenderer>().material = bulbColors[1];
+    }
+
+    private void SetAltitudeLiquid()
+    {
+        float changedAmount = NormalizeHeight(playerFlyingComponent.currentAltitude);
+        //iTween.ValueTo(gameObject, iTween.Hash("from", prevAlt, "to", changedAmount,
+        //                                        "time", .2f, "easetype", "linear",
+        //                                        "onupdate", "ChangeAltHeight"));
+        ChangeAltHeight(changedAmount);
+    }
+
+    private float NormalizeHeight(float num)
+    {
+        float subtractedValue = Mathf.Abs( Mathf.Abs(maxAlt) - Mathf.Abs(num) );
+        // normalize the health between -normalizingNum and normalizingNum
+        float percentMaxVal = subtractedValue / heightDifference;
+        float flippedPercentage = 1 - percentMaxVal;
+        float precentBetween02 = flippedPercentage * (normalizingNum * 2);
+        return precentBetween02 - normalizingNum;
+    }
+
+    private void ChangeAltHeight(float amount)
+    {
+        altitudeHightMeter.GetComponent<Renderer>().material.SetFloat("Vector1_59743A23", amount);
+        prevAlt = amount;
     }
 }

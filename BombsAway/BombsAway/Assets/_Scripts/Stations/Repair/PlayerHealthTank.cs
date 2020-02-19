@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealthTank : MonoBehaviour
 {
     public GameObject healthTank;
+    public int normalizingNum;
     public Color[] healthColors;
     private PlayerDamageEntity player;
     private float maxHealth;
@@ -75,8 +76,8 @@ public class PlayerHealthTank : MonoBehaviour
     {
         // normalize the health between -1 and 1
         float percentMaxVal = num / maxHealth;
-        float precentBetween02 = percentMaxVal * 2;
-        return precentBetween02 - 1;
+        float precentBetween02 = percentMaxVal * (normalizingNum * 2);
+        return precentBetween02 - normalizingNum;
     }
 
     private void ChangeHealthHight(float amount)
