@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 10
+  isInvincible: 0
   objectType: 2
   pointValue: 10
 --- !u!114 &2554781144275607563
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737832d04d9cdcc4b904612e94d2a40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempTargetColor: {fileID: 2100000, guid: 8f852b6601e077d40a63b712c712a06b, type: 2}
+  tempTargetColor: {fileID: 2100000, guid: 3cfaad6cbdcbc28468b68f349f658980, type: 2}
 --- !u!65 &4403050087251397383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193,6 +194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Resized
       objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 7d62f0347af24ca48835f02f10567eb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 7d62f0347af24ca48835f02f10567eb9,
         type: 3}
       propertyPath: m_IsActive
@@ -273,11 +279,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6909c09e2f8ea374d8a3b917e8698cf4, type: 2}
-    - target: {fileID: 4224801822505238522, guid: 7d62f0347af24ca48835f02f10567eb9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d62f0347af24ca48835f02f10567eb9, type: 3}
 --- !u!1 &622117237472037082 stripped

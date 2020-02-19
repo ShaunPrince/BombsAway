@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 10
+  isInvincible: 0
   objectType: 1
   pointValue: -20
 --- !u!114 &2554781144275607563
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737832d04d9cdcc4b904612e94d2a40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempTargetColor: {fileID: 2100000, guid: 8f852b6601e077d40a63b712c712a06b, type: 2}
+  tempTargetColor: {fileID: 2100000, guid: 3cfaad6cbdcbc28468b68f349f658980, type: 2}
 --- !u!1 &1157055667778802979
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,12 +342,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9233b7f890a11146a49ed18f5457998, type: 2}
-    - target: {fileID: -7963347969961065623, guid: 55de38f1744fe8e4aba63236ad03218d,
+    - target: {fileID: 1134173226152797547, guid: 55de38f1744fe8e4aba63236ad03218d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2f8908f6fa7c4743a4cee9125098460, type: 2}
+    - target: {fileID: 2091994333882405648, guid: 55de38f1744fe8e4aba63236ad03218d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5e302d4714296049a006a8755cc8d98, type: 2}
-    - target: {fileID: 1134173226152797547, guid: 55de38f1744fe8e4aba63236ad03218d,
+    - target: {fileID: -7963347969961065623, guid: 55de38f1744fe8e4aba63236ad03218d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -357,11 +363,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d5e302d4714296049a006a8755cc8d98, type: 2}
     - target: {fileID: 5297263278150196423, guid: 55de38f1744fe8e4aba63236ad03218d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d5e302d4714296049a006a8755cc8d98, type: 2}
-    - target: {fileID: 2091994333882405648, guid: 55de38f1744fe8e4aba63236ad03218d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

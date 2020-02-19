@@ -174,7 +174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652920802664432632}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ca788fc264a6d4c83319cd58fb2d85, type: 3}
   m_Name: 
@@ -206,16 +206,25 @@ MonoBehaviour:
   buildings:
   - spawnPrefab: {fileID: 5951528309667444875, guid: d86cb7f1549ae644294f1aac23724e86,
       type: 3}
-    probabilityOfSpawn: 0.3
+    probabilityOfSpawn: 0.16
   - spawnPrefab: {fileID: 221127550978869218, guid: a2de7d29d4ebcee41a2d05b1d5b61db9,
       type: 3}
-    probabilityOfSpawn: 0.3
+    probabilityOfSpawn: 0.16
   - spawnPrefab: {fileID: 221127550978869218, guid: cf483e05594f5ae4c9616a82dc37d638,
       type: 3}
-    probabilityOfSpawn: 0.3
+    probabilityOfSpawn: 0.16
+  - spawnPrefab: {fileID: 5951528309667444875, guid: 144121b963b519d4ba58838b1d78c772,
+      type: 3}
+    probabilityOfSpawn: 0.16
+  - spawnPrefab: {fileID: 221127550978869218, guid: eadd85227db862a478531f56cb7b2f6e,
+      type: 3}
+    probabilityOfSpawn: 0.16
+  - spawnPrefab: {fileID: 221127550978869218, guid: b04194fb67e7efb4097caec26397ae43,
+      type: 3}
+    probabilityOfSpawn: 0.16
   - spawnPrefab: {fileID: 221127550978869218, guid: 0f85bf8cd865c9d4d88a0e05dbe2e12b,
       type: 3}
-    probabilityOfSpawn: 0.2
+    probabilityOfSpawn: 0.05
   layerMask:
     serializedVersion: 2
     m_Bits: 512

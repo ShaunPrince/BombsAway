@@ -40,7 +40,8 @@ public class MissionManager : WorldEntity
             for (int i = 0; i < numberOfTargetBuildings; i++)
             {
                 int randomChildIdx = Random.Range(0, buildingSpawner.transform.childCount);
-                while (alreadyChosenBuilding.Contains(randomChildIdx))
+                while (alreadyChosenBuilding.Contains(randomChildIdx) || 
+                       buildingSpawner.transform.GetChild(randomChildIdx).GetComponent<TerrainObject>().objectType == ETerrainObjectType.Innocent)
                 {
                     randomChildIdx = Random.Range(0, buildingSpawner.transform.childCount);
                 }
