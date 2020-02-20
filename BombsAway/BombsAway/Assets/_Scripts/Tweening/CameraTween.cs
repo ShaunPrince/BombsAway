@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CameraTween : MonoBehaviour
 {
-    private float fadeTime = .5f;
+    private float fadeTime = 1f;
     private bool currentlyFading = false;   // to deal with fades in the middle of fades
     // Start is called before the first frame update
     void Start()

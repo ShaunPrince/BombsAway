@@ -18,8 +18,8 @@ public class AltitudeDisplay : MonoBehaviour
     private Flying playerFlyingComponent;
     private EAlts prevAltitude;
 
-    private float maxAlt = -480;    // bad , dont do this
-    private float minAlt = -1480;
+    private float maxAlt;
+    private float minAlt;
 
     private float heightDifference;
 
@@ -41,6 +41,8 @@ public class AltitudeDisplay : MonoBehaviour
         SetBulb(prevAltitude);
         // altSlider.value = playerFlightControls.GetDynamicAlt();
 
+        maxAlt = playerFlightControls.presetAlts[playerFlightControls.presetAlts.Length - 1];
+        minAlt = playerFlightControls.presetAlts[0];
         heightDifference = Mathf.Abs( Mathf.Abs(maxAlt) - Mathf.Abs(minAlt) );
     }
 
@@ -55,7 +57,7 @@ public class AltitudeDisplay : MonoBehaviour
         }
 
         // the altitude fluctuates too much, check within a range
-        if (playerFlyingComponent.desireAltitude - 2 > playerFlyingComponent.currentAltitude || playerFlyingComponent.currentAltitude > playerFlyingComponent.desireAltitude + 2)
+        if (playerFlyingComponent.desireAltitude - 2 > playerFlightControls.GetDynamicAlt() || playerFlightControls.GetDynamicAlt() > playerFlyingComponent.desireAltitude + 2)
         {
             SetAltitudeLiquid();
         }
@@ -70,7 +72,7 @@ public class AltitudeDisplay : MonoBehaviour
 
     private void SetAltitudeLiquid()
     {
-        float changedAmount = NormalizeHeight(playerFlyingComponent.currentAltitude);
+        float changedAmount = NormalizeHeight(playerFlightControls.GetDynamicAlt());
         //iTween.ValueTo(gameObject, iTween.Hash("from", prevAlt, "to", changedAmount,
         //                                        "time", .2f, "easetype", "linear",
         //                                        "onupdate", "ChangeAltHeight"));

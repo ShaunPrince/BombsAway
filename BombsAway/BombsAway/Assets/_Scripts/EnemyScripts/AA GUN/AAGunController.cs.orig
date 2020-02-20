@@ -41,11 +41,18 @@ public class AAGunController : MonoBehaviour
             case EAAGunState.ShootingLowAlt:
                 gunShooting.bulletsPerBurst = numBulletsOnLowAlt;
                 gunShooting.ShootBurst();
+                gunShooting.ShootMissle();
+                //Shoot Guns and missle
                 break;
 
             case EAAGunState.ShootingMedAlt:
+<<<<<<< HEAD
                 gunShooting.bulletsPerBurst = numBulletsOnLowAlt;
                 gunShooting.ShootBurst();
+=======
+                gunShooting.ShootMissle();
+                //Shoot Missles Only
+>>>>>>> ff4f47180293d5459a2d5d542d5a722f63f9a267
                 break;
         }
     }

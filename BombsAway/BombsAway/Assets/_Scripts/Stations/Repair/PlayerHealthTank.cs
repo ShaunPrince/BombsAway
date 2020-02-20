@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealthTank : MonoBehaviour
 {
     public GameObject healthTank;
-    public int normalizingNum;
+    public float normalizingNum;
     public Color[] healthColors;
     private PlayerDamageEntity player;
     private float maxHealth;
