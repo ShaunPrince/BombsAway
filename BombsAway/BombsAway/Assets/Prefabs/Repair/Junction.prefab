@@ -803,6 +803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   j: {fileID: 5415511738045520050}
+  connectedToHealthTank: 0
+  sourceConnection: {fileID: 0}
   connectedMaterial: {fileID: 2100000, guid: 54e128279cc7d664b95eecfc8ede6690, type: 2}
   disconnectedMaterial: {fileID: 2100000, guid: b4fe5f3591d57704d9d30f2736fa39fc,
     type: 2}

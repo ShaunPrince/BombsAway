@@ -24,12 +24,10 @@ public class AAGunController : MonoBehaviour
 
             case EAAGunState.ShootingLowAlt:
                 gunShooting.ShootBurst();
-                gunShooting.ShootMissle();
-                //Shoot Guns and missle
                 break;
 
             case EAAGunState.ShootingMedAlt:
-                gunShooting.ShootMissle();
+                gunShooting.ShootBurst();
                 //Shoot Missles Only
                 break;
         }

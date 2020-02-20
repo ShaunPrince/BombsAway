@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8144998864935630973}
   - component: {fileID: 2364214169781846959}
   - component: {fileID: 6142704278903701365}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allegiance: 1
   health: 20
+  isInvincible: 0
   objectType: 2
   pointValue: 10
 --- !u!114 &5776471580398767069
