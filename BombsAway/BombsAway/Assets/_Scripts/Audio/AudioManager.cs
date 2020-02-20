@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     public Sounds[] GettingHit;
     public Sounds[] RepairSounds;
     public static AudioManager instance;
-
+    private bool alarmPlaying;
     // Start is called before the first frame update
 
     void Awake()
@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
 
 
         }
-
+        alarmPlaying = false;
     }
 
 
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
         int alarm = 0;
         Sounds a = General[alarm];
         a.source.Play();
-
+        alarmPlaying = true;
     }
 
     public void PlayExplosion()
@@ -104,7 +104,8 @@ public class AudioManager : MonoBehaviour
         else if (name == "General")
         {
             s = General[i];
-            s.source.Play();
+            if (i == 0 && alarmPlaying)
+                s.source.Play();
         }
         else if (name == "RepairSounds")
         {

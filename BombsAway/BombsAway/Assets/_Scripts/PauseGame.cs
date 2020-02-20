@@ -9,11 +9,14 @@ public class PauseGame : MonoBehaviour
     public GameObject playerPlane;
     public GameObject controlsPage;
     public GameObject optionsPage;
+    public GameObject audioManagerObj;
 
     private bool gamePaused;
     private StationManager stationManager;
     private SelectWheel selectWheel;
     private bool showCursor;
+    private AudioManager audioManager;
+    private AudioSource[] ambiance;
 
     private CursorLockMode cursorLockState;
     // Start is called before the first frame update
@@ -22,6 +25,13 @@ public class PauseGame : MonoBehaviour
         gamePaused = false;
         stationManager = playerPlane.GetComponentInChildren<StationManager>();
         selectWheel = playerPlane.GetComponentInChildren<SelectWheel>();
+        int childSize = audioManagerObj.transform.childCount;
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
+        ambiance = new AudioSource[childSize];
+        for (int i = 0; i < childSize; ++i)
+        {
+            ambiance[i] = audioManagerObj.transform.GetChild(i).GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -40,8 +50,8 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 0.0f;
             gamePaused = true;
             pauseMenu.gameObject.SetActive(true);
-            //stationManager.gameObject.SetActive(false);
             SetStationControlActive(false);
+            ToggleAmbianceMsuic(false);
             selectWheel.gameObject.SetActive(false);
             showCursor = Cursor.visible;
             Cursor.visible = true;
@@ -53,8 +63,8 @@ public class PauseGame : MonoBehaviour
             gamePaused = false;
             DisableOtherMenus();
             pauseMenu.gameObject.SetActive(false);
-            //stationManager.gameObject.SetActive(true);
             SetStationControlActive(true);
+            ToggleAmbianceMsuic(true);
             selectWheel.gameObject.SetActive(true);
             Cursor.lockState = cursorLockState;
             Cursor.visible = showCursor;
@@ -102,5 +112,25 @@ public class PauseGame : MonoBehaviour
     {
         Station currentStation = StationManager.currentCenterStation;
         currentStation.controlScheme.SetActiveControl(isActive);
+    }
+
+    private void ToggleAmbianceMsuic(bool playMusic)
+    {
+        if (playMusic)
+        {
+            for (int i = 0; i < ambiance.Length; ++i)
+            {
+                ambiance[i].Play();
+            }
+            audioManager.Play("General", 0);
+        }
+        else
+        {
+            for (int i = 0; i < ambiance.Length; ++i)
+            {
+                ambiance[i].Stop();
+            }
+            audioManager.Stop("General", 0);
+        }
     }
 }
