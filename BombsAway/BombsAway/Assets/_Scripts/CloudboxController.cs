@@ -8,7 +8,7 @@ public class CloudboxController : MonoBehaviour
     private float[] densities = { 0.1f, 0.3f, .5f };
     private float[] speeds = { 0.5f, 0.8f, 1.2f };
 
-    private float changeOverTime = 5f;
+    private float changeOverTime = 10f;
     private EAlts prevAlt;
     private ESpeeds prevSpeed;
 
@@ -44,8 +44,8 @@ public class CloudboxController : MonoBehaviour
             if (player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting != prevSpeed)
             {
                 // figure out how to smooth this!
-                //UpdateCloudBoxSpeed((int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting);
-                UpdateSpeed(speeds[(int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting]);
+                UpdateCloudBoxSpeed((int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting);
+                //UpdateSpeed(speeds[(int)player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting]);
                 prevSpeed = player.GetComponentInChildren<PlayerFlightControls>().currentSpeedSetting;
             }
         }
