@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
     {
         int alarm = 0;
         Sounds a = General[alarm];
-        a.source.PlayOneShot(a.source.clip);
+        a.source.Play();
 
     }
 
