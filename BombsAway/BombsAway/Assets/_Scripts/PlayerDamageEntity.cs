@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerDamageEntity : DamageableEntity
 {
     public RepairSystemManager repSysMan;
+
+    private bool alarmPlaying = false;
     //public GameObject gameManager;
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
@@ -19,10 +21,10 @@ public class PlayerDamageEntity : DamageableEntity
             FindObjectOfType<AudioManager>().PlayGotHit();
 
 
-            if (health <= 50)
+            if (health <= 50 && !alarmPlaying)
             {
-                FindObjectOfType<AudioManager>().PlayAlarm();  //need to fix creating instances
- 
+                FindObjectOfType<AudioManager>().PlayAlarm();
+                alarmPlaying = true;
             }
             //Debug.Log(this + " Is taking damage");
             if (health <= 0)

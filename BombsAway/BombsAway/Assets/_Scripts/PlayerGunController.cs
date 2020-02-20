@@ -49,7 +49,7 @@ public class PlayerGunController : MonoBehaviour
             {
                 this.GetComponentInParent<Animator>().SetTrigger("RecoilGun");
                 this.GetComponentInParent<Animator>().SetTrigger("Boom");
-                GunShot.Play();
+                GunShot.PlayOneShot(GunShot.clip);
                 sg.FireGun();
                 gr.RecoilGun();
                 ammoCount--;
