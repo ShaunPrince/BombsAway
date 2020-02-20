@@ -9,8 +9,24 @@ public class AAGunController : MonoBehaviour
     public Transform target;
     public AAGunAiming aim;
 
+    public int numBulletsOnLowAlt;
+    public int numBulletsOnMedAlt;
+
+    public float radius;
+
+
+    private void Awake()
+    {
+        this.transform.GetChild(2).localScale = new Vector3 (radius * 2,8000,radius * 2);
+        this.transform.GetChild(2).rotation = Quaternion.identity;
+        this.transform.GetChild(3).localScale = new Vector3(radius * 2, 8000, radius * 2);
+        this.transform.GetChild(3).rotation = Quaternion.identity;
+    }
+
     private void Update()
     {
+        this.transform.GetChild(2).rotation = Quaternion.identity;
+        this.transform.GetChild(3).rotation = Quaternion.identity;
         Tick();
     }
 
@@ -23,12 +39,13 @@ public class AAGunController : MonoBehaviour
                 break;
 
             case EAAGunState.ShootingLowAlt:
+                gunShooting.bulletsPerBurst = numBulletsOnLowAlt;
                 gunShooting.ShootBurst();
                 break;
 
             case EAAGunState.ShootingMedAlt:
+                gunShooting.bulletsPerBurst = numBulletsOnLowAlt;
                 gunShooting.ShootBurst();
-                //Shoot Missles Only
                 break;
         }
     }

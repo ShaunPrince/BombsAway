@@ -13,12 +13,11 @@ public class AAGunShooting : MonoBehaviour
     private float timeSinceLastShot;
 
     public float timeBetweenMissles;
-    private float timeSinceLastMissle;
 
     private int bulletsFiredThisBurst;
 
     public EnemyFireWeapon gunFireWeapon;
-    public EnemyFireWeapon missleFireWeapon;
+
 
 
 
@@ -27,7 +26,6 @@ public class AAGunShooting : MonoBehaviour
     void Awake()
     {
         timeSinceLastBurst = 0f;
-        timeSinceLastMissle = 0f;
         timeSinceLastShot = 0f;
         bulletsFiredThisBurst = 0;
     }
@@ -41,7 +39,6 @@ public class AAGunShooting : MonoBehaviour
     private void UpdateShootingTimes()
     {
         timeSinceLastBurst += Time.deltaTime;
-        timeSinceLastMissle += Time.deltaTime;
         timeSinceLastShot += Time.deltaTime;
     }
 
@@ -66,16 +63,6 @@ public class AAGunShooting : MonoBehaviour
             }
         }
         
-    }
-
-    public void ShootMissle()
-    {
-        if (timeSinceLastMissle >= timeBetweenMissles)
-        {
-            timeSinceLastMissle= 0;
-            missleFireWeapon.FireMissile();
-
-        }
     }
 
     private void OnDrawGizmos()
