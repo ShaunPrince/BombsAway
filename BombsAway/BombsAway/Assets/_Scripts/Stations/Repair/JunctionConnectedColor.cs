@@ -8,6 +8,7 @@ public class JunctionConnectedColor : MonoBehaviour
     public bool connectedToHealthTank;
     public SourceConnectedColor sourceConnection;
     //public MaterialTweening tweener;
+    public float maxSteam;
     public Material connectedMaterial;
     public Material disconnectedMaterial;
     private bool currentlyConnected = false;
@@ -19,26 +20,38 @@ public class JunctionConnectedColor : MonoBehaviour
         {
             if (j.isConnectedToSource && !currentlyConnected)
             {
-                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                TweenAllJunctions(disconnectedMaterial, connectedMaterial);
                 currentlyConnected = true;
             }
             else if (!j.isConnectedToSource && currentlyConnected)
             {
-                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                TweenAllJunctions(connectedMaterial, disconnectedMaterial);
                 currentlyConnected = false;
             }
         }
         else if (connectedToHealthTank) {
             if (sourceConnection.AtLeastOneTankConnected() && !currentlyConnected)
             {
-                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+                TweenAllJunctions(disconnectedMaterial, connectedMaterial);
                 currentlyConnected = true;
             }
             else if (!sourceConnection.AtLeastOneTankConnected() && currentlyConnected)
             {
-                this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+                TweenAllJunctions(connectedMaterial, disconnectedMaterial);
                 currentlyConnected = false;
             }
+        }
+    }
+
+    private void TweenAllJunctions(Material startMat, Material endMat)
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<MaterialTweening>().MergeMaterial(startMat, endMat, .1f);
         }
     }
 }
