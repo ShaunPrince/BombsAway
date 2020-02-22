@@ -12,6 +12,8 @@ public class SpeedDisplay : MonoBehaviour
     private PlayerFlightControls playerFlightControls;
     private ESpeeds prevSpeed;
 
+    private HgihlightSpeed speedText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class SpeedDisplay : MonoBehaviour
 
         prevSpeed = playerFlightControls.currentSpeedSetting;
         SetSpeed(prevSpeed);
+
+        speedText = this.GetComponent<HgihlightSpeed>();
+        speedText.HighlightSpeed(prevSpeed);
     }
 
     // Update is called once per frame
@@ -28,6 +33,7 @@ public class SpeedDisplay : MonoBehaviour
         if (prevSpeed != playerFlightControls.currentSpeedSetting)
         {
             SetSpeed(playerFlightControls.currentSpeedSetting);
+            speedText.HighlightSpeed(playerFlightControls.currentSpeedSetting);
             prevSpeed = playerFlightControls.currentSpeedSetting;
         }
     }
