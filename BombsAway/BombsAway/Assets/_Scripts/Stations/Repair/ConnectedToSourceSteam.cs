@@ -24,7 +24,7 @@ public class ConnectedToSourceSteam : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         /*
             if (j.isConnectedToSource && !currentlyConnected)
@@ -39,24 +39,26 @@ public class ConnectedToSourceSteam : MonoBehaviour
                 currentlyConnected = false;
                 TweenAllJunctions(currentlyConnected);
             }*/
-        Debug.Log($"{this.gameObject.name} {j.isConnectedToSource}, {sourceConnection.AtLeastOneTankConnected()}, {currentlyConnected}");
-            if (j.isConnectedToSource && sourceConnection.AtLeastOneTankConnected() && !currentlyConnected)
-            {
-                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
-                currentlyConnected = false;
-                TweenAllJunctions(currentlyConnected);
-            }
-            else if (!j.isConnectedToSource && currentlyConnected)
-            {
-                //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
-                currentlyConnected = true;
-                TweenAllJunctions(currentlyConnected);
-            }
+        //Debug.Log($"{this.gameObject.name} {j.isConnectedToSource}, {sourceConnection.AtLeastOneTankConnected()}, {currentlyConnected}");
+        if (j.isConnectedToSource && !currentlyConnected)
+        {
+            //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
+            currentlyConnected = true;
+            TweenAllJunctions();
+                
+        }
+        else if (!j.isConnectedToSource && currentlyConnected)
+        {
+            //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
+            currentlyConnected = false;
+            TweenAllJunctions();
+                
+        }
     }
 
-    private void TweenAllJunctions(bool addSteam)
+    private void TweenAllJunctions()
     {
-        if (addSteam)
+        if (currentlyConnected)
         {
             foreach (Transform child in transform)
             {

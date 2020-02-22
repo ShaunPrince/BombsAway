@@ -18,6 +18,11 @@ public class TweenRotation : MonoBehaviour
         
     }
 
+    public void SetInitialRotation(float rotation)
+    {
+        prevRotation = rotation;
+    }
+
     public void SmoothRotate(float rotation)
     {
         // if in the middle of a rotation, increase the time

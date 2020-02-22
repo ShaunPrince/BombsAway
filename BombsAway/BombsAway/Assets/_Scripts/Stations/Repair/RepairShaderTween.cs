@@ -6,7 +6,7 @@ public class RepairShaderTween : MonoBehaviour
 {
     public GameObject partToTween;
 
-    private float fadeTime = .4f;
+    private float fadeTime = .9f;
     private float maxSteam;
     private float prevDensity;
     // Start is called before the first frame update

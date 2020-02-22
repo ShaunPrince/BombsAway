@@ -6,36 +6,40 @@ public class Junction : MonoBehaviour
 {
     public bool isConnectedToSource;
     public HashSet<Junction> connectedTo;
-    public float rotationSpeed;
-    public float desiredRotation;
-    //public float currentRotation;
-    private int rotationIndex;
-    private float[] cwRotationsArray = { 360f, 90f, 180f, 270f };
-    private float[] ccwRotationsArray = { 0f, 90f, 180f, 270f };
+    public GameObject models;
+    //public float rotationSpeed;
+    //public float desiredRotation;
+    public float currentRotation;
+    //private int rotationIndex;
+    //private float[] cwRotationsArray = { 360f, 90f, 180f, 270f };
+   // private float[] ccwRotationsArray = { 0f, 90f, 180f, 270f };
 
-    private bool clockwise = true;
+    //private bool clockwise = true;
 
     // Start is called before the first frame update
     void Awake()
     {
         connectedTo = new HashSet<Junction>();
 
+        /*
         for (int i = 0; i < cwRotationsArray.Length; i++)
         {
             if (Mathf.Approximately(this.transform.localRotation.eulerAngles.z, cwRotationsArray[i])) {
                 rotationIndex = i;
             }
-        }
+        }*/
+        currentRotation = this.transform.localRotation.eulerAngles.z;
+        if (models != null) models.GetComponent<TweenRotation>().SetInitialRotation(currentRotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Junction j in connectedTo)
-        {
+        //foreach (Junction j in connectedTo)
+        //{
             //Debug.Log(this.gameObject.name + " connects to " + j.gameObject.name);
-        }
-        //currentRotation = this.transform.localRotation.eulerAngles.z;
+        //}
+        currentRotation = this.transform.localRotation.eulerAngles.z;
 
 
     }
@@ -82,30 +86,31 @@ public class Junction : MonoBehaviour
     
     public void RotateCCW()
     {
-        /*
+        float rotation = (currentRotation - 90) % 360;
         this.gameObject.GetComponent<Rigidbody>().
             MoveRotation(Quaternion.Euler(
-                0, 0, (currentRotation + 90) % 360));//Mathf.Sign(desiredRotation - currentRotation)
-        */                                          //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+                0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
 
-        SetRotationIndex(!clockwise);
+        //SetRotationIndex(!clockwise);
         // lerp the rotation
-        this.GetComponent<TweenRotation>().SmoothRotate(ccwRotationsArray[rotationIndex]);
+        models.GetComponent<TweenRotation>().SmoothRotate(rotation);
     }
 
     public void RotateCW()
     {
-        /*
+        float rotation = (currentRotation + 90) % 360;
         this.gameObject.GetComponent<Rigidbody>().
             MoveRotation(Quaternion.Euler(
-                0, 0, (currentRotation - 90) % 360 ));//Mathf.Sign(desiredRotation - currentRotation)
-        */                                           //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+                0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                                      //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
 
-        SetRotationIndex(clockwise);
+        //SetRotationIndex(clockwise);
         // lerp the rotation
-        this.GetComponent<TweenRotation>().SmoothRotate(cwRotationsArray[rotationIndex]);
+        models.GetComponent<TweenRotation>().SmoothRotate(rotation);
     }
 
+    /*
     private void SetRotationIndex(bool clockwise)
     {
         if (clockwise)
@@ -130,5 +135,5 @@ public class Junction : MonoBehaviour
                 rotationIndex -= 1;
             }
         }
-    }
+    }*/
 }
