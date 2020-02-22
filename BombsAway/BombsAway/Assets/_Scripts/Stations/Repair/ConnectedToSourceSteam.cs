@@ -21,6 +21,7 @@ public class ConnectedToSourceSteam : MonoBehaviour
                 child.GetComponent<RepairShaderTween>().SetDensityAndSteam(maxSteam, 0f);
             }
         }
+
     }
 
     // Update is called once per frame
@@ -54,6 +55,10 @@ public class ConnectedToSourceSteam : MonoBehaviour
             TweenAllJunctions();
                 
         }
+        else if (!j.isConnectedToSource && !currentlyConnected)
+        {
+            ShutOffDensity();
+        }
     }
 
     private void TweenAllJunctions()
@@ -75,5 +80,19 @@ public class ConnectedToSourceSteam : MonoBehaviour
             }
         }
 
+    }
+
+    private void ShutOffDensity()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<RepairShaderTween>())
+            {
+                if (child.GetComponent<RepairShaderTween>().SteamTurnedOff())
+                {
+                    child.GetComponent<RepairShaderTween>().TurnOffDensity();
+                }
+            }
+        }
     }
 }

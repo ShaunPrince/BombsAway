@@ -19,6 +19,15 @@ public class RepairShaderTween : MonoBehaviour
     {
         maxSteam = max;
         prevDensity = initial;
+        LerpSteam(prevDensity);
+        if (prevDensity > 0)
+        {
+
+        }
+        else
+        {
+            TurnOffDensity();
+        }
     }
 
     public void AddSteam()
@@ -35,15 +44,18 @@ public class RepairShaderTween : MonoBehaviour
         iTween.ValueTo(gameObject, iTween.Hash(
             "from", prevDensity, "to", 0f,
             "time", fadeTime, "easetype", "linear",
-            "onupdate", "LerpSteam", "onComplete", "TurnOffDensity"));
+            "onupdate", "LerpSteam"));
     }
 
-    private void TurnOffDensity()
+    public void TurnOffDensity()
     {
-        iTween.ValueTo(gameObject, iTween.Hash(
-            "from", 1f, "to", 0f,
-            "time", fadeTime, "easetype", "linear",
-            "onupdate", "LerpDensity"));
+        LerpDensity(0f);
+    }
+
+    public bool SteamTurnedOff()
+    {
+        if (Mathf.Approximately(prevDensity, 0f)) return true;
+        else return false;
     }
 
     private void LerpSteam(float amount)
