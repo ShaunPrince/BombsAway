@@ -48,6 +48,7 @@ MonoBehaviour:
   playerPlane: {fileID: 0}
   controlsPage: {fileID: 0}
   optionsPage: {fileID: 0}
+  audioManagerObj: {fileID: 0}
 --- !u!114 &3938501037916881934
 MonoBehaviour:
   m_ObjectHideFlags: 0
