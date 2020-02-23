@@ -10,10 +10,13 @@ public class ConnectedToSourceSteam : MonoBehaviour
     //public MaterialTweening tweener;
     public float maxSteam;
     public bool currentlyConnected = false;
+    public PipeRotations allPipes;
+    private bool steamAdded = false;
 
     private void Start()
     {
         j = this.GetComponent<Junction>();
+        //allPipes = this.GetComponentInParent<PipeRotations>();
         foreach (Transform child in transform)
         {
             if (child.GetComponent<RepairShaderTween>())
@@ -45,14 +48,18 @@ public class ConnectedToSourceSteam : MonoBehaviour
         {
             //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(disconnectedMaterial, connectedMaterial, .1f);
             currentlyConnected = true;
-            TweenAllJunctions();
-                
+            steamAdded = false;
+        }
+        else if (j.isConnectedToSource && currentlyConnected)
+        {
+            AddSteam();
         }
         else if (!j.isConnectedToSource && currentlyConnected)
         {
             //this.GetComponent<MaterialTweening>().MergeMultipleMaterial(connectedMaterial, disconnectedMaterial, .1f);
             currentlyConnected = false;
-            TweenAllJunctions();
+            steamAdded = false;
+            ReleaseSteam();
                 
         }
         else if (!j.isConnectedToSource && !currentlyConnected)
@@ -61,25 +68,27 @@ public class ConnectedToSourceSteam : MonoBehaviour
         }
     }
 
-    private void TweenAllJunctions()
+    private void AddSteam()
     {
-        if (currentlyConnected)
-        {
-            foreach (Transform child in transform)
+            // no piece can be rotating
+            if (!allPipes.IsAnyPipeRotating() && !steamAdded)
             {
-                if (child.GetComponent<RepairShaderTween>())
-                    child.GetComponent<RepairShaderTween>().AddSteam();
+                foreach (Transform child in transform)
+                {
+                    if (child.GetComponent<RepairShaderTween>())
+                        child.GetComponent<RepairShaderTween>().AddSteam();
+                }
+                steamAdded = true;
             }
-        }
-        else
-        {
-            foreach (Transform child in transform)
-            {
-                if (child.GetComponent<RepairShaderTween>())
-                    child.GetComponent<RepairShaderTween>().ReleaseSteam();
-            }
-        }
+    }
 
+    private void ReleaseSteam()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<RepairShaderTween>())
+                child.GetComponent<RepairShaderTween>().ReleaseSteam();
+        }
     }
 
     private void ShutOffDensity()

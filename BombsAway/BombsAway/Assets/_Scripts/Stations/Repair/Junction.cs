@@ -10,6 +10,8 @@ public class Junction : MonoBehaviour
     //public float rotationSpeed;
     //public float desiredRotation;
     public float currentRotation;
+
+    private bool currentlyRotating = false;
     //private int rotationIndex;
     //private float[] cwRotationsArray = { 360f, 90f, 180f, 270f };
    // private float[] ccwRotationsArray = { 0f, 90f, 180f, 270f };
@@ -86,28 +88,36 @@ public class Junction : MonoBehaviour
     
     public void RotateCCW()
     {
-        float rotation = (currentRotation - 90) % 360;
-        this.gameObject.GetComponent<Rigidbody>().
-            MoveRotation(Quaternion.Euler(
-                0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
-                                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+        if (!models.GetComponent<TweenRotation>().IsRotating())
+        {
+            float rotation = (currentRotation - 90) % 360;
+            this.gameObject.GetComponent<Rigidbody>().
+                MoveRotation(Quaternion.Euler(
+                    0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
 
-        //SetRotationIndex(!clockwise);
-        // lerp the rotation
-        models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            //SetRotationIndex(!clockwise);
+            // lerp the rotation
+            models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            currentlyRotating = true;
+        }
     }
 
     public void RotateCW()
     {
-        float rotation = (currentRotation + 90) % 360;
-        this.gameObject.GetComponent<Rigidbody>().
-            MoveRotation(Quaternion.Euler(
-                0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
-                                                      //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+        if (!models.GetComponent<TweenRotation>().IsRotating())
+        {
+            float rotation = (currentRotation + 90) % 360;
+            this.gameObject.GetComponent<Rigidbody>().
+                MoveRotation(Quaternion.Euler(
+                    0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
 
-        //SetRotationIndex(clockwise);
-        // lerp the rotation
-        models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            //SetRotationIndex(clockwise);
+            // lerp the rotation
+            models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            currentlyRotating = true;
+        }
     }
 
     /*
