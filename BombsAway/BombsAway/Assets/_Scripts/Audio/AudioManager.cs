@@ -91,6 +91,12 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void PlayShortClank()
+    {
+        int clank = 2;
+        Sounds a = General[clank];
+        a.source.PlayOneShot(a.source.clip);
+    }
 
     //doesnt work.need to fix then delete the top functions
     public void Play(string name, int i)
