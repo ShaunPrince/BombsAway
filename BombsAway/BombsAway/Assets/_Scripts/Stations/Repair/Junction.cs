@@ -6,22 +6,41 @@ public class Junction : MonoBehaviour
 {
     public bool isConnectedToSource;
     public HashSet<Junction> connectedTo;
-    public float rotationSpeed;
-    public float desiredRotation;
+    public GameObject models;
+    //public float rotationSpeed;
+    //public float desiredRotation;
     public float currentRotation;
+
+    private bool currentlyRotating = false;
+    //private int rotationIndex;
+    //private float[] cwRotationsArray = { 360f, 90f, 180f, 270f };
+   // private float[] ccwRotationsArray = { 0f, 90f, 180f, 270f };
+
+    //private bool clockwise = true;
+
     // Start is called before the first frame update
     void Awake()
     {
         connectedTo = new HashSet<Junction>();
+
+        /*
+        for (int i = 0; i < cwRotationsArray.Length; i++)
+        {
+            if (Mathf.Approximately(this.transform.localRotation.eulerAngles.z, cwRotationsArray[i])) {
+                rotationIndex = i;
+            }
+        }*/
+        currentRotation = this.transform.localRotation.eulerAngles.z;
+        if (models != null) models.GetComponent<TweenRotation>().SetInitialRotation(currentRotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Junction j in connectedTo)
-        {
+        //foreach (Junction j in connectedTo)
+        //{
             //Debug.Log(this.gameObject.name + " connects to " + j.gameObject.name);
-        }
+        //}
         currentRotation = this.transform.localRotation.eulerAngles.z;
 
 
@@ -69,17 +88,62 @@ public class Junction : MonoBehaviour
     
     public void RotateCCW()
     {
-        this.gameObject.GetComponent<Rigidbody>().
-            MoveRotation(Quaternion.Euler(
-                0, 0, (currentRotation + 90) % 360));//Mathf.Sign(desiredRotation - currentRotation)
-                    //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+        if (!models.GetComponent<TweenRotation>().IsRotating())
+        {
+            float rotation = (currentRotation - 90) % 360;
+            this.gameObject.GetComponent<Rigidbody>().
+                MoveRotation(Quaternion.Euler(
+                    0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+
+            //SetRotationIndex(!clockwise);
+            // lerp the rotation
+            models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            currentlyRotating = true;
+        }
     }
 
     public void RotateCW()
     {
-        this.gameObject.GetComponent<Rigidbody>().
-            MoveRotation(Quaternion.Euler(
-                0, 0, (currentRotation - 90) % 360 ));//Mathf.Sign(desiredRotation - currentRotation)
-                                             //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+        if (!models.GetComponent<TweenRotation>().IsRotating())
+        {
+            float rotation = (currentRotation + 90) % 360;
+            this.gameObject.GetComponent<Rigidbody>().
+                MoveRotation(Quaternion.Euler(
+                    0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
+                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+
+            //SetRotationIndex(clockwise);
+            // lerp the rotation
+            models.GetComponent<TweenRotation>().SmoothRotate(rotation);
+            currentlyRotating = true;
+        }
     }
+
+    /*
+    private void SetRotationIndex(bool clockwise)
+    {
+        if (clockwise)
+        {
+            if (rotationIndex + 1 > cwRotationsArray.Length-1)
+            {
+                rotationIndex = 0;
+            }
+            else
+            {
+                rotationIndex += 1;
+            }
+        }
+        else
+        {
+            if (rotationIndex - 1 < 0)
+            {
+                rotationIndex = cwRotationsArray.Length - 1;
+            }
+            else
+            {
+                rotationIndex -= 1;
+            }
+        }
+    }*/
 }
