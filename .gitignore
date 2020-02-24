@@ -35,10 +35,3 @@ sysinfo.txt
 *.apk
 *.unitypackage
 BombsAway/BombsAway/Assets/_Scripts/EnemyScripts/AA GUN/AAGunController.cs.orig.meta
-BombsAway/BombsAway/Assets/_Scripts/Art.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/2D.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/3D.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/RenderTextures.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/2D/Placeholder.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/2D/Textures.meta
-BombsAway/BombsAway/Assets/_Scripts/Art/2D/UI.meta
