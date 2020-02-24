@@ -11,10 +11,13 @@ public class PlayerHealthTank : MonoBehaviour
     private float maxHealth;
     private float prevHealth;
     private Color prevColor;
+
+    private HealthTankLights tankLights;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("PlayerPlane").GetComponent<PlayerDamageEntity>();
+        tankLights = this.GetComponent<HealthTankLights>();
         prevHealth = player.health;
         maxHealth = prevHealth;
         prevColor = healthColors[0];
@@ -46,6 +49,7 @@ public class PlayerHealthTank : MonoBehaviour
         // green
         if (player.health > maxHealth/3 * 2)
         {
+            tankLights.SetTankLightMaterial(0);
             iTween.ValueTo(gameObject, iTween.Hash("from", prevColor, "to", healthColors[0],
                                                     "time", time, "easetype", "linear",
                                                     "onupdate", "ChangeColor"));
@@ -53,6 +57,7 @@ public class PlayerHealthTank : MonoBehaviour
         // yellow
         else if (player.health > maxHealth / 3 )
         {
+            tankLights.SetTankLightMaterial(1);
             iTween.ValueTo(gameObject, iTween.Hash("from", prevColor, "to", healthColors[1],
                                                     "time", time, "easetype", "linear",
                                                     "onupdate", "ChangeColor"));
@@ -60,6 +65,7 @@ public class PlayerHealthTank : MonoBehaviour
         // red
         else
         {
+            tankLights.SetTankLightMaterial(2);
             iTween.ValueTo(gameObject, iTween.Hash("from", prevColor, "to", healthColors[2],
                                                     "time", time, "easetype", "linear",
                                                     "onupdate", "ChangeColor"));
