@@ -232,14 +232,14 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: 302a97ea4b4ff3f44b4c6c94f1ab2140, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: f24456dbf9ba453429c628105757ee08, type: 2}
     volume: 0.276
     pitch: 0
     priority: 0
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: faf3a0bf09b1f8a4e852971882828d6b, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 24300002, guid: f24456dbf9ba453429c628105757ee08, type: 2}
     volume: 0.32
     pitch: 0
     priority: 0

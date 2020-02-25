@@ -14,7 +14,7 @@ public class SetVolume : MonoBehaviour
 
     private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
+        slider.value = PlayerPrefs.GetFloat("MasterVolume", 0.1f);
         currentSliderVal = slider.value;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
@@ -35,14 +35,13 @@ public class SetVolume : MonoBehaviour
     public void SetLevel()
     {
         float sliderValue = slider.value;
-        Debug.Log(Mathf.Log10(sliderValue));
         if (sliderValue > 0)
         {
-            mixer.SetFloat("MasterSound", Mathf.Log10(sliderValue) * 60);
+            mixer.SetFloat("MasterSound", Mathf.Log(sliderValue) * 20);
         }
         else
         {
-            mixer.SetFloat("MasterSound", -80.0f);
+            mixer.SetFloat("MasterSound", Mathf.Log(0.001f) * 20);
         }
         PlayerPrefs.SetFloat("MasterVolume", sliderValue);
     }
