@@ -6,7 +6,9 @@ public class Junction : MonoBehaviour
 {
     public bool isConnectedToSource;
     public HashSet<Junction> connectedTo;
+    //public List<Junction> connectedTo;
     public GameObject models;
+    public HashSet<Collider> colConTo;
     //public float rotationSpeed;
     //public float desiredRotation;
     public float currentRotation;
@@ -22,7 +24,7 @@ public class Junction : MonoBehaviour
     void Awake()
     {
         connectedTo = new HashSet<Junction>();
-
+        //connectedTo = new List<Junction>();
         /*
         for (int i = 0; i < cwRotationsArray.Length; i++)
         {
@@ -37,6 +39,7 @@ public class Junction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.GetComponent<Rigidbody>().WakeUp();
         //foreach (Junction j in connectedTo)
         //{
             //Debug.Log(this.gameObject.name + " connects to " + j.gameObject.name);
@@ -46,26 +49,31 @@ public class Junction : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Junction newConnected = other.gameObject.GetComponentInParent<Junction>();
-        if (newConnected != null)
-        {
-            connectedTo.Add(newConnected);
-        }
-    }
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("OTX");
         Junction juncToDisconnect = other.gameObject.GetComponentInParent<Junction>();
         if (juncToDisconnect != null && connectedTo.Contains(juncToDisconnect))
         {
             connectedTo.Remove(juncToDisconnect);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        Junction newConnected = other.gameObject.GetComponentInParent<Junction>();
+        if (newConnected != null && !connectedTo.Contains(newConnected))
+        {
+            connectedTo.Add(newConnected);
+        }
+    }
+
+
 
     public void SetAndForwardSourceConnection()
     {
+
+        
         this.isConnectedToSource = true;
         foreach (Junction j in connectedTo)
         {
@@ -91,10 +99,10 @@ public class Junction : MonoBehaviour
         if (!models.GetComponent<TweenRotation>().IsRotating())
         {
             float rotation = (currentRotation - 90) % 360;
+
             this.gameObject.GetComponent<Rigidbody>().
                 MoveRotation(Quaternion.Euler(
-                    0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
-                                     //*  this.transform.rotation.eulerAngles.z - rotationSpeed * Time.deltaTime));
+                    0, 0, rotation));
 
             //SetRotationIndex(!clockwise);
             // lerp the rotation

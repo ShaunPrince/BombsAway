@@ -6,6 +6,7 @@ public class SourceJunction : MonoBehaviour
 {
     public HashSet<Junction> allJunctions;
     public HashSet<Junction> connectedJunctions;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,15 +20,7 @@ public class SourceJunction : MonoBehaviour
     {
         UnsetAllJunctions();
         ConnectToSource();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Junction newConnected = other.gameObject.GetComponentInParent<Junction>();
-        if (newConnected != null)
-        {
-            connectedJunctions.Add(newConnected);
-        }
+        //Debug.Log(connectedJunctions.Count);
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,6 +31,17 @@ public class SourceJunction : MonoBehaviour
             connectedJunctions.Remove(juncToDisconnect);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Junction newConnected = other.gameObject.GetComponentInParent<Junction>();
+        if (newConnected != null && !connectedJunctions.Contains(newConnected))
+        {
+            connectedJunctions.Add(newConnected);
+        }
+    }
+
+
 
     private void FindAllJunctions()
     {

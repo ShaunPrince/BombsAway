@@ -45,10 +45,10 @@ TagManager:
   - ENEMY Non_Intercolliding Missiles
   - 
   - MapElements
-  - RepairStation
+  - RepairStationZones
   - RadarBeam
   - EnemyRadarNode
-  - 
+  - RepairStationNodes
   - BombScope
   - Explosion
   - MainUI

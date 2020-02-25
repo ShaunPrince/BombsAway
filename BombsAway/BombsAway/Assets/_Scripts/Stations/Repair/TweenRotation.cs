@@ -5,7 +5,7 @@ using UnityEngine;
 public class TweenRotation : MonoBehaviour
 {
     private float prevRotation;
-    private float updateTime = 1f;
+    private float updateTime = .25f;
 
     private bool currentlyRotating = false;
     // Start is called before the first frame update
