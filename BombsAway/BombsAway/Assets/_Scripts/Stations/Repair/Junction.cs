@@ -124,7 +124,7 @@ public class Junction : MonoBehaviour
         {
             currentlyRotating = true;
             float rotation = (currentRotation + 90);
-            Debug.Log(rotation);
+            //Debug.Log(rotation);
             this.gameObject.GetComponent<Rigidbody>().
                 MoveRotation(Quaternion.Euler(
                     0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
