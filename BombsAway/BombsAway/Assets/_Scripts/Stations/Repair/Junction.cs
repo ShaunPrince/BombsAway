@@ -42,9 +42,15 @@ public class Junction : MonoBehaviour
         this.GetComponent<Rigidbody>().WakeUp();
         //foreach (Junction j in connectedTo)
         //{
-            //Debug.Log(this.gameObject.name + " connects to " + j.gameObject.name);
+        //Debug.Log(this.gameObject.name + " connects to " + j.gameObject.name);
         //}
         currentRotation = this.transform.localRotation.eulerAngles.z;
+        //currentRotation = (this.transform.localRotation.eulerAngles.z + 360) % 360;
+        //if ( ((int) currentRotation + 360) % 360 == 0 && models != null && !models.GetComponent<TweenRotation>().IsRotating())
+        //{
+        //    this.transform.localRotation = Quaternion.Euler( Vector3.zero);
+        //    currentRotation = this.transform.localRotation.eulerAngles.z;
+        //}
 
 
     }
@@ -52,7 +58,7 @@ public class Junction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("OTX");
+
         Junction juncToDisconnect = other.gameObject.GetComponentInParent<Junction>();
         if (juncToDisconnect != null && connectedTo.Contains(juncToDisconnect))
         {
@@ -98,8 +104,9 @@ public class Junction : MonoBehaviour
     {
         if (!models.GetComponent<TweenRotation>().IsRotating())
         {
-            float rotation = (currentRotation - 90) % 360;
-
+            currentlyRotating = true;
+            float rotation = (currentRotation - 90);
+            Debug.Log("CCW " + rotation);
             this.gameObject.GetComponent<Rigidbody>().
                 MoveRotation(Quaternion.Euler(
                     0, 0, rotation));
@@ -107,7 +114,7 @@ public class Junction : MonoBehaviour
             //SetRotationIndex(!clockwise);
             // lerp the rotation
             models.GetComponent<TweenRotation>().SmoothRotate(rotation);
-            currentlyRotating = true;
+
         }
     }
 
@@ -115,7 +122,9 @@ public class Junction : MonoBehaviour
     {
         if (!models.GetComponent<TweenRotation>().IsRotating())
         {
-            float rotation = (currentRotation + 90) % 360;
+            currentlyRotating = true;
+            float rotation = (currentRotation + 90);
+            Debug.Log(rotation);
             this.gameObject.GetComponent<Rigidbody>().
                 MoveRotation(Quaternion.Euler(
                     0, 0, rotation));//Mathf.Sign(desiredRotation - currentRotation)
@@ -124,7 +133,6 @@ public class Junction : MonoBehaviour
             //SetRotationIndex(clockwise);
             // lerp the rotation
             models.GetComponent<TweenRotation>().SmoothRotate(rotation);
-            currentlyRotating = true;
         }
     }
 

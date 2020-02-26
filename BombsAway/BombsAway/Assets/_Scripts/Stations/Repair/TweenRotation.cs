@@ -33,6 +33,7 @@ public class TweenRotation : MonoBehaviour
     public void SmoothRotate(float rotation)
     {
         currentlyRotating = true;
+        prevRotation = this.gameObject.GetComponent<Rigidbody>().rotation.eulerAngles.z;
         // if in the middle of a rotation, increase the time
         //if (Mathf.Abs(prevRotation-rotation) > 90) 
         iTween.ValueTo(this.gameObject, iTween.Hash(
