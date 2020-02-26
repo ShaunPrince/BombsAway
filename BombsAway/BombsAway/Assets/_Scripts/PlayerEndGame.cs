@@ -86,6 +86,8 @@ public class PlayerEndGame : MonoBehaviour
         endGameCanvas.transform.Find("Score Text").GetComponent<TMP_Text>().text = "Score: " + MissionManager.playerScore;
 
         // spin the death cam around player
+        // deparent the death cam so it does not continue to "move with player"
+        endGameCamObject.transform.parent = null;
         endGameCamObject.SetActive(true);
         iTween.RotateBy(endGameCamObject, iTween.Hash("amount", new Vector3(0, 1, 0),
                                                     "time", 50f, "easetype", "linear",
