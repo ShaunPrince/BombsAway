@@ -12,6 +12,7 @@ public class PlayerEndGame : MonoBehaviour
     public GameObject canvasToDisable;
     public GameObject selectionWheelToDisable;
     private GameObject player;
+    private GameObject bombBay;
 
     private bool gameEnded = false;
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class PlayerEndGame : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("PlayerPlane");
+        bombBay = GameObject.FindWithTag("BombBayStation");
         endGameCamObject.SetActive(false);
     }
 
@@ -98,6 +100,12 @@ public class PlayerEndGame : MonoBehaviour
         Transform models = player.transform.Find("Models");
         models.GetComponent<CapsuleCollider>().enabled = false;
         models.GetComponent<BoxCollider>().enabled = false;
+
+        // hide bombs
+        foreach (Transform child in bombBay.transform)
+        {
+            if (child.name == "Bomb(Clone)") child.gameObject.SetActive(false);
+        }
 
         // tween from main camera to new death cam
         //deathTexture.SetActive(true);

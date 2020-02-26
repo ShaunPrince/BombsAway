@@ -17,10 +17,13 @@ public class EnemyShootMissile : MonoBehaviour
     private bool playerWithinRange = false;
     private DamegableEnemy enemyEntity;
 
+    private PlayerDamageEntity player;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyEntity = this.GetComponent<DamegableEnemy>();
+        player = GameObject.Find("PlayerPlane").GetComponent<PlayerDamageEntity>();
 
         for (int i = 0; i < enemyMissiles.Length; i++)
         {
@@ -50,9 +53,13 @@ public class EnemyShootMissile : MonoBehaviour
             {
                 timeSinceShot = 0.0f;
                 //Debug.Log($"Aiming and shooting");
-                AimGunAtPlayer();
-                Shoot();
-                enemyMissiles[GetGunIndexFromPosition()].SetReloading(true);
+                // do not shoot if player dead
+                if (player.health > 0)
+                {
+                    AimGunAtPlayer();
+                    Shoot();
+                    enemyMissiles[GetGunIndexFromPosition()].SetReloading(true);
+                }
             }
         }
     }

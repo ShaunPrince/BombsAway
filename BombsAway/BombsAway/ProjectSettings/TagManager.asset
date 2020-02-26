@@ -23,6 +23,7 @@ TagManager:
   - BuildingSpawner
   - BulletTransformStorage
   - Water
+  - Missile
   layers:
   - Default
   - TransparentFX
