@@ -31,6 +31,17 @@ public class RotationZTween : MonoBehaviour
 
     }
 
+    public void TweenRotation(float toRotation, float time)
+    {
+        Flying player = GameObject.FindWithTag("PilotStation").GetComponent<Flying>();
+        changeTime = Mathf.Abs(player.currentForwardSpeed - player.desiredForwardSpeed) / player.forwardAcceleration;
+
+        iTween.ValueTo(this.gameObject, iTween.Hash("from", prevRotation, "to", toRotation,
+                                                     "time", time, "easeType", "linear",
+                                                     "onupdate", "RotateZ"));
+
+    }
+
     private void RotateZ(float amount)
     {
         Quaternion rotation = this.transform.localRotation;
