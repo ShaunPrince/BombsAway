@@ -98,7 +98,10 @@ public class MaterialTweening : MonoBehaviour
 
     public void TriggerFlicker()
     {
-        this.GetComponent<TankStatusColor>().ResetPrevFillLevel();
+        if (this.GetComponent<TankConnectedColor>())
+            this.GetComponent<TankStatusColor>().ResetPrevFillLevel();
+        else if (this.GetComponent<HealthTankLights>())
+            this.GetComponent<HealthTankLights>().SetTankLightMaterial(3);
     }
 
     public void PingPongMaterial(Material startMat, Material endMat, float time)
