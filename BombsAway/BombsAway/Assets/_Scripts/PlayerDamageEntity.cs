@@ -37,6 +37,7 @@ public class PlayerDamageEntity : DamageableEntity
 
     private void Die()
     {
+        Debug.Log("END GAME: Player died, ran out of health");
         // Show player dying
         this.GetComponent<PlayerEndGame>().ShowPlayerDying();
 

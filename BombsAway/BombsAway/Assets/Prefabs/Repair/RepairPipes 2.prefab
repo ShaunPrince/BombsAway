@@ -2464,7 +2464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthTank: {fileID: 1896752371447488586}
-  normalizingNum: 2.8
+  normalizingMax: 3
+  normalizingMin: -5.5
   healthColors:
   - {r: 0.07058824, g: 0.654902, b: 0.1882353, a: 0}
   - {r: 0.7921569, g: 0.56078434, b: 0, a: 0}

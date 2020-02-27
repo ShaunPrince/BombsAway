@@ -16,6 +16,7 @@ public class PlayerVictory : MonoBehaviour
     {
         if (MissionManager.HasPlayerWon() && !gameEnded)
         {
+            Debug.Log("END GAME: Player won, bombed all buidlings");
             // Trigger end game cam and show player
             // make player invinsible so that they can no longer win
             this.GetComponent<PlayerEndGame>().ShowPlayerWinning();
@@ -23,12 +24,14 @@ public class PlayerVictory : MonoBehaviour
         }
         else if (this.GetComponent<BombToTargetCount>().NoMoreBombsButStillTargets() && !gameEnded)
         {
+            Debug.Log("END GAME: Player ran out of bombs");
             // display warning that out of bombs
             this.GetComponent<PlayerEndGame>().ShowPlayerRanOutOfBombs();
             gameEnded = true;
         }
         else if (GameObject.FindWithTag("PlayerUIandCamera").GetComponent<PlayerOutOfBoundsUI>().playerOutOfBoundsForTooLong && !gameEnded)
         {
+            Debug.Log("END GAME: Player went out of bounds");
             this.GetComponent<PlayerEndGame>().ShowPlayerDesertedMission();
             gameEnded = true;
         }
