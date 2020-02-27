@@ -18,6 +18,7 @@ public class EndGameCleanup : MonoBehaviour
         if (player.health <= 0)
         {
             MissileCleanUp();
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
