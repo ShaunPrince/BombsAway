@@ -21,6 +21,11 @@ public class EndGameCleanup : MonoBehaviour
         }
     }
 
+    private void MouseUnlock()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     private void MissileCleanUp()
     {
         // find all bombs and explode them

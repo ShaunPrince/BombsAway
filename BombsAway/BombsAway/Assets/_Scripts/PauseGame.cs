@@ -9,7 +9,7 @@ public class PauseGame : MonoBehaviour
     public GameObject playerPlane;
     public GameObject controlsPage;
     public GameObject optionsPage;
-    public GameObject audioManagerObj;
+    //public GameObject audioManagerObj;
 
     private bool gamePaused;
     private StationManager stationManager;
@@ -25,6 +25,7 @@ public class PauseGame : MonoBehaviour
         gamePaused = false;
         stationManager = playerPlane.GetComponentInChildren<StationManager>();
         selectWheel = playerPlane.GetComponentInChildren<SelectWheel>();
+        GameObject audioManagerObj = GameObject.Find("AudioManager");
         int childSize = audioManagerObj.transform.childCount;
         audioManager = audioManagerObj.GetComponent<AudioManager>();
         ambiance = new AudioSource[childSize];

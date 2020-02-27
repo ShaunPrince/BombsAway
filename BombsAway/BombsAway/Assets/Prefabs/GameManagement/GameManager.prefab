@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2267326891866786152}
   - component: {fileID: 2267326891866786155}
   - component: {fileID: 3938501037916881934}
+  - component: {fileID: 683491535}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -65,3 +66,15 @@ MonoBehaviour:
   leftGunStationControls: {fileID: 0}
   rightGunStationControls: {fileID: 0}
   tailGunStationControls: {fileID: 0}
+--- !u!114 &683491535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267326891866786157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0a753a53ab75d47b2c2cdb23323283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
