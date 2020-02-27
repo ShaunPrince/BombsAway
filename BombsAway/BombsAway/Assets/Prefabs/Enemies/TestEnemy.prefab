@@ -7578,11 +7578,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Gun
       objectReference: {fileID: 0}
-    - target: {fileID: 5999684139595034086, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: projectileSpeed
-      value: 750
-      objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7637,16 +7632,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425415802422240305, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425415802422240305, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181bf8520130c78458ecbae85842ab0a, type: 3}

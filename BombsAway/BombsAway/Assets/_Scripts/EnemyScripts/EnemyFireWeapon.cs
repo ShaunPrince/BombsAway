@@ -18,7 +18,7 @@ public class EnemyFireWeapon : ShootGun
         newProjectile.layer = 17; // ENEMY Non-Intercolliding Projectiles
         newProjectile.GetComponent<BulletController>().allegiance = this.transform.GetComponentInParent<DamageableEntity>().allegiance;
         newProjectile.GetComponent<Rigidbody>().velocity = this.GetComponentInParent<Rigidbody>().velocity + this.gameObject.transform.forward * projectileSpeed;
-        //gunShot.PlayOneShot(gunShot.clip);
+        gunShot.PlayOneShot(gunShot.clip);
     }
 
     public void FireMissile()
