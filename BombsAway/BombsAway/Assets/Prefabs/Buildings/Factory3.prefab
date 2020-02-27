@@ -194,15 +194,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Resized
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7d62f0347af24ca48835f02f10567eb9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4224801822505238522, guid: 7d62f0347af24ca48835f02f10567eb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: 7d62f0347af24ca48835f02f10567eb9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 7d62f0347af24ca48835f02f10567eb9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8684251187902555887, guid: 7d62f0347af24ca48835f02f10567eb9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8684251187902555887, guid: 7d62f0347af24ca48835f02f10567eb9,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7d62f0347af24ca48835f02f10567eb9,
         type: 3}

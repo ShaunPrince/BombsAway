@@ -40,7 +40,6 @@ public class PlayerEndGame : MonoBehaviour
     {
         if (!gameEnded)
         {
-
             SetScoreCamerasAndControls();
             SetDeathReasonBombs();
 
@@ -52,7 +51,6 @@ public class PlayerEndGame : MonoBehaviour
     {
         if (!gameEnded)
         {
-
             SetScoreCamerasAndControls();
             SetDeathReasonDeserter();
 
