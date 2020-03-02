@@ -73,6 +73,7 @@ public class MissionManager : WorldEntity
 
     public static void DecreaseTargetCount()
     {
+
         numberRemainingTargets--;
     }
 

@@ -3407,7 +3407,7 @@ PrefabInstance:
     - target: {fileID: 6408970836937904740, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 224
       objectReference: {fileID: 0}
     - target: {fileID: 6408970836937904740, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
@@ -3417,7 +3417,7 @@ PrefabInstance:
     - target: {fileID: 6408970836937904740, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5312
       objectReference: {fileID: 0}
     - target: {fileID: 6408970836937904740, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
@@ -3467,6 +3467,11 @@ PrefabInstance:
       propertyPath: canvasToDisable
       value: 
       objectReference: {fileID: 1545607754}
+    - target: {fileID: 2689494964846366034, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
 --- !u!1001 &1548362524022096316
