@@ -45,7 +45,7 @@ public class BombCamTrack : MonoBehaviour
         Debug.DrawRay(this.transform.position, this.transform.forward * 10000, Color.black);
         cylinder.transform.localPosition = new Vector3(0, 0, deltaL);
         //Debug.Log("Zoff: " + offsetZ.ToString() + "\nYoff: " + offsetY);
-        cylinder.transform.rotation = Quaternion.Euler(0, 0, 0);
+        cylinder.transform.rotation = this.transform.parent.parent.rotation;
     }
 
     private void CalcDeltaZ()
