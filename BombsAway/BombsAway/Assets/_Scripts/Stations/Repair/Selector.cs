@@ -34,7 +34,7 @@ public class Selector : MonoBehaviour
 
     public void MoveRight()
     {
-        if (rb.transform.localPosition.x < 4)
+        if (rb.transform.localPosition.x < 17)
         {
             rb.MovePosition(rb.transform.position + Vector3.right * 4);
         }
@@ -50,7 +50,7 @@ public class Selector : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (rb.transform.localPosition.x > -4)
+        if (rb.transform.localPosition.x > 9)
         {
             rb.MovePosition(rb.transform.position + Vector3.left * 4);
         }
