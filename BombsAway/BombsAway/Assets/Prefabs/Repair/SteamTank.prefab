@@ -646,8 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnectedToSource: 0
-  rotationSpeed: 0
-  desiredRotation: 0
+  models: {fileID: 0}
   currentRotation: 0
 --- !u!75 &5281561571463708
 ConstantForce:
@@ -688,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 443534804644573938}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 1.0075065, y: -0.22703172, z: 1.0150931}
-  m_LocalScale: {x: 120.48666, y: 120.48666, z: 100}
+  m_LocalScale: {x: 120.48666, y: 120.48666, z: 153.69}
   m_Children: []
   m_Father: {fileID: 8581242558178781424}
   m_RootOrder: 2
@@ -923,7 +922,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4fe5f3591d57704d9d30f2736fa39fc, type: 2}
+  - {fileID: 2100000, guid: 20fed15a495861a42b7820d794bbb423, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -957,8 +956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tc: {fileID: 5281560294798380}
-  connectedMaterial: {fileID: 2100000, guid: cfdacc9fdb8011f45b24db05a96d98f1, type: 2}
-  disconnectedMaterial: {fileID: 2100000, guid: b4fe5f3591d57704d9d30f2736fa39fc,
+  connectedMaterial: {fileID: 2100000, guid: b71ddd172d9dd454e910b60808f4da05, type: 2}
+  disconnectedMaterial: {fileID: 2100000, guid: 20fed15a495861a42b7820d794bbb423,
     type: 2}
 --- !u!114 &5657425499565708535
 MonoBehaviour:
