@@ -204,6 +204,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 34304
   allegiance: 1
+  deathExplosion: {fileID: 120410, guid: db7015cadac94c444a9c146939d1ecc5, type: 3}
 --- !u!1 &6175539062138484808
 GameObject:
   m_ObjectHideFlags: 0

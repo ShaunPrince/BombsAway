@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     private float bulletDamage;
     private float timeAlive;
+    private float maxLife = 10f;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
 
@@ -13,6 +14,7 @@ public class BulletController : MonoBehaviour
     private LayerMask layersToHit;
 
     public EAllegiance allegiance;
+    public GameObject deathExplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +35,9 @@ public class BulletController : MonoBehaviour
         lastPosition = currentPosition;
         currentPosition = this.transform.position;
         timeAlive += Time.deltaTime;
-        if (timeAlive >= 10.0f)
+        if (timeAlive >= maxLife)
         {
-            Destroy(this.gameObject);
+            Die();
         }
         CheckForHit();
     }
@@ -78,12 +80,22 @@ public class BulletController : MonoBehaviour
         {
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
             other.GetComponentInParent<DamageableEntity>().TakeDamage(bulletDamage,allegiance);
-            Destroy(this.gameObject);
+            Die();
         }
         else //if (other.gameObject.layer.ToString() != "8")
         {
             //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
-            Destroy(this.gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        if (deathExplosion != null)
+        {
+            GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
+            GameObject.Destroy(explosion, 5f);
+        }
+        Destroy(this.gameObject);
     }
 }

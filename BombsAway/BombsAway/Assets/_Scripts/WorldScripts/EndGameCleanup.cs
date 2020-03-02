@@ -15,9 +15,10 @@ public class EndGameCleanup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.health <= 0)
+        if (player.GetComponent<PlayerVictory>().HasGameEnded())
         {
             MissileCleanUp();
+            MouseUnlock();
         }
     }
 
