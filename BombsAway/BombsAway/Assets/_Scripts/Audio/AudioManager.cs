@@ -59,12 +59,16 @@ public class AudioManager : MonoBehaviour
     public void PlayGotHit()
     {
         //Play random shooting sounds
-        for (int i = 0; i < 4; i++)
-        {
-            int randomHit = UnityEngine.Random.Range(0, GettingHit.Length);
-            Sounds a = GettingHit[randomHit];
-            a.source.PlayOneShot(a.source.clip);
-        }
+        int randomHit = UnityEngine.Random.Range(1, GettingHit.Length-1);
+        Sounds a = GettingHit[randomHit];
+        a.source.PlayOneShot(a.source.clip);
+    }
+
+    public void PlayMissleHit()
+    {
+        int missleHit = GettingHit.Length-1;
+        Sounds a = GettingHit[missleHit];
+        a.source.PlayOneShot(a.source.clip);
     }
 
     public void PlayPipeMove()

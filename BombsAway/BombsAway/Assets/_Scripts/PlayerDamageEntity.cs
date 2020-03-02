@@ -18,7 +18,14 @@ public class PlayerDamageEntity : DamageableEntity
                 repSysMan.RollForSteamLoss();
             }
             health -= incomingDamage;
-            FindObjectOfType<AudioManager>().PlayGotHit();
+            if (incomingDamage >= 20.0f)
+            {
+                FindObjectOfType<AudioManager>().PlayMissleHit();
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().PlayGotHit();
+            }
 
 
             if (health <= 50 && !alarmPlaying)

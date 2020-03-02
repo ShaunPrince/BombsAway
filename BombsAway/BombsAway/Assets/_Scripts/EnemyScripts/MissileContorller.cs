@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissileContorller : MonoBehaviour
 {
-    private float missileDamage = 10f;
+    private float missileDamage;
     [SerializeField]
     private float maxTorque;
     [SerializeField]
@@ -147,5 +147,10 @@ public class MissileContorller : MonoBehaviour
             //Debug.Log($"2: {this.transform.gameObject.name} -> {other.transform.gameObject.name}");
             //Destroy(this.gameObject);
         }
+    }
+
+    public void SetMissleDamage(float newDamage)
+    {
+        missileDamage = newDamage;
     }
 }
