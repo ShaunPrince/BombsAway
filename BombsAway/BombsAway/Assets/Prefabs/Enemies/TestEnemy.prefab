@@ -722,7 +722,7 @@ MonoBehaviour:
   verticalAcceleration: 2500
   currentDir: 0
   desiredDir: 0
-  turningRate: 25
+  turningRate: 5
   lateralMovementDamperScale: 2
   fixedAcceleration: 100
   maxVerticalVelocity: 45
@@ -7541,6 +7541,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266022266331521937, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: gunDamage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266022266331521937, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4605625511951316148, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}

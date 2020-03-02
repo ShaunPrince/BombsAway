@@ -76,7 +76,10 @@ public class BombController : MonoBehaviour
     {
         //Debug.Log($"OnTriggerEnter: {other.gameObject}");
         // ignore terrain
-        if (other.gameObject.layer != 9) listObjectsToDestroy.Add(other.gameObject);
+        if (other.gameObject.layer != 9 && !listObjectsToDestroy.Contains(other.gameObject))
+        {
+            listObjectsToDestroy.Add(other.gameObject);
+        }
     }
 
     // if the item leaves the bombs radius, remove it from items to destroy

@@ -772,8 +772,8 @@ MonoBehaviour:
   gunShooting: {fileID: 3712106855168143279}
   target: {fileID: 0}
   aim: {fileID: 3712106855168143273}
-  numBulletsOnLowAlt: 5
-  numBulletsOnMedAlt: 2
+  numBulletsOnLowAlt: 8
+  numBulletsOnMedAlt: 3
   radius: 5000
 --- !u!114 &3712106855168143279
 MonoBehaviour:
@@ -1269,6 +1269,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3712106855168143277}
     m_Modifications:
+    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 6245614090002722026, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1338,16 +1348,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyGun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7831000842984266937, guid: 181bf8520130c78458ecbae85842ab0a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6842678429601702904, guid: 181bf8520130c78458ecbae85842ab0a,
         type: 3}
