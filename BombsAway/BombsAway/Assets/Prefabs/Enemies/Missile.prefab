@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allegiance: 1
-  health: 4
+  health: 1
   isInvincible: 0
   delayedDeathTime: 0
   deathExplosion: {fileID: 110790, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}

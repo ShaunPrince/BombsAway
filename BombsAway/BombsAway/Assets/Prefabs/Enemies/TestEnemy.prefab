@@ -760,11 +760,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 1
-  timeToReload: 40
+  timeToReload: 45
   magazineSize: 1
   enemyMissiles:
   - gunPosition: 1
     gun: {fileID: 3231209886030144952}
+  missleSpeed: 250
 --- !u!114 &4700660192680629950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7550,7 +7551,7 @@ PrefabInstance:
     - target: {fileID: 6266022266331521937, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: projectileSpeed
-      value: 100
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 4605625511951316148, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
