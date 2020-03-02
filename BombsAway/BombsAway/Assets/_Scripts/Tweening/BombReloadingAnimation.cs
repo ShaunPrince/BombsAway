@@ -21,6 +21,6 @@ public class BombReloadingAnimation : MonoBehaviour
     {
         //Debug.Log($"Moving from {modelRef.transform.position} to {modelRef.transform.position + new Vector3(0, amount, 0)}");
         iTween.MoveBy(modelRef, iTween.Hash("amount", new Vector3(amount, 0, 0),
-                                                   "time", reloadTime, "easetype", "easeOutBounce"));
+                                                   "time", reloadTime, "easetype", "easeInOutQuad"));
     }
 }
