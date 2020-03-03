@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2267326891866786155}
   - component: {fileID: 3938501037916881934}
   - component: {fileID: 683491535}
+  - component: {fileID: 8918012684087585805}
+  - component: {fileID: 683491536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,7 +51,6 @@ MonoBehaviour:
   playerPlane: {fileID: 0}
   controlsPage: {fileID: 0}
   optionsPage: {fileID: 0}
-  audioManagerObj: {fileID: 0}
 --- !u!114 &3938501037916881934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +79,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a753a53ab75d47b2c2cdb23323283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8918012684087585805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267326891866786157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0a753a53ab75d47b2c2cdb23323283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &683491536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267326891866786157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a76ea80d5a3e4087238bc95ef53e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HintList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

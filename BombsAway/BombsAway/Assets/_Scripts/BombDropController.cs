@@ -61,6 +61,8 @@ public class BombDropController : MonoBehaviour
 
     private void CalcH1()
     {
+        //65 is height offset of station
+
         h1 = Mathf.Abs(planeRB.transform.position.y - 65 - findImpactCent.impactCenterPos.y);
         //Debug.Log(h1);
     }

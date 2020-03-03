@@ -19,6 +19,8 @@ public class EnemyShootMissile : MonoBehaviour
 
     private PlayerDamageEntity player;
 
+    public float missleSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,6 +129,7 @@ public class EnemyShootMissile : MonoBehaviour
         // do a shoot
         int gunIndex = GetGunIndexFromPosition();
         enemyMissiles[gunIndex].DecreaseAmmo();
+        enemyMissiles[gunIndex].gun.GetComponent<EnemyFireWeapon>().projectileSpeed = missleSpeed;
         //Debug.Log($"Enemy shooting {enemyMissiles[gunIndex].gunPosition} missile!");
         enemyMissiles[gunIndex].gun.GetComponent<EnemyFireWeapon>().FireMissile();
     }
