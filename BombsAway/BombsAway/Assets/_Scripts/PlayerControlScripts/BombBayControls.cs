@@ -17,7 +17,7 @@ public class BombBayControls : ControlScheme
     private bool reloading = false;
     private float timeReloading = 0.0f;
     private float distanceToSideShip = 27f;
-    private float distanceBelowShip = 23f;
+    private float distanceBelowShip = 21f;
     private float distanceInFrontShip = 10f;
 
     private BombDropController bdc;
