@@ -121,7 +121,7 @@ public class PauseGame : MonoBehaviour
         {
             for (int i = 0; i < ambiance.Length; ++i)
             {
-                ambiance[i].Play();
+                ambiance[i].UnPause();
             }
             audioManager.Play("General", 0);
         }
@@ -129,7 +129,7 @@ public class PauseGame : MonoBehaviour
         {
             for (int i = 0; i < ambiance.Length; ++i)
             {
-                ambiance[i].Stop();
+                ambiance[i].Pause();
             }
             audioManager.Stop("General", 0);
         }

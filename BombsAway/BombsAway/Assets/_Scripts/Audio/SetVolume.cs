@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class SetVolume : MonoBehaviour
 {
     public AudioMixer mixer;
-    public Slider slider;
+    public Slider fxSlider;
+    public Slider musicSlider;
 
     private AudioManager audioManager;
-    private float currentSliderVal;
+    private float currentFXSliderVal;
+    private float currentMusicSliderVal;
 
     private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("MasterVolume", 0.1f);
-        currentSliderVal = slider.value;
+        fxSlider.value = PlayerPrefs.GetFloat("SoundFXVolume", 0.1f);
+        currentFXSliderVal = fxSlider.value;
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.2f);
+        currentMusicSliderVal = musicSlider.value;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
@@ -23,26 +27,44 @@ public class SetVolume : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            //Debug.Log("Clicked");
-            if (currentSliderVal != slider.value)
+            if (currentFXSliderVal != fxSlider.value)
             {
-                audioManager.PlayShortClank();
-                currentSliderVal = slider.value;
+                audioManager.PlayShortClankFX();
+                currentFXSliderVal = fxSlider.value;
+            }
+            if (currentMusicSliderVal != musicSlider.value)
+            {
+                audioManager.PlayShortClankMusic();
+                currentMusicSliderVal = musicSlider.value;
             }
         }
     }
 
-    public void SetLevel()
+    public void SetFXVol()
     {
-        float sliderValue = slider.value;
+        float sliderValue = fxSlider.value;
         if (sliderValue > 0)
         {
-            mixer.SetFloat("MasterSound", Mathf.Log(sliderValue) * 20);
+            mixer.SetFloat("SoundFXMixer", Mathf.Log(sliderValue) * 20);
         }
         else
         {
-            mixer.SetFloat("MasterSound", Mathf.Log(0.001f) * 20);
+            mixer.SetFloat("SoundFXMixer", Mathf.Log(0.001f) * 20);
         }
-        PlayerPrefs.SetFloat("MasterVolume", sliderValue);
+        PlayerPrefs.SetFloat("SoundFXVolume", sliderValue);
+    }
+    
+    public void SetMusicVol()
+    {
+        float sliderValue = musicSlider.value;
+        if (sliderValue > 0)
+        {
+            mixer.SetFloat("MusicSound", Mathf.Log(sliderValue) * 20);
+        }
+        else
+        {
+            mixer.SetFloat("MusicSound", Mathf.Log(0.001f) * 20);
+        }
+        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
     }
 }
