@@ -15,6 +15,18 @@ public class SourceJunction : MonoBehaviour
         FindAllJunctions();
     }
 
+    public bool IsConnectedToAtLeastOneJunction()
+    {
+        if(connectedJunctions.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

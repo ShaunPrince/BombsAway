@@ -16,16 +16,22 @@ public class SetVolume : MonoBehaviour
 
     private void Start()
     {
-        fxSlider.value = PlayerPrefs.GetFloat("SoundFXVolume", 0.1f);
-        currentFXSliderVal = fxSlider.value;
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.2f);
-        currentMusicSliderVal = musicSlider.value;
+        if (fxSlider != null)
+        {
+            fxSlider.value = PlayerPrefs.GetFloat("SoundFXVolume", 0.1f);
+            currentFXSliderVal = fxSlider.value;
+        }
+        if (musicSlider != null)
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.2f);
+            currentMusicSliderVal = musicSlider.value;
+        }
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && fxSlider != null && musicSlider != null)
         {
             if (currentFXSliderVal != fxSlider.value)
             {
@@ -42,6 +48,8 @@ public class SetVolume : MonoBehaviour
 
     public void SetFXVol()
     {
+        if (fxSlider == null)
+            return;
         float sliderValue = fxSlider.value;
         if (sliderValue > 0)
         {
@@ -56,6 +64,8 @@ public class SetVolume : MonoBehaviour
     
     public void SetMusicVol()
     {
+        if (musicSlider == null)
+            return;
         float sliderValue = musicSlider.value;
         if (sliderValue > 0)
         {
