@@ -17,6 +17,18 @@ public class TankController : MonoBehaviour
         FillIfConnected();
     }
 
+    public bool IsConnectedToAtLeastOneJunction()
+    {
+        if( tankJunction.connectedTo.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void LoseSteam(float steamLoss)
     {
         currentFillLevel -= steamLoss;
