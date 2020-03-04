@@ -19,7 +19,8 @@ public class TankController : MonoBehaviour
 
     public bool IsConnectedToAtLeastOneJunction()
     {
-        if( tankJunction.connectedTo.Count > 0)
+        //Debug.Log($"{this.name} has {tankJunction.connectedTo.Count} junctions connected to it");
+        if( tankJunction.connectedTo.Count > 1)
         {
             return true;
         }
