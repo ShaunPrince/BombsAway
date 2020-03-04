@@ -15,14 +15,25 @@ public class DisconnectSteam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool currentStatus = this.GetComponent<TankController>().isConnectedToSource;
+        if (this.GetComponent<TankController>())
+        {
+            SteamPoof(this.GetComponent<TankController>().IsConnectedToAtLeastOneJunction());
+        }
+        else if (this.GetComponent<SourceJunction>())
+        {
+            SteamPoof(this.GetComponent<SourceJunction>().IsConnectedToAtLeastOneJunction());
+        }
+    }
+
+    private void SteamPoof(bool currentStatus)
+    {
         if (currentStatus != prevConnected)
         {
             if (prevConnected == true)
             {
                 steamRelease.GetComponent<ParticleSystem>().Play();
             }
-            
+
             prevConnected = currentStatus;
         }
     }
