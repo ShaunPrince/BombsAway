@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 100702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 402300}
   m_RootOrder: 1
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
+      scalar: 20
       minScalar: 4
       maxCurve:
         serializedVersion: 2
@@ -1005,8 +1005,17 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: -2.6797383
-          outSlope: -2.6797383
+          inSlope: -1.2000666
+          outSlope: -1.2000666
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.24929892
+        - serializedVersion: 3
+          time: 0.49686167
+          value: 0.41917187
+          inSlope: -0.8087607
+          outSlope: -0.8087607
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -1058,7 +1067,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1111,7 +1120,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1338,13 +1347,13 @@ ParticleSystem:
         key1: {r: 1, g: 0.7647059, b: 0, a: 1}
         key2: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
         key3: {r: 0.80784315, g: 0.80784315, b: 0.80784315, a: 0}
-        key4: {r: 1, g: 0, b: 0, a: 0}
+        key4: {r: 0.80784315, g: 0.80784315, b: 0.80784315, a: 0}
         key5: {r: 1, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 9252
-        ctime2: 19275
+        ctime1: 5397
+        ctime2: 13300
         ctime3: 65535
         ctime4: 65535
         ctime5: 65535

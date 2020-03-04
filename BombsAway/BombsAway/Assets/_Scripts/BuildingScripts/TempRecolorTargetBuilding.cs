@@ -5,6 +5,7 @@ using UnityEngine;
 public class TempRecolorTargetBuilding : MonoBehaviour
 {
     public Material tempTargetColor;
+    public GameObject pollution;
     private bool colorUpdated = false;
     // Update is called once per frame
     void Update()
@@ -21,6 +22,9 @@ public class TempRecolorTargetBuilding : MonoBehaviour
             }
 
             this.transform.GetChild(1).GetComponent<MeshRenderer>().material = tempTargetColor;
+
+            if (pollution != null)
+                pollution.SetActive(true);
 
             colorUpdated = true;
         }
