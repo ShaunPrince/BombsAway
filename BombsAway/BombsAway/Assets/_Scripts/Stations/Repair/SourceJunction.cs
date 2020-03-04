@@ -17,7 +17,7 @@ public class SourceJunction : MonoBehaviour
 
     public bool IsConnectedToAtLeastOneJunction()
     {
-        Debug.Log($"{this.name} has {connectedJunctions.Count} junctions connected to it");
+        //Debug.Log($"{this.name} has {connectedJunctions.Count} junctions connected to it");
         if (connectedJunctions.Count > 1)
         {
             return true;
