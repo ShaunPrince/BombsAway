@@ -18,8 +18,7 @@ public class WorldEntity : MonoBehaviour
         worldCenterX = (sizeOfChunk * (numChunks - 1  > 0 ? numChunks - 1 : 1)) / 2;
         worldCenterZ = (sizeOfChunk * (numChunks - 1 > 0 ? numChunks - 1 : 1)) / 2;
 
-        worldRadius = (sizeOfChunk * numChunks) / 2;
-        worldRadius = (sizeOfChunk * numChunks) / 2;
+        worldRadius = (sizeOfChunk * numChunks);
 
         //Debug.Log($"Num chunks: {numChunks}, World center: ({worldCenterX}, {worldCenterZ}), World radius: {worldRadius}");
     }

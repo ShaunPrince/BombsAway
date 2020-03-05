@@ -8,12 +8,12 @@ public class SchematicStationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPos = this.transform.position;
+        //startPos = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = startPos;
+        //this.transform.position = startPos;
     }
 }
