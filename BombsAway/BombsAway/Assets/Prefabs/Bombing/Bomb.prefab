@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493582272803177776}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BombModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 3039591511522966878}
   - component: {fileID: 3521650155020657936}
   - component: {fileID: 4453739862453833902}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
