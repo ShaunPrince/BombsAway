@@ -8,6 +8,9 @@ public class SchematicSphereManager : MonoBehaviour
     public GameObject rightGun;
     public GameObject tailGun;
 
+    public Material onMaterial;
+    public Material offMaterial;
+
     private List<GameObject> schematicSpheres = new List<GameObject>();
     private int currentStationID;
     private bool stationsSet;
@@ -23,10 +26,11 @@ public class SchematicSphereManager : MonoBehaviour
         for (int i = 1; i < size; ++i)
         {
             schematicSpheres.Add(this.transform.GetChild(i - 1).gameObject);
-            schematicSpheres[i - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            schematicSpheres[i - 1].GetComponent<Renderer>().material = offMaterial; //.SetColor("_BaseColor", Color.red);
         }
         stationsSet = true;
         currentStationID = 0;
+        SetNewActiveStation(2);
     }
 
     // Update is called once per frame
@@ -44,8 +48,8 @@ public class SchematicSphereManager : MonoBehaviour
     {
         if (stationsSet)
         {
-            schematicSpheres[currentStationID].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-            schematicSpheres[newStationID - 1].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+            schematicSpheres[currentStationID].GetComponent<Renderer>().material = offMaterial; //.SetColor("_BaseColor", Color.red);
+            schematicSpheres[newStationID - 1].GetComponent<Renderer>().material = onMaterial; //.SetColor("_BaseColor", Color.green);
             currentStationID = newStationID - 1;
         }
     }
