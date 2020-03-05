@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4847,7 +4847,7 @@ AudioSource:
   m_GameObject: {fileID: 1745832928}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f24456dbf9ba453429c628105757ee08,
+  OutputAudioMixerGroup: {fileID: -7725823186192320919, guid: f24456dbf9ba453429c628105757ee08,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e349872fc24f17043be17f804347031b, type: 3}
   m_PlayOnAwake: 1
@@ -6258,40 +6258,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 946.8
       objectReference: {fileID: 0}
-    - target: {fileID: 2297714241954411590, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297714241954411590, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.8666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297714241240917189, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 80d565e3c2f52e4498abf2ef14b57591,
-        type: 2}
-    - target: {fileID: 2297714241240917189, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1059344759597971117, guid: 80d565e3c2f52e4498abf2ef14b57591,
-        type: 2}
-    - target: {fileID: 2297714240551242993, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 80d565e3c2f52e4498abf2ef14b57591,
-        type: 2}
-    - target: {fileID: 2297714240551242993, guid: 8de7b6564a4777143825cc958ec07c56,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -1059344759597971117, guid: 80d565e3c2f52e4498abf2ef14b57591,
-        type: 2}
     - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -6417,6 +6383,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2297714241954411590, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241954411590, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.8666667
+      objectReference: {fileID: 0}
     - target: {fileID: 2297714241367616694, guid: 8de7b6564a4777143825cc958ec07c56,
         type: 3}
       propertyPath: m_fontAsset
@@ -6428,6 +6404,30 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2297714241240917189, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 80d565e3c2f52e4498abf2ef14b57591,
+        type: 2}
+    - target: {fileID: 2297714241240917189, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1059344759597971117, guid: 80d565e3c2f52e4498abf2ef14b57591,
+        type: 2}
+    - target: {fileID: 2297714240551242993, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 80d565e3c2f52e4498abf2ef14b57591,
+        type: 2}
+    - target: {fileID: 2297714240551242993, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1059344759597971117, guid: 80d565e3c2f52e4498abf2ef14b57591,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8de7b6564a4777143825cc958ec07c56, type: 3}
 --- !u!1001 &6623914498073194600
