@@ -20369,7 +20369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   h1: 0
-  theta: 15
+  theta: 20
   timeOfFlight: 0
   radiusGround: 0
   planeRB: {fileID: 6408970836937904742}
@@ -28281,6 +28281,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6408970836937904740}
     m_Modifications:
+    - target: {fileID: 452092088508479600, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
+        type: 3}
+      propertyPath: m_Name
+      value: EndGameCam
+      objectReference: {fileID: 0}
     - target: {fileID: 452092088508479607, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28335,11 +28340,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 452092088508479600, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
-        type: 3}
-      propertyPath: m_Name
-      value: EndGameCam
       objectReference: {fileID: 0}
     - target: {fileID: 452092086619762979, guid: 423ca9fbbb3c96c45b7e012b0afc37a5,
         type: 3}
@@ -29249,6 +29249,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8078275669753859424}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: da6e4ba05d1c3c0459db74b242e0001b,
+        type: 3}
+      propertyPath: m_Name
+      value: BombBayBorder
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: da6e4ba05d1c3c0459db74b242e0001b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29318,11 +29323,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.7983003
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: da6e4ba05d1c3c0459db74b242e0001b,
-        type: 3}
-      propertyPath: m_Name
-      value: BombBayBorder
       objectReference: {fileID: 0}
     - target: {fileID: -4228320786683653857, guid: da6e4ba05d1c3c0459db74b242e0001b,
         type: 3}
@@ -29676,12 +29676,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 84d18de63b71eb24ca3053745d6e643a, type: 2}
-    - target: {fileID: 1603612412206971952, guid: cbd60593a28ff3147a9b164547290a20,
+      objectReference: {fileID: 2100000, guid: fee636bd2392bda4d93185c8b87a1fe2, type: 2}
+    - target: {fileID: 998356590043849621, guid: cbd60593a28ff3147a9b164547290a20,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fee636bd2392bda4d93185c8b87a1fe2, type: 2}
+      objectReference: {fileID: 2100000, guid: 84d18de63b71eb24ca3053745d6e643a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd60593a28ff3147a9b164547290a20, type: 3}
 --- !u!4 &3752248955507602453 stripped
