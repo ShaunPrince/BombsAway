@@ -25,6 +25,7 @@ public class EndGameCleanup : MonoBehaviour
     private void MouseUnlock()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void MissileCleanUp()

@@ -29,6 +29,7 @@ public class PlayerEndGame : MonoBehaviour
         if (!gameEnded)
         {
             SetScoreCamerasAndControls();
+            SetEndReasonWon();
 
             // after 20 seconds, switch screens?
             gameEnded = true;
@@ -66,6 +67,7 @@ public class PlayerEndGame : MonoBehaviour
             GameObject explosion = Instantiate(explosionFX, player.transform.position, player.transform.rotation);
 
             SetScoreCamerasAndControls();
+            SetDeathReasonDied();
 
             gameEnded = true;
         }
@@ -113,6 +115,23 @@ public class PlayerEndGame : MonoBehaviour
         GameObject deathTexture = GameObject.Find("EndGameCamTexture");
         deathTexture.gameObject.AddComponent<CameraTween>();
         deathTexture.gameObject.GetComponent<CameraTween>().FadeIn();
+    }
+
+    private void SetEndReasonWon()
+    {
+        // trigger reason for death display
+        Transform deathReason = endGameCanvas.transform.Find("DeathReason");
+        deathReason.GetComponent<TMP_Text>().color = Color.green;
+        deathReason.GetComponent<TMP_Text>().text = "- SUCCESS -\nALL TARGETS DESTROYED";
+        deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
+    }
+
+    private void SetDeathReasonDied()
+    {
+        // trigger reason for death display
+        Transform deathReason = endGameCanvas.transform.Find("DeathReason");
+        deathReason.GetComponent<TMP_Text>().text = "- FAILED -";
+        deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
     }
 
     private void SetDeathReasonBombs()

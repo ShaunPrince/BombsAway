@@ -9,7 +9,14 @@ public class DisconnectSteam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prevConnected = this.GetComponent<TankController>().isConnectedToSource;
+        if (this.GetComponent<TankController>())
+        {
+            prevConnected = this.GetComponent<TankController>().IsConnectedToAtLeastOneJunction();
+        }
+        else if (this.GetComponent<SourceJunction>())
+        {
+            prevConnected =  this.GetComponent<SourceJunction>().IsConnectedToAtLeastOneJunction();
+        }
     }
 
     // Update is called once per frame
