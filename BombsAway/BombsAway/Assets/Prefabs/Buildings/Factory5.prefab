@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempTargetColor: {fileID: 2100000, guid: 3cfaad6cbdcbc28468b68f349f658980, type: 2}
-  pollution: {fileID: 0}
+  pollution: {fileID: 3675480949087905175}
 --- !u!1 &1157055667778802979
 GameObject:
   m_ObjectHideFlags: 0
