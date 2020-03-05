@@ -121,6 +121,7 @@ public class PlayerEndGame : MonoBehaviour
     {
         // trigger reason for death display
         Transform deathReason = endGameCanvas.transform.Find("DeathReason");
+        deathReason.GetComponent<TMP_Text>().color = Color.green;
         deathReason.GetComponent<TMP_Text>().text = "- SUCCESS -\nALL TARGETS DESTROYED";
         deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
     }
@@ -129,7 +130,7 @@ public class PlayerEndGame : MonoBehaviour
     {
         // trigger reason for death display
         Transform deathReason = endGameCanvas.transform.Find("DeathReason");
-        deathReason.GetComponent<TMP_Text>().text = "FAILED";
+        deathReason.GetComponent<TMP_Text>().text = "- FAILED -";
         deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
     }
 
