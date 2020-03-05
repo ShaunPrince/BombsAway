@@ -11,7 +11,7 @@ public class StationManager : MonoBehaviour
 
     public StationDisplayManager centerDisplayController;
 
-    private SchematicSphereManager schematicManager;
+    public SchematicSphereManager schematicManager;
     private SetNewCameraListner newListner;
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +19,7 @@ public class StationManager : MonoBehaviour
         stations = new List<Station>();
         InitializeStationsArray();
         centerDisplayController = GameObject.FindGameObjectWithTag("PlayerUIandCamera").GetComponent<StationDisplayManager>();
-        schematicManager = this.GetComponentInChildren<SchematicSphereManager>();
+        //schematicManager = this.GetComponentInChildren<SchematicSphereManager>();
         newListner = this.GetComponent<SetNewCameraListner>();
     }
 

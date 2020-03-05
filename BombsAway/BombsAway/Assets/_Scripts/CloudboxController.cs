@@ -29,7 +29,7 @@ public class CloudboxController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // change in alt
         if (player.GetChild(0).gameObject.active)

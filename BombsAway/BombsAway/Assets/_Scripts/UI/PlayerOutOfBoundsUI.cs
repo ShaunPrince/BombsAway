@@ -8,7 +8,7 @@ public class PlayerOutOfBoundsUI : MonoBehaviour
     public GameObject outOfBoundsText;
     public bool playerOutOfBoundsForTooLong = false;
 
-    private float maxCounter = 1f;
+    private float maxCounter = 60f;
     private float currentCounter = 0f;
 
     // Start is called before the first frame update
