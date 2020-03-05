@@ -13,9 +13,9 @@ public class RotateMapCompass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newrot = new Vector3(0,0, ship.rotation.y);
+        Vector3 newrot = new Vector3(0, ship.localEulerAngles.y, 0);
         Vector3 delta = oldtransform - newrot;
-        this.transform.SetPositionAndRotation(this.transform.position, Quaternion.Euler(this.transform.rotation.eulerAngles -delta));
+        this.transform.localRotation = Quaternion.Euler(0f, ship.localEulerAngles.y, 0f);
         oldtransform = newrot;
     }
 }
