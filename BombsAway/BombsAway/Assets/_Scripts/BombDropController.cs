@@ -53,6 +53,10 @@ public class BombDropController : MonoBehaviour
         {
             bombRB.velocity = new Vector3(bombRB.velocity.x, planeRB.velocity.y - 1, bombRB.velocity.z);
         }
+        else
+        {
+            bombRB.velocity = new Vector3(bombRB.velocity.x, -1, bombRB.velocity.z);
+        }
         Vector2 circVect = Random.insideUnitCircle * (radiusGround / timeOfFlight);
         bombRB.AddForce(circVect.x, 0, circVect.y, ForceMode.VelocityChange);
         bomb.GetComponent<BombController>().SetToDrop();

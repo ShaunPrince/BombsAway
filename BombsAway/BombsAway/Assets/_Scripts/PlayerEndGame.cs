@@ -28,7 +28,8 @@ public class PlayerEndGame : MonoBehaviour
     {
         if (!gameEnded)
         {
-            SetScoreCamerasAndControls();
+            bool playerWon = true;
+            SetScoreCamerasAndControls(playerWon);
             SetEndReasonWon();
 
             // after 20 seconds, switch screens?
@@ -41,7 +42,7 @@ public class PlayerEndGame : MonoBehaviour
     {
         if (!gameEnded)
         {
-            SetScoreCamerasAndControls();
+            SetScoreCamerasAndControls(false);
             SetDeathReasonBombs();
 
             gameEnded = true;
@@ -52,7 +53,7 @@ public class PlayerEndGame : MonoBehaviour
     {
         if (!gameEnded)
         {
-            SetScoreCamerasAndControls();
+            SetScoreCamerasAndControls(false);
             SetDeathReasonDeserter();
 
             gameEnded = true;
@@ -66,7 +67,7 @@ public class PlayerEndGame : MonoBehaviour
             // explode
             GameObject explosion = Instantiate(explosionFX, player.transform.position, player.transform.rotation);
 
-            SetScoreCamerasAndControls();
+            SetScoreCamerasAndControls(false);
             SetDeathReasonDied();
 
             gameEnded = true;
@@ -80,14 +81,16 @@ public class PlayerEndGame : MonoBehaviour
         canvasToDisable.SetActive(false);
     }
 
-    private void SetScoreCamerasAndControls()
+    private void SetScoreCamerasAndControls(bool playerWon)
     {
         // set the player's score
         endGameCanvas.transform.Find("Score Text").GetComponent<TMP_Text>().text = "Score: " + MissionManager.playerScore;
 
         // spin the death cam around player
         // deparent the death cam so it does not continue to "move with player"
-        endGameCamObject.transform.parent = null;
+
+        if (!playerWon) endGameCamObject.transform.parent = null;
+
         endGameCamObject.SetActive(true);
         iTween.RotateBy(endGameCamObject, iTween.Hash("amount", new Vector3(0, 1, 0),
                                                     "time", 50f, "easetype", "linear",
@@ -121,7 +124,9 @@ public class PlayerEndGame : MonoBehaviour
     {
         // trigger reason for death display
         Transform deathReason = endGameCanvas.transform.Find("DeathReason");
-        deathReason.GetComponent<TMP_Text>().color = Color.green;
+        Color green = Color.green;
+        green.a = 0f;
+        deathReason.GetComponent<TMP_Text>().color = green;
         deathReason.GetComponent<TMP_Text>().text = "- SUCCESS -\nALL TARGETS DESTROYED";
         deathReason.gameObject.GetComponent<FadeAndFlashText>().setActive = true;
     }
