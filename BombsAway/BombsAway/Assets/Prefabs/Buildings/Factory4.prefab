@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempTargetColor: {fileID: 2100000, guid: 3cfaad6cbdcbc28468b68f349f658980, type: 2}
-  pollution: {fileID: 0}
+  pollution: {fileID: 5212550995401314525}
 --- !u!1001 &6681889571180151671
 PrefabInstance:
   m_ObjectHideFlags: 0
