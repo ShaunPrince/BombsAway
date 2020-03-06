@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthTankLights : MonoBehaviour
 {
+    public GameObject lights;
     public Material[] materials;
     private Material prevMaterial;
     private float prevIndex;
@@ -12,19 +13,19 @@ public class HealthTankLights : MonoBehaviour
 
     public void SetTankLightMaterial(int index)
     {
-        if (index > 2 && prevIndex != index)
+        //if (index > 2 && prevIndex != index)
+        //{
+        //    lights.GetComponent<MaterialTweening>().PingPongMaterial(prevMaterial, materials[3], timeBetweenFlickers);
+        //    prevIndex = index;
+        //}
+        if (index >= 2 && prevIndex != index)
         {
-            this.GetComponent<MaterialTweening>().PingPongMaterial(prevMaterial, materials[3], timeBetweenFlickers);
-            prevIndex = index;
-        }
-        else if (index >= 2 && prevIndex != index)
-        {
-            this.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[2]);
+            lights.GetComponent<MaterialTweening>().FlickerMaterial(materials[2], materials[3]);
             prevIndex = index;
         }
         else if (prevIndex != index)
         {
-            this.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[index]);
+            lights.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[index]);
             prevIndex = index;
         }
         prevMaterial = materials[index];

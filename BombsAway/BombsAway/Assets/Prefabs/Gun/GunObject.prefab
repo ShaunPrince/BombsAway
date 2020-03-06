@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 8812412481917265366}
   - component: {fileID: 9019129824289404702}
   - component: {fileID: 1895409700292705186}
+  - component: {fileID: 4103254280424217600}
   m_Layer: 0
   m_Name: SteamBulb
   m_TagString: Untagged
@@ -642,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e740f0b3cf8c1142b252e2bb61c2e75, type: 2}
+  - {fileID: 2100000, guid: bf3976bd84147fd48b17bafd4452667e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -663,6 +664,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4103254280424217600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300581812957638357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToColorChange: {fileID: 4300581812957638357}
 --- !u!1 &4495515113436260547
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +689,6 @@ GameObject:
   - component: {fileID: 5549077082196588081}
   - component: {fileID: 4317378575664302111}
   - component: {fileID: 3271178854923773318}
-  - component: {fileID: 8543539400821362849}
   m_Layer: 0
   m_Name: GunObject
   m_TagString: Untagged
@@ -742,22 +755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c05b4e59159de44937927d0b4b6a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowPercentage: 0.2
-  offMaterial: {fileID: 2100000, guid: 5eb72a5ec0ac0ff458bb838d24a36672, type: 2}
-  onMaterial: {fileID: 2100000, guid: bf3976bd84147fd48b17bafd4452667e, type: 2}
---- !u!114 &8543539400821362849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495515113436260547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 4300581812957638357}
+  lowPercentage: 0.3
+  light: {fileID: 4300581812957638357}
+  offMaterial: {fileID: 2100000, guid: bf3976bd84147fd48b17bafd4452667e, type: 2}
+  onMaterial: {fileID: 2100000, guid: 5eb72a5ec0ac0ff458bb838d24a36672, type: 2}
 --- !u!1 &4815604704755094310
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MaterialTweening : MonoBehaviour
 {
-    public GameObject tankColorChanger;
+    public GameObject parent;
+    public GameObject objectToColorChange;
     private float fadeTime = 1f;
     private Material startMaterial;
     private Material endMaterial;
@@ -26,19 +27,19 @@ public class MaterialTweening : MonoBehaviour
     {
         startMaterial = startMat;
         endMaterial = endMat;
-        iTween.ValueTo(gameObject, iTween.Hash(
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
             "from", 0f, "to", 1f,
             "time", fadeTime, "easetype", "linear",
             "onupdate", "LerpMaterial"));
 
-        //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
+        Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
     }
 
     public void MergeMaterial(Material startMat, Material endMat, float time)
     {
         startMaterial = startMat;
         endMaterial = endMat;
-        iTween.ValueTo(gameObject, iTween.Hash(
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
             "from", 0f, "to", 1f,
             "time", time, "easetype", "linear",
             "onupdate", "LerpMaterial"));
@@ -50,7 +51,7 @@ public class MaterialTweening : MonoBehaviour
     {
         startMaterial = startMat;
         endMaterial = endMat;
-        iTween.ValueTo(gameObject, iTween.Hash(
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
             "from", 0f, "to", 1f,
             "time", time, "easetype", "linear",
             "onupdate", "LerpMultMaterial"));
@@ -60,7 +61,7 @@ public class MaterialTweening : MonoBehaviour
 
     public void MergeMaterial(GameObject objectToChange, Material startMat, Material endMat, float time)
     {
-        tankColorChanger = objectToChange;
+        objectToColorChange = objectToChange;
         startMaterial = startMat;
         endMaterial = endMat;
         iTween.ValueTo(objectToChange, iTween.Hash(
@@ -74,12 +75,12 @@ public class MaterialTweening : MonoBehaviour
     private void LerpMaterial(float time)
     {
         //Debug.Log($"Lerping {tankColorChanger} from {startMaterial} to {endMaterial}");
-        tankColorChanger.GetComponent<MeshRenderer>().material.Lerp(startMaterial, endMaterial, time);
+        objectToColorChange.GetComponent<Renderer>().material.Lerp(startMaterial, endMaterial, time);
     }
 
     private void LerpMultMaterial(float time)
     {
-        foreach (MeshRenderer mr in tankColorChanger.GetComponentsInChildren<MeshRenderer>())
+        foreach (MeshRenderer mr in objectToColorChange.GetComponentsInChildren<MeshRenderer>())
         {
             //Debug.Log($"Lerping {mr.name} from {startMaterial} to {endMaterial}");
             mr.material.Lerp(startMaterial, endMaterial, time);
@@ -90,25 +91,52 @@ public class MaterialTweening : MonoBehaviour
     {
         startMaterial = startMat;
         endMaterial = endMat;
-        iTween.ValueTo(gameObject, iTween.Hash(
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
             "from", 0f, "to", .3f,
             "time", .3f, "easetype", "linear",
             "onupdate", "LerpMaterial", "oncomplete", "TriggerFlicker"));
     }
 
+    public void FlickerMaterial(Material startMat, Material endMat, float time)
+    {
+        Debug.Log("flicker");
+        startMaterial = startMat;
+        endMaterial = endMat;
+        fadeTime = time;
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "linear",
+            "onupdate", "LerpMaterial", "oncomplete", "TriggerFlicker"));
+    }
+
     public void TriggerFlicker()
     {
-        if (this.GetComponent<TankConnectedColor>())
-            this.GetComponent<TankStatusColor>().ResetPrevFillLevel();
-        else if (this.GetComponent<HealthTankLights>())
-            this.GetComponent<HealthTankLights>().SetTankLightMaterial(3);
+        Debug.Log("stage 2");
+        if (parent != null)
+        {
+            if (parent.GetComponent<TankStatusColor>())
+            {
+                objectToColorChange.GetComponent<Renderer>().material = endMaterial;
+                parent.GetComponent<TankStatusColor>().ResetPrevFillLevel();
+            }
+            //else if (parent.GetComponent<HealthTankLights>())
+            //{
+            //    objectToColorChange.GetComponent<Renderer>().material = endMaterial;
+            //    parent.GetComponent<HealthTankLights>().SetTankLightMaterial(3);
+            //}
+        }
+        else
+        {
+            objectToColorChange.GetComponent<Renderer>().material = endMaterial;
+            PingPongMaterial(endMaterial, startMaterial, fadeTime);
+        }
     }
 
     public void PingPongMaterial(Material startMat, Material endMat, float time)
     {
         startMaterial = startMat;
         endMaterial = endMat;
-        iTween.ValueTo(gameObject, iTween.Hash(
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
             "from", 0f, "to", 1f,
             "time", time, "easetype", "linear",
             "onupdate", "LerpMaterial", "looptype", "pingPong"));

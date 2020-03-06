@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankStatusColor : MonoBehaviour
 {
     public TankController tc;
+    public GameObject objectToChange;
     public Material[] materials;
     private Material prevMaterial;
     private float prevFillLevel;
@@ -37,22 +38,22 @@ public class TankStatusColor : MonoBehaviour
         // turn green
         if (tc.currentFillLevel == tc.maxFillLevel)
         {
-            this.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[0]);
+            objectToChange.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[0]);
             prevMaterial = materials[0];
             prevFillLevel = tc.currentFillLevel;
         }
         // turn red if not connected and below threshold
-        else if (tc.currentFillLevel < tc.maxFillLevel - 20 && !tc.isConnectedToSource)
+        else if (tc.currentFillLevel < tc.maxFillLevel - 50 && !tc.isConnectedToSource)
         {
             if (prevMaterial != materials[2])
             {
-                this.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[2]);
+                objectToChange.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[2]);
                 prevMaterial = materials[2];
                 prevFillLevel = tc.currentFillLevel;
             }
             else if (prevMaterial != materials[3])
             {
-                this.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[3]);
+                objectToChange.GetComponent<MaterialTweening>().FlickerMaterial(prevMaterial, materials[3]);
                 prevMaterial = materials[3];
                 prevFillLevel = tc.currentFillLevel;
             }
@@ -60,7 +61,7 @@ public class TankStatusColor : MonoBehaviour
         // turn yellow if not full
         else if (prevMaterial != materials[1] && tc.currentFillLevel < tc.maxFillLevel)
         {
-            this.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[1]);
+            objectToChange.GetComponent<MaterialTweening>().MergeMaterial(prevMaterial, materials[1]);
             prevMaterial = materials[1];
             prevFillLevel = tc.currentFillLevel;
         }

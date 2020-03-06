@@ -2399,7 +2399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 5436280469082844935}
+  parent: {fileID: 0}
+  objectToColorChange: {fileID: 5436280469082844935}
 --- !u!1 &5736905893544878276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da0aace723c03944984271a04ccc4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: {fileID: 6885850403460558517}
   materials:
   - {fileID: 2100000, guid: cfdacc9fdb8011f45b24db05a96d98f1, type: 2}
   - {fileID: 2100000, guid: 80c11a482ed1e1a4a809337536ce4adc, type: 2}
@@ -2885,12 +2887,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6815017341708009934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 6885850403460558517}
+  parent: {fileID: 0}
+  objectToColorChange: {fileID: 6885850403460558517}
 --- !u!1 &6856311586000488145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,6 +2996,7 @@ GameObject:
   - component: {fileID: 5345509943060431915}
   - component: {fileID: 4133359219358792698}
   - component: {fileID: 3200384194203306161}
+  - component: {fileID: 8642246621361855861}
   m_Layer: 21
   m_Name: Bulbs
   m_TagString: Untagged
@@ -3060,6 +3064,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8642246621361855861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885850403460558517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  objectToColorChange: {fileID: 6885850403460558517}
 --- !u!1 &7022009867658618492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,21 +3973,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -4098,21 +4101,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -4237,21 +4225,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -4701,21 +4674,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -4945,21 +4903,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -5294,21 +5237,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -5433,21 +5361,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -5572,21 +5485,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -5711,21 +5609,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -5965,21 +5848,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
@@ -6104,21 +5972,6 @@ PrefabInstance:
       propertyPath: fillRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 086b983f963358c4b8cba8047479c811, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 940ae31edc419cd4da18cdd158296baa, type: 2}
-    - target: {fileID: 872583113938419397, guid: 2823f93e612ad1e418a1c9af67653286,
-        type: 3}
-      propertyPath: materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f53ff3793240904190a258168d6c6be, type: 2}
     - target: {fileID: 4695552378412412300, guid: 2823f93e612ad1e418a1c9af67653286,
         type: 3}
       propertyPath: tankColorChanger
