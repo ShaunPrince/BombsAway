@@ -52,6 +52,7 @@ public class EnemySpawner : WorldEntity
         {
             totalWeightedProb = enemy.CalculateWeightedSpawnProbability(totalWeightedProb);
         }
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
 
     }
 

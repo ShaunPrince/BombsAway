@@ -49,6 +49,8 @@ public class TerrainObjectSpawner : WorldEntity
     // Start is called before the first frame update
     void Start()
     {
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
+
         buildingParent = this.gameObject.transform.Find("Buildings");
         shruberyParent = this.gameObject.transform.Find("Shrubery");
 

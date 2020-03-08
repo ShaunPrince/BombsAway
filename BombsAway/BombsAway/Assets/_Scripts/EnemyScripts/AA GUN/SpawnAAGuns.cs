@@ -22,6 +22,7 @@ public class SpawnAAGuns : WorldEntity
     void Start()
     {
         gunParent = this.gameObject.transform.Find("AA Guns");
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
     }
 
     // Update is called once per frame

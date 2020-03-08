@@ -27,6 +27,7 @@ public class MissionManager : WorldEntity
         buildingSpawner = GameObject.FindWithTag("BuildingSpawner");
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         numberRemainingTargets = numberOfTargetBuildings;
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class MissionManager : WorldEntity
         }
 
         // check if the player is still within bounds of the map
-        if (Mathf.Abs(playerTransform.position.x) > WorldLength || Mathf.Abs(playerTransform.position.z) > WorldLength)
+        if (Mathf.Abs(playerTransform.position.x) > WorldLength * 2 || Mathf.Abs(playerTransform.position.z) > WorldLength * 2)
         {
             playerInBounds = false;
         }
