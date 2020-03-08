@@ -53,7 +53,7 @@ public class DamegableEnemy : DamageableEntity
             if (deathExplosion != null)
             {
                 GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
-                GameObject.Destroy(explosion, 5f);
+                GameObject.Destroy(explosion, 20f);
             }
             fragment.Fragment();
             fragment.HideObjects();

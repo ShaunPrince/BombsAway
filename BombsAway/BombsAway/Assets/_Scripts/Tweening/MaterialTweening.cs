@@ -32,7 +32,7 @@ public class MaterialTweening : MonoBehaviour
             "time", fadeTime, "easetype", "linear",
             "onupdate", "LerpMaterial"));
 
-        Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
+        //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
     }
 
     public void MergeMaterial(Material startMat, Material endMat, float time)
@@ -111,7 +111,7 @@ public class MaterialTweening : MonoBehaviour
 
     public void TriggerFlicker()
     {
-        Debug.Log("stage 2");
+        //Debug.Log("stage 2");
         if (parent != null)
         {
             if (parent.GetComponent<TankStatusColor>())
