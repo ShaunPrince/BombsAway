@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   objectToColorChange: {fileID: 4300581812957638357}
 --- !u!1 &4495515113436260547
 GameObject:
@@ -724,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29da700e00911e4aa121c26dd18b334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poof: {fileID: 0}
 --- !u!95 &4317378575664302111
 Animator:
   serializedVersion: 3

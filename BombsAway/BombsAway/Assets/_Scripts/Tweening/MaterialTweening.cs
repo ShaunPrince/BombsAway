@@ -47,6 +47,21 @@ public class MaterialTweening : MonoBehaviour
         //Debug.Log($"Merging materials on {this.transform.parent.name} from {startMaterial.color} to {endMaterial.color}");
     }
 
+    public void MergeMaterialGlow(Material startMat, Material endMat)
+    {
+        startMaterial = startMat;
+        endMaterial = endMat;
+        iTween.ValueTo(objectToColorChange, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", fadeTime, "easetype", "linear",
+            "onupdate", "LerpMaterial", "oncomplete", "TriggerGlow"));
+    }
+
+    private void TriggerGlow()
+    {
+        objectToColorChange.GetComponent<Renderer>().material = endMaterial;
+    }
+
     public void MergeMultipleMaterial(Material startMat, Material endMat, float time)
     {
         startMaterial = startMat;
