@@ -142,6 +142,7 @@ public class StartameCamera : MonoBehaviour
 
     private void MoveTowardsTarget(int buildingIndex)
     {
+        Debug.Log("MovingTowards");
         iTween.MoveTo(this.gameObject, iTween.Hash("position", allBuildings.transform.GetChild(buildingIndex).transform.position,
                                                    "time", time, "looktarget", allBuildings.transform.GetChild(buildingIndex).transform.position,
                                                    "looktime", 10f, "easetype", "easeInOutQuad"));
