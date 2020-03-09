@@ -385,6 +385,14 @@ MonoBehaviour:
     priority: 0
     source: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 6d16778653c10794f9708914ef92c028, type: 3}
+    mixerGroup: {fileID: -9081199330483819801, guid: f24456dbf9ba453429c628105757ee08,
+      type: 2}
+    volume: 1
+    pitch: 0
+    priority: 0
+    source: {fileID: 0}
+    loop: 0
   RepairSounds:
   - clip: {fileID: 8300000, guid: a0ef9ffe35ccf9b4db06a488281904f7, type: 3}
     mixerGroup: {fileID: 1902236599751653920, guid: f24456dbf9ba453429c628105757ee08,

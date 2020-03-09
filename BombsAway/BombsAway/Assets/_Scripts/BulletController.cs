@@ -80,6 +80,11 @@ public class BulletController : MonoBehaviour
         {
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
             other.GetComponentInParent<DamageableEntity>().TakeDamage(bulletDamage,allegiance);
+            SchematicShowHit ssh = other.transform.root.gameObject.GetComponentInChildren<SchematicShowHit>();
+            if(ssh != null)
+            {
+                ssh.ShowHit(this.transform.position);
+            }
             Die();
         }
         else //if (other.gameObject.layer.ToString() != "8")
