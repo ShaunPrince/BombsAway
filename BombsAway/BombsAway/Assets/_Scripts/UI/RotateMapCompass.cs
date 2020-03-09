@@ -15,7 +15,7 @@ public class RotateMapCompass : MonoBehaviour
     {
         Vector3 newrot = new Vector3(0, ship.localEulerAngles.y, 0);
         Vector3 delta = oldtransform - newrot;
-        this.transform.localRotation = Quaternion.Euler(0f, ship.localEulerAngles.y, 0f);
+        this.transform.localRotation = Quaternion.Euler(0f, -ship.localEulerAngles.y, 0f);
         oldtransform = newrot;
     }
 }
