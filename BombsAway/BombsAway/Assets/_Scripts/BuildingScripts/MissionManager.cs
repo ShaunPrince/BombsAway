@@ -17,7 +17,7 @@ public class MissionManager : WorldEntity
 
     private GameObject buildingSpawner;
     private Transform playerTransform;
-    private bool buildingTargetingCompleted = false;
+    private static bool buildingTargetingCompleted = false;
 
     private static bool playerInBounds = true;
 
@@ -64,6 +64,11 @@ public class MissionManager : WorldEntity
         {
             playerInBounds = true;
         }
+    }
+
+    public static bool FinishedChoosingTargets()
+    {
+        return buildingTargetingCompleted;
     }
 
     public static void IncreasePlayerScore(int incrementAmount)
