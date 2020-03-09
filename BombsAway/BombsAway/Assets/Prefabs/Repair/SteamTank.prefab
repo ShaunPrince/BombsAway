@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tc: {fileID: 5281560294798380}
+  objectToChange: {fileID: 443534804644573938}
   materials:
   - {fileID: 2100000, guid: 54e128279cc7d664b95eecfc8ede6690, type: 2}
   - {fileID: 2100000, guid: 81ddd42856e23704eb6b822950307489, type: 2}
@@ -80,12 +81,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5281560294798382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 8474113348545996597}
+  parent: {fileID: 0}
+  objectToColorChange: {fileID: 443534804644573938}
 --- !u!114 &7029934716324314425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd57fec1821bd479bf5ca2dfef1c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountAbove: 1.88
   steamRelease: {fileID: 8917678629919962988}
 --- !u!1 &5281560338988632
 GameObject:
@@ -688,6 +689,7 @@ GameObject:
   - component: {fileID: 5812314229108555276}
   - component: {fileID: 6183726046832406396}
   - component: {fileID: 956112212201949128}
+  - component: {fileID: 7611404827505096549}
   m_Layer: 21
   m_Name: MidConnector
   m_TagString: Untagged
@@ -755,6 +757,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7611404827505096549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443534804644573938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 5281560294798382}
+  objectToColorChange: {fileID: 443534804644573938}
 --- !u!1 &2875058737057104879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa44cddb291e13c43800998b01a5f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankColorChanger: {fileID: 8645021395877531116}
+  parent: {fileID: 0}
+  objectToColorChange: {fileID: 8645021395877531116}
 --- !u!1001 &8917678629920006454
 PrefabInstance:
   m_ObjectHideFlags: 0

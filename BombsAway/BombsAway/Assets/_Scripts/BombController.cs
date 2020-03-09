@@ -117,7 +117,7 @@ public class BombController : MonoBehaviour
                 }
             }
             //Destroy(this.gameObject);
-            this.transform.GetChild(2).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(true);
             //StartCoroutine(DelayCoroutine());
             GameObject.Destroy(this.gameObject, BombMapMarkerTime);
         }

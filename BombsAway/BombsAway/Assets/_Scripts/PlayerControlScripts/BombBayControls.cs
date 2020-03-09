@@ -7,6 +7,7 @@ public class BombBayControls : ControlScheme
     public int numOfBombs;
     public float reloadTime;
     public GameObject bombPrefab;
+    public Transform dropPoint;
 
     private GameObject currentBomb;
     private bool dropLeftBomb = true;   // which bomb to drop
@@ -40,12 +41,18 @@ public class BombBayControls : ControlScheme
         //currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
         //leftBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x - distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
         //rightBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x + distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
-        reloading = true;
-        ReloadBay();
-        UpdateBombToDrop();
-        ReloadBay();
-        UpdateBombToDrop();
+        //reloading = true;
         rm = this.GetComponentInParent<ReloadManager>();
+    }
+
+    public void InitialLoad()
+    {
+        rm.ReloadWeapon(reloadTime);
+        reloading = rm.getReloadingStatus();
+        ReloadBay();
+        UpdateBombToDrop();
+        ReloadBay();
+        UpdateBombToDrop();
     }
 
     // Update is called once per frame
@@ -76,11 +83,13 @@ public class BombBayControls : ControlScheme
     {
         if (dropLeftBomb)
         {
+            leftBomb.GetComponent<DropBombAnimation>().Animate();
             bdc.Drop(leftBomb);
             prevDroppedBomb = leftBomb;
         }
         else
         {
+            rightBomb.GetComponent<DropBombAnimation>().Animate();
             bdc.Drop(rightBomb);
             prevDroppedBomb = rightBomb;
         }
@@ -100,6 +109,7 @@ public class BombBayControls : ControlScheme
             leftBomb.transform.localPosition = new Vector3( -distanceToSideShip, -distanceBelowShip, distanceInFrontShip);
             Transform model = leftBomb.transform.Find("BombModel").transform;
             model.localPosition = new Vector3(-distanceToSideShip*2, model.localPosition.y, model.localPosition.z);
+            leftBomb.GetComponent<DropBombAnimation>().SetDropPoint(dropPoint);
             leftBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(distanceToSideShip*2, reloadTime);
         }
         else
@@ -108,6 +118,7 @@ public class BombBayControls : ControlScheme
             rightBomb.transform.localPosition = new Vector3(distanceToSideShip, -distanceBelowShip, distanceInFrontShip);
             Transform model = rightBomb.transform.Find("BombModel").transform;
             model.localPosition = new Vector3(distanceToSideShip * 2, model.localPosition.y, model.localPosition.z);
+            rightBomb.GetComponent<DropBombAnimation>().SetDropPoint(dropPoint);
             rightBomb.GetComponent<BombReloadingAnimation>().ReloadAnimation(-distanceToSideShip*2, reloadTime);
         }
             //currentBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);

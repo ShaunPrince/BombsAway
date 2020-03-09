@@ -17,6 +17,7 @@ public class RepairSystemManager : MonoBehaviour
     void Awake()
     {
         steamTanks = GameObject.FindObjectsOfType<TankController>();
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
     }
 
     // Update is called once per frame

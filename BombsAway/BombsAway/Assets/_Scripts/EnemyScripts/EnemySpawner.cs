@@ -39,6 +39,11 @@ public class EnemySpawner : WorldEntity
 
     private int enemyCount = 0;
 
+    public int NumberOfEnemiesSpawned()
+    {
+        return enemyCount;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,7 @@ public class EnemySpawner : WorldEntity
         {
             totalWeightedProb = enemy.CalculateWeightedSpawnProbability(totalWeightedProb);
         }
+        Random.InitState(SeedRandomGeneration.GetRandomSeed());
 
     }
 

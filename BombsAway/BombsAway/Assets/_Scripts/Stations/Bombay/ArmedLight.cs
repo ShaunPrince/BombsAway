@@ -7,21 +7,21 @@ public class ArmedLight : MonoBehaviour
     public GameObject armedLight;
     public Material offMaterial;
     public Material onMaterial;
-    public BombBayControls reloader;
+    private ReloadManager reloader;
     private bool armed = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        reloader = this.GetComponent<ReloadManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (armed != !reloader.IsReloading())
+        if (armed != !reloader.getReloadingStatus())
         {
-            if (!reloader.IsReloading())
+            if (!reloader.getReloadingStatus())
             {
                 // turn armed light on
                 armedLight.GetComponent<Renderer>().material = onMaterial;

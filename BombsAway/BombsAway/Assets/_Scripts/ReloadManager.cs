@@ -6,6 +6,7 @@ public class ReloadManager : MonoBehaviour
 {
     private float timer;
     private float timeLimit;
+    [SerializeField]
     private bool currentlyReloadingObj;
     // Start is called before the first frame update
     void Start()
