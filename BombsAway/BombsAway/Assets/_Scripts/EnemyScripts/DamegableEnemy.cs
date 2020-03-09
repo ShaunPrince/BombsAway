@@ -59,7 +59,8 @@ public class DamegableEnemy : DamageableEntity
             }
             fragment.Fragment();
             fragment.HideObjects();
-            deathSound.PlayOneShot(deathSound.clip);
+            if (deathSound != null)
+                deathSound.PlayOneShot(deathSound.clip);
             StartCoroutine(DelayCoroutine());
 
         }
@@ -67,7 +68,8 @@ public class DamegableEnemy : DamageableEntity
         {
             if (explosionCenter != null)
             {
-                deathSound.PlayOneShot(deathSound.clip);
+                if (deathSound != null)
+                    deathSound.PlayOneShot(deathSound.clip);
                 // explosion needs to be at center of rotating missile, not center of rotation
                 GameObject explosion = Instantiate(deathExplosion, explosionCenter.transform.position, explosionCenter.transform.rotation);
                 GameObject.Destroy(this.gameObject);
@@ -75,7 +77,8 @@ public class DamegableEnemy : DamageableEntity
             }
             else
             {
-                deathSound.PlayOneShot(deathSound.clip);
+                if (deathSound != null)
+                    deathSound.PlayOneShot(deathSound.clip);
                 GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
                 GameObject.Destroy(this.gameObject);
                 GameObject.Destroy(explosion, 5f);
