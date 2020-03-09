@@ -7,17 +7,16 @@ public class DamegableEnemy : DamageableEntity
     //private EnemyHit enemyHitScript;
     public float delayedDeathTime;
     public GameObject deathExplosion;
-
     public GameObject explosionCenter;
 
     private bool isDying = false;
 
-    private AudioManager audioManager;
+    private AudioSource deathSound;
 
     private void Start()
     {
         //enemyHitScript = this.GetComponent<EnemyHit>();
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        deathSound = this.GetComponent<AudioSource>();
     }
 
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
@@ -60,7 +59,8 @@ public class DamegableEnemy : DamageableEntity
             }
             fragment.Fragment();
             fragment.HideObjects();
-            audioManager.PlayShipDeath();
+            if (deathSound != null)
+                deathSound.PlayOneShot(deathSound.clip);
             StartCoroutine(DelayCoroutine());
 
         }
@@ -68,7 +68,8 @@ public class DamegableEnemy : DamageableEntity
         {
             if (explosionCenter != null)
             {
-                audioManager.PlayShipDeath();
+                if (deathSound != null)
+                    deathSound.PlayOneShot(deathSound.clip);
                 // explosion needs to be at center of rotating missile, not center of rotation
                 GameObject explosion = Instantiate(deathExplosion, explosionCenter.transform.position, explosionCenter.transform.rotation);
                 GameObject.Destroy(this.gameObject);
@@ -76,7 +77,8 @@ public class DamegableEnemy : DamageableEntity
             }
             else
             {
-                audioManager.PlayShipDeath();
+                if (deathSound != null)
+                    deathSound.PlayOneShot(deathSound.clip);
                 GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
                 GameObject.Destroy(this.gameObject);
                 GameObject.Destroy(explosion, 5f);

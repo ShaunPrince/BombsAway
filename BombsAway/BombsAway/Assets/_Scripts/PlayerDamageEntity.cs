@@ -46,6 +46,8 @@ public class PlayerDamageEntity : DamageableEntity
     {
         // Show player dying
         this.GetComponent<PlayerEndGame>().ShowPlayerDying();
+        AudioSource deathSound = this.GetComponent<AudioSource>();
+        deathSound.PlayOneShot(deathSound.clip);
 
         // Fragment the player
         StartCoroutine(DelayFragmentation());
