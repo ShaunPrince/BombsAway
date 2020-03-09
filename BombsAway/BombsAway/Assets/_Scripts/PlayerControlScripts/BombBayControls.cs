@@ -22,6 +22,7 @@ public class BombBayControls : ControlScheme
     private float distanceInFrontShip = 10f;
 
     private BombDropController bdc;
+    private AudioManager audioManager;
 
     public GameObject GetMostRecentDroppedBomb()
     {
@@ -43,6 +44,7 @@ public class BombBayControls : ControlScheme
         //rightBomb = Instantiate(bombPrefab, new Vector3(this.transform.position.x + distanceToSideShip, this.transform.position.y - distanceBelowShip, this.transform.position.z + distanceInFrontShip), rotation, this.transform.parent);
         //reloading = true;
         rm = this.GetComponentInParent<ReloadManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     public void InitialLoad()
@@ -95,6 +97,7 @@ public class BombBayControls : ControlScheme
         }
         reloading = true;
         numOfBombs--;
+        audioManager.PlayBombDrop();
     }
 
     private void ReloadBay()

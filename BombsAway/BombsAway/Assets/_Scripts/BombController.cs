@@ -13,7 +13,7 @@ public class BombController : MonoBehaviour
     public GameObject explosion;
     private bool hasExploded = false;
 
-    //private AudioSource BombExplode;
+    private AudioSource bombExplode;
 
     private bool isDropping = false;
     private Vector3 lastPosition;
@@ -24,7 +24,7 @@ public class BombController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //BombExplode = this.GetComponent<AudioSource>();
+        bombExplode = this.GetComponent<AudioSource>();
         lastPosition = this.transform.position;
         currentPosition = this.transform.position;
         listObjectsToDestroy = new List<GameObject>();
@@ -102,7 +102,7 @@ public class BombController : MonoBehaviour
     {
         if (!hasExploded) {
             hasExploded = true;
-            //BombExplode.Play();
+            bombExplode.Play();
             GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
             GameObject.Destroy(boom, 20f);
 

@@ -106,7 +106,6 @@ public class AudioManager : MonoBehaviour
         int sound = 1;
         Sounds a = General[sound];
         a.source.PlayOneShot(a.source.clip);
-
     }
 
     public void PlayShortClankFX()
@@ -120,6 +119,13 @@ public class AudioManager : MonoBehaviour
     {
         int clank = 3;
         Sounds a = General[clank];
+        a.source.PlayOneShot(a.source.clip);
+    }
+
+    public void PlayBombDrop()
+    {
+        int drop = 4;
+        Sounds a = General[drop];
         a.source.PlayOneShot(a.source.clip);
     }
 
