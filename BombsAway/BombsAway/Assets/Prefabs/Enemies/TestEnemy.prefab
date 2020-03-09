@@ -7553,6 +7553,11 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 2500
       objectReference: {fileID: 0}
+    - target: {fileID: 5691626406947105350, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36525bd8b55242e468b57aea144bea3b, type: 3}
     - target: {fileID: 4605625511951316148, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalScale.y

@@ -12,9 +12,12 @@ public class DamegableEnemy : DamageableEntity
 
     private bool isDying = false;
 
+    private AudioManager audioManager;
+
     private void Start()
     {
         //enemyHitScript = this.GetComponent<EnemyHit>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
@@ -57,6 +60,7 @@ public class DamegableEnemy : DamageableEntity
             }
             fragment.Fragment();
             fragment.HideObjects();
+            audioManager.PlayShipDeath();
             StartCoroutine(DelayCoroutine());
 
         }
@@ -64,6 +68,7 @@ public class DamegableEnemy : DamageableEntity
         {
             if (explosionCenter != null)
             {
+                audioManager.PlayShipDeath();
                 // explosion needs to be at center of rotating missile, not center of rotation
                 GameObject explosion = Instantiate(deathExplosion, explosionCenter.transform.position, explosionCenter.transform.rotation);
                 GameObject.Destroy(this.gameObject);
@@ -71,6 +76,7 @@ public class DamegableEnemy : DamageableEntity
             }
             else
             {
+                audioManager.PlayShipDeath();
                 GameObject explosion = Instantiate(deathExplosion, this.transform.position, this.transform.rotation);
                 GameObject.Destroy(this.gameObject);
                 GameObject.Destroy(explosion, 5f);
