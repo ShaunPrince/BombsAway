@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d2c6c78ad44349895d9b72f61f87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFillLevel: 50
+  currentFillLevel: 100
   maxFillLevel: 100
-  fillRate: 5
+  fillRate: 15
   isConnectedToSource: 0
   tankJunction: {fileID: 5281561571463709}
 --- !u!114 &872583113938419397
