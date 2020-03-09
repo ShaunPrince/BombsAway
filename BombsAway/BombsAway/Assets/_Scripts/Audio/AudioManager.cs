@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     public Sounds[] RepairSounds;
     public static AudioManager instance;
     private bool alarmPlaying;
+    private float alarmTimer;
+    private float alarmTimeLimit;
     // Start is called before the first frame update
 
     void Awake()
@@ -53,6 +55,8 @@ public class AudioManager : MonoBehaviour
 
         }
         alarmPlaying = false;
+        alarmTimer = 0.0f;
+        alarmTimeLimit = 15.0f;
     }
 
 
@@ -88,10 +92,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAlarm()
     {
-        int alarm = 0;
-        Sounds a = General[alarm];
-        a.source.Play();
-        alarmPlaying = true;
+        if (alarmTimer <= alarmTimeLimit)
+        {
+            int alarm = 0;
+            Sounds a = General[alarm];
+            a.source.Play();
+            alarmPlaying = true;
+        }
     }
 
     public void PlayExplosion()
@@ -128,7 +135,7 @@ public class AudioManager : MonoBehaviour
         else if (name == "General")
         {
             s = General[i];
-            if (i == 0 && alarmPlaying)
+            if (i == 0 && alarmPlaying && alarmTimer <= alarmTimeLimit)
                 s.source.Play();
         }
         else if (name == "RepairSounds")
@@ -159,10 +166,18 @@ public class AudioManager : MonoBehaviour
         }
 
     }
-   
+
     void Update()
     {
-
+        if (alarmPlaying)
+        {
+            alarmTimer += Time.deltaTime;
+            if (alarmTimer >= alarmTimeLimit)
+            {
+                alarmPlaying = false;
+                Stop("General", 0);
+            }
+        }
     }
 }
 
