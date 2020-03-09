@@ -19398,10 +19398,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steamTanks: []
   probOfSteamLoss: 0.2
-  minSteamLoss: 15
-  maxSteamLoss: 50
+  minSteamLoss: 20
+  maxSteamLoss: 40
   damageToDealToPlayerPerUnfilledTank: 1
-  timeBetweenInternalDamageTicks: 5
+  timeBetweenInternalDamageTicks: 3
 --- !u!1 &6408970836937904739
 GameObject:
   m_ObjectHideFlags: 0
@@ -19477,6 +19477,7 @@ MonoBehaviour:
   health: 300
   isInvincible: 0
   repSysMan: {fileID: 7659336732993930662}
+  maxHealth: 0
 --- !u!114 &1780471627
 MonoBehaviour:
   m_ObjectHideFlags: 0

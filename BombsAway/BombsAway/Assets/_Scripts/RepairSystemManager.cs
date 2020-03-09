@@ -13,6 +13,7 @@ public class RepairSystemManager : MonoBehaviour
     
     private float timeSinceLastInternalDamage;
     public float timeBetweenInternalDamageTicks;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,6 +43,7 @@ public class RepairSystemManager : MonoBehaviour
         if(timeSinceLastInternalDamage >= timeBetweenInternalDamageTicks)
         {
             float internalDmg = damageToDealToPlayerPerUnfilledTank * GetNumOfUnfilledTanks();
+            internalDmg += (-damageToDealToPlayerPerUnfilledTank / 6) * (11 - GetNumOfUnfilledTanks());
             this.GetComponentInParent<PlayerDamageEntity>().TakeDamage(internalDmg, EAllegiance.Internal);
             timeSinceLastInternalDamage -= timeBetweenInternalDamageTicks;
         }

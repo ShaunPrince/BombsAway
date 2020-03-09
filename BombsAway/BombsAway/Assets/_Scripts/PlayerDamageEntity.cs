@@ -6,9 +6,15 @@ using UnityEngine.SceneManagement;
 public class PlayerDamageEntity : DamageableEntity
 {
     public RepairSystemManager repSysMan;
+    public float maxHealth;
 
     private bool alarmPlaying = false;
     //public GameObject gameManager;
+    private void Start()
+    {
+        maxHealth = health;
+    }
+
     public override void TakeDamage(float incomingDamage, EAllegiance allegianceOfIncomingDamage)
     {
         if (allegianceOfIncomingDamage != allegiance )
@@ -18,6 +24,10 @@ public class PlayerDamageEntity : DamageableEntity
                 repSysMan.RollForSteamLoss();
             }
             health -= incomingDamage;
+            if(health > maxHealth)
+            {
+                health = maxHealth;
+            }
             if (incomingDamage >= 20.0f)
             {
                 FindObjectOfType<AudioManager>().PlayMissleHit();
