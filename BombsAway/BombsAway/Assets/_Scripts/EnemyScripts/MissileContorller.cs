@@ -140,6 +140,11 @@ public class MissileContorller : MonoBehaviour
             //Debug.Log($"1: {this.transform.gameObject.name} -> {other.transform.parent.gameObject.name}");
             collision.transform.GetComponentInParent<DamageableEntity>().TakeDamage(missileDamage, allegiance); // hurt player
             this.GetComponent<DamageableEntity>().TakeDamage(missileDamage, EAllegiance.Player); // kill missile
+            SchematicShowHit ssh = collision.gameObject.transform.root.gameObject.GetComponentInChildren<SchematicShowHit>();
+            if (ssh != null)
+            {
+                ssh.ShowHit(this.transform.position);
+            }
             //Destroy(this.gameObject);
         }
         else //if (collision.transform.gameObject.layer.ToString() != "8")
