@@ -13,6 +13,8 @@ public class EnemyShootGun : MonoBehaviour
     public EnemyWeapon[] enemyGuns;
     private EPosition gunToShoot;
 
+    private float bulletSpeed;
+
     private float timeSinceShot = 0.0f;
     //private float timeReloading = 0.0f;
     //private int ammoCount;
@@ -29,6 +31,7 @@ public class EnemyShootGun : MonoBehaviour
     void Start()
     {
         enemyEntity = this.GetComponent<DamegableEnemy>();
+        bulletSpeed = this.gameObject.GetComponentInChildren<ShootGun>().projectileSpeed;
 
         for (int i = 0; i < enemyGuns.Length; i++)
         {
@@ -118,10 +121,25 @@ public class EnemyShootGun : MonoBehaviour
     {
         int gunIndex = GetGunIndexFromPosition();
         Transform playerTransform = this.GetComponent<EnemyFlying>().GetPlayerPosition();   // MAKE MORE EFFICIENT
-        Quaternion rotation = Quaternion.LookRotation(playerTransform.position - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
+
+        Quaternion rotation = Quaternion.LookRotation(playerTransform.position + CalculateOffset(playerTransform) - enemyGuns[gunIndex].gun.transform.position, Vector3.up);
         // FIX, MAKE SMOOTH MOVEMENT
         //enemyGuns[gunIndex].gun.transform.rotation = Quaternion.Lerp(enemyGuns[gunIndex].gun.transform.rotation, rotation, Time.time);
         enemyGuns[gunIndex].gun.transform.rotation = rotation;
+    }
+
+    private Vector3 CalculateOffset(Transform playerTF)
+    {
+        Rigidbody playerRB = playerTF.root.gameObject.GetComponentInChildren<Rigidbody>();
+
+        float distanceBetweenPlayerAndGun = Vector3.Distance(playerTF.position, this.transform.position);
+        float timeOfFlight = distanceBetweenPlayerAndGun / bulletSpeed;
+
+        Vector3 offset = new Vector3();
+        offset = (playerRB.velocity * timeOfFlight) - (this.transform.root.gameObject.GetComponentInChildren<Rigidbody>().velocity * timeOfFlight) + (Vector3.up * (float)(.5 * -Physics.gravity.y * timeOfFlight * timeOfFlight));
+
+
+        return offset;
     }
 
     private void Shoot()
