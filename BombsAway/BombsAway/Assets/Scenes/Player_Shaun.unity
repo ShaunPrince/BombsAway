@@ -3287,27 +3287,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085064011}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2132191714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6408970837847507499, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 341742499553976783}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2132191728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132191714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55be7731b6f88a4bb7169c5d3d696b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  desiredAlt: 0
-  desiredSpeed: 0
-  fly: {fileID: 0}
 --- !u!1001 &341742499553976783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3425,11 +3404,6 @@ PrefabInstance:
       propertyPath: damageArrows.Array.data[7]
       value: 
       objectReference: {fileID: 121208863}
-    - target: {fileID: 8949480748367633429, guid: 1e85e8316a5ef78418012a118a7d0f5b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 50000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
 --- !u!1001 &1548362524022096316
