@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class StartameCamera : MonoBehaviour
 {
+    public bool skip = false;
     //public GameObject startCamera;
     public float time;
     public float maxDistanceToBuilding;
@@ -29,102 +30,114 @@ public class StartameCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allBuildings = GameObject.FindWithTag("BuildingSpawner");
-        startCanvas.SetActive(true);
-        mainCanvas.SetActive(false);
-        hider.HideObjects();
+        if (!skip)
+        {
+            allBuildings = GameObject.FindWithTag("BuildingSpawner");
+            startCanvas.SetActive(true);
+            mainCanvas.SetActive(false);
+            hider.HideObjects();
+        }
+        else
+        {
+            mainCanvas.SetActive(true);
+            startCanvas.SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!MissionManager.FinishedChoosingTargets())
+        if (!skip)
         {
-            // show black Screen
-            //Debug.Log($"loading");
-        }
-        else if (MissionManager.FinishedChoosingTargets() && buidlingsDone)
-        {
-            if (Mathf.Approximately(timer, 0f))
+            if (!MissionManager.FinishedChoosingTargets())
             {
-                //Debug.Log("Done loading");
-                targetBuildingIndex = FindClosestTarget();
-                this.transform.position = allBuildings.transform.GetChild(targetBuildingIndex).transform.position;
-                startCamera.GetComponent<CameraTween>().FadeIn();
-                targetText.GetComponent<FadeText>().FadeIn();
-                InitialCameraMovements();
-                timer += Time.deltaTime;
+                // show black Screen
+                //Debug.Log($"loading");
             }
-            else if (timer > time/3)
+            else if (MissionManager.FinishedChoosingTargets() && buidlingsDone)
             {
-                buidlingsDone = false;
-                timer = 0f;
-                
-                if (targetBuildingIndex == -1)
+                if (Mathf.Approximately(timer, 0f))
                 {
-                    Debug.Log($"ERROR: StartGameCamera.cs targetBuildingIndex is {targetBuildingIndex}, could not find a target buidling within range");
+                    //Debug.Log("Done loading");
+                    targetBuildingIndex = FindClosestTarget();
+                    this.transform.position = allBuildings.transform.GetChild(targetBuildingIndex).transform.position;
+                    startCamera.GetComponent<CameraTween>().FadeIn();
+                    targetText.GetComponent<FadeText>().FadeIn();
+                    InitialCameraMovements();
+                    timer += Time.deltaTime;
                 }
-                else
+                else if (timer > time / 3)
                 {
-                    this.transform.parent = null;
-                    //MoveTowardsTarget(targetBuildingIndex);
-                    targetText.GetComponent<FadeText>().FadeOut();
-                    MoveTowardsPlayer();
-                }
-            }
-            else
-            {
-                timer += Time.deltaTime;
-            }
-        }
-        else if (doneMoving == EStatus.hasNotStarted)
-        {
-            TooClose();
-        }
-        else if (doneMoving == EStatus.start)
-        {
-            // fade to black, disable start canvas, enable main canvas
-            // fade back to "white"
-            // use my own timer for this
+                    buidlingsDone = false;
+                    timer = 0f;
 
-            if (!fadeToBlackDone)
-            {
-                if (Mathf.Approximately(timer, 0f))
-                {
-                    FadeToBlack();
-                    timer += Time.deltaTime;
-                }
-                else if (timer > maxFadeTime)
-                {
-                    timer = 0f;
-                    mainCanvas.SetActive(true);
-                    fadeToBlackDone = true;
+                    if (targetBuildingIndex == -1)
+                    {
+                        Debug.Log($"ERROR: StartGameCamera.cs targetBuildingIndex is {targetBuildingIndex}, could not find a target buidling within range");
+                    }
+                    else
+                    {
+                        this.transform.parent = null;
+                        //MoveTowardsTarget(targetBuildingIndex);
+                        targetText.GetComponent<FadeText>().FadeOut();
+                        MoveTowardsPlayer();
+                    }
                 }
                 else
                 {
                     timer += Time.deltaTime;
                 }
             }
-            else if (!fadeBackDone)
+            else if (doneMoving == EStatus.hasNotStarted)
             {
-                if (Mathf.Approximately(timer, 0f))
+                TooClose();
+            }
+            else if (doneMoving == EStatus.start)
+            {
+                // fade to black, disable start canvas, enable main canvas
+                // fade back to "white"
+                // use my own timer for this
+
+                if (!fadeToBlackDone)
                 {
-                    FadeFromBlack();
-                    hider.ShowObjects();
-                    timer += Time.deltaTime;
+                    if (Mathf.Approximately(timer, 0f))
+                    {
+                        FadeToBlack();
+                        timer += Time.deltaTime;
+                    }
+                    else if (timer > maxFadeTime)
+                    {
+                        timer = 0f;
+                        mainCanvas.SetActive(true);
+                        fadeToBlackDone = true;
+                    }
+                    else
+                    {
+                        timer += Time.deltaTime;
+                    }
                 }
-                else if (timer > maxFadeTime)
+                else if (!fadeBackDone)
                 {
-                    timer = 0f;
-                    //startCanvas.SetActive(false);
-                    //mainCanvas.SetActive(true);
-                    fadeBackDone = true;
-                    startCanvas.SetActive(false);
-                    doneMoving = EStatus.completed;
-                }
-                else
-                {
-                    timer += Time.deltaTime;
+                    if (Mathf.Approximately(timer, 0f))
+                    {
+                        FadeFromBlack();
+                        hider.ShowObjects();
+                        timer += Time.deltaTime;
+                    }
+                    else if (timer > maxFadeTime)
+                    {
+                        timer = 0f;
+                        //startCanvas.SetActive(false);
+                        //mainCanvas.SetActive(true);
+                        fadeBackDone = true;
+                        startCanvas.SetActive(false);
+                        doneMoving = EStatus.completed;
+                    }
+                    else
+                    {
+                        timer += Time.deltaTime;
+                    }
                 }
             }
         }
