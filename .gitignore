@@ -35,3 +35,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 BombsAway/BombsAway/Assets/_Scripts/EnemyScripts/AA GUN/AAGunController.cs.orig.meta
+BombsAway/BombsAway/Assets/ProjectSettings.meta
+BombsAway/BombsAway/Assets/_Scripts/Art/2D.meta
+BombsAway/BombsAway/Assets/ProjectSettings/ProjectVersion.txt.meta
+BombsAway/BombsAway/Assets/Sounds/Ambiance.meta
+BombsAway/BombsAway/Assets/Sounds/Ambiance/Calm.meta
