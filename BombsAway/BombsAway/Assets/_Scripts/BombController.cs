@@ -94,7 +94,7 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Exploded on collision with: " + collision.collider.name);
+        Debug.Log($"Bomb collideded with {collision.collider.name} on layer {collision.gameObject.layer}");
         Explode();
     }
 
