@@ -126,7 +126,7 @@ public class AudioManager : MonoBehaviour
     {
         int drop = 4;
         Sounds a = General[drop];
-        a.source.PlayOneShot(a.source.clip);
+        a.source.PlayDelayed(.5f); //.PlayOneShot(a.source.clip);
     }
 
     //doesnt work.need to fix then delete the top functions
