@@ -14,6 +14,14 @@ public class FadeText : MonoBehaviour
             "onupdate", "ChangeAlfa"));
     }
 
+    public void FadeOut()
+    {
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 1f, "to", 0f,
+            "time", 1f, "easetype", "linear",
+            "onupdate", "ChangeAlfa"));
+    }
+
     private void ChangeAlfa(float amount)
     {
         Color ogColor = this.GetComponent<TMP_Text>().color;

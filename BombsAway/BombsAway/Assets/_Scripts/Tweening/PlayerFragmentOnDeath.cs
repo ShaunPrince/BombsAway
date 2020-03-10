@@ -73,4 +73,12 @@ public class PlayerFragmentOnDeath : MonoBehaviour
             item.SetActive(false);
         }
     }
+
+    public void ShowObjects()
+    {
+        foreach (GameObject item in objectsToHide)
+        {
+            item.SetActive(true);
+        }
+    }
 }
