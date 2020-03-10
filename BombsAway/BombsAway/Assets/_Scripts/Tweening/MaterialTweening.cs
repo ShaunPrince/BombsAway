@@ -114,7 +114,7 @@ public class MaterialTweening : MonoBehaviour
 
     public void FlickerMaterial(Material startMat, Material endMat, float time)
     {
-        Debug.Log("flicker");
+        //Debug.Log("flicker");
         startMaterial = startMat;
         endMaterial = endMat;
         fadeTime = time;

@@ -42,7 +42,7 @@ public class LowAmmoLight : MonoBehaviour
         //Debug.Log($"{controller.AmmoCount()} / {controller.magazineSize} = {dif}");
         if ( dif < lowPercentage && !lightOn)
         {
-            Debug.Log($"Low ammo");
+            //Debug.Log($"Low ammo");
             //this.GetComponent<MaterialTweening>().PingPongMaterial(offMaterial, onMaterial, time);
             light.GetComponent<MaterialTweening>().FlickerMaterial(offMaterial, onMaterial, time);
             lightOn = true;

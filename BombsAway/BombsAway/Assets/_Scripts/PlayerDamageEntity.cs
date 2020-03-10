@@ -22,6 +22,7 @@ public class PlayerDamageEntity : DamageableEntity
             if (allegianceOfIncomingDamage == EAllegiance.Enemy)
             {
                 repSysMan.RollForSteamLoss();
+                FindObjectOfType<AudioManager>().PlayGotHit();
             }
             health -= incomingDamage;
             if(health > maxHealth)
@@ -34,7 +35,7 @@ public class PlayerDamageEntity : DamageableEntity
             }
             else
             {
-                FindObjectOfType<AudioManager>().PlayGotHit();
+                //FindObjectOfType<AudioManager>().PlayGotHit();
             }
 
 

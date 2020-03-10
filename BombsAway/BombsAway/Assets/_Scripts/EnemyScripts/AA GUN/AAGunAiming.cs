@@ -35,7 +35,7 @@ public class AAGunAiming : MonoBehaviour
 
     private Vector3 CalculateOffset()
     {
-        return (targetRB.velocity * timeOfFlight) + (Vector3.up * (float)(.5 * 9.8 * timeOfFlight * timeOfFlight));
+        return (targetRB.velocity * timeOfFlight) + (Vector3.up * (float)(.5 * -Physics.gravity.y * timeOfFlight * timeOfFlight));
     }
 
 
