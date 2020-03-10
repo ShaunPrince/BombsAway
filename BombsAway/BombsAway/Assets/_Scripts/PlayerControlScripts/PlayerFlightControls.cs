@@ -10,6 +10,8 @@ public class PlayerFlightControls : ControlScheme
     public ESpeeds currentSpeedSetting;
     public EAlts currentAltSetting;
 
+    public PlayerAutopilot autoPilot;
+
     private DynamicAltitude da;
     public Flying fly;
 
@@ -25,12 +27,13 @@ public class PlayerFlightControls : ControlScheme
     {
         da = this.gameObject.GetComponentInParent<DynamicAltitude>();
         fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
+        autoPilot = GameObject.FindObjectOfType<PlayerAutopilot>();
     }
     private void Start()
     {
-       
-        fly.SetDesAlt(da.calcStraightDownAlt(presetAlts[(int)currentAltSetting]));
-        fly.SetDesSpeed( presetSpeeds[(int)currentSpeedSetting]);
+
+        autoPilot.desiredAlt = (presetAlts[(int)currentAltSetting]);
+        autoPilot.desiredSpeed = (presetSpeeds[(int)currentSpeedSetting]);
     }
 
     // Update is called once per frame
@@ -58,7 +61,8 @@ public class PlayerFlightControls : ControlScheme
 
             }
         }
-        fly.SetDesAlt(da.calcStraightDownAlt(presetAlts[(int)currentAltSetting]));
+        autoPilot.desiredAlt = (presetAlts[(int)currentAltSetting]);
+
     }
 
     public void CheckForSpeedChange()
@@ -68,7 +72,7 @@ public class PlayerFlightControls : ControlScheme
             if ((int)currentSpeedSetting < (int) ESpeeds.Fast)
             {
                 currentSpeedSetting += 1;
-                fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+
             }
         }
         else if (Input.GetKeyDown(KeyCode.S))
@@ -76,10 +80,11 @@ public class PlayerFlightControls : ControlScheme
             if ((int)currentSpeedSetting > (int)ESpeeds.Slow)
             {
                 currentSpeedSetting -= 1;
-                fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
+                //fly.SetDesSpeed(presetSpeeds[(int)currentSpeedSetting]);
 
             }
         }
+        autoPilot.desiredSpeed = (presetSpeeds[(int)currentSpeedSetting]);
     }
 
     public void CheckForTurning()

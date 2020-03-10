@@ -19,7 +19,7 @@ public class BombController : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 currentPosition;
 
-    private List<GameObject> listObjectsToDestroy;
+    public List<GameObject> listObjectsToDestroy;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class BombController : MonoBehaviour
     void Update()
     {
         //Debug.DrawRay(this.transform.position, Vector3.down * 1000.0f);
-        if (isDropping)
+        if (isDropping && !hasExploded)
         {
             RotateDown();
             lastPosition = currentPosition;
@@ -64,7 +64,7 @@ public class BombController : MonoBehaviour
 
         RaycastHit hit;
         float distance = Vector3.Distance(lastPosition, currentPosition);
-        if (Physics.Raycast(lastPosition, transform.TransformDirection(Vector3.down), out hit, distance) && (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 12))
+        if (Physics.Raycast(lastPosition, currentPosition - lastPosition, out hit, distance) && (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 12 || hit.collider.gameObject.layer ==4 ))
         {
             //Debug.Log("Exploding on Raycast from hitting: " + hit.collider.name);
             Explode();
@@ -105,7 +105,7 @@ public class BombController : MonoBehaviour
             bombExplode.Play();
             GameObject boom = Instantiate(explosion, this.transform.position, this.transform.rotation);
             GameObject.Destroy(boom, 20f);
-
+            //UnityEditor.EditorApplication.isPaused = true;
 
             // when the bomb crashes, destroy everything within it's radius
             foreach (GameObject objectToDestroy in listObjectsToDestroy)
