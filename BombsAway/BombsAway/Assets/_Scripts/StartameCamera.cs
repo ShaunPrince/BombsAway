@@ -12,8 +12,10 @@ public class StartameCamera : MonoBehaviour
     public GameObject startCanvas;
     public GameObject mainCanvas;
     public GameObject fadeCanvas;
-    public GameObject player;
+    public GameObject playerCenter;
+    public Rigidbody playerRigidbody;
     public PlayerFragmentOnDeath hider;
+    public GameObject selectionWheelToDisable;
     //public GameObject buildingSpawner;
     private GameObject allBuildings;
     private int targetBuildingIndex;
@@ -36,6 +38,7 @@ public class StartameCamera : MonoBehaviour
             startCanvas.SetActive(true);
             mainCanvas.SetActive(false);
             hider.HideObjects();
+            playerRigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         else
         {
@@ -54,6 +57,7 @@ public class StartameCamera : MonoBehaviour
             {
                 // show black Screen
                 //Debug.Log($"loading");
+                selectionWheelToDisable.SetActive(false);
             }
             else if (MissionManager.FinishedChoosingTargets() && buidlingsDone)
             {
@@ -123,6 +127,7 @@ public class StartameCamera : MonoBehaviour
                     {
                         FadeFromBlack();
                         hider.ShowObjects();
+                        selectionWheelToDisable.SetActive(true);
                         timer += Time.deltaTime;
                     }
                     else if (timer > maxFadeTime)
@@ -132,6 +137,8 @@ public class StartameCamera : MonoBehaviour
                         //mainCanvas.SetActive(true);
                         fadeBackDone = true;
                         startCanvas.SetActive(false);
+                        playerRigidbody.constraints = RigidbodyConstraints.None;
+                        playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
                         doneMoving = EStatus.completed;
                     }
                     else
@@ -187,8 +194,8 @@ public class StartameCamera : MonoBehaviour
     private void MoveTowardsPlayer()
     {
         //Debug.Log("MovingTowards");
-        iTween.MoveTo(this.gameObject, iTween.Hash("position", player.transform.position,
-                                                   "time", time, "looktarget", player.transform.position,
+        iTween.MoveTo(this.gameObject, iTween.Hash("position", playerCenter.transform.position,
+                                                   "time", time, "looktarget", playerCenter.transform.position,
                                                    "looktime", 6f, "easetype", "easeInOutExpo"));
 
         iTween.RotateTo(this.transform.GetChild(0).gameObject, iTween.Hash("rotation", Vector3.zero, "islocal", true,
@@ -220,7 +227,7 @@ public class StartameCamera : MonoBehaviour
 
     private void TooClose()
     {
-        float distance = Mathf.Abs(Vector3.Distance(player.transform.position, this.transform.position));
+        float distance = Mathf.Abs(Vector3.Distance(playerCenter.transform.position, this.transform.position));
         //Debug.Log($"{distance} from player");
         if (distance < maxDistanceToBuilding)
         {
