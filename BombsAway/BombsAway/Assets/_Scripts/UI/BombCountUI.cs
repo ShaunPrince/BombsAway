@@ -5,7 +5,8 @@ using TMPro;
 
 public class BombCountUI : MonoBehaviour
 {
-    public TextMeshProUGUI bombCountText;
+    //public TextMeshProUGUI bombCountText;
+    public PhysicalDoubleDigits counterDigits;
 
     private BombBayControls bombBaySript;
     private int prevBombCount;
@@ -15,7 +16,8 @@ public class BombCountUI : MonoBehaviour
     {
         bombBaySript = this.GetComponentInChildren<BombBayControls>();
         prevBombCount = bombBaySript.numOfBombs;
-        bombCountText.text = prevBombCount.ToString();
+        //bombCountText.text = prevBombCount.ToString();
+        counterDigits.SetDoubleNumber(prevBombCount);
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class BombCountUI : MonoBehaviour
         if (prevBombCount != bombBaySript.numOfBombs)
         {
             prevBombCount = bombBaySript.numOfBombs;
-            bombCountText.text = prevBombCount.ToString();
+            //bombCountText.text = prevBombCount.ToString();
+            counterDigits.SetDoubleNumber(prevBombCount);
         }
     }
 }
