@@ -109,6 +109,7 @@ public class PlayerFlightControls : ControlScheme
         else
         {
             fly.NoTurn();
+            audioM.StopSquaks();
         }
     }
 

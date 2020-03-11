@@ -146,7 +146,8 @@ public class AudioManager : MonoBehaviour
 
         int squeak1 = 5;
         a = General[squeak1];
-        a.source.PlayOneShot(a.source.clip);
+        if (a.source.isPlaying == false)
+            a.source.Play();
     }
 
     public void PlaySqueak2()
@@ -157,7 +158,14 @@ public class AudioManager : MonoBehaviour
 
         int squeak2 = 6;
         a = General[squeak2];
-        a.source.PlayOneShot(a.source.clip);
+        if (a.source.isPlaying == false)
+            a.source.Play();
+    }
+
+    public void StopSquaks()
+    {
+        General[5].source.Stop();
+        General[6].source.Stop();
     }
 
     //doesnt work.need to fix then delete the top functions
