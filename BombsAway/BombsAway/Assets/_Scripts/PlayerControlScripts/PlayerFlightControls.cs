@@ -16,7 +16,6 @@ public class PlayerFlightControls : ControlScheme
     public Flying fly;
 
     public bool turningLeft;
-    public bool turningRight;
 
     private AudioManager audioM;
 
@@ -97,25 +96,20 @@ public class PlayerFlightControls : ControlScheme
         if(Input.GetKey(KeyCode.A))
         {
             fly.TurnLeft();
-            if (!turningLeft)
-                audioM.PlaySqueak1();
             turningLeft = true;
-            turningRight = false;
+            audioM.PlaySqueak1();
+
         }
         else if(Input.GetKey(KeyCode.D))
         {
             fly.TurnRight();
-            if (!turningRight)
-                audioM.PlaySqueak2();
             turningLeft = false;
-            turningRight = true;
+            audioM.PlaySqueak2();
         }
         else
         {
             fly.NoTurn();
             audioM.StopSquaks();
-            turningLeft = false;
-            turningRight = false;
         }
     }
 

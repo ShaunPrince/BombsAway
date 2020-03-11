@@ -9,12 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 33ece6d8fed35c54e9a5929f5c72cc8b
   - enabled: 1
-    path: Assets/Scenes/MissionMenu.unity
-    guid: f2aab830872bb4840a205465e22837e9
-  - enabled: 1
     path: Assets/Scenes/Player_Shaun.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/Gavin-test.unity
-    guid: 43751a8404ea56441bd9f0806a2ba13c
+  - enabled: 1
+    path: Assets/Scenes/MissionMenu.unity
+    guid: f2aab830872bb4840a205465e22837e9
   m_configObjects: {}
