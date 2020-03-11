@@ -21,8 +21,6 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public AudioSource ShortClank;
-
     public void LoadLevel(int index)
     {
         //ShortClank.Play();
