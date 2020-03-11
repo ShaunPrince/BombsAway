@@ -68,6 +68,8 @@ public class AudioManager : MonoBehaviour
         a.source.PlayOneShot(a.source.clip);
     }
 
+
+
     public void PlayMissleHit()
     {
         int missleHit = GettingHit.Length-2;
@@ -134,6 +136,28 @@ public class AudioManager : MonoBehaviour
         int drop = 4;
         Sounds a = General[drop];
         a.source.PlayDelayed(.5f); //.PlayOneShot(a.source.clip);
+    }
+
+    public void PlaySqueak1()
+    {
+        int squeak2 = 6;
+        Sounds a = General[squeak2];
+        a.source.Stop();
+
+        int squeak1 = 5;
+        a = General[squeak1];
+        a.source.PlayOneShot(a.source.clip);
+    }
+
+    public void PlaySqueak2()
+    {
+        int squeak1 = 5;
+        Sounds a = General[squeak1];
+        a.source.Stop();
+
+        int squeak2 = 6;
+        a = General[squeak2];
+        a.source.PlayOneShot(a.source.clip);
     }
 
     //doesnt work.need to fix then delete the top functions

@@ -17,6 +17,8 @@ public class PlayerFlightControls : ControlScheme
 
     public bool turningLeft;
 
+    private AudioManager audioM;
+
     public float GetDynamicAlt()
     {
         return da.straitDownAlt;
@@ -28,6 +30,8 @@ public class PlayerFlightControls : ControlScheme
         da = this.gameObject.GetComponentInParent<DynamicAltitude>();
         fly = GameObject.FindGameObjectWithTag("PilotStation").GetComponent<Flying>();
         autoPilot = GameObject.FindObjectOfType<PlayerAutopilot>();
+
+        audioM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
     private void Start()
     {
@@ -93,11 +97,14 @@ public class PlayerFlightControls : ControlScheme
         {
             fly.TurnLeft();
             turningLeft = true;
+            audioM.PlaySqueak1();
+
         }
         else if(Input.GetKey(KeyCode.D))
         {
             fly.TurnRight();
             turningLeft = false;
+            audioM.PlaySqueak2();
         }
         else
         {
