@@ -122,6 +122,13 @@ public class AudioManager : MonoBehaviour
         a.source.PlayOneShot(a.source.clip);
     }
 
+    public void PlayButtonPress()
+    {
+        int press = 4;
+        Sounds a = General[press];
+        a.source.PlayOneShot(a.source.clip);
+    }
+
     public void PlayBombDrop()
     {
         int drop = 4;

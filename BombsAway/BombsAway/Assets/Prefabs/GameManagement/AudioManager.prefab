@@ -336,6 +336,14 @@ MonoBehaviour:
     priority: 104
     source: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 186276e3ffb87044bb105f50e023ad8e, type: 3}
+    mixerGroup: {fileID: -7725823186192320919, guid: f24456dbf9ba453429c628105757ee08,
+      type: 2}
+    volume: 1
+    pitch: 0
+    priority: 104
+    source: {fileID: 0}
+    loop: 0
   GettingHit:
   - clip: {fileID: 8300000, guid: 28860f0910ada5a4eaeff627473a618e, type: 3}
     mixerGroup: {fileID: -9081199330483819801, guid: f24456dbf9ba453429c628105757ee08,

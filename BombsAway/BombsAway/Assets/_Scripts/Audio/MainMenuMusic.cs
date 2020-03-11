@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuMusic : MonoBehaviour
 {
     private AudioSource menuMusic;
+    private float transitionTime;
+    private float startVol;
 
     private void Awake()
     {
@@ -16,27 +18,28 @@ public class MainMenuMusic : MonoBehaviour
     void Start()
     {
         menuMusic = this.GetComponent<AudioSource>();
+        transitionTime = 0.0f;
+        startVol = menuMusic.volume;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        //Debug.Log(currentScene.name);
-        if (currentScene.name != "MainMenu" && currentScene.name != "MissionMenu")
+        if (transitionTime > 0.0f)
         {
-            Destroy(this.gameObject);
+            menuMusic.volume -= menuMusic.volume * Time.deltaTime;
+            transitionTime -= Time.deltaTime;
+            if (transitionTime < 0.0f)
+            {
+                menuMusic.Stop();
+                menuMusic.volume = startVol;
+                Destroy(this.gameObject);
+            }
         }
     }
-    /*
-    private void PlayMusic()
-    {
-        menuMusic.Play();
-    }
 
-    private void StopMusic()
+    public void FadeMusicOut()
     {
-        menuMusic.Stop();
+        transitionTime = 3.0f;
     }
-    */
 }

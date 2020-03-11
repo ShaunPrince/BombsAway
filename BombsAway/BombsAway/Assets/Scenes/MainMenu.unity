@@ -2438,6 +2438,17 @@ MonoBehaviour:
           m_StringArgument: State
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1007373861}
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &735377641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,7 +2944,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4083656288967863004, guid: f24456dbf9ba453429c628105757ee08,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: f6768f4ec9429824f93f85f1b27a2b36, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 547453be21e8b1c46a0963391ec7a7c4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3510,6 +3521,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1007373861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1571079414789918589, guid: 7268e11cb766f4e45b4c98333fc37737,
+    type: 3}
+  m_PrefabInstance: {fileID: 1904163858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60813c1ccb36abf438e1b1115f2fd6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1007992634 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6623914498273234770, guid: 6b195c241a73a8b4aa8b03ecad2087bd,
@@ -3720,6 +3743,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 438733797}
         m_MethodName: ViewControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1007373861}
+        m_MethodName: PlayButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4838,12 +4872,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1854856037}
-        m_MethodName: 
+      - m_Target: {fileID: 1007373861}
+        m_MethodName: PlayButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 842593688}
+        m_MethodName: FadeMusicOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5152,6 +5197,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1007373861}
+        m_MethodName: PlayButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1628480546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,7 +5359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.8045044}
+  m_AnchoredPosition: {x: 0, y: -3.8045654}
   m_SizeDelta: {x: 111, y: 112.791016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674483015
@@ -7398,6 +7454,96 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1007373861}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: PlayButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242269137015, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1007373861}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714242231931463, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1007373861}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: PlayButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297714241338566446, guid: 8de7b6564a4777143825cc958ec07c56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8de7b6564a4777143825cc958ec07c56, type: 3}

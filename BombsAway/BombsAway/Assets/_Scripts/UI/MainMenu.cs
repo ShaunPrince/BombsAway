@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        ShortClank.Play();
+        //ShortClank.Play();
 
         Debug.Log("Menu Start button launches next scene.");
         SceneManager.LoadScene(index);
@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void ViewControls()
     {
-        ShortClank.Play();
+        //ShortClank.Play();
 
         if (ControlsPage.activeSelf) ControlsPage.SetActive(false);
         else ControlsPage.SetActive(true);
@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
-        ShortClank.Play();
+        //ShortClank.Play();
 
         Application.Quit();
         Debug.Log("Game is supposed to quit.");
