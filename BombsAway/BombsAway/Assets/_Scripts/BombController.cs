@@ -15,7 +15,7 @@ public class BombController : MonoBehaviour
 
     private AudioSource bombExplode;
 
-    private bool isDropping = false;
+    public bool isDropping = false;
     private Vector3 lastPosition;
     private Vector3 currentPosition;
 
