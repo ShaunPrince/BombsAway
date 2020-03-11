@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.039167278, g: 0.046131555, b: 0.038512643, a: 0.2}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3381,6 +3381,11 @@ PrefabInstance:
       propertyPath: schematicManager
       value: 
       objectReference: {fileID: 1248030131}
+    - target: {fileID: 6692489288816812802, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 63219507, guid: 1e85e8316a5ef78418012a118a7d0f5b, type: 3}
       propertyPath: damageArrows.Array.data[0]
       value: 
@@ -3413,6 +3418,16 @@ PrefabInstance:
       propertyPath: damageArrows.Array.data[7]
       value: 
       objectReference: {fileID: 121208863}
+    - target: {fileID: 7659336733161758494, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659336733161758495, guid: 1e85e8316a5ef78418012a118a7d0f5b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3548216844654869760, guid: 1e85e8316a5ef78418012a118a7d0f5b,
         type: 3}
       propertyPath: m_textInfo.characterCount

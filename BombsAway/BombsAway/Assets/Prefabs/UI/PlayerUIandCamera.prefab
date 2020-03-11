@@ -1746,6 +1746,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2250646170967027061
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,6 +7237,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 182099786}
     m_Modifications:
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: EndGameCamTexture
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7331,16 +7352,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: EndGameCamTexture
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}
 --- !u!224 &2693186432534563541 stripped
@@ -7356,6 +7367,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5783402180909909988}
     m_Modifications:
+    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
+        type: 3}
+      propertyPath: m_Name
+      value: DeathCamTexture
+      objectReference: {fileID: 0}
     - target: {fileID: 7211366010304449005, guid: c65fb95ff04a6aa4bacc3ca508304a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7460,11 +7476,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7211366010304449006, guid: c65fb95ff04a6aa4bacc3ca508304a01,
-        type: 3}
-      propertyPath: m_Name
-      value: DeathCamTexture
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65fb95ff04a6aa4bacc3ca508304a01, type: 3}
