@@ -31,11 +31,31 @@ public class CameraTween : MonoBehaviour
 
         //Debug.Log($"Fading out {this.transform.parent.name}");
     }
+
+    public void FadeOut(float time)
+    {
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 1.0f, "to", 0.0f,
+            "time", time, "easetype", "easeInQuad",
+            "onupdate", "setAlpha"));
+
+        //Debug.Log($"Fading out {this.transform.parent.name}");
+    }
     public void FadeIn()
     {
         iTween.ValueTo(gameObject, iTween.Hash(
             "from", 0f, "to", 1f,
             "time", fadeTime, "easetype", "easeOutQuad",
+            "onupdate", "setAlpha"));
+
+        //Debug.Log($"Fading in {this.transform.parent.name}");
+    }
+
+    public void FadeIn(float time)
+    {
+        iTween.ValueTo(gameObject, iTween.Hash(
+            "from", 0f, "to", 1f,
+            "time", time, "easetype", "easeInQuad",
             "onupdate", "setAlpha"));
 
         //Debug.Log($"Fading in {this.transform.parent.name}");

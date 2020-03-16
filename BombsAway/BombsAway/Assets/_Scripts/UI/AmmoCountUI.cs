@@ -12,6 +12,8 @@ public class AmmoCountUI : MonoBehaviour
 
     private int prevAmmoCount = -1;
 
+    private bool setInitial = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,12 @@ public class AmmoCountUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!setInitial)
+        {
+            counterDigits.SetDoubleNumber(playerGunController.AmmoCount());
+            maxDigits.SetDoubleNumber(playerGunController.magazineSize);
+            setInitial = true;
+        }
         if (playerGunController.AmmoCount() != prevAmmoCount)
         {
             //ammoCountText.text = playerGunController.AmmoCount() + "/" + playerGunController.magazineSize;

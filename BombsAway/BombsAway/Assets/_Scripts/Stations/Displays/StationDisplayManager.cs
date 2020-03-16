@@ -28,14 +28,15 @@ public class StationDisplayManager : MonoBehaviour
     {
         if(centerRT != rectTrans[(int)newStationID])
         {
+            float fadeTime = 1f;
             Vector2 tempNewCords = rectTrans[(int)newStationID].gameObject.GetComponent<DisplayBoxCords>().cords;
             Vector2 tempSchematicCords = schematicRT.gameObject.GetComponent<DisplayBoxCords>().cords;
             RectTransform tempOldRectTransform = centerRT;
 
             // Camera fade out
-            centerRT.GetChild(0).GetComponent<CameraTween>().FadeOut();
-            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeOut();
-            rectTrans[(int)newStationID].GetChild(0).GetComponent<CameraTween>().FadeOut();
+            centerRT.GetChild(0).GetComponent<CameraTween>().FadeOut(fadeTime);
+            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeOut(fadeTime);
+            rectTrans[(int)newStationID].GetChild(0).GetComponent<CameraTween>().FadeOut(fadeTime);
 
             centerRT.GetComponent<DisplayBoxCords>().cords = tempSchematicCords;
             schematicRT.gameObject.GetComponent<DisplayBoxCords>().cords = tempNewCords;
@@ -43,10 +44,10 @@ public class StationDisplayManager : MonoBehaviour
             centerRT = rectTrans[(int)newStationID];
 
             // Camera fade in
-            tempOldRectTransform.GetChild(0).GetComponent<CameraTween>().FadeIn();
-            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeIn();
+            tempOldRectTransform.GetChild(0).GetComponent<CameraTween>().FadeIn(fadeTime);
+            schematicRT.GetChild(0).GetComponent<CameraTween>().FadeIn(fadeTime);
             //rectTrans[(int)newStationID].GetChild(0).GetComponent<CameraTween>().FadeIn();
-            centerRT.GetChild(0).GetComponent<CameraTween>().FadeIn();
+            centerRT.GetChild(0).GetComponent<CameraTween>().FadeIn(fadeTime);
         }
 
     }

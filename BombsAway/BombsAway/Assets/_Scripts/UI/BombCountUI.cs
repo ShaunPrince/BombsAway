@@ -11,6 +11,8 @@ public class BombCountUI : MonoBehaviour
     private BombBayControls bombBaySript;
     private int prevBombCount;
 
+    private bool setInitial = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,12 @@ public class BombCountUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!setInitial)
+        {
+            prevBombCount = bombBaySript.numOfBombs;
+            counterDigits.SetDoubleNumber(prevBombCount);
+            setInitial = true;
+        }
         if (prevBombCount != bombBaySript.numOfBombs)
         {
             prevBombCount = bombBaySript.numOfBombs;
