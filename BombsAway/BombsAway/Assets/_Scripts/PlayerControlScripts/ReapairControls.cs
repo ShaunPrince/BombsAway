@@ -7,12 +7,14 @@ public class ReapairControls : ControlScheme
     public Junction currentSelectedJunction;
 
     public Selector selector;
+
+    private AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         selector = GameObject.FindObjectOfType<Selector>();
         currentSelectedJunction = selector.overJunction;
-        
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -22,10 +24,12 @@ public class ReapairControls : ControlScheme
         if (Input.GetMouseButtonDown(0))
         {
             currentSelectedJunction.RotateCW();
+            audioManager.PlayPipeMove();
         }
         else if (Input.GetMouseButtonDown(1))
         {
             currentSelectedJunction.RotateCCW();
+            audioManager.PlayPipeMove();
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
@@ -45,6 +49,4 @@ public class ReapairControls : ControlScheme
             selector.MoveLeft();
         }
     }
-
-
 }

@@ -86,10 +86,16 @@ public class AudioManager : MonoBehaviour
 
     public void PlayPipeMove()
     {
-        int randomHit = UnityEngine.Random.Range(0, GettingHit.Length);
+        int randomHit = UnityEngine.Random.Range(1, 4);
         Sounds a = RepairSounds[randomHit];
         a.source.PlayOneShot(a.source.clip);
+    }
 
+    public void PlayPipeSteam()
+    {
+        int randomHit = UnityEngine.Random.Range(1, 4);
+        Sounds a = RepairSounds[randomHit];
+        a.source.PlayOneShot(a.source.clip);
     }
 
     public void PlayAlarm()
