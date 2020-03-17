@@ -22,7 +22,7 @@ public class MissionManager : WorldEntity
     private static bool playerInBounds = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         buildingSpawner = GameObject.FindWithTag("BuildingSpawner");
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();

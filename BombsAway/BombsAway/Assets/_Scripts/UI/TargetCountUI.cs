@@ -10,8 +10,6 @@ public class TargetCountUI : MonoBehaviour
     public PhysicalSingleDigits maxDigits;
     private int prevNumTargets;
 
-    private bool setInitial = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +17,12 @@ public class TargetCountUI : MonoBehaviour
         counterDigits.SetNumber(MissionManager.NumberOfRemainingTargets());
         maxDigits.SetNumber(MissionManager.numberOfTargetBuildings);
         prevNumTargets = MissionManager.NumberOfRemainingTargets();
+        Debug.Log($"{counterDigits.GetNumber()}, {maxDigits.GetNumber()}, {prevNumTargets}");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!setInitial)
-        {
-            counterDigits.SetNumber(MissionManager.NumberOfRemainingTargets());
-            maxDigits.SetNumber(MissionManager.numberOfTargetBuildings);
-            prevNumTargets = MissionManager.NumberOfRemainingTargets();
-            setInitial = true;
-        }
         if (MissionManager.NumberOfRemainingTargets() != prevNumTargets)
         {
             int buildings = MissionManager.NumberOfRemainingTargets() < 0 ? 0 : MissionManager.NumberOfRemainingTargets();

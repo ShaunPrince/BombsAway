@@ -56,7 +56,7 @@ TagManager:
   - 
   - Weather
   - ParabolaNodes
-  - 
+  - PlayerHideLayer
   m_SortingLayers:
   - name: Default
     uniqueID: 0

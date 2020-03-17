@@ -19,8 +19,8 @@ public class AmmoCountUI : MonoBehaviour
     {
         playerGunController = this.GetComponentInChildren<PlayerGunController>();
         //ammoCountText.text = playerGunController.AmmoCount() + "/" + playerGunController.magazineSize;
-        counterDigits.SetDoubleNumber(playerGunController.AmmoCount());
-        maxDigits.SetDoubleNumber(playerGunController.magazineSize);
+        //counterDigits.SetDoubleNumber(playerGunController.AmmoCount());
+        //maxDigits.SetDoubleNumber(playerGunController.magazineSize);
     }
 
     // Update is called once per frame
@@ -28,8 +28,9 @@ public class AmmoCountUI : MonoBehaviour
     {
         if (!setInitial)
         {
-            counterDigits.SetDoubleNumber(playerGunController.AmmoCount());
+            counterDigits.SetDoubleNumber(playerGunController.magazineSize);
             maxDigits.SetDoubleNumber(playerGunController.magazineSize);
+            prevAmmoCount = 0;
             setInitial = true;
         }
         if (playerGunController.AmmoCount() != prevAmmoCount)

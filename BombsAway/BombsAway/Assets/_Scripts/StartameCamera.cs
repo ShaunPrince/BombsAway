@@ -14,7 +14,7 @@ public class StartameCamera : MonoBehaviour
     public GameObject fadeCanvas;
     public GameObject playerCenter;
     public Rigidbody playerRigidbody;
-    public PlayerFragmentOnDeath hider;
+    //public PlayerFragmentOnDeath hider;
     public GameObject selectionWheelToDisable;
     //public GameObject buildingSpawner;
     private GameObject allBuildings;
@@ -37,7 +37,7 @@ public class StartameCamera : MonoBehaviour
             allBuildings = GameObject.FindWithTag("BuildingSpawner");
             startCanvas.SetActive(true);
             mainCanvas.SetActive(false);
-            hider.HideObjects();
+            //hider.HideObjects();
             playerRigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         else
@@ -126,7 +126,7 @@ public class StartameCamera : MonoBehaviour
                     if (Mathf.Approximately(timer, 0f))
                     {
                         FadeFromBlack();
-                        hider.ShowObjects();
+                        //hider.ShowObjects();
                         selectionWheelToDisable.SetActive(true);
                         timer += Time.deltaTime;
                     }

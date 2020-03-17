@@ -9,7 +9,7 @@ public class PhysicalSingleDigits : MonoBehaviour
     private int prevOnes;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach (GameObject num in onesNumbs)
         {
@@ -28,5 +28,10 @@ public class PhysicalSingleDigits : MonoBehaviour
         onesNumbs[ones].SetActive(true);
 
         prevOnes = ones;
+    }
+
+    public int GetNumber()
+    {
+        return prevOnes;
     }
 }
