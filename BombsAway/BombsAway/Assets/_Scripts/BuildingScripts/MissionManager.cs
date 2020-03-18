@@ -28,6 +28,7 @@ public class MissionManager : WorldEntity
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         numberRemainingTargets = numberOfTargetBuildings;
         Random.InitState(SeedRandomGeneration.GetRandomSeed());
+        buildingTargetingCompleted = false;
     }
 
     // Update is called once per frame

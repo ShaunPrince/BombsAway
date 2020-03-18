@@ -65,11 +65,18 @@ public class StartameCamera : MonoBehaviour
                 {
                     //Debug.Log("Done loading");
                     targetBuildingIndex = FindClosestTarget();
-                    this.transform.position = allBuildings.transform.GetChild(targetBuildingIndex).transform.position;
-                    startCamera.GetComponent<CameraTween>().FadeIn();
-                    targetText.GetComponent<FadeText>().FadeIn();
-                    InitialCameraMovements();
-                    timer += Time.deltaTime;
+                    if (targetBuildingIndex == -1)
+                    {
+                        Debug.Log($"ERROR: StartGameCamera.cs targetBuildingIndex is {targetBuildingIndex}, could not find a target buidling within range");
+                    }
+                    else
+                    {
+                        this.transform.position = allBuildings.transform.GetChild(targetBuildingIndex).transform.position;
+                        startCamera.GetComponent<CameraTween>().FadeIn();
+                        targetText.GetComponent<FadeText>().FadeIn();
+                        InitialCameraMovements();
+                        timer += Time.deltaTime;
+                    }
                 }
                 else if (timer > time / 3)
                 {
