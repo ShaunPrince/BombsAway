@@ -17,7 +17,7 @@ public class TargetCountUI : MonoBehaviour
         counterDigits.SetNumber(MissionManager.NumberOfRemainingTargets());
         maxDigits.SetNumber(MissionManager.numberOfTargetBuildings);
         prevNumTargets = MissionManager.NumberOfRemainingTargets();
-        Debug.Log($"{counterDigits.GetNumber()}, {maxDigits.GetNumber()}, {prevNumTargets}");
+        //Debug.Log($"{counterDigits.GetNumber()}, {maxDigits.GetNumber()}, {prevNumTargets}");
     }
 
     // Update is called once per frame

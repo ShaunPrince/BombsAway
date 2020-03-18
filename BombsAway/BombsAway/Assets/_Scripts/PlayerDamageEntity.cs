@@ -9,6 +9,7 @@ public class PlayerDamageEntity : DamageableEntity
     public float maxHealth;
 
     private bool alarmPlaying = false;
+    private bool died = false;
     //public GameObject gameManager;
     private void Start()
     {
@@ -45,7 +46,7 @@ public class PlayerDamageEntity : DamageableEntity
                 alarmPlaying = true;
             }
             //Debug.Log(this + " Is taking damage");
-            if (health <= 0)
+            if (health <= 0 && !died)
             {
                 Die();
             }
@@ -63,7 +64,7 @@ public class PlayerDamageEntity : DamageableEntity
         // Fragment the player
         StartCoroutine(DelayFragmentation());
 
-
+        died = true;
         //Load Game Over
         //gameManager.GetComponent<PauseGame>().LoadMainMenu();
         //SceneManager.LoadScene("MainMenu");

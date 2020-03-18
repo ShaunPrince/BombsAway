@@ -28,6 +28,10 @@ public class BombBayControls : ControlScheme
     {
         return prevDroppedBomb;
     }
+    public bool LeftBombNext()
+    {
+        return dropLeftBomb;
+    }
 
     public bool IsReloading()
     {
