@@ -44,7 +44,7 @@ public class AAGunController : MonoBehaviour
                 break;
 
             case EAAGunState.ShootingMedAlt:
-                gunShooting.bulletsPerBurst = numBulletsOnLowAlt;
+                gunShooting.bulletsPerBurst = numBulletsOnMedAlt;
                 gunShooting.ShootBurst();
                 break;
         }
