@@ -43,7 +43,7 @@ public class RepairSystemManager : MonoBehaviour
         if(timeSinceLastInternalDamage >= timeBetweenInternalDamageTicks)
         {
             float internalDmg = damageToDealToPlayerPerUnfilledTank * GetNumOfUnfilledTanks();
-            internalDmg += (-damageToDealToPlayerPerUnfilledTank / 6) * (11 - GetNumOfUnfilledTanks());
+            internalDmg += (-damageToDealToPlayerPerUnfilledTank / 8) * (11 - GetNumOfUnfilledTanks());
             this.GetComponentInParent<PlayerDamageEntity>().TakeDamage(internalDmg, EAllegiance.Internal);
             timeSinceLastInternalDamage -= timeBetweenInternalDamageTicks;
         }
