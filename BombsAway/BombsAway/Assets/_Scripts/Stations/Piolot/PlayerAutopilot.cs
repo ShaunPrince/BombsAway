@@ -22,5 +22,9 @@ public class PlayerAutopilot : MonoBehaviour
     {
         fly.SetDesAlt(da.calcStraightDownAlt(desiredAlt));
         fly.SetDesSpeed(desiredSpeed);
+        if(StationManager.currentCenterStation.stationID != EStationID.Pilot)
+        {
+            this.gameObject.GetComponentInParent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
     }
 }
