@@ -8,6 +8,7 @@ public class DamegableEnemy : DamageableEntity
     public float delayedDeathTime;
     public GameObject deathExplosion;
     public GameObject explosionCenter;
+    public GameObject radarNode;
 
     private bool isDying = false;
 
@@ -49,6 +50,11 @@ public class DamegableEnemy : DamageableEntity
 
     public void Die()
     {
+        if(radarNode != null)
+        {
+            Destroy(radarNode);
+        }
+
         EnemyFragmentOnDeath fragment = this.GetComponent<EnemyFragmentOnDeath>();
         if (fragment != null)
         {
