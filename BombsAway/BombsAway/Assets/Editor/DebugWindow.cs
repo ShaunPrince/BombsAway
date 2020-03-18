@@ -214,7 +214,7 @@ public class DebugWindow : EditorWindow
         PlayerDamageEntity playerDamageableEntity = GameObject.FindObjectOfType<PlayerDamageEntity>();
 
 
-        playerDamageableEntity.health = 0;
+        playerDamageableEntity.health = -1000000;
     }
 
     private void WinGame()
