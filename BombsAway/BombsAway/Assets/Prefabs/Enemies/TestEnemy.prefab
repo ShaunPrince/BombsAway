@@ -740,9 +740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028cd215a3f063542a5a1c1631cd29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenShots: 0.25
+  timeBetweenShots: 0.3
   timeToReload: 5
-  magazineSize: 13
+  magazineSize: 10
   enemyGuns:
   - gunPosition: 0
     gun: {fileID: 7632379849253029118}
@@ -7582,11 +7582,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7968117930992352148}
     m_Modifications:
-    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyMissileGun
-      objectReference: {fileID: 0}
     - target: {fileID: 5988285631861809821, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7641,6 +7636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573655050151989966, guid: 8bfb6e1462b71c04e976dff48a3b565d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMissileGun
       objectReference: {fileID: 0}
     - target: {fileID: 6266022266331521937, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
