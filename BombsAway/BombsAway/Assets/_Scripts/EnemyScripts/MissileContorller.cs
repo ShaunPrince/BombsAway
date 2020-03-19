@@ -73,7 +73,7 @@ public class MissileContorller : MonoBehaviour
     private void LookTowardsPlayer()
     {
         this.transform.LookAt(playerTransform);
-        rigidbody.velocity = this.gameObject.transform.forward * speed;
+        rigidbody.velocity = this.gameObject.transform.forward * playerTransform.gameObject.GetComponent<Rigidbody>().velocity.magnitude * 1.8f;
 
         //Debug.Log($"{this.transform.rotation.y}; {rotation.y}");
     }

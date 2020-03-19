@@ -716,17 +716,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentForwardSpeed: 0
-  desiredForwardSpeed: 100
+  desiredForwardSpeed: 200
   forwardAcceleration: 50
   currentAltitude: 0
   desireAltitude: 0
-  verticalAcceleration: 2500
+  verticalAcceleration: 3500
   currentDir: 0
   desiredDir: 0
   turningRate: 5
   lateralMovementDamperScale: 2
   fixedAcceleration: 100
-  maxVerticalVelocity: 45
+  maxVerticalVelocity: 75
   rb: {fileID: 8844719370579842519}
 --- !u!114 &294719631488123615
 MonoBehaviour:
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.25
   timeToReload: 5
-  magazineSize: 10
+  magazineSize: 13
   enemyGuns:
   - gunPosition: 0
     gun: {fileID: 7632379849253029118}
@@ -7650,7 +7650,7 @@ PrefabInstance:
     - target: {fileID: 6266022266331521937, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
       propertyPath: projectileSpeed
-      value: 2500
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5691626406947105350, guid: 8bfb6e1462b71c04e976dff48a3b565d,
         type: 3}
